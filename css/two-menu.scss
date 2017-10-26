@@ -1,0 +1,41 @@
+.two-menu {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    background: #2D323E;
+    font-family: PingFangSC-Regular;
+    padding: 0;
+    ul {
+        height: inherit;
+        li {
+            width: 200px;
+            height: inherit;
+            line-height: inherit;
+            float: left;
+            a {
+                display: block;
+                height: inherit;
+                width: inherit;
+                line-height: inherit;
+                font-size: 15px;
+                text-align: center;
+                color: #fff;
+                padding: 0;
+                &:focus {
+                    text-decoration: none;
+                }
+                img {
+                    height: 18px;
+                    vertical-align: middle;
+                }
+                &:hover {
+                    background: $bc5;
+                }
+            }
+        }
+        .active{
+            background: $bc5;
+        }
+    }
+}

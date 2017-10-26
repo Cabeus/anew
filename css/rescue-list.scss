@@ -1,0 +1,217 @@
+@charset "UTF-8";
+.rescue-list {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+//  #map {
+//      height: 100% !important;
+//      width: 100% !important;
+//  }
+    .list-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 400px;
+        height: calc(100% - 15px);
+        background: rgba(0, 0, 0, 0.8);
+        .top-title {
+            text-align: center;
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            font-weight: normal;
+            background: #464D5B;
+            color: #fff;
+            a {
+                float: left;
+                display: inline-block;
+                height: 50px;
+                width: 50px;
+                margin-left: 5px;
+                img {
+                    width: 50%;
+                    display: inline-flex;
+                    vertical-align: middle;
+                }
+            }
+            span {
+                float: right;
+                display: inline-block;
+                height: 50px;
+                width: 50px;
+                margin-right: 5px;
+                img {
+                    width: 50%;
+                    display: inline-flex;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .tab {
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+            background: #3E4351;
+            span {
+                color: #fff;
+                font-size: 14px;
+                display: inline-block;
+                width: 50%;
+                height: 100%;
+                text-align: center;
+                cursor: pointer;
+                float: left;
+                &.active {
+                    background: #333947;
+                }
+            }
+        }
+        #now {
+            .search {
+                height: 40px;
+                line-height: 40px;
+                width: 400px;
+                span {
+                    height: 100%;
+                    float: left;
+                    text-align: center;
+                    color: #fff;
+                    cursor: pointer;
+                    color: #000000;
+                    input {
+                        display: inline-block;
+                        width: 210px;
+                        height: 32px;
+                        border-radius: 4px;
+                        margin-left: 5px;
+                        border: 0px;
+                        padding-left: 5px;
+                    }
+                    b {
+                        color: #fff;
+                    }
+                    .dosearch {
+                        display: inline-block;
+                        line-height: 32px;
+                        margin-top: 5px;
+                        width: 70px;
+                        height: 32px;
+                        float: left;
+                        font-weight: normal;
+                        cursor: pointer;
+                        background: #1E93FF;
+                        border-radius: 5px;
+                        margin-left: 10px;
+                    }
+                    .clean {
+                        display: inline-block;
+                        line-height: 32px;
+                        margin-top: 5px;
+                        width: 70px;
+                        height: 33px;
+                        float: left;
+                        font-weight: normal;
+                        cursor: pointer;
+                        background: #F25E4B;
+                        border-radius: 5px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            table {
+                table-layout: auto;
+                width: 100%;
+                border-spacing: 0;
+                border-collapse: collapse;
+                >tbody>.item {
+                    padding: 0;
+                    margin: 0;
+                }
+                tr {
+                    width: 100%;
+                    td {
+                        width: auto;
+                        float: left;
+                        >.newtip {
+                            display: inline-block;
+                            width: 4px;
+                            height: 30px;
+                            float: left;
+                            background-color: red;
+                            margin-top: 5px;
+                        }
+                    }
+                    .itemid {
+                        width: 100px;
+                        overflow: hidden;
+                        padding-left: 10px;
+                    }
+                    .top-line-person {
+                        width: 160px;
+                        display: inline-block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        float: left;
+                    }
+                }
+            }
+        }
+        #history {
+            .timepicker input {
+                display: inline-block;
+                width: 140px;
+                height: 33px;
+                border-radius: 4px;
+                margin-left: 5px;
+                border: 0px;
+                padding-left: 5px;
+            }
+            .do-search {
+                display: inline-block;
+                color: #fff;
+                text-align: center;
+                line-height: 32px;
+                margin-top: 5px;
+                width: 70px;
+                height: 33px;
+                font-weight: normal;
+                cursor: pointer;
+                background: #1E93FF;
+                border-radius: 5px;
+                margin-left: 10px;
+            }
+        }
+    }
+    //消息提示框
+    .showinfo {
+        position: fixed;
+        top: 200px;
+        left: 350px;
+        bottom: 0;
+        right: 0;
+        width: 500px;
+        max-height: 600px;
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 10px #999;
+        -moz-box-shadow: 0 0 10px #999;
+        -webkit-box-shadow: 0 0 10px #999;
+        display: none;
+        overflow: auto;
+        color: #fff;
+        >.header {
+            height: 50px;
+            p {
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-bottom: 1px solid #999;
+            }
+        }
+        .message{
+            margin-left: 40px;
+        }
+    }
+}

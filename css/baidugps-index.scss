@@ -1,0 +1,242 @@
+@charset "UTF-8";
+//巡逻轨迹 任务巡逻 页面
+.baidugps-index {
+    position: relative;
+    height: 100%;
+    #allmap{
+        height: 100%; 
+    }
+    .panel1 {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 400px;
+        height:calc(100% - 10px);
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.8);
+        .page-title {
+            width: 400px;
+            height: 50px;
+            background: #464D5B;
+            p {
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: #fff;
+                a {
+                    float: left;
+                    display: inline-block;
+                    height: 50px;
+                    width: 50px;
+                    margin-left: 5px;
+                    img {
+                        width: 50%;
+                        display: inline-flex;
+                        vertical-align: middle;
+                    }
+                }
+                span {
+                    float: right;
+                    display: inline-block;
+                    height: 50px;
+                    width: 50px;
+                    margin-right: 5px;
+                    img {
+                        width: 50%;
+                        display: inline-flex;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        .panel-tab {
+            width: 400px;
+            height: 40px;
+            background: #3E4351;
+            p {
+                display: block;
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                overflow: hidden;
+                span {
+                    color: #fff;
+                    font-size: 14px;
+                    display: inline-block;
+                    width: 50%;
+                    height: 100%;
+                    text-align: center;
+                    cursor: pointer;
+                    float: left;
+                    &.active {
+                        background: #333947;
+                    }
+                }
+            }
+        }
+        .panel-content {
+            .now {
+                .search {
+                    height: 40px;
+                    line-height: 40px;
+                    width: 400px;
+                    span {
+                        height: 100%;
+                        float: left;
+                        text-align: center;
+                        color: #fff;
+                        cursor: pointer;
+                        color: #000000;
+                        input {
+                            display: inline-block;
+                            width: 210px;
+                            height: 32px;
+                            border-radius: 4px;
+                            margin-left: 5px;
+                            border: 0px;
+                            padding-left: 5px;
+                        }
+                        b {
+                            color: #fff;
+                        }
+                        .do-search {
+                            display: inline-block;
+                            line-height: 32px;
+                            margin-top: 5px;
+                            width: 70px;
+                            height: 32px;
+                            float: left;
+                            font-weight: normal;
+                            cursor: pointer;
+                            background: #1E93FF;
+                            border-radius: 5px;
+                            margin-left: 10px;
+                        }
+                        .clean-search {
+                            display: inline-block;
+                            line-height: 32px;
+                            margin-top: 5px;
+                            width: 70px;
+                            height: 33px;
+                            float: left;
+                            font-weight: normal;
+                            cursor: pointer;
+                            background: #F25E4B;
+                            border-radius: 5px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                .lists {
+                    .item {
+                        height: 40px;
+                        padding: 0 10px;
+                        margin: 0;
+                        &.active {
+                            background: #666;
+                        }
+                        p {
+                            height: 40px;
+                            line-height: 40px;
+                            cursor: pointer;
+                            position: relative;
+                            span {
+                                margin: 0 15px;
+                                padding: 0;
+                            }
+                            input[type="checkbox"] {
+                                -webkit-appearance: none;
+                                width: 15px;
+                                height: 15px;
+                                display: inline-block;
+                                background: #fff;
+                                margin-top: 12px;
+                            }
+                            input[type="radio"] {
+                                position: absolute;
+                                height: 40px;
+                                line-height: 40px;
+                                margin: 0;
+                                cursor: pointer;
+                            }
+                            input[type="checkbox"]:checked {
+                                background: darkorange;
+                                outline: none;
+                            }
+                            input[type="checkbox"]:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .history {
+                .timepicker input {
+                    display: inline-block;
+                    width: 140px;
+                    height: 33px;
+                    border-radius: 4px;
+                    margin-left: 5px;
+                    border: 0px;
+                    padding-left: 5px;
+                }
+                .do-search {
+                    display: inline-block;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 32px;
+                    margin-top: 5px;
+                    width: 70px;
+                    height: 33px;
+                    font-weight: normal;
+                    cursor: pointer;
+                    background: #1E93FF;
+                    border-radius: 5px;
+                    margin-left: 10px;
+                }
+                .lists {
+                    .item {
+                        height: 40px;
+                        padding: 0 10px;
+                        margin: 0;
+                        &.active {
+                            background: #666;
+                        }
+                        p {
+                            height: 40px;
+                            line-height: 40px;
+                            cursor: pointer;
+                            position: relative;
+                            span {
+                                margin: 0 15px;
+                                padding: 0;
+                            }
+                            input[type="checkbox"] {
+                                -webkit-appearance: none;
+                                width: 15px;
+                                height: 15px;
+                                display: inline-block;
+                                background: #fff;
+                                margin-top: 12px;
+                            }
+                            input[type="radio"] {
+                                position: absolute;
+                                height: 40px;
+                                line-height: 40px;
+                                margin: 0;
+                                cursor: pointer;
+                            }
+                            input[type="checkbox"]:checked {
+                                background: darkorange;
+                                outline: none;
+                            }
+                            input[type="checkbox"]:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

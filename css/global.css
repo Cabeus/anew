@@ -1,0 +1,998 @@
+@charset "UTF-8";
+html,
+body,
+div,
+span,
+p,
+h1,
+h2,
+h3,
+b,
+i,
+a,
+em,
+input,
+form,
+img,
+ul,
+li,
+dl,
+dt,
+section,
+article,
+nav,
+menu,
+aside,
+header,
+footer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-style: normal;
+  box-sizing: border-box;
+  font-family: "微软雅黑"; }
+
+section,
+article,
+nav,
+menu,
+aside,
+header,
+footer,
+left,
+right,
+top,
+bottom {
+  display: block; }
+
+ul,
+li,
+ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+img {
+  display: inline-block; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.shadow-2dp {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+.shadow-4dp {
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+
+.shadow-6dp {
+  -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+table {
+  table-layout: fixed;
+  /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */ }
+
+td {
+  width: 100%;
+  word-break: keep-all;
+  /* 不换行 */
+  white-space: nowrap;
+  /* 不换行 */
+  overflow: hidden;
+  /* 内容超出宽度时隐藏超出部分的内容 */
+  text-overflow: ellipsis;
+  /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/ }
+
+.maptype {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc; }
+  .maptype ul li {
+    list-style: none;
+    float: left;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer; }
+    .maptype ul li span {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85); }
+    .maptype ul li.active span {
+      color: #9974D2; }
+
+.keep-open {
+  color: #000; }
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 76px;
+  line-height: 76px;
+  color: #fff;
+  background-color: #464d5b;
+  font-family: PingFangSC-Regular; }
+  .header .header-title {
+    overflow: hidden;
+    font-size: 20px;
+    float: left; }
+    .header .header-title a {
+      color: #fff; }
+      .header .header-title a:focus {
+        text-decoration: none; }
+    .header .header-title .back img {
+      height: 24px;
+      margin: 0px 0 0 20px; }
+  .header .nav-center {
+    flex: 1;
+    height: inherit;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden; }
+    .header .nav-center ul {
+      height: inherit; }
+      .header .nav-center ul li {
+        width: 120px;
+        height: inherit;
+        float: left; }
+        .header .nav-center ul li a {
+          display: block;
+          height: inherit;
+          width: inherit;
+          font-size: 16px;
+          padding-top: 18px;
+          color: #fff; }
+          .header .nav-center ul li a:focus {
+            text-decoration: none; }
+          .header .nav-center ul li a img {
+            height: 24px;
+            display: block;
+            margin: 0 auto; }
+          .header .nav-center ul li a span {
+            display: block;
+            text-align: center;
+            line-height: 30px; }
+        .header .nav-center ul li:hover {
+          background-color: #2D323E; }
+      .header .nav-center ul .active {
+        background-color: #2D323E !important; }
+  .header .nav-right {
+    height: inherit; }
+    .header .nav-right ul {
+      height: inherit;
+      line-height: 76px; }
+      .header .nav-right ul li {
+        height: inherit;
+        line-height: inherit; }
+        .header .nav-right ul li a {
+          display: block;
+          height: inherit;
+          padding: 0 15px;
+          line-height: inherit;
+          font-size: 16px;
+          text-align: center;
+          color: #fff; }
+          .header .nav-right ul li a:focus {
+            text-decoration: none; }
+          .header .nav-right ul li a img {
+            height: 24px;
+            vertical-align: middle; }
+          .header .nav-right ul li a:hover {
+            background-color: #2D323E; }
+      .header .nav-right ul .active {
+        background-color: #2D323E !important; }
+      .header .nav-right ul .common {
+        position: relative; }
+        .header .nav-right ul .common .common-box {
+          display: none;
+          position: absolute;
+          top: 77px;
+          left: -150px;
+          width: 325px;
+          height: 300px;
+          border: 1px solid #efefef;
+          z-index: 999;
+          background: #fff;
+          color: #000; }
+          .header .nav-right ul .common .common-box ul li {
+            width: 33.3%;
+            height: 33.3%;
+            float: left; }
+            .header .nav-right ul .common .common-box ul li a {
+              display: block;
+              height: 100%;
+              width: 100%;
+              font-size: 14px;
+              padding: 20px 0 0 0;
+              color: #000; }
+              .header .nav-right ul .common .common-box ul li a:focus {
+                text-decoration: none; }
+              .header .nav-right ul .common .common-box ul li a img {
+                height: 28px;
+                display: block;
+                margin: 0 auto; }
+              .header .nav-right ul .common .common-box ul li a span {
+                display: block;
+                text-align: center;
+                line-height: 40px; }
+              .header .nav-right ul .common .common-box ul li a:hover {
+                background: #CCCCCC; }
+        .header .nav-right ul .common .common-box:before {
+          content: " ";
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: 50%;
+          top: -35px;
+          border-width: 0 15px 15px;
+          border-style: solid;
+          border-color: transparent transparent #fff;
+          margin: 20px auto; }
+      .header .nav-right ul .message {
+        position: relative; }
+        .header .nav-right ul .message a span {
+          padding: 1px 5px;
+          border-radius: 5px;
+          background-color: #ff9900;
+          margin-left: 3px;
+          text-align: center; }
+        .header .nav-right ul .message .message-box {
+          display: none;
+          position: absolute;
+          border: 1px solid #efefef;
+          left: -205px;
+          width: 450px;
+          top: 77px;
+          z-index: 999;
+          background: #fff;
+          color: #000;
+          padding-top: 15px; }
+        .header .nav-right ul .message .message-box:before {
+          content: " ";
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: 50%;
+          top: -35px;
+          border-width: 0 15px 15px;
+          border-style: solid;
+          border-color: transparent transparent #fff;
+          margin: 20px auto; }
+        .header .nav-right ul .message .message-box > i {
+          position: absolute;
+          top: -10px;
+          right: 120px;
+          width: 0px;
+          height: 0px;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #fff;
+          z-index: 999; }
+        .header .nav-right ul .message .message-box > h4 {
+          height: 30px;
+          width: 100%;
+          text-align: center;
+          line-height: 30px; }
+        .header .nav-right ul .message .message-box > ul {
+          max-height: 750px;
+          overflow: auto; }
+        .header .nav-right ul .message .message-box > ul > li {
+          overflow: auto;
+          width: 100%;
+          padding-left: 15px;
+          margin-bottom: 5px; }
+        .header .nav-right ul .message .message-box > ul > li:hover {
+          background: #CCCCCC; }
+        .header .nav-right ul .message .message-box > ul > li > .col-xs-1 {
+          padding-left: 5px; }
+        .header .nav-right ul .message .message-box > ul > li > .col-xs-1 > span {
+          width: 40px;
+          height: 34px;
+          display: block;
+          background: url(../img/xiaolaba.png) no-repeat;
+          background-size: 34px; }
+        .header .nav-right ul .message .message-box > ul > li > .col-xs-11 > p {
+          line-height: 26px;
+          margin: 0;
+          font-family: PingFangSC-Regular; }
+        .header .nav-right ul .message .message-box > ul > li > .col-xs-11 > p > span {
+          float: right; }
+        .header .nav-right ul .message .message-box > ul > li > .col-xs-11 > p:first-child {
+          line-height: 32px;
+          font-size: 16px; }
+  .header .admin {
+    margin-left: 40px;
+    height: inherit; }
+    .header .admin a {
+      display: inline-block;
+      height: inherit;
+      color: #FFF;
+      font-size: 14px; }
+      .header .admin a img {
+        height: 34px; }
+      .header .admin a:focus {
+        text-decoration: none; }
+    .header .admin .out {
+      color: #9974D2; }
+    .header .admin li > a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: 400;
+      line-height: 1.42857143;
+      color: #333;
+      white-space: nowrap; }
+    .header .admin .dropdown-menu {
+      top: 70%;
+      max-width: 140px; }
+
+.two-menu {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  color: #fff;
+  background: #2D323E;
+  font-family: PingFangSC-Regular;
+  padding: 0; }
+  .two-menu ul {
+    height: inherit; }
+    .two-menu ul li {
+      width: 200px;
+      height: inherit;
+      line-height: inherit;
+      float: left; }
+      .two-menu ul li a {
+        display: block;
+        height: inherit;
+        width: inherit;
+        line-height: inherit;
+        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        padding: 0; }
+        .two-menu ul li a:focus {
+          text-decoration: none; }
+        .two-menu ul li a img {
+          height: 18px;
+          vertical-align: middle; }
+        .two-menu ul li a:hover {
+          background: #363b47; }
+    .two-menu ul .active {
+      background: #363b47; }
+
+.command-show-options {
+  position: absolute;
+  top: 90px;
+  left: 80px; }
+
+.release-button {
+  position: absolute;
+  top: 90px;
+  right: 250px;
+  box-shadow: 0 0 10px #ccc; }
+  .release-button > span {
+    background: #fff;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    display: block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0 5px;
+    font-weight: 500;
+    cursor: pointer; }
+
+.command-maptype {
+  position: absolute;
+  top: 90px;
+  right: 10px; }
+
+.baidugps-index {
+  position: relative;
+  height: 100%; }
+  .baidugps-index #allmap {
+    height: 100%; }
+  .baidugps-index .panel1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 400px;
+    height: calc(100% - 10px);
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8); }
+    .baidugps-index .panel1 .page-title {
+      width: 400px;
+      height: 50px;
+      background: #464D5B; }
+      .baidugps-index .panel1 .page-title p {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff; }
+        .baidugps-index .panel1 .page-title p a {
+          float: left;
+          display: inline-block;
+          height: 50px;
+          width: 50px;
+          margin-left: 5px; }
+          .baidugps-index .panel1 .page-title p a img {
+            width: 50%;
+            display: inline-flex;
+            vertical-align: middle; }
+        .baidugps-index .panel1 .page-title p span {
+          float: right;
+          display: inline-block;
+          height: 50px;
+          width: 50px;
+          margin-right: 5px; }
+          .baidugps-index .panel1 .page-title p span img {
+            width: 50%;
+            display: inline-flex;
+            vertical-align: middle; }
+    .baidugps-index .panel1 .panel-tab {
+      width: 400px;
+      height: 40px;
+      background: #3E4351; }
+      .baidugps-index .panel1 .panel-tab p {
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden; }
+        .baidugps-index .panel1 .panel-tab p span {
+          color: #fff;
+          font-size: 14px;
+          display: inline-block;
+          width: 50%;
+          height: 100%;
+          text-align: center;
+          cursor: pointer;
+          float: left; }
+          .baidugps-index .panel1 .panel-tab p span.active {
+            background: #333947; }
+    .baidugps-index .panel1 .panel-content .now .search {
+      height: 40px;
+      line-height: 40px;
+      width: 400px; }
+      .baidugps-index .panel1 .panel-content .now .search span {
+        height: 100%;
+        float: left;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        color: #000000; }
+        .baidugps-index .panel1 .panel-content .now .search span input {
+          display: inline-block;
+          width: 210px;
+          height: 32px;
+          border-radius: 4px;
+          margin-left: 5px;
+          border: 0px;
+          padding-left: 5px; }
+        .baidugps-index .panel1 .panel-content .now .search span b {
+          color: #fff; }
+        .baidugps-index .panel1 .panel-content .now .search span .do-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 32px;
+          float: left;
+          font-weight: normal;
+          cursor: pointer;
+          background: #1E93FF;
+          border-radius: 5px;
+          margin-left: 10px; }
+        .baidugps-index .panel1 .panel-content .now .search span .clean-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 33px;
+          float: left;
+          font-weight: normal;
+          cursor: pointer;
+          background: #F25E4B;
+          border-radius: 5px;
+          margin-left: 10px; }
+    .baidugps-index .panel1 .panel-content .now .lists .item {
+      height: 40px;
+      padding: 0 10px;
+      margin: 0; }
+      .baidugps-index .panel1 .panel-content .now .lists .item.active {
+        background: #666; }
+      .baidugps-index .panel1 .panel-content .now .lists .item p {
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        position: relative; }
+        .baidugps-index .panel1 .panel-content .now .lists .item p span {
+          margin: 0 15px;
+          padding: 0; }
+        .baidugps-index .panel1 .panel-content .now .lists .item p input[type="checkbox"] {
+          -webkit-appearance: none;
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          background: #fff;
+          margin-top: 12px; }
+        .baidugps-index .panel1 .panel-content .now .lists .item p input[type="radio"] {
+          position: absolute;
+          height: 40px;
+          line-height: 40px;
+          margin: 0;
+          cursor: pointer; }
+        .baidugps-index .panel1 .panel-content .now .lists .item p input[type="checkbox"]:checked {
+          background: darkorange;
+          outline: none; }
+        .baidugps-index .panel1 .panel-content .now .lists .item p input[type="checkbox"]:focus {
+          outline: none; }
+    .baidugps-index .panel1 .panel-content .history .timepicker input {
+      display: inline-block;
+      width: 140px;
+      height: 33px;
+      border-radius: 4px;
+      margin-left: 5px;
+      border: 0px;
+      padding-left: 5px; }
+    .baidugps-index .panel1 .panel-content .history .do-search {
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      line-height: 32px;
+      margin-top: 5px;
+      width: 70px;
+      height: 33px;
+      font-weight: normal;
+      cursor: pointer;
+      background: #1E93FF;
+      border-radius: 5px;
+      margin-left: 10px; }
+    .baidugps-index .panel1 .panel-content .history .lists .item {
+      height: 40px;
+      padding: 0 10px;
+      margin: 0; }
+      .baidugps-index .panel1 .panel-content .history .lists .item.active {
+        background: #666; }
+      .baidugps-index .panel1 .panel-content .history .lists .item p {
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        position: relative; }
+        .baidugps-index .panel1 .panel-content .history .lists .item p span {
+          margin: 0 15px;
+          padding: 0; }
+        .baidugps-index .panel1 .panel-content .history .lists .item p input[type="checkbox"] {
+          -webkit-appearance: none;
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          background: #fff;
+          margin-top: 12px; }
+        .baidugps-index .panel1 .panel-content .history .lists .item p input[type="radio"] {
+          position: absolute;
+          height: 40px;
+          line-height: 40px;
+          margin: 0;
+          cursor: pointer; }
+        .baidugps-index .panel1 .panel-content .history .lists .item p input[type="checkbox"]:checked {
+          background: darkorange;
+          outline: none; }
+        .baidugps-index .panel1 .panel-content .history .lists .item p input[type="checkbox"]:focus {
+          outline: none; }
+
+.rescue-list {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+  .rescue-list .list-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 400px;
+    height: calc(100% - 15px);
+    background: rgba(0, 0, 0, 0.8); }
+    .rescue-list .list-container .top-title {
+      text-align: center;
+      width: 400px;
+      height: 50px;
+      line-height: 50px;
+      font-weight: normal;
+      background: #464D5B;
+      color: #fff; }
+      .rescue-list .list-container .top-title a {
+        float: left;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-left: 5px; }
+        .rescue-list .list-container .top-title a img {
+          width: 50%;
+          display: inline-flex;
+          vertical-align: middle; }
+      .rescue-list .list-container .top-title span {
+        float: right;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-right: 5px; }
+        .rescue-list .list-container .top-title span img {
+          width: 50%;
+          display: inline-flex;
+          vertical-align: middle; }
+    .rescue-list .list-container .tab {
+      width: 400px;
+      height: 40px;
+      line-height: 40px;
+      background: #3E4351; }
+      .rescue-list .list-container .tab span {
+        color: #fff;
+        font-size: 14px;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+        float: left; }
+        .rescue-list .list-container .tab span.active {
+          background: #333947; }
+    .rescue-list .list-container #now .search {
+      height: 40px;
+      line-height: 40px;
+      width: 400px; }
+      .rescue-list .list-container #now .search span {
+        height: 100%;
+        float: left;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        color: #000000; }
+        .rescue-list .list-container #now .search span input {
+          display: inline-block;
+          width: 210px;
+          height: 32px;
+          border-radius: 4px;
+          margin-left: 5px;
+          border: 0px;
+          padding-left: 5px; }
+        .rescue-list .list-container #now .search span b {
+          color: #fff; }
+        .rescue-list .list-container #now .search span .dosearch {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 32px;
+          float: left;
+          font-weight: normal;
+          cursor: pointer;
+          background: #1E93FF;
+          border-radius: 5px;
+          margin-left: 10px; }
+        .rescue-list .list-container #now .search span .clean {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 33px;
+          float: left;
+          font-weight: normal;
+          cursor: pointer;
+          background: #F25E4B;
+          border-radius: 5px;
+          margin-left: 10px; }
+    .rescue-list .list-container #now table {
+      table-layout: auto;
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse; }
+      .rescue-list .list-container #now table > tbody > .item {
+        padding: 0;
+        margin: 0; }
+      .rescue-list .list-container #now table tr {
+        width: 100%; }
+        .rescue-list .list-container #now table tr td {
+          width: auto;
+          float: left; }
+          .rescue-list .list-container #now table tr td > .newtip {
+            display: inline-block;
+            width: 4px;
+            height: 30px;
+            float: left;
+            background-color: red;
+            margin-top: 5px; }
+        .rescue-list .list-container #now table tr .itemid {
+          width: 100px;
+          overflow: hidden;
+          padding-left: 10px; }
+        .rescue-list .list-container #now table tr .top-line-person {
+          width: 160px;
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          float: left; }
+    .rescue-list .list-container #history .timepicker input {
+      display: inline-block;
+      width: 140px;
+      height: 33px;
+      border-radius: 4px;
+      margin-left: 5px;
+      border: 0px;
+      padding-left: 5px; }
+    .rescue-list .list-container #history .do-search {
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      line-height: 32px;
+      margin-top: 5px;
+      width: 70px;
+      height: 33px;
+      font-weight: normal;
+      cursor: pointer;
+      background: #1E93FF;
+      border-radius: 5px;
+      margin-left: 10px; }
+  .rescue-list .showinfo {
+    position: fixed;
+    top: 200px;
+    left: 350px;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    max-height: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+    -webkit-box-shadow: 0 0 10px #999;
+    display: none;
+    overflow: auto;
+    color: #fff; }
+    .rescue-list .showinfo > .header {
+      height: 50px; }
+      .rescue-list .showinfo > .header p {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-bottom: 1px solid #999; }
+    .rescue-list .showinfo .message {
+      margin-left: 40px; }
+
+.resident-list, .resident-list-modal {
+  /*本页面模态框媒体查询*/
+  /*展示信息模态框样式*/
+  /*选框文字过长隐藏*/ }
+  .resident-list .col-xs-3, .resident-list-modal .col-xs-3 {
+    padding: 0; }
+  .resident-list .col-xs-3 > .form-group, .resident-list-modal .col-xs-3 > .form-group {
+    width: 100%;
+    margin-bottom: 10px; }
+  .resident-list .col-xs-3 > .form-group > label, .resident-list-modal .col-xs-3 > .form-group > label {
+    display: inline-block;
+    width: 30%;
+    text-align: right; }
+  .resident-list .col-xs-3 > .form-group > input, .resident-list-modal .col-xs-3 > .form-group > input {
+    display: inline-block;
+    height: 28px;
+    width: 60%; }
+  .resident-list .col-xs-3 > .form-group > .btn-group, .resident-list-modal .col-xs-3 > .form-group > .btn-group {
+    width: 60%; }
+  .resident-list .col-xs-3 > .form-group > .btn-group > button, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button {
+    padding: 3px 15px;
+    width: 100%; }
+  .resident-list .col-xs-3 > .form-group > .btn-group > button > span, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > span {
+    float: left; }
+  .resident-list .col-xs-3 > .form-group > .btn-group > button > b, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > b {
+    float: right;
+    margin-top: 8px; }
+  .resident-list .add-s > .form-group, .resident-list-modal .add-s > .form-group {
+    width: 13.5%; }
+  .resident-list .add-s > .form-group > .btn-group, .resident-list-modal .add-s > .form-group > .btn-group {
+    width: 100%; }
+  .resident-list .add-s > .form-group > .btn-group > button, .resident-list-modal .add-s > .form-group > .btn-group > button {
+    padding: 3px 15px;
+    width: 100% !important; }
+  .resident-list .add-s > .form-group > .btn-group > button > span, .resident-list-modal .add-s > .form-group > .btn-group > button > span {
+    float: left; }
+  .resident-list .add-s > .form-group > .btn-group > button > b, .resident-list-modal .add-s > .form-group > .btn-group > button > b {
+    float: right;
+    margin-top: 8px; }
+  .resident-list .add-s > .input-group, .resident-list-modal .add-s > .input-group {
+    height: 20px;
+    width: 13.5%; }
+  .resident-list .add-s > .input-group > input, .resident-list-modal .add-s > .input-group > input {
+    height: 30px;
+    padding: 3px 15px; }
+  .resident-list .add-s > .input-group > span, .resident-list-modal .add-s > .input-group > span {
+    height: 30px;
+    padding: 3px 15px; }
+  .resident-list .col-xs-4 > .form-group, .resident-list-modal .col-xs-4 > .form-group {
+    width: 100%;
+    margin-bottom: 10px; }
+  .resident-list .col-xs-4 > .form-group > label, .resident-list-modal .col-xs-4 > .form-group > label {
+    display: inline-block;
+    width: 30%;
+    text-align: right; }
+  .resident-list .form-group > input, .resident-list-modal .form-group > input {
+    display: inline-block;
+    height: 28px;
+    width: 60%; }
+  .resident-list .col-xs-4 > .form-group > .btn-group, .resident-list-modal .col-xs-4 > .form-group > .btn-group {
+    width: 60%; }
+  .resident-list .col-xs-4 > .form-group > .btn-group > button, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button {
+    padding: 3px 15px;
+    width: 100%; }
+  .resident-list .col-xs-4 > .form-group > .btn-group > button > span, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > span {
+    float: left; }
+  .resident-list .col-xs-4 > .form-group > .btn-group > button > b, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > b {
+    float: right;
+    margin-top: 8px; }
+  @media (min-width: 992px) {
+    .resident-list .modal-lg, .resident-list-modal .modal-lg {
+      width: 1000px; } }
+  .resident-list .nav-pills > li, .resident-list-modal .nav-pills > li {
+    background: #2D323E; }
+  .resident-list .nav-pills > li:focus,
+  .resident-list .nav-pills > li:hover, .resident-list-modal .nav-pills > li:focus,
+  .resident-list-modal .nav-pills > li:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .resident-list .nav-pills > li.active,
+  .resident-list .nav-pills > li.active:focus,
+  .resident-list .nav-pills > li.active:hover, .resident-list-modal .nav-pills > li.active,
+  .resident-list-modal .nav-pills > li.active:focus,
+  .resident-list-modal .nav-pills > li.active:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .resident-list .nav-pills > li.active > a,
+  .resident-list .nav-pills > li.active > a:focus,
+  .resident-list .nav-pills > li.active > a:hover, .resident-list-modal .nav-pills > li.active > a,
+  .resident-list-modal .nav-pills > li.active > a:focus,
+  .resident-list-modal .nav-pills > li.active > a:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .resident-list .nav-justified, .resident-list-modal .nav-justified {
+    border-radius: 4px;
+    overflow: hidden; }
+  .resident-list .nav-justified > li > a, .resident-list-modal .nav-justified > li > a {
+    color: #fff !important; }
+  .resident-list .nav-justified > li > a:focus,
+  .resident-list .nav-justified > li > a:hover, .resident-list-modal .nav-justified > li > a:focus,
+  .resident-list-modal .nav-justified > li > a:hover {
+    background-color: #9974D2;
+    color: #fff !important; }
+  .resident-list .form-horizontal .form-group, .resident-list-modal .form-horizontal .form-group {
+    margin-left: 0px; }
+  .resident-list .multiselect-selected-text, .resident-list-modal .multiselect-selected-text {
+    width: 85%;
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+.resident-list-modal #home table {
+  table-layout: auto; }
+  .resident-list-modal #home table td {
+    width: inherit; }
+
+.task-list-modal {
+  width: 90%; }
+  .task-list-modal .modal-body .form-group .col-sm-9 .btn-group button {
+    width: 190px;
+    text-align: left; }
+    .task-list-modal .modal-body .form-group .col-sm-9 .btn-group button span {
+      float: left; }
+    .task-list-modal .modal-body .form-group .col-sm-9 .btn-group button b {
+      float: right;
+      margin-top: 8px; }
+
+.info-local-modal #post {
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+  .info-local-modal #post .btn.active {
+    box-shadow: none;
+    color: #fff;
+    background-color: #03adef; }
+.info-local-modal .preview-box {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
+  .info-local-modal .preview-box .preview-content {
+    /*padding: 5px;*/
+    margin: 5px auto;
+    width: 410px;
+    height: 100%;
+    background: #f8f8f8;
+    overflow: auto;
+    background: url(../img/iphone-box.png) no-repeat;
+    background-size: 370px;
+    position: relative; }
+  .info-local-modal .preview-box .biaoti-app {
+    background-color: #fff;
+    padding: 15px 15px 0;
+    box-shadow: 0 8px 10px #eee;
+    margin-bottom: 8px; }
+  .info-local-modal .preview-box .biaoti-app-img {
+    width: 100%; }
+  .info-local-modal .preview-box .infos {
+    display: flex;
+    align-items: center;
+    padding: 10px 0; }
+  .info-local-modal .preview-box .info-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.45); }
+  .info-local-modal .preview-box .info-icon {
+    margin-right: 10px; }
+  .info-local-modal .preview-box .info-icon img {
+    width: 24px;
+    height: 24px; }
+  .info-local-modal .preview-box .content-app,
+  .info-local-modal .preview-box .relates,
+  .info-local-modal .preview-box .comments,
+  .info-local-modal .preview-box .fav,
+  .info-local-modal .preview-box .share {
+    background-color: #f8f8f8; }
+  .info-local-modal .preview-box .content-app {
+    background-color: #f8f8f8;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 24px; }
+    .info-local-modal .preview-box .content-app img {
+      width: 100%; }
+  .info-local-modal .preview-box .mui-content {
+    width: 100%; }
+  .info-local-modal .preview-box .preview-content-cen {
+    position: absolute;
+    left: 24px;
+    top: 90px;
+    width: 322px;
+    height: 570px;
+    overflow: hidden; }
+  .info-local-modal .preview-box .preview-content-cen-box {
+    width: 335px;
+    height: calc(100% - 55px);
+    overflow: auto; }
+  .info-local-modal .preview-box .close-preview {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff; }
+
+/*# sourceMappingURL=global.css.map */

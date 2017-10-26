@@ -1,0 +1,151 @@
+@charset "UTF-8";
+.resident-list,.resident-list-modal {
+    .col-xs-3 {
+        padding: 0;
+    }
+    .col-xs-3>.form-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .col-xs-3>.form-group>label {
+        display: inline-block;
+        width: 30%;
+        text-align: right;
+    }
+    .col-xs-3>.form-group>input {
+        display: inline-block;
+        height: 28px;
+        width: 60%;
+    }
+    .col-xs-3>.form-group>.btn-group {
+        width: 60%;
+    }
+    .col-xs-3>.form-group>.btn-group>button {
+        padding: 3px 15px;
+        width: 100%;
+    }
+    .col-xs-3>.form-group>.btn-group>button>span {
+        float: left;
+    }
+    .col-xs-3>.form-group>.btn-group>button>b {
+        float: right;
+        margin-top: 8px;
+    }
+    .add-s>.form-group {
+        width: 13.5%;
+    }
+    .add-s>.form-group>.btn-group {
+        width: 100%;
+    }
+    .add-s>.form-group>.btn-group>button {
+        padding: 3px 15px;
+        width: 100% !important;
+    }
+    .add-s>.form-group>.btn-group>button>span {
+        float: left;
+    }
+    .add-s>.form-group>.btn-group>button>b {
+        float: right;
+        margin-top: 8px;
+    }
+    .add-s>.input-group {
+        height: 20px;
+        width: 13.5%;
+    }
+    .add-s>.input-group>input {
+        height: 30px;
+        padding: 3px 15px;
+    }
+    .add-s>.input-group>span {
+        height: 30px;
+        padding: 3px 15px;
+    }
+    .col-xs-4>.form-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .col-xs-4>.form-group>label {
+        display: inline-block;
+        width: 30%;
+        text-align: right;
+    }
+    .form-group>input {
+        display: inline-block;
+        height: 28px;
+        width: 60%;
+    }
+    .col-xs-4>.form-group>.btn-group {
+        width: 60%;
+    }
+    .col-xs-4>.form-group>.btn-group>button {
+        padding: 3px 15px;
+        width: 100%;
+    }
+    .col-xs-4>.form-group>.btn-group>button>span {
+        float: left;
+    }
+    .col-xs-4>.form-group>.btn-group>button>b {
+        float: right;
+        margin-top: 8px;
+    }
+    /*本页面模态框媒体查询*/
+    @media (min-width: 992px) {
+        .modal-lg {
+            width: 1000px;
+        }
+    }
+    /*展示信息模态框样式*/
+    .nav-pills>li {
+        background: #2D323E;
+    }
+    .nav-pills>li:focus,
+    .nav-pills>li:hover {
+        color: #fff !important;
+        background-color: #9974D2;
+    }
+    .nav-pills>li.active,
+    .nav-pills>li.active:focus,
+    .nav-pills>li.active:hover {
+        color: #fff !important;
+        background-color: #9974D2;
+    }
+    .nav-pills>li.active>a,
+    .nav-pills>li.active>a:focus,
+    .nav-pills>li.active>a:hover {
+        color: #fff !important;
+        background-color: #9974D2;
+    }
+    .nav-justified {
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .nav-justified>li>a {
+        color: #fff !important;
+    }
+    .nav-justified>li>a:focus,
+    .nav-justified>li>a:hover {
+        background-color: #9974D2;
+        color: #fff !important;
+    }
+    .form-horizontal .form-group {
+        margin-left: 0px;
+    }
+    /*选框文字过长隐藏*/
+    .multiselect-selected-text {
+        width: 85%;
+        text-align: left;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.resident-list-modal{
+    #home{
+        table{
+            table-layout: auto;
+            td{
+                width: inherit;
+            }
+        }
+    }
+}

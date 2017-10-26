@@ -1,0 +1,33 @@
+@charset "UTF-8";
+//联防队员 警务站 摄像监控类别选择位置
+.command-show-options{
+    position: absolute;
+    top: 90px;
+    left: 80px;
+}
+//定向发布按钮
+.release-button{
+     position: absolute;
+     top:90px;
+     right:250px;
+     box-shadow: 0 0 10px #ccc;
+     >span{
+        background: #fff;
+        font-size: 16px;
+        color: rgba(0, 0, 0, .65);
+        display: block;
+        width: 100px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        padding: 0 5px;
+        font-weight: 500;
+        cursor: pointer;
+     }
+}
+//地图切换按钮
+.command-maptype{
+    position: absolute;
+    top: 90px;
+    right: 10px;
+}

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.task-list{   
+}
+.task-list-modal{
+    width: 90%;
+    .modal-body{
+        .form-group{
+            .col-sm-9{
+                .btn-group{
+                    button{
+                        width: 190px;
+                        text-align: left;
+                        span{
+                            float: left;
+                        }
+                        b{
+                            float: right;
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
