@@ -103,7 +103,7 @@ $(document).ready(function() {
 	//header 中间按钮
 	if(url.indexOf('/index/loginMap') != -1) {
 		$('.nav-center ul li').eq(0).addClass('active');
-	} else if(url.indexOf('/index/login/') != -1 || url.indexOf('/residentStatistics/home/') != -1) {
+	} else if(url.indexOf('/index/login') != -1 || url.indexOf('/residentStatistics/home?') != -1) {
 		$('.nav-center ul li').eq(2).addClass('active');
 	} else {
 		if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1 ) {
@@ -117,9 +117,9 @@ $(document).ready(function() {
 		$('.setup').addClass('active');
 	}
 	//二级菜单
-	if(url.indexOf('/index/login/') != -1) {
+	if(url.indexOf('/index/login') != -1) {
 		$('.two-menu ul li').eq(0).addClass('active');
-	} else if(url.indexOf('/residentStatistics/home/') != -1) {
+	} else if(url.indexOf('/residentStatistics/home?') != -1) {
 		$('.two-menu ul li').eq(1).addClass('active');
 	}
 })
@@ -142,11 +142,11 @@ $(document).ready(function() {
 //判断是否显示返回键
 $(document).ready(function() {
 	var url = window.location.href;
-    var num=url.substring(url.lastIndexOf('/')+1);
-    if(!isNaN(num)){
-        url = url.substring(0,url.lastIndexOf('/')+1)+'0';
-    	console.log(url);
-	}
+    // var num=url.substring(url.lastIndexOf('/')+1);
+    // if(!isNaN(num)){
+     //    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
+    	// console.log(url);
+	// }
 	if(adminIsTrue) {
 		$('#backjump').show();
 		$('#backjump').attr('href', ctx + '/index/backtrack?back=' + url);
