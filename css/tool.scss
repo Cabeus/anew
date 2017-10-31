@@ -42,9 +42,6 @@ td{
     text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
 }
 
-
-
-
 //地图 卫星 type
 .maptype {
     position: absolute;
@@ -80,3 +77,11 @@ td{
 .keep-open{
     color: #000;
 }
+//bootstrap-daterangepicker
+//时间区间插件
+.daterangepicker{
+    color: #000;
+    table{
+        table-layout: auto;
+    }
+} 

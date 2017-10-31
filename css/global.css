@@ -133,6 +133,11 @@ td {
 .keep-open {
   color: #000; }
 
+.daterangepicker {
+  color: #000; }
+  .daterangepicker table {
+    table-layout: auto; }
+
 .header {
   display: flex;
   width: 100%;

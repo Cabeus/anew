@@ -106,9 +106,9 @@ $(document).ready(function() {
 	} else if(url.indexOf('/index/login') != -1 || url.indexOf('/residentStatistics/home?') != -1) {
 		$('.nav-center ul li').eq(2).addClass('active');
 	} else {
-		if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1 ) {
+		if(url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1) {
 			//
-		} else{
+		} else {
 			$('.nav-center ul li').eq(3).addClass('active');
 		}
 	}
@@ -142,10 +142,10 @@ $(document).ready(function() {
 //判断是否显示返回键
 $(document).ready(function() {
 	var url = window.location.href;
-    // var num=url.substring(url.lastIndexOf('/')+1);
-    // if(!isNaN(num)){
-     //    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
-    	// console.log(url);
+	// var num=url.substring(url.lastIndexOf('/')+1);
+	// if(!isNaN(num)){
+	//    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
+	// console.log(url);
 	// }
 	if(adminIsTrue) {
 		$('#backjump').show();
@@ -154,3 +154,28 @@ $(document).ready(function() {
 		$('#backjump').hide();
 	}
 });
+
+//区间时间选取控件的初始化，汉化
+//定义locale汉化插件
+var localeDaterangepicker = {
+	"format": 'YYYY-MM-DD',
+	"separator": " -222 ",
+	"applyLabel": "确定",
+	"cancelLabel": "取消",
+	"fromLabel": "起始时间",
+	"toLabel": "结束时间'",
+	"customRangeLabel": "自定义",
+	"weekLabel": "W",
+	"daysOfWeek": ["日", "一", "二", "三", "四", "五", "六"],
+	"monthNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+	"firstDay": 1
+};
+//汉化按钮部分
+var rangesDaterangepicker = {
+	'今日': [moment(), moment()],
+	'昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+	'最近7日': [moment().subtract(6, 'days'), moment()],
+	'最近30日': [moment().subtract(29, 'days'), moment()],
+	'本月': [moment().startOf('month'), moment().endOf('month')],
+	'上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+}
