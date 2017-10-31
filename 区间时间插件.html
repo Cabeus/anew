@@ -16,6 +16,9 @@
 	<body>
 
 		<!--<div class="input-group">-->
+			<div id="" style="height: 500px;">
+				
+			</div>
 			<button type="button" class="btn btn-default pull-right" id="daterange-btn">
 	            <i class="fa fa-calendar"></i>
 	            <span>时间</span>
@@ -56,12 +59,14 @@
 					locale: localeDaterangepicker,
 					ranges: rangesDaterangepicker,
 					startDate: moment().subtract(29, 'days'),
-					endDate: moment()
+					endDate: moment(),
+					drops: "up"
 				},
 				function(start, end) {
 					$('#daterange-btn span').html(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
 					//执行的事件
 					console.log(start.format('YYYY-MM-DD') + " " + end.format('YYYY-MM-DD'));
+					console.log(moment().subtract())
 				}
 			);
 		</script>

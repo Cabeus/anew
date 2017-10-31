@@ -424,6 +424,12 @@ td {
   top: 90px;
   right: 10px; }
 
+.together #table-schedule th {
+  color: #00F0F9; }
+
+.home-statistics #table-total-analysis th {
+  color: #FB9576; }
+
 .baidugps-index {
   position: relative;
   height: 100%; }

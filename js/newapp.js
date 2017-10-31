@@ -170,12 +170,3 @@ var localeDaterangepicker = {
 	"monthNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
 	"firstDay": 1
 };
-//汉化按钮部分
-var rangesDaterangepicker = {
-	'今日': [moment(), moment()],
-	'昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-	'最近7日': [moment().subtract(6, 'days'), moment()],
-	'最近30日': [moment().subtract(29, 'days'), moment()],
-	'本月': [moment().startOf('month'), moment().endOf('month')],
-	'上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-}
