@@ -1,2 +1,93 @@
 @charset "UTF-8";
-
+.index-view {
+    .box {
+        /* 设置阴影 */
+        -webkit-box-shadow: 1px 1px 3px #292929;
+        -moz-box-shadow: 1px 1px 3px #292929;
+        box-shadow: 1px 1px 3px #292929;
+    }
+    .btn:link,
+    .btn:hover,
+    .btn:active,
+    .btn:visited,
+    .btn:focus {
+        color: #ffffff;
+    }
+    .btn_selected {
+        background-color: #9974D2;
+        color: #fff
+    }
+    .btn_normal {
+        background-color: #2D323E;
+        color: #fff
+    }
+    .btn_selected_orange {
+        background-color: #FF906C;
+        color: #fff
+    }
+    .BMapLabel {
+        position: relative;
+        overflow: hidden;
+    }
+    .BMapLabel:after {
+        content: " ";
+        position: absolute;
+        left: calc(50% - 3px);
+        bottom: -5px;
+        width: 0;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+        border-width: 5px;
+        border-color: #fff;
+        border-bottom-width: 0;
+        border-style: dashed;
+        border-top-style: solid;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        display: block;
+        z-index: 999;
+    }
+    .label-title {
+        margin: 0 !important;
+    }
+    .input-con {
+        position: relative;
+        display: block;
+        overflow: auto;
+        padding-left: 20px;
+        line-height: 34px;
+    }
+    .input-checkbox {
+        position: absolute;
+        visibility: hidden;
+    }
+    .input-checkbox+label {
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        border: 1px solid #9974D2;
+        position: absolute;
+        top: 4px;
+        background: #9974D2;
+    }
+    .input-checkbox:checked+label:after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        bottom: 10px;
+        width: 15px;
+        height: 10px;
+        border: 2px solid #fff;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        -ms-transform: rotate(-60deg);
+        -moz-transform: rotate(-60deg);
+        -webkit-transform: rotate(-60deg);
+        transform: rotate(-45deg);
+    }
+    .map-container .label-title {
+        color: #000;
+        font-family: "微软雅黑";
+    }
+}

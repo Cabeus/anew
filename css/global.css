@@ -282,7 +282,7 @@ td {
           z-index: 999;
           background: #fff;
           color: #000;
-          padding-top: 15px; }
+          padding-top: 5px; }
         .header .nav-right ul .message .message-box:before {
           content: " ";
           position: absolute;
@@ -308,7 +308,13 @@ td {
           height: 30px;
           width: 100%;
           text-align: center;
-          line-height: 30px; }
+          line-height: 30px;
+          padding-left: 60px; }
+          .header .nav-right ul .message .message-box > h4 .empty-all {
+            float: right;
+            padding-right: 15px;
+            font-size: 12px;
+            cursor: pointer; }
         .header .nav-right ul .message .message-box > ul {
           max-height: 750px;
           overflow: auto; }
@@ -316,6 +322,7 @@ td {
           overflow: auto;
           width: 100%;
           padding-left: 15px;
+          padding-top: 5px;
           margin-bottom: 5px; }
         .header .nav-right ul .message .message-box > ul > li:hover {
           background: #CCCCCC; }
@@ -396,6 +403,164 @@ td {
     .two-menu ul .active {
       background: #363b47; }
 
+.index-view .box {
+  /* 设置阴影 */
+  -webkit-box-shadow: 1px 1px 3px #292929;
+  -moz-box-shadow: 1px 1px 3px #292929;
+  box-shadow: 1px 1px 3px #292929; }
+.index-view .btn:link,
+.index-view .btn:hover,
+.index-view .btn:active,
+.index-view .btn:visited,
+.index-view .btn:focus {
+  color: #ffffff; }
+.index-view .btn_selected {
+  background-color: #9974D2;
+  color: #fff; }
+.index-view .btn_normal {
+  background-color: #2D323E;
+  color: #fff; }
+.index-view .btn_selected_orange {
+  background-color: #FF906C;
+  color: #fff; }
+.index-view .BMapLabel {
+  position: relative;
+  overflow: hidden; }
+.index-view .BMapLabel:after {
+  content: " ";
+  position: absolute;
+  left: calc(50% - 3px);
+  bottom: -5px;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 5px;
+  border-color: #fff;
+  border-bottom-width: 0;
+  border-style: dashed;
+  border-top-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  display: block;
+  z-index: 999; }
+.index-view .label-title {
+  margin: 0 !important; }
+.index-view .input-con {
+  position: relative;
+  display: block;
+  overflow: auto;
+  padding-left: 20px;
+  line-height: 34px; }
+.index-view .input-checkbox {
+  position: absolute;
+  visibility: hidden; }
+.index-view .input-checkbox + label {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #9974D2;
+  position: absolute;
+  top: 4px;
+  background: #9974D2; }
+.index-view .input-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: 10px;
+  width: 15px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  -ms-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-45deg); }
+.index-view .map-container .label-title {
+  color: #000;
+  font-family: "微软雅黑"; }
+
+.command {
+  /*指挥提示下次不提醒input*/ }
+  .command .box {
+    /* 设置阴影 */
+    -webkit-box-shadow: 1px 1px 3px #292929;
+    -moz-box-shadow: 1px 1px 3px #292929;
+    box-shadow: 1px 1px 3px #292929; }
+  .command .btn:link,
+  .command .btn:hover,
+  .command .btn:active,
+  .command .btn:visited,
+  .command .btn:focus {
+    color: #ffffff; }
+  .command .btn_selected {
+    background-color: #9974D2;
+    color: #fff; }
+  .command .btn_normal {
+    background-color: #2D323E;
+    color: #fff; }
+  .command .btn_selected_orange {
+    background-color: #FF906C;
+    color: #fff; }
+  .command .BMapLabel {
+    position: relative;
+    overflow: hidden; }
+  .command .BMapLabel:after {
+    content: " ";
+    position: absolute;
+    left: calc(50% - 3px);
+    bottom: -5px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-color: #fff;
+    border-bottom-width: 0;
+    border-style: dashed;
+    border-top-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    display: block;
+    z-index: 999; }
+  .command .label-title {
+    margin: 0 !important; }
+  .command .input-con {
+    position: relative;
+    display: block;
+    padding-left: 20px;
+    line-height: 28px; }
+  .command .input-checkbox {
+    position: absolute;
+    visibility: hidden; }
+  .command .input-checkbox + label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    position: absolute;
+    top: 4px;
+    background: #fff; }
+  .command .input-checkbox:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 7px;
+    width: 10px;
+    height: 6px;
+    border: 1px solid #000;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    transform: rotate(-45deg); }
+  .command .map-container .label-title {
+    color: #000;
+    font-family: "微软雅黑"; }
+
 .command-show-options {
   position: absolute;
   top: 90px;
@@ -424,8 +589,57 @@ td {
   top: 90px;
   right: 10px; }
 
-.together #table-schedule th {
-  color: #00F0F9; }
+.together {
+  /*button   hover样式*/ }
+  .together .table-bordered td {
+    border: 1px solid #635F77 !important; }
+  .together .table-bordered th {
+    border: 1px solid #635F77 !important;
+    font-weight: normal;
+    background-color: #3B4754; }
+  .together .btn_circle {
+    border-radius: 15px; }
+  .together .btn:link,
+  .together .btn:hover,
+  .together .btn:active,
+  .together .btn:visited,
+  .together .btn:focus {
+    color: #ffffff; }
+  .together .btn_tag,
+  .together .btn_group_notify,
+  .together .btn_group_patrol,
+  .together .btn_group_feedback {
+    width: 25%; }
+  .together .btn_selected {
+    background-color: #9974D2; }
+  .together .btn_normal {
+    background-color: #2D323E; }
+  .together .btn_total_accepted {
+    background-color: #8B56DD;
+    font-size: 16px;
+    font-weight: bold; }
+  .together .btn_total_totay {
+    background-color: #0BA8F1;
+    font-size: 16px;
+    font-weight: bold; }
+  .together .btn_one_third {
+    width: 33%;
+    padding: 3px 5px; }
+  .together .item {
+    background-color: #363b47;
+    color: #ffffff;
+    padding: 0px;
+    margin-bottom: 0px; }
+  .together .form-inline > .form-group > .btn-group > .btn,
+  .together .form-inline > .form-group > .btn-group > .btn:hover,
+  .together .form-inline > .btn,
+  .together .form-inline > .btn:hover {
+    color: #000;
+    padding: 2px 12px; }
+  .together .modal-content {
+    color: #000; }
+  .together #table-schedule th {
+    color: #00F0F9; }
 
 .home-statistics #table-total-analysis th {
   color: #FB9576; }

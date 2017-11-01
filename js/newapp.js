@@ -10,7 +10,7 @@ $(window).resize(function() {
 	$('.main-content').height(height);
 })
 
-//消息提示下拉框
+//消息提示框
 $(".message").click(function(event) {
 	event.stopPropagation();
 	$('.common-box').hide();
@@ -23,6 +23,13 @@ $(".message").click(function(event) {
 		$(".message").addClass('active')
 	}
 })
+$(".empty-all").click(function(){
+	if (confirm("确认全部清空吗？")) {
+		console.log("消息全部清空了");
+		$(".header_message").empty();
+	}
+})
+
 $('.message-box').click(function(event) {
 	event.stopPropagation();
 })

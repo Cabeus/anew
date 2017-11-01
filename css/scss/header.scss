@@ -177,7 +177,7 @@
                     z-index: 999;
                     background: #fff;
                     color: #000;
-                    padding-top: 15px;
+                    padding-top: 5px;
                 }
                 .message-box:before {
                     content: " ";
@@ -207,6 +207,13 @@
                     width: 100%;
                     text-align: center;
                     line-height: 30px;
+                    padding-left: 60px;
+                    .empty-all{
+                            float: right;
+                            padding-right: 15px;
+                            font-size: 12px;
+                            cursor: pointer;
+                    }
                 }
                 .message-box>ul {
                     max-height: 750px;
@@ -216,6 +223,7 @@
                     overflow: auto;
                     width: 100%;
                     padding-left: 15px;
+                    padding-top: 5px;
                     margin-bottom: 5px;
                 }
                 .message-box>ul>li:hover {
