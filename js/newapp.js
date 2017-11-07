@@ -22,13 +22,27 @@ $(".message").click(function(event) {
 		$('.message-box').show();
 		$(".message").addClass('active')
 	}
-})
+});
 $(".empty-all").click(function(){
 	if (confirm("确认全部清空吗？")) {
-		console.log("消息全部清空了");
+        $.ajax({
+            type: 'POST',
+            url: ctx + '/message/delAll',
+            success: function(data) {
+                tmp = $('<li id="remove" style="text-align: center">暂无内容</li>');
+                $('.header_message').append(tmp);
+                // if(data.msg == "success") {
+                //     alert("消息全部清空了");
+                // } else {
+                //     alert(data.msg);
+                // }
+            }
+        });
 		$(".header_message").empty();
+        $('.header_message_num').hide();
+        $(".empty-all").addClass('none').unbind('click');//灰色
 	}
-})
+});
 
 $('.message-box').click(function(event) {
 	event.stopPropagation();
@@ -90,7 +104,7 @@ function changeMyPassword() {
 		var postBody = $("#form-change-password").serialize();
 		$.ajax({
 			type: 'POST',
-			url: ctxjs + '/admin/changePassword',
+			url: ctx + '/admin/changePassword',
 			data: postBody,
 			success: function(data) {
 				if(data.msg == "success") {
@@ -109,14 +123,14 @@ $(document).ready(function() {
 	var url = window.location.href;
 	//header 中间按钮
 	if(url.indexOf('/index/loginMap') != -1) {
-		$('.nav-center ul li').eq(0).addClass('active');
+		$('.nav-center ul li.li-home').addClass('active');
 	} else if(url.indexOf('/index/login') != -1 || url.indexOf('/residentStatistics/home?') != -1) {
-		$('.nav-center ul li').eq(2).addClass('active');
+		$('.nav-center ul li.li-statistics').addClass('active');
 	} else {
 		if(url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1) {
 			//
 		} else {
-			$('.nav-center ul li').eq(3).addClass('active');
+			$('.nav-center ul li.li-wisdom').addClass('active');
 		}
 	}
 	//header 右侧设置按钮

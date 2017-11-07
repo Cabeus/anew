@@ -1,20 +1,190 @@
 @charset "UTF-8";
-.task-list{   
-    
+.task-list,
+.task-list-modal {
+    .modal-style {
+        >.modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        >.modal-footer {
+            padding: 15px;
+            text-align: right;
+            border-top: 1px solid #e5e5e5;
+        }
+        .btn-primary {
+            background-color: #fff;
+            color: #000;
+            border-color: #ccc;
+        }
+        .btn-primary:active {
+            color: #fff;
+            background-color: #03adef !important;
+            border-color: #03adef;
+        }
+        .active {
+            color: #fff;
+            background-color: #03adef !important;
+        }
+        .active:hover {
+            color: #fff;
+            background-color: #03adef !important;
+        }
+        .focus {
+            background-color: transparent;
+            outline: none !important;
+            outline-offset: -2px;
+            border: 1px solid #ccc !important;
+            border-color: #ccc !important;
+            box-shadow: none !important;
+        }
+    }
+    .ui-file {
+        margin-top: 10px;
+        .u-detail {
+            float: left;
+        }
+        .u-op {
+            float: left;
+        }
+        .u-item {
+            margin-right: 15px;
+            overflow: auto;
+            .fl {
+                float: left;
+                margin-right: 15px;
+            }
+            .fr {
+                overflow: auto;
+            }
+        }
+    }
+    .u-op-remove {
+        cursor: pointer;
+    }
+    #upload-target {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        float: left;
+        >img {
+            width: 40px;
+            height: 40px;
+        }
+        span {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+    }
+    .ui-image {
+        .upload-input {
+            position: absolute;
+            overflow: hidden;
+        }
+        .upload-html4 {
+            position: absolute;
+            left: -10000px;
+            top: -10000px;
+        }
+        .u-loaded {
+            color: green;
+        }
+        .u-total {
+            color: #FC5900;
+        }
+        .u-item {
+            float: left;
+            width: 120px;
+            height: 170px;
+            margin: 0 20px 20px 0;
+            position: relative;
+        }
+        .u-first {
+            margin: 0;
+        }
+        .u-img {
+            background-color: rgba(0, 0, 0, 0.05);
+            width: 120px;
+            height: 120px;
+            text-align: center;
+            /*padding: 10px;*/
+            position: relative;
+        }
+        .selectedimg {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border: 1px dashed red;
+        }
+        .u-img img {
+            /*width: 60px;
+            height: 100px;
+            overflow: hidden;
+            box-shadow: 5px 5px 5px #ccc;
+            margin: 0 auto;*/
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 1px solid #ccc;
+        }
+        .u-name {
+            text-align: center;
+            height: 24px;
+            line-height: 24px;
+            overflow: hidden;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+            margin-top: 5px;
+        }
+        .u-progress-bar,
+        .u-detail {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 20px;
+        }
+        .u-progress-bar {
+            background-color: #00c853;
+            opacity: 1;
+            border-radius: 2px;
+        }
+        .u-progress {
+            width: 0;
+            height: 100%;
+            background-color: green;
+            opacity: 0.5;
+        }
+        .u-detail {
+            line-height: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+        }
+    }
 }
-.task-list-modal{
+
+.task-list-modal {
     width: 90%;
-    .modal-body{
-        .form-group{
-            .col-sm-9{
-                .btn-group{
-                    button{
+    .modal-body {
+        .form-group {
+            .col-sm-9 {
+                .btn-group {
+                    button {
                         width: 190px;
                         text-align: left;
-                        span{
+                        span {
                             float: left;
                         }
-                        b{
+                        b {
                             float: right;
                             margin-top: 8px;
                         }

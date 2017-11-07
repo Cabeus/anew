@@ -315,6 +315,8 @@ td {
             padding-right: 15px;
             font-size: 12px;
             cursor: pointer; }
+          .header .nav-right ul .message .message-box > h4 .none {
+            color: #ccc; }
         .header .nav-right ul .message .message-box > ul {
           max-height: 750px;
           overflow: auto; }
@@ -641,8 +643,101 @@ td {
   .together #table-schedule th {
     color: #00F0F9; }
 
-.home-statistics #table-total-analysis th {
-  color: #FB9576; }
+.home-statistics {
+  /*button   hover样式*/
+  /*列表背景样式*/
+  /*列表hover样式*/
+  /*地图lable*/ }
+  .home-statistics .item {
+    padding: 10px 0px; }
+  .home-statistics .table-bordered td {
+    border: 1px solid #635F77 !important;
+    text-align: right; }
+  .home-statistics .table-bordered th {
+    border: 1px solid #635F77 !important;
+    font-weight: normal;
+    background-color: #3B4754;
+    text-align: center; }
+  .home-statistics .btn:link,
+  .home-statistics .btn:hover,
+  .home-statistics .btn:active,
+  .home-statistics .btn:visited,
+  .home-statistics .btn:focus {
+    color: #ffffff; }
+  .home-statistics .btn_tag {
+    width: 25%; }
+  .home-statistics .btn_group_notify,
+  .home-statistics .btn_group_patrol,
+  .home-statistics .btn_group_feedback {
+    width: 33%; }
+  .home-statistics .btn_selected {
+    background-color: #9974D2; }
+  .home-statistics .btn_normal {
+    background-color: #2D323E; }
+  .home-statistics td:first-child {
+    text-align: left; }
+  .home-statistics .fu {
+    display: flex; }
+  .home-statistics .son {
+    height: calc(100% - 10px);
+    position: relative; }
+  .home-statistics .bot-dq {
+    position: absolute;
+    bottom: 20px;
+    width: 100%; }
+  .home-statistics .map-max {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 200px);
+    z-index: 9999;
+    padding: 0; }
+  .home-statistics .h100 {
+    height: 100%; }
+  .home-statistics .map-min {
+    width: 100%;
+    height: 500px; }
+  .home-statistics .form-inline > .form-group > .btn-group > .btn,
+  .home-statistics .form-inline > .form-group > .btn-group > .btn:hover,
+  .home-statistics .form-inline > .btn,
+  .home-statistics .form-inline > .btn:hover {
+    color: #000;
+    padding: 2px 5px; }
+  .home-statistics .instructions:link,
+  .home-statistics .instructions:hover,
+  .home-statistics .instructions:active,
+  .home-statistics .instructions:visited,
+  .home-statistics .instructions:focus {
+    color: #ffffff; }
+  .home-statistics .table-bordered {
+    background-color: #3D4351; }
+  .home-statistics .fixed-table-container {
+    border: 1px solid #635F77 !important;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    margin-bottom: 20px; }
+  .home-statistics .fixed-table-container tr:hover {
+    background: #3f4251 !important;
+    color: #fff; }
+  .home-statistics .fixed-table-loading {
+    background: #363b47; }
+  .home-statistics .BMap_Marker label {
+    line-height: 20px;
+    text-align: center;
+    font-size: 18px !important;
+    border: 0 !important;
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    border: 1px solid #438eb9 !important;
+    max-width: none; }
+  .home-statistics .label-title {
+    color: #000;
+    font-family: "微软雅黑";
+    margin: 0 !important; }
+  .home-statistics #table-total-analysis th {
+    color: #FB9576; }
 
 .baidugps-index {
   position: relative;
@@ -991,6 +1086,16 @@ td {
       background: #1E93FF;
       border-radius: 5px;
       margin-left: 10px; }
+    .rescue-list .list-container #history table {
+      width: 100%;
+      table-layout: inherit; }
+    .rescue-list .list-container #history td {
+      width: auto;
+      text-align: center; }
+    .rescue-list .list-container #history .item {
+      padding: 0px;
+      margin: 0px;
+      display: table-row; }
   .rescue-list .showinfo {
     position: fixed;
     top: 200px;
@@ -1134,6 +1239,173 @@ td {
   .resident-list-modal #home table td {
     width: inherit; }
 
+.task-list .modal-style > .modal-header,
+.task-list-modal .modal-style > .modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5; }
+.task-list .modal-style > .modal-footer,
+.task-list-modal .modal-style > .modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5; }
+.task-list .modal-style .btn-primary,
+.task-list-modal .modal-style .btn-primary {
+  background-color: #fff;
+  color: #000;
+  border-color: #ccc; }
+.task-list .modal-style .btn-primary:active,
+.task-list-modal .modal-style .btn-primary:active {
+  color: #fff;
+  background-color: #03adef !important;
+  border-color: #03adef; }
+.task-list .modal-style .active,
+.task-list-modal .modal-style .active {
+  color: #fff;
+  background-color: #03adef !important; }
+.task-list .modal-style .active:hover,
+.task-list-modal .modal-style .active:hover {
+  color: #fff;
+  background-color: #03adef !important; }
+.task-list .modal-style .focus,
+.task-list-modal .modal-style .focus {
+  background-color: transparent;
+  outline: none !important;
+  outline-offset: -2px;
+  border: 1px solid #ccc !important;
+  border-color: #ccc !important;
+  box-shadow: none !important; }
+.task-list .ui-file,
+.task-list-modal .ui-file {
+  margin-top: 10px; }
+  .task-list .ui-file .u-detail,
+  .task-list-modal .ui-file .u-detail {
+    float: left; }
+  .task-list .ui-file .u-op,
+  .task-list-modal .ui-file .u-op {
+    float: left; }
+  .task-list .ui-file .u-item,
+  .task-list-modal .ui-file .u-item {
+    margin-right: 15px;
+    overflow: auto; }
+    .task-list .ui-file .u-item .fl,
+    .task-list-modal .ui-file .u-item .fl {
+      float: left;
+      margin-right: 15px; }
+    .task-list .ui-file .u-item .fr,
+    .task-list-modal .ui-file .u-item .fr {
+      overflow: auto; }
+.task-list .u-op-remove,
+.task-list-modal .u-op-remove {
+  cursor: pointer; }
+.task-list #upload-target,
+.task-list-modal #upload-target {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  float: left; }
+  .task-list #upload-target > img,
+  .task-list-modal #upload-target > img {
+    width: 40px;
+    height: 40px; }
+  .task-list #upload-target span,
+  .task-list-modal #upload-target span {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.65); }
+.task-list .ui-image .upload-input,
+.task-list-modal .ui-image .upload-input {
+  position: absolute;
+  overflow: hidden; }
+.task-list .ui-image .upload-html4,
+.task-list-modal .ui-image .upload-html4 {
+  position: absolute;
+  left: -10000px;
+  top: -10000px; }
+.task-list .ui-image .u-loaded,
+.task-list-modal .ui-image .u-loaded {
+  color: green; }
+.task-list .ui-image .u-total,
+.task-list-modal .ui-image .u-total {
+  color: #FC5900; }
+.task-list .ui-image .u-item,
+.task-list-modal .ui-image .u-item {
+  float: left;
+  width: 120px;
+  height: 170px;
+  margin: 0 20px 20px 0;
+  position: relative; }
+.task-list .ui-image .u-first,
+.task-list-modal .ui-image .u-first {
+  margin: 0; }
+.task-list .ui-image .u-img,
+.task-list-modal .ui-image .u-img {
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  /*padding: 10px;*/
+  position: relative; }
+.task-list .ui-image .selectedimg,
+.task-list-modal .ui-image .selectedimg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  border: 1px dashed red; }
+.task-list .ui-image .u-img img,
+.task-list-modal .ui-image .u-img img {
+  /*width: 60px;
+  height: 100px;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #ccc;
+  margin: 0 auto;*/
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 1px solid #ccc; }
+.task-list .ui-image .u-name,
+.task-list-modal .ui-image .u-name {
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-top: 5px; }
+.task-list .ui-image .u-progress-bar,
+.task-list .ui-image .u-detail,
+.task-list-modal .ui-image .u-progress-bar,
+.task-list-modal .ui-image .u-detail {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px; }
+.task-list .ui-image .u-progress-bar,
+.task-list-modal .ui-image .u-progress-bar {
+  background-color: #00c853;
+  opacity: 1;
+  border-radius: 2px; }
+.task-list .ui-image .u-progress,
+.task-list-modal .ui-image .u-progress {
+  width: 0;
+  height: 100%;
+  background-color: green;
+  opacity: 0.5; }
+.task-list .ui-image .u-detail,
+.task-list-modal .ui-image .u-detail {
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px; }
+
 .task-list-modal {
   width: 90%; }
   .task-list-modal .modal-body .form-group .col-sm-9 .btn-group button {
@@ -1275,5 +1547,48 @@ td {
           line-height: 24px; }
           .info-list-modal .preview-box .preview-content .preview-content-cen .preview-content-cen-box .content-app img {
             width: 100%; }
+
+.feedback-detail .Voice-box .Voice {
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  background: #28c2ff;
+  cursor: pointer;
+  text-align: center;
+  float: left;
+  margin: 5px;
+  color: #fff;
+  font-size: 12px; }
+  .feedback-detail .Voice-box .Voice .audio_play_area {
+    width: 30px;
+    height: 25px;
+    float: left; }
+    .feedback-detail .Voice-box .Voice .audio_play_area .icon_audio_default {
+      display: block;
+      width: 8px;
+      height: 15px;
+      margin: 5px 0 0 5px;
+      background: url(../img/Play-voice-icon.png) no-repeat -17.5px 0px;
+      background-size: 25px; }
+    .feedback-detail .Voice-box .Voice .audio_play_area .icon_audio_playing {
+      display: block;
+      width: 8px;
+      height: 15px;
+      margin: 5px 0 0 5px;
+      background: url(../img/Play-voice-icon.png) no-repeat 0px 0px;
+      background-size: 25px;
+      animation: audio_playing 2s infinite; }
+
+@keyframes audio_playing {
+  30% {
+    background-position: 0px 0px; }
+  30.5% {
+    background-position: -9px 0px; }
+  60% {
+    background-position: -9px 0px; }
+  60.5% {
+    background-position: -17.5px 0px; }
+  100% {
+    background-position: -17.5px 0px; } }
 
 /*# sourceMappingURL=global.css.map */
