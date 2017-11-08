@@ -1089,6 +1089,10 @@ td {
     .rescue-list .list-container #history table {
       width: 100%;
       table-layout: inherit; }
+      .rescue-list .list-container #history table .itemid-box {
+        width: 80px; }
+      .rescue-list .list-container #history table .itemid {
+        width: 80px; }
     .rescue-list .list-container #history td {
       width: auto;
       text-align: center; }
@@ -1096,6 +1100,12 @@ td {
       padding: 0px;
       margin: 0px;
       display: table-row; }
+    .rescue-list .list-container #history .top-line-person {
+      width: 100px !important; }
+    .rescue-list .list-container #history .top-line-time {
+      width: 140px !important; }
+    .rescue-list .list-container #history .top-line-status {
+      width: 80px !important; }
   .rescue-list .showinfo {
     position: fixed;
     top: 200px;

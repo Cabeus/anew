@@ -185,20 +185,34 @@
             table{
                 width:100%;
                 table-layout: inherit;
+                .itemid-box{
+                    width: 80px;
+                }
+                .itemid {
+                    width: 80px;
+                }
             }
             td{
                 width: auto;
-                text-align: center;
-                
+                text-align: center; 
             }
             .item{
                 padding: 0px;
                 margin: 0px;
                 display: table-row;
             }
+            .top-line-person{
+                width: 100px !important;
+            }
+            .top-line-time{
+                width: 140px !important;
+            }
+            .top-line-status{
+                width: 80px !important;
+            }
         }
     }
-    //消息提示框
+    //消息提示框 
     .showinfo {
         position: fixed;
         top: 200px;
