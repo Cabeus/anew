@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>长安一家亲App下载</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				box-sizing: border-box;
+			}
+			
+			html {
+				font-size: 13.333vw;
+			}
+			
+			.bg {
+				width: 100%;
+				height: 80vh;
+				background: url(bg.png) no-repeat;
+				background-size: 100% 80%;
+			}
+			
+			.neirong {
+				height: 100%;
+				margin: 0 auto;
+				padding-top: 1rem;
+				padding-bottom: 1rem;
+			}
+			
+			.neirong img {
+				margin: 0 auto;
+				max-height: 100%;
+				display: block;
+			}
+			
+			.bot {
+				width: 100%;
+				position: fixed;
+				bottom: 0;
+				z-index: -1;
+			}
+			
+			.bot img {
+				margin: 0 auto;
+				width: 100%;
+				display: block;
+			}
+			
+			span {
+				display: block;
+				text-align: center;
+				width: 2.6rem;
+				height: 0.76rem;
+				line-height: 0.76rem;
+				border-radius: 0.76rem;
+				font-size: 0.38rem;
+				margin: 0 auto;
+				color: #fff;
+				background: rgb(232, 70, 81);
+			}
+			
+			.tishi-box {
+				width: 100vw;
+				height: 100vh;
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+			
+			.tishi {
+				width: 6rem;
+				position: absolute;
+				top: 25px;
+				right: 25px;
+			}
+			
+			.tishi img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bg">
+			<div class="neirong">
+				<img src="neirong.png" />
+			</div>
+
+		</div>
+		<div>
+			<span onclick="goDownload()">立即下载</span>
+		</div>
+		<div class="bot">
+			<img src="bot.png" />
+		</div>
+		<div class="tishi-box" id="tishi">
+			<div class="tishi">
+				<img src="tishi.png" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function goDownload() {
+				var u = navigator.userAgent,
+					app = navigator.appVersion;
+				var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+				var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+				if(is_weixn()) {
+					//					alert("请点击右上角按钮, 使用浏览器打开");
+					var tishi = document.getElementById("tishi");
+					tishi.style.display = "block";
+					tishi.style.background = "rgba(0,0,0,0.5)"
+
+				} else {
+					if(isAndroid) {
+						window.location.href = 'http://www.zxwave.com/besafe/download/android-3.2.19-release.apk'; // 跳安卓端下载地址
+					}
+					if(isIOS) {
+						window.location.href = 'itms-apps://itunes.apple.com/app/id1188137383'; // 跳AppStore下载地址
+					}
+				}
+				if(isPC()) {
+					//					window.location.href = '';  
+					alert("不支持此系统，请在Android、iOS系统浏览器中打开");
+				}
+			}
+
+			function is_weixn() {
+				var ua = navigator.userAgent.toLowerCase();
+				if(ua.match(/MicroMessenger/i) == "micromessenger") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function isPC() {
+				var userAgentInfo = navigator.userAgent;
+				var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+				var flag = true;
+				for(var v = 0; v < Agents.length; v++) {
+					if(userAgentInfo.indexOf(Agents[v]) > 0) {
+						flag = false;
+						break;
+					}
+				}
+				return flag;
+			}
+		</script>
+	</body>
+
+</html>

@@ -13,6 +13,10 @@
     .btn:focus {
         color: #ffffff;
     }
+    .btn:focus,
+    .btn:hover{
+        color: #000; 
+    }
     .btn_selected {
         background-color: #9974D2;
         color: #fff

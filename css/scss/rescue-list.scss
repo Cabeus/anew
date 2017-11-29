@@ -6,7 +6,7 @@
     padding: 0;
 //  #map {
 //      height: 100% !important;
-//      width: 100% !important;
+//      width: 100% !important; 
 //  }
     .list-container {
         position: absolute;
@@ -14,13 +14,14 @@
         right: 10px;
         width: 400px;
         height: calc(100% - 15px);
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.5);
         .top-title {
             text-align: center;
             width: 400px;
             height: 50px;
             line-height: 50px;
             font-weight: normal;
+            font-size: 20px;
             background: #464D5B;
             color: #fff;
             a {
@@ -240,6 +241,13 @@
         }
         .message{
             margin-left: 40px;
+        }
+        .content-message-box{
+            overflow: auto;
+            height: calc(100% - 50px);
+            .infos{
+                padding: 10px 0 0 40px;
+            }
         }
     }
 }

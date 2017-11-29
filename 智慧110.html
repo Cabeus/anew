@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<link href="http://testapi.zxwave.com/besafe/manager/static/image/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/lib/bootstrap.min.css?v=20171109">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/fonts/css/font-awesome.min.css?v=20171109">
+
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/webim/src/css/style.css?v=20171109">
+		<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/css/grid/main.css?v=20171109">
+		<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/css/grid/animate.min.css?v=20171109">
+
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/app.css?v=20171109">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/global.css?v=20171109">
+
+		<title>长安一家亲智慧网格信息化平台</title>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<!-- header -->
+				<div class="header col-md-12">
+					<!--名称-->
+					<div class="header-title">
+						<a href="#" id="regionName_">新疆兵团十二师</a>
+
+						<!--返回-->
+						<a class="back" style="display:none" href="#" id="backjump"><img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/map_page_back.png" /></a>
+					</div>
+
+					<!--板块-->
+					<div class="nav-center">
+						<ul>
+
+							<li class="li-home">
+								<a href="http://testapi.zxwave.com/besafe/manager/index/loginMap">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/index.png" />
+									<span>首页</span>
+								</a>
+							</li>
+
+							<li class="li-command">
+								<a id="command-default" class="command-default" href="http://testapi.zxwave.com/besafe/manager/index/command?currentRegionId=50">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-command.png" />
+									<span>应急指挥</span>
+								</a>
+								<a class="command-out" style="display: none;" href="#">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-command.png" />
+									<span>退出指挥</span>
+								</a>
+
+							</li>
+
+							<li class="li-statistics">
+								<a id="statistics-default" href="http://testapi.zxwave.com/besafe/manager/index/login">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-data.png" />
+									<span>数据平台</span>
+								</a>
+							</li>
+
+							<li class="li-wisdom">
+								<a href="http://testapi.zxwave.com/besafe/manager/info/local">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-application.png" />
+									<span>智慧应用</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+
+					<!--功能-->
+					<div class="nav-right">
+						<ul class="navbar-nav">
+
+							<li class="common">
+								<a href="#">
+									<span>&nbsp;</span>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-menu.png" />
+									<span>&nbsp;</span>
+								</a>
+								<div class="common-box shadow-2dp">
+									<ul>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/info/notification">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-notice.png" />
+												<span>通知公告</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/task/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-Clue.png" />
+												<span>任务管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/patrol/patrollist/1">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-help.png" />
+												<span>巡逻轨迹</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/feedback/listPage">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-task.png" />
+												<span>线索管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/rescueRequest/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-help.png" />
+												<span>求助信息</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/benefit/web110">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-110.png" />
+												<span>智慧报警110</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/camera/online">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-Monitor.png" />
+												<span>在线监控</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/region/listPage">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-grid.png" />
+												<span>网格管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/organization/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-organization.png" />
+												<span>组织架构管理</span>
+											</a>
+										</li>
+
+									</ul>
+								</div>
+							</li>
+
+							<li class="setup">
+								<a href="http://testapi.zxwave.com/besafe/manager/user/list">
+									<span>&nbsp;</span>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-system.png" />
+									<span>&nbsp;</span>
+								</a>
+							</li>
+
+							<li class="message">
+								<a href="#">
+									<b>&nbsp;</b>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-remind.png" />
+									<span class="header_message_num" style="display: none;">0</span>
+									<b>&nbsp;</b>
+								</a>
+								<!--消息提示框-->
+								<div class="message-box  shadow-2dp">
+									<h4>消息提示<span class="empty-all">全部清空</span></h4>
+									<ul class="header_message">
+
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<!--用户-->
+					<div class="admin dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-head.png" />
+							<span>管理员，</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#" onclick="$('#modal-change-password').modal('toggle');"><i class="fa fa-key fa-fw"></i>&nbsp;密码变更</a>
+							</li>
+						</ul>
+						<a class="out" href="http://testapi.zxwave.com/besafe/manager/logout" onclick="sessionStorage.login = 0;">退出</a>
+					</div>
+
+				</div>
+				<!--header end -->
+				<!-- 密码变更窗口 -->
+				<div class="modal fade" id="modal-change-password">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title">变更密码</h4>
+							</div>
+							<div class="modal-body">
+								<form id="form-change-password" class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">原密码：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="original" placeholder="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">新密码：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="newPassword" placeholder="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">再次输入：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="repeat" placeholder="">
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- /.modal-body -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" onclick="changeMyPassword();"><i class="fa fa-save"></i>
+                    保存
+                </button>
+								<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> 关闭
+                </button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- body -->
+				<div class="col-md-12 no-spacing">
+					<div class="content">
+						<!-- left menu -->
+
+						<div class="aside shadow-4dp">
+
+							<ul class="nav nav-list" id="nav-functions">
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+
+										<!--名称-->
+										<span class="menu-text"> 政法宣传 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/local">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_local_propaganda.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">本地宣传</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/recommend">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_changan_information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">长安时政资讯</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/database">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_changan_library.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">长安综治文库</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+
+										<!--名称-->
+										<span class="menu-text"> 群众自治 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/rescueRequest/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_help _information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">求助信息</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/group/listPage1">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_autonomy_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">自治组管理</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+
+										<!--名称-->
+										<span class="menu-text"> 智慧网格2.0 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/organization/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_organizational_structure.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">组织架构管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/region/listPage">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_network_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">网格管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/resident/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_residence_information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">居民信息管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/schedule/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_duty_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">值班管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/task/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_task_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">任务管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/patrol/patrollist/1">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_roots_autonomy.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">巡逻轨迹</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/feedback/listPage">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_lead_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">线索管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/notification">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_notification_announcement.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">通知公告</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/nodejs/survey">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_questionnaire_survey.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">问卷调查</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/benefit/web110">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_110.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">智慧报警110</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+										<!--名称-->
+										<span class="menu-text"> 雪亮工程应用 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/camera/online">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_on_line_monitoring.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">在线监控</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+							</ul>
+
+							<!-- 最小化菜单 -->
+							<p class="mini">
+								<i class="fa fa-angle-double-left"></i>
+								<i class="fa fa-angle-double-right"></i>
+							</p>
+							<audio id="playmp3" src="http://testapi.zxwave.com/besafe/manager/static/rescue/sound.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</div>
+
+						<!-- content -->
+						<div class="main-content">
+							<div class="row" style="height: calc(100% - 20px);">
+
+
+								<div class="jcontainer">
+									
+									<div class="chat-container">
+										
+
+										<div class="chat-nav shadow-2dp">
+											<div class="chat-list">
+												<div class="header">报警人：</div>
+											</div>
+										</div>
+
+										<div class="chat-content">
+											<div class="user-info shadow-2dp">
+												<div class="header">用户信息</div>
+												<div class="user-show">
+													<p>用户名： <span class="user-name"></span></p>
+												</div>
+												
+												<div class="user-info-notip">
+													暂无报警用户
+												</div>
+											</div>
+
+											<div class="chat-content shadow-2dp" style="margin:10px 0 0 0;">
+												<div class="header">接警人：管理员 - 通信状态<span class="status"></span></div>
+												<div class="chat-show">
+													<div class="chat-notip">
+														<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/no-nessage.png" alt="">
+													</div>
+												</div>
+												<div class="chat-option">
+													<textarea id="contents" rows="4"></textarea>
+													<button id="post">发送</button>
+												</div>
+												<input type="hidden" id="rtctype" value="">
+												<input type="hidden" id="jjchat" value="">
+												<div class="rtc-audio">
+													<div class="rtc-info">
+														<div class="rtc-user-avatar">
+															<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/avatar.png">
+														</div>
+														<div class="rtc-user-info">
+															<p></p>
+															<span>正在邀请你进行语音通话</span>
+														</div>
+													</div>
+													<div class="rtc-option">
+														<span><img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/dialog.png"></span>
+														<p>
+															<button class="rtAcceptCall">接听</button>
+															<button class="rtEndCall">拒绝</button>
+														</p>
+													</div>
+													<audio id="audio" autoplay></audio>
+													<audio id="localAudio" autoplay></audio>
+												</div>
+											</div>
+										</div>
+										<div class="chat-info">
+
+											<div class="map shadow-2dp">
+												<div class="header">
+													<span>地图位置</span>
+													<div>
+														<i class="fa fa-window-maximize max"></i>
+														<i class="fa fa-window-minimize min"></i>
+													</div>
+												</div>
+												<div class="map-box map-container grid">
+													<div id="mymap" style="height: 100%;"></div>
+													<!-- 地点搜索框 -->
+													<div class="search">
+														<span></span><input type="text" id="suggestId" value="" placeholder="输入地名检索" />
+														<button id="dosearch">搜索</button>
+													</div>
+													<!-- 搜索结果面板 -->
+													<div class="search-result">
+														<div class="close-result">
+															<i class="fa fa-close"></i>
+														</div>
+														<div id="r-result">
+
+														</div>
+													</div>
+
+													<!-- 显示不同分类标记 -->
+													<div class="show-options">
+														<ul>
+															<li><span id="person">联防队员</span></li>
+															<li class='active'><span id="police">警务站</span></li>
+															<li><span id="video">摄像监控</span></li>
+														</ul>
+													</div>
+													<!-- 地图类型控制 -->
+													<div class="maptype">
+														<ul>
+															<li class="active"><span id="ditu"><i class="fa fa-map"></i>&nbsp;地图</span></li>
+															<li><span id="weixing"><i class="fa fa-globe"></i>&nbsp;卫星</span></li>
+														</ul>
+													</div>
+													<!-- 自定义覆盖物点击弹窗 -->
+													<div class="dialog">
+														<span class="close-dialog">
+															<i class="fa fa-close fa-lg"></i>
+														</span>
+														<div class="dialog-content"></div>
+													</div>
+													<!-- 播放视频弹窗 -->
+													<div class="video-box">
+														<span class="video-close">
+															<i class="fa fa-close fa-lg"></i>
+														</span>
+														<div class="video-content">
+															<div class="thevideo">
+																<video src="" autoplay muted loop></video>
+															</div>
+															<div class="desc">
+
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="video-container">
+										<div class="v-box">
+											<span class="close-video"><img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/close.png"></span>
+											<video id="privateVideo"></video>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="playvoice"></div>
+
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/jquery.min.js"></script>
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/bootstrap.min.js"></script>
+
+		<!-- webim -->
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/sdk/dist/webim.config.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/sdk/dist/strophe-1.2.8.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/sdk/dist/websdk-1.4.10.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/sdk/webrtc/dist/adapter.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/sdk/webrtc/dist/webrtc-1.4.10.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/rescue/js/jquery.jplayer.min.js"></script>
+		<!-- map -->
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=FRGH8U5owxghRjZdVMzllFp4aDQbw8sm"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/bmapSdk.js?v=20171109"></script>
+		<!-- own -->
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/src/js/app.js?v=20171109"></script>
+
+		<script type="text/javascript">
+			var webSocket_cts = 'ws://testapi.zxwave.com/besafe/backend';
+			var ctx = 'http://testapi.zxwave.com/besafe/manager';
+			var webSocket_code = '6612';
+			var adminIsTrue = false;
+		</script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/webSocket.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/anew/js/app.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/anew/js/newapp.js?v=20171109"></script>
+
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/datas/police.js?v=20171109"></script>
+		<script type="text/javascript">
+			initCTX({
+				ctx: 'http://testapi.zxwave.com/besafe/manager'
+			});
+
+			// init map
+			var map = initMap('mymap', {
+				centerMode: 'point', // 定位方式: 'locate':自动定位; 'point':指定中心点
+				locateMode: 'ip', // 定位模式: 'ip':ip定位, 'browser':'浏览器定位'
+				centerPoint: {
+					lng: 87.543446,
+					lat: 43.921639
+				}, // 初始化中心点，当定位模式为'point'时有效
+				mapZoom: 12, // 地图初始层级
+				isShowRoad: false, // 地图类型切换到卫星模式下，是否显示道路
+				hasSearch: true, // 是否有搜索功能
+				hasMapType: true, // 是否有地图类型切换
+				divWidth: 300, // 标记点上方自定义div的宽高
+				divHeight: 150, // 标记点上方自定义div高度
+				colorArray: ['#00e676', '#ba68c8', '#ff3d00', '#4dd0e1', 'blueviolet'] //绘制网格区块色值数组
+			});
+
+			// 测试数据（联防队员+监控摄像）
+			var testData = [{
+					point: {
+						poi: {
+							lng: 87.547081,
+							lat: 43.88703
+						}, //点坐标
+						icon: 'http://testapi.zxwave.com/besafe/manager/static/img/person.png', //点图标，可为空，为空时为默认标注
+						data: {
+							id: '17701275128', //联防队员对应环信id
+							tag: 'person', //点类型
+							userName: '买买提' //联防队员姓名
+						}
+					}
+				},
+				{
+					point: {
+						poi: {
+							lng: 87.577839,
+							lat: 43.904284
+						},
+						icon: 'http://testapi.zxwave.com/besafe/manager/static/img/person.png',
+						data: {
+							id: '17701275128',
+							tag: 'person',
+							userName: '鹿兆鹏'
+						}
+					}
+				},
+				{
+					point: {
+						poi: {
+							lng: 87.564329,
+							lat: 43.876634
+						},
+						icon: 'http://testapi.zxwave.com/besafe/manager/static/img/video.png',
+						data: {
+							id: 'video1',
+							tag: 'video',
+							videoUrl: 'http://www.zxwave.com/besafe/vedio/a5.mp4',
+							desc: "路面监控视频"
+						}
+					}
+				},
+				{
+					point: {
+						poi: {
+							lng: 87.5879,
+							lat: 43.838984
+						},
+						icon: 'http://testapi.zxwave.com/besafe/manager/static/img/video.png',
+						data: {
+							id: 'video2',
+							tag: 'video',
+							videoUrl: 'http://www.zxwave.com/besafe/vedio/a6.mp4',
+							desc: "入口监控视频"
+						}
+					}
+				}
+			];
+
+			var datas = testData.concat(policeArr); //将联防队员、监控摄像、警务站数据合并
+			drawPoint(['police']); //初始显示警务站
+
+			var musicID = '';
+			var fkID = '';
+
+			$(document).ready(function() {
+				//初始化播放音乐
+				$("#playvoice").jPlayer({
+					ready: function() {
+						$(this).jPlayer("setMedia", {
+							mp3: "http://testapi.zxwave.com/besafe/manager/static/rescue/sound.mp3"
+						});
+					}
+				});
+
+				EasemobUtil('13810195656', '123456');
+			});
+
+			function playMusic() {
+				$("#playvoice").jPlayer("play", 6);
+				musicID = setInterval(function() {
+					$("#playvoice").jPlayer("play", 6);
+				}, 1000);
+			}
+
+			function stopMusic() {
+				window.clearInterval(musicID);
+				$("#playvoice").jPlayer("stop");
+			}
+		</script>
+	</body>
+
+</html>

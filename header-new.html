@@ -86,7 +86,7 @@
 										<span>线索管理</span>
 									</a>
 								</li>
-								
+
 							</ul>
 						</div>
 					</li>
@@ -328,6 +328,23 @@
 		<script src="js/lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/newapp.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//			var arr = [1,2,3,4,3,2,4,6,8]
+			//			$.each(arr, function(i,j) {
+			//				if (i==2) {
+			//					arr.splice(i,1)
+			//				}
+			//			});
+			var arr = [1,2,3,4,3,2,4,6,8];
+//			arr.splice($.inArray(2, arr),0);
+//			alert(arr);
+			$.each(arr, function() {
+				var index = this.indexOf(2);  
+				if (index > -1) {  
+				this.splice(index, 1);  
+			});
+			
+		</script>
 	</body>
 
 </html>

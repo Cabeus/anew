@@ -17,29 +17,37 @@
     -moz-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
 }
+
 //左右浮动
-.left{
+.left {
     float: left;
 }
-.right{
+
+.right {
     float: right;
 }
+
 //隐藏
-.dispaly{
+.dispaly {
     display: none;
 }
 
-
 //table 行内文字溢出用。。。代替
-table{  
-    table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */  
-}  
-td{  
-    width:100%;  
-    word-break:keep-all;/* 不换行 */  
-    white-space:nowrap;/* 不换行 */  
-    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */  
-    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
+table {
+    table-layout: fixed;
+    /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+}
+
+td {
+    width: 100%;
+    word-break: keep-all;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 不换行 */
+    overflow: hidden;
+    /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow: ellipsis;
+    /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
 }
 
 //地图 卫星 type
@@ -74,14 +82,35 @@ td{
 }
 
 //
-.keep-open{
+.keep-open {
     color: #000;
 }
+
 //bootstrap-daterangepicker
 //时间区间插件
-.daterangepicker{
+.daterangepicker {
     color: #000;
-    table{
+    table {
         table-layout: auto;
     }
-} 
+}
+
+//可点击标题颜色
+.click-title-color {
+    color: #3bafda;
+}
+
+//上传图片删除按钮
+.uu-remove {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    text-align: center;
+}

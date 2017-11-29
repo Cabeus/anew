@@ -52,20 +52,56 @@
         padding: 0px;
         margin-bottom: 0px;
     }
-    /*button   hover样式*/
-    .form-inline>.form-group>.btn-group>.btn,
-    .form-inline>.form-group>.btn-group>.btn:hover,
-    .form-inline>.btn,
-    .form-inline>.btn:hover {
-        color: #000;
-        padding: 2px 12px;
-    }
     .modal-content {
         color: #000;
     }
     #table-schedule {
         th {
             color: $c5; //值班情况列表头部字体颜色
+        }
+    }
+    .row-box {
+        //横向盒子
+        width: 100%;
+        height: 280px;
+        margin-bottom: 10px;
+        .reset-padding {
+            padding: 0 5px;
+            height: 100%;
+            .plate-titles {
+                width: 100%;
+                text-align: center;
+                height: 28px;
+                line-height: 28px;
+                font-size: 16px;
+                color: #FF906C;
+            }
+            .plate-titles-left {
+                width: 100%;
+                height: 42px;
+                font-size: 16px;
+                color: #FF906C;
+                padding: 6px;
+                /*button   hover样式*/
+                .btn,
+                .btn:hover {
+                    color: #000;
+                    padding: 2px 12px;
+                }
+            }
+            .item-bg {
+                padding: 5px;
+                background: #464C5B;
+                #tabsCon {
+                    height: 209px;
+                }
+                #table-event,
+                #table-schedule {
+                    color: #ffffff;
+                    margin-bottom: 0;
+                    height: 242px;
+                }
+            }
         }
     }
 }

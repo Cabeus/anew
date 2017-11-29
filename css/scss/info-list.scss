@@ -14,13 +14,34 @@
         .preview-content {
             /*padding: 5px;*/
             margin: 5px auto;
-            width: 410px;
+            width: 510px;
             height: 100%;
             background: #f8f8f8;
             overflow: auto;
-            background: url(../img/iphone-box.png) no-repeat;
+            background: url(../img/iphone-box.png) no-repeat 100px 0px;
             background-size: 370px;
             position: relative;
+            .preview-type {
+                position: absolute;
+                top: 80px;
+                left: 0px;
+                background: #fff;
+                li {
+                    width: 90px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 40px;
+                    background: #3C3C3C;
+                    color: #fff;
+                    cursor: pointer;
+                    &:hover {
+                        opacity: 0.9;
+                    }
+                    &.active {
+                        background: rgb(232, 70, 81);
+                    }
+                }
+            }
             .close-preview {
                 position: absolute;
                 top: 15px;
@@ -30,7 +51,7 @@
             }
             .preview-content-cen {
                 position: absolute;
-                left: 24px;
+                left: 124px;
                 top: 90px;
                 width: 322px;
                 height: 570px;
@@ -69,6 +90,107 @@
                         line-height: 24px;
                         img {
                             width: 100%;
+                        }
+                    }
+                }
+            }
+            .preview-content-cen-biaoti {
+                .preview-content-cen-box {
+                    .img-right {
+                        //文档右侧
+                        box-sizing: border-box;
+                        height: 95px;
+                        border-bottom: 1px solid #CECECE;
+                        padding: 10px 20px 10px 10px;
+                        display: flex;
+                        .cen-left {
+                            width: 230px;
+                            height: 100%;
+                            div {
+                                width: 100%;
+                                height: 50px;
+                                line-height: 23px;
+                                font-size: 14px;
+                                overflow: hidden;
+                            }
+                            span {
+                                color: #989898;
+                                font-size: 12px;
+                                margin-right: 5px;
+                            }
+                        }
+                        .cen-right {
+                            width: 110px;
+                            height: 70px;
+                            overflow: hidden;
+                            img {
+                                height: 100%;
+                            }
+                        }
+                    }
+                    .img-bot {
+                        //文档下册
+                        box-sizing: border-box;
+                        border-bottom: 1px solid #CECECE;
+                        padding: 10px 20px 10px 10px;
+                        .cen-left {
+                            width: 100%;
+                            line-height: 22px;
+                            font-size: 14px;
+                        }
+                        span {
+                            color: #989898;
+                            font-size: 12px;
+                            margin-right: 5px;
+                        }
+                        .cen-img {
+                            display: flex;
+                            .one-img {
+                                width: 100%;
+                                height: 175px;
+                                overflow: hidden;
+                                img {
+                                    height: 100%;
+                                }
+                            }
+                            .two-img {
+                                width: 50%;
+                                padding: 5px;
+                                height: 100px;
+                                overflow: hidden;
+                                img {
+                                    height: 100%;
+                                }
+                            }
+                            .three-img {
+                                width: 33%;
+                                padding: 3px;
+                                height: 70px;
+                                overflow: hidden;
+                                img {
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                    .img-none {
+                        //纯文档
+                        box-sizing: border-box;
+                        border-bottom: 1px solid #CECECE;
+                        padding: 10px 20px 10px 10px;
+                        display: flex;
+                        .cen-left {
+                            height: 100%;
+                            div {
+                                width: 100%;
+                                line-height: 22px;
+                                font-size: 14px;
+                            }
+                            span {
+                                color: #989898;
+                                font-size: 12px;
+                                margin-right: 5px;
+                            }
                         }
                     }
                 }

@@ -1,0 +1,210 @@
+@charset "UTF-8";
+.task-detail {
+    .modal-style>.modal-header {
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .modal-style>.modal-footer {
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+    }
+    .modal-style .btn-primary {
+        background-color: #fff;
+        color: #000;
+        border-color: #9974D2;
+    }
+    .modal-style .btn-primary:active {
+        color: #fff;
+        background-color: #9974D2 !important;
+        border-color: #9974D2;
+    }
+    .modal-style .active {
+        color: #fff;
+        background-color: #9974D2 !important;
+    }
+    .modal-style .active:hover {
+        color: #fff;
+        background-color: #9974D2 !important;
+    }
+    .modal-style .focus {
+        background-color: transparent;
+        outline: none !important;
+        outline-offset: -2px;
+        border: 1px solid #9974D2 !important;
+        border-color: #9974D2 !important;
+        box-shadow: none !important;
+    }
+    .ui-file {
+        display: inline-block;
+        /*margin-top: 10px;*/
+        float: left;
+    }
+    .ui-file .u-detail {
+        float: left;
+    }
+    .ui-file .u-op {
+        float: right;
+    }
+    .ui-file .u-item {
+        margin-right: 15px;
+        /*overflow: auto;*/
+    }
+    .ui-file .u-item .fl {
+        float: left;
+        margin-right: 15px;
+    }
+    .ui-file .u-item .fr {
+        overflow: auto;
+    }
+    #upload-target {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        float: left;
+    }
+    #upload-target>img {
+        width: 40px;
+        height: 40px;
+    }
+    #upload-target span {
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+    .ui-image {
+        /*.u-progress-bar { position: absolute; left: 0; bottom: 22px; height: 2px; overflow: hidden; background-color: #2B85E9; width: 20%; }
+        .u-progress-text { position: absolute; left: 0; bottom: 24px; width: 100%;height: 24px; line-height: 24px; text-align: center; background-color: #0ababf; opacity: 0.5; }*/
+    }
+    .ui-image .upload-input {
+        position: absolute;
+        overflow: hidden;
+    }
+    .ui-image .upload-html4 {
+        position: absolute;
+        left: -10000px;
+        top: -10000px;
+    }
+    .ui-image .u-loaded {
+        color: green;
+    }
+    .ui-image .u-total {
+        color: #FC5900;
+    }
+    .ui-image .u-item {
+        float: left;
+        width: 120px;
+        height: 170px;
+        margin: 0 20px 20px 0;
+        position: relative;
+    }
+    .ui-image .u-first {
+        margin: 0;
+    }
+    .ui-image .u-img {
+        background-color: rgba(0, 0, 0, 0.05);
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        /*padding: 10px;*/
+        position: relative;
+    }
+    .ui-image .selectedimg {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        border: 1px dashed red;
+    }
+    .ui-image .u-img img {
+        /*width: 60px;
+            height: 100px;
+            overflow: hidden;
+            box-shadow: 5px 5px 5px #ccc;
+            margin: 0 auto;*/
+        max-width: 100%;
+        max-height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 1px solid #ccc;
+    }
+    .ui-image .u-name {
+        text-align: center;
+        height: 24px;
+        line-height: 24px;
+        overflow: hidden;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.65);
+        margin-top: 5px;
+    }
+    .ui-image .u-progress-bar,
+    .ui-image .u-detail {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 20px;
+    }
+    .ui-image .u-progress-bar {
+        background-color: #00c853;
+        opacity: 1;
+        border-radius: 2px;
+    }
+    .ui-image .u-progress {
+        width: 0;
+        height: 100%;
+        background-color: green;
+        opacity: 0.5;
+    }
+    .ui-image .u-detail {
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+    }
+    .u-op-remove {
+        cursor: pointer;
+    }
+    .Voice-box {
+        .Voice {
+            width: 80px;
+            height: 25px;
+            border-radius: 5px;
+            background: $bc6;
+            cursor: pointer;
+            text-align: center;
+            float: left;
+            margin: 5px;
+            color: #fff;
+            font-size: 12px;
+            .audio_play_area {
+                width: 30px;
+                height: 25px;
+                float: left;
+                .icon_audio_default {
+                    display: block;
+                    width: 8px;
+                    height: 15px;
+                    margin: 5px 0 0 5px;
+                    background: url(../img/Play-voice-icon.png) no-repeat -17.5px 0px;
+                    background-size: 25px;
+                }
+                .icon_audio_playing {
+                    display: block;
+                    width: 8px;
+                    height: 15px;
+                    margin: 5px 0 0 5px;
+                    background: url(../img/Play-voice-icon.png) no-repeat 0px 0px;
+                    background-size: 25px;
+                    animation: audio_playing 2s infinite;
+                }
+            }
+        }
+    }
+}

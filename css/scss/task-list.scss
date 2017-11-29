@@ -183,12 +183,134 @@
                         text-align: left;
                         span {
                             float: left;
+                            width: 140px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
                         }
                         b {
                             float: right;
                             margin-top: 8px;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+#receiving-box {
+    overflow: auto;
+    .receiving-left {
+        height: 600px;
+        padding: 10px;
+        .left-con {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            .receiving-nav {
+                font-size: 16px;
+                line-height: 50px;
+                text-align: center;
+                height: 50px;
+                border-bottom: 1px solid #ccc;
+                display: flex;
+                >span {
+                    flex: 1; 
+                    display: block;
+                    cursor: pointer;
+                    margin: 0 15px;
+                }
+                .active {
+                    color: $c6;
+                    border-bottom: 2px solid $c6;
+                }
+            }
+            .receiving-con {
+                padding: 5px;
+                padding-top: 15px;
+                height: calc(100% - 50px);
+                overflow: auto;
+                .input-con {
+                    position: relative;
+                    display: block;
+                    padding-left: 20px;
+                    line-height: 28px;
+                }
+                .input-checkbox {
+                    position: absolute;
+                    visibility: hidden;
+                }
+                .input-checkbox:checked+label {
+                    background: $c6;
+                    border: 1px solid $c6;
+                }
+                .input-checkbox+label {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                    position: absolute;
+                    top: 4px;
+                    background: #fff;
+                }
+                .input-checkbox:checked+label:after {
+                    content: "";
+                    position: absolute;
+                    left: 4px;
+                    bottom: 7px;
+                    width: 11px;
+                    height: 6px;
+                    border: 2px solid #fff;
+                    border-top-color: transparent;
+                    border-right-color: transparent;
+                    -ms-transform: rotate(-60deg);
+                    -moz-transform: rotate(-60deg);
+                    -webkit-transform: rotate(-60deg);
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    .receiving-right {
+        height: 600px;
+        padding: 10px;
+        .right-con {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            .right-con-top {
+                font-size: 16px;
+                line-height: 50px;
+                text-align: center;
+                height: 50px;
+                border-bottom: 1px solid #ccc;
+                display: flex;
+                >span {
+                    width: 50%;
+                    display: block;
+                }
+                .left {
+                    text-align: left;
+                    padding-left: 15px;
+                }
+                .right {
+                    text-align: right;
+                    padding-right: 15px;
+                    cursor: pointer;
+                    color: $c6;
+                }
+            }
+            .receiving-show {
+                padding: 5px;
+                padding-top: 15px;
+                height: calc(100% - 50px);
+                overflow: auto;
+                .p-con {
+                    display: block;
+                    padding-left: 20px;
+                    line-height: 28px;
+                    padding-right: 20px;
                 }
             }
         }

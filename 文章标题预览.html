@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+	<head>
+		<title>长安一家亲智慧网格信息化平台</title>
+		<base target="_self">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<link href="http://testapi.zxwave.com/besafe/manager/static/image/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/lib/bootstrap.min.css?v=20171109">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/fonts/css/font-awesome.min.css?v=20171109">
+
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/app.css?v=20171109">
+		<!--<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/global.css?v=20171109">-->
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/messenger/messenger.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/messenger/messenger-theme-flat.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/datetimepicker/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/extend/bootstrap-table/bootstrap-table.min.css">
+		<!-- bootstrap-table -->
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/multiselect/bootstrap-multiselect.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/uploader-image.css">
+		<!-- 上传图片样式 -->
+		<link type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/Validate/validationEngine.jquery.css" rel="stylesheet">
+		<style type="text/css">
+			/* 由于与现有框架样式冲突所有UEditor的插件都要加如下css */
+			
+			.modal {
+				z-index: 650;
+			}
+			
+			.modal-backdrop {
+				z-index: 640;
+			}
+		</style>
+		<!-- umeditor -->
+		<link href="http://testapi.zxwave.com/besafe/manager/static/Ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" charset="utf-8" src="http://testapi.zxwave.com/besafe/manager/static/Ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://testapi.zxwave.com/besafe/manager/static/Ueditor/ueditor.all.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/Ueditor/lang/zh-cn/zh-cn.js"></script>
+	</head>
+
+	<body>
+		<div class="container-fluid info-local">
+			<div class="row">
+				<!-- TOP -->
+
+				<!-- header -->
+				<div class="header col-md-12">
+					<!--名称-->
+					<div class="header-title">
+						<a href="#" id="regionName_">新疆兵团十二师</a>
+
+						<!--返回-->
+						<a class="back" style="display:none" href="#" id="backjump"><img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/map_page_back.png" /></a>
+					</div>
+
+					<!--板块-->
+					<div class="nav-center">
+						<ul>
+
+							<li class="li-home">
+								<a href="http://testapi.zxwave.com/besafe/manager/index/loginMap">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/index.png" />
+									<span>首页</span>
+								</a>
+							</li>
+
+							<li class="li-command">
+								<a id="command-default" class="command-default" href="http://testapi.zxwave.com/besafe/manager/index/command?currentRegionId=50">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-command.png" />
+									<span>应急指挥</span>
+								</a>
+								<a class="command-out" style="display: none;" href="#">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-command.png" />
+									<span>退出指挥</span>
+								</a>
+
+							</li>
+
+							<li class="li-statistics">
+								<a id="statistics-default" href="http://testapi.zxwave.com/besafe/manager/index/login">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-data.png" />
+									<span>数据平台</span>
+								</a>
+							</li>
+
+							<li class="li-wisdom">
+								<a href="http://testapi.zxwave.com/besafe/manager/info/local">
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-application.png" />
+									<span>智慧应用</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+
+					<!--功能-->
+					<div class="nav-right">
+						<ul class="navbar-nav">
+
+							<li class="common">
+								<a href="#">
+									<span>&nbsp;</span>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-menu.png" />
+									<span>&nbsp;</span>
+								</a>
+								<div class="common-box shadow-2dp">
+									<ul>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/info/notification">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-notice.png" />
+												<span>通知公告</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/task/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-Clue.png" />
+												<span>任务管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/patrol/patrollist/1">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-help.png" />
+												<span>巡逻轨迹</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/feedback/listPage">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-task.png" />
+												<span>线索管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/rescueRequest/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-help.png" />
+												<span>求助信息</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/benefit/web110">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-110.png" />
+												<span>智慧报警110</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/camera/online">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-Monitor.png" />
+												<span>在线监控</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/region/listPage">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-grid.png" />
+												<span>网格管理</span>
+											</a>
+										</li>
+
+										<li>
+											<a href="http://testapi.zxwave.com/besafe/manager/organization/list">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-organization.png" />
+												<span>组织架构管理</span>
+											</a>
+										</li>
+
+									</ul>
+								</div>
+							</li>
+
+							<li class="setup">
+								<a href="http://testapi.zxwave.com/besafe/manager/user/list">
+									<span>&nbsp;</span>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-system.png" />
+									<span>&nbsp;</span>
+								</a>
+							</li>
+
+							<li class="message">
+								<a href="#">
+									<b>&nbsp;</b>
+									<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-remind.png" />
+									<span class="header_message_num" style="display: none;">0</span>
+									<b>&nbsp;</b>
+								</a>
+								<!--消息提示框-->
+								<div class="message-box  shadow-2dp">
+									<h4>消息提示<span class="empty-all">全部清空</span></h4>
+									<ul class="header_message">
+
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<!--用户-->
+					<div class="admin dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<img src="http://testapi.zxwave.com/besafe/manager/static/anew/img/icon-header-head.png" />
+							<span>管理员，</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#" onclick="$('#modal-change-password').modal('toggle');"><i class="fa fa-key fa-fw"></i>&nbsp;密码变更</a>
+							</li>
+						</ul>
+						<a class="out" href="http://testapi.zxwave.com/besafe/manager/logout" onclick="sessionStorage.login = 0;">退出</a>
+					</div>
+
+				</div>
+				<!--header end -->
+				<!-- 密码变更窗口 -->
+				<div class="modal fade" id="modal-change-password">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title">变更密码</h4>
+							</div>
+							<div class="modal-body">
+								<form id="form-change-password" class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">原密码：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="original" placeholder="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">新密码：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="newPassword" placeholder="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">再次输入：</label>
+										<div class="col-sm-7">
+											<input type="password" class="form-control" name="repeat" placeholder="">
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- /.modal-body -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" onclick="changeMyPassword();"><i class="fa fa-save"></i>
+                    保存
+                </button>
+								<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> 关闭
+                </button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- body -->
+				<div class="col-md-12 no-spacing">
+					<div class="content">
+						<!-- functions -->
+
+						<div class="aside shadow-4dp">
+
+							<ul class="nav nav-list" id="nav-functions">
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+										<!--图标-->
+										<!--<div class="menu-icon">
+						<img style="height:20px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_zhengzhi_publicity.png">
+					</div>-->
+										<!--名称-->
+										<span class="menu-text"> 政法宣传 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/local">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_local_propaganda.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">本地宣传</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/recommend">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_changan_information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">长安时政资讯</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/database">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_changan_library.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">长安综治文库</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+										<!--图标-->
+										<!--<div class="menu-icon">
+						<img style="height:20px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_roots_autonomy.png">
+					</div>-->
+										<!--名称-->
+										<span class="menu-text"> 群众自治 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/rescueRequest/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_help _information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">求助信息</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/group/listPage1">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_autonomy_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">自治组管理</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+										<!--图标-->
+										<!--<div class="menu-icon">
+						<img style="height:20px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_gridding.png">
+					</div>-->
+										<!--名称-->
+										<span class="menu-text"> 智慧网格2.0 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/organization/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_organizational_structure.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">组织架构管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/region/listPage">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_network_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">网格管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/resident/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_residence_information.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">居民信息管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/schedule/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_duty_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">值班管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/task/list">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_task_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">任务管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/patrol/patrollist/1">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_roots_autonomy.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">巡逻轨迹</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/feedback/listPage">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_lead_management.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">线索管理</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/info/notification">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_notification_announcement.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">通知公告</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/nodejs/survey">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_questionnaire_survey.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">问卷调查</span>
+											</a>
+										</li>
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/benefit/web110">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_110.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">智慧报警110</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+								<!--一级菜单-->
+								<li>
+
+									<a href="#" class="dropdown-toggle">
+
+										<!--图标-->
+										<!--<div class="menu-icon">
+						<img style="height:20px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_lighting_engineering.png">
+					</div>-->
+										<!--名称-->
+										<span class="menu-text"> 雪亮工程应用 </span>
+										<!--小箭头-->
+										<div class="menu-icon">
+											<b class="fa fa-caret-right faright"></b><b class="fa fa-caret-down fadown"></b>
+										</div>
+
+									</a>
+									<!--二级菜单-->
+									<ul class="submenu">
+
+										<li>
+
+											<a href="http://testapi.zxwave.com/besafe/manager/camera/online">
+
+												<!--图标-->
+												<div class="menu-icon"><img style="height:16px;" src="http://testapi.zxwave.com/besafe/manager/static/image/second_functions/icon_on_line_monitoring.png"></div>
+												<!--名称-->
+												<span style="vertical-align: top">在线监控</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+							</ul>
+
+							<!-- 最小化菜单 -->
+							<p class="mini">
+								<i class="fa fa-angle-double-left"></i>
+								<i class="fa fa-angle-double-right"></i>
+							</p>
+							<audio id="playmp3" src="http://testapi.zxwave.com/besafe/manager/static/rescue/sound.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</div>
+
+						<!--<script type="application/javascript">
+    var url = window.location.href;
+    
+    if(url.indexOf('/index/login/') != -1) {
+    	$("#nav-functions li").eq(0).addClass("active");
+	} else {
+	    $("#nav-functions a").each(function () {
+			if ($(this).attr("href") == url) {
+				
+				if (url.indexOf('/admin/coming') != -1) {//判断是否为敬请期待页-coming
+					$(this).parent().addClass("active")
+				} else{
+					$(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+				}
+	            
+	        }
+	    });
+	}
+    
+    
+
+</script>-->
+
+						<!-- CONTENT -->
+						<div class="main-content">
+							<div class="row">
+								<!-- 面包屑 & 查询条件 -->
+								<div class="item shadow-2dp">
+									<ul class="breadcrumb">
+										<li><i class="fa fa-home"></i>
+											<li>政法宣传</li>
+										</li>
+										<li>本地宣传</li>
+									</ul>
+									<!-- .breadcrumb -->
+									<form id="form-local" method="post" class="form-inline" role="form">
+										<div class="input-group">
+											<input class="form-control" type="text" placeholder="标题" name="title">
+										</div>
+										<div class="input-group date form_date">
+											<input class="form-control" type="text" readonly placeholder="开始时间" name="startDate" id="queryStart">
+											<span class="input-group-addon add-on pointer"><i class="fa fa-calendar"></i></span>
+										</div>
+										<div class="input-group date form_date">
+											<input class="form-control" type="text" readonly placeholder="结束时间" name="endDate" id="queryEnd">
+											<span class="input-group-addon add-on pointer"><i class="fa fa-calendar"></i></span>
+										</div>
+										<button class="btn btn-success" onclick="queryLocal(event)"><i class="fa fa-search"></i> 查询</button>
+
+									</form>
+
+									<div id="table-toolbar">
+										<button type="button" class="btn btn-primary" title="新增" onclick="addInfo()"><i class="fa fa-plus"></i> 新增</button>
+										<button type="button" class="btn btn-info" title="发布" onclick="prePublish()"><i class="fa fa-cloud-upload"></i> 发布</button>
+										<button type="button" class="btn btn-danger" title="下架" onclick="cancel()"><i class="fa fa-cloud-download"></i> 下架</button>
+										<button type="button" class="btn btn-info" title="编辑" onclick="editInfo();"><i class="fa fa-wrench"></i> 编辑</button>
+										<button type="button" class="btn btn-primary" title="置顶" onclick="stickyPost()"><i class="fa fa-arrow-up"></i> 文章置顶</button>
+										<button type="button" class="btn btn-warning" title="置顶" onclick="cancelStickyPost()"><i class="fa fa-arrow-down"></i> 取消置顶</button>
+										<button type="button" class="btn btn-danger" title="删除" onclick="removeInfo();"><i class="fa fa-trash-o"></i> 删除</button>
+									</div>
+									<table id="table-local" class="table table-bordered"></table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.page-content -->
+			</div>
+			<!-- /.main-content -->
+		</div>
+		<!-- END OF MAIN -->
+
+		<!-- 编辑与添加的模态框 -->
+		<div class="modal fade info-local-modal" id="modal-add">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">新增/编辑</h4>
+					</div>
+					<div class="modal-body" id="task">
+						<form id="form-add" method="post" role="form" class="form-horizontal">
+							<input type="hidden" name="tenantId" value="1">
+							<input type="hidden" name="del" value="0">
+							<input type="hidden" name="status" value="0">
+							<input type="hidden" name="moduleId" value="3">
+							
+							<div class="form-group">
+								<label class="col-sm-2 control-label">来源：</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control validate[required,maxSize[200],minSize[2]]" id="source" name="source" placeholder="来源">
+								</div>
+								<label class="col-sm-2 control-label">标签：</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control validate[required,maxSize[200],minSize[2]]" id="tags" name="tags" placeholder="标签，多个用逗号分隔">
+								</div>
+							</div>
+							<div class="form-group" style="display: flex;align-items: center;">
+								<label class="col-sm-2 control-label">缩略图：</label>
+
+								<div class="col-sm-10" style="overflow: auto;display: flex;">
+									<div style="overflow: auto;margin: 10px 0;display: flex;">
+										<div id="upload-img-view" style="max-width:600px;"></div>
+										<div id="upload-img" style="margin-top:10px;">
+											<img style="width: 120px;height: 120px;" src="http://testapi.zxwave.com/besafe/manager//static/img/upload-img.png">
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"></label>
+								<div class="col-sm-10">
+									<span>
+										建议图片尺寸宽度不低于690px高度不低于372px，大小不超过2M。
+									</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">图片位置：</label>
+								<div class="col-sm-4">
+									<label class="radio-inline"> <input type="radio" name="thumbDisplay" value="1" checked>纯文本</label>
+									<label class="radio-inline"> <input type="radio" name="thumbDisplay" value="2">文本右侧</label>
+									<label class="radio-inline"> <input type="radio" name="thumbDisplay" value="3">文本下方</label>
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">详细内容：</label>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div type="text/plain" id="myEditor" name="content" style="width:100%;"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- /.modal-body -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info" id="preview-btn"><i class="glyphicon glyphicon-phone"></i>预览</button>
+						<button id="save" type="button" class="btn btn-primary" onclick="saveInfo();"><i class="fa fa-floppy-o"></i> 保存</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> 关闭</button>
+					</div>
+
+					<!--预览手机框-->
+					<div class="preview-box">
+						<div class="preview-content">
+							<ul class="preview-type">
+								<li class="active">文章详情</li>
+								<li>文章标题</li>
+							</ul>
+							<div class="glyphicon glyphicon-remove close-preview"></div>
+							<!--文章-->
+							<div class="preview-content-cen">
+								<div class="biaoti-app-img">
+									<img style="width: 100%;" src="http://testapi.zxwave.com/besafe/manager/static/anew/img/app-nav.png" />
+								</div>
+								<div class="preview-content-cen-box">
+									<div class="mui-content bg-white">
+										<!-- 标题 -->
+										<div class="biaoti-app">
+											<div class="title">
+												<h3 id="title-app"></h3>
+												<div class="infos">
+													<div class="info-content">
+														<div class="article-from">
+															<span>来源：<span id="source-app"></span></span>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- 内容 -->
+										<div class="content-app">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--文章标题-->
+							<div class="preview-content-cen preview-content-cen-biaoti" style="display: none;">
+								<div class="biaoti-app-img">
+									<img style="width: 100%;" src="http://testapi.zxwave.com/besafe/manager/static/anew/img/app-nav.png" />
+								</div>
+								<div class="preview-content-cen-box titlePreview">
+									<!--图在右侧-->
+									<div class="img-right">
+										<div class="cen-left">
+											<div>
+												工信部明确公共互联网网络安全突发事件分级预警、应急
+											</div>
+											<span>
+												新华网
+											</span>
+											<span>
+												2017-11-24
+											</span>
+										</div>
+										<div class="cen-right">
+											<img src="扫码下载页/neirong.png"/>
+										</div>
+									</div>
+									<!--图在下面-->
+									<div class="img-bot">
+										<div class="cen-left">
+											工信部明确公共互联网网络安全突发事件分级预警、应急
+										</div>
+										<div class="cen-img">
+											<!--一张图-->
+											<div class="one-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											<!--两张图-->
+											<div class="two-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											<div class="two-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											<!--三张图-->
+											<div class="three-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											<div class="three-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											<div class="three-img">
+												<img src="../img/cS-5.jpg"/>
+											</div>
+											
+										</div>
+										<span>
+											新华网
+										</span>
+										<span>
+											2017-11-24
+										</span>
+									</div>
+									<!--没有图-->
+									<div class="img-none">
+										<div class="cen-left">
+											<div>
+												工信部明确公共互联网网络安全突发事件分级预警、应急
+											</div>
+											<span>
+												新华网
+											</span>
+											<span>
+												2017-11-24
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<!-- 发布区域选择窗口 -->
+		<div class="modal fade  info-local-modal" id="modal-publish">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">发布区域</h4>
+					</div>
+					<div class="modal-body">
+						<form id="form-user-group">
+							<input type="hidden" name="infoId" />
+							<div class="form-group">
+								<label>请选择：</label>
+								<select id="code" class="multiple-options" name="groupId" multiple="multiple">
+
+									<option value="51">104团</option>
+
+									<option value="52">西山农牧场</option>
+
+									<option value="53">二二二团</option>
+
+									<option value="54">三坪农场</option>
+
+									<option value="55">五一农场</option>
+
+									<option value="56">头屯河农场</option>
+
+									<option value="57">二二一团</option>
+
+									<option value="249">测试网格2</option>
+
+								</select>
+							</div>
+							<div class="form-group">
+								<label>推送消息：</label>
+								<div class="btn-group" data-toggle="buttons" id="post">
+									<label class="btn active">
+                                <input type="radio" name="post" value="0" autocomplete="off">否
+                            </label>
+									<label class="btn">
+                                <input type="radio" name="post" value="1" autocomplete="off">是
+                            </label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- /.modal-body -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="publish();"><i class="fa fa-save"></i>  发布</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>  关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/jquery.min.js"></script>
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/multiselect/bootstrap-multiselect.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/messenger/messenger.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/messenger/messenger-theme-flat.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/extend/bootstrap-table/bootstrap-table.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/extend/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/extend/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/multiselect/bootstrap-multiselect.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://testapi.zxwave.com/besafe/manager/static/Validate/jquery.validationEngine.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://testapi.zxwave.com/besafe/manager/static/Validate/jquery.validationEngine-zh_CN.js"></script>
+		<!--<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.image.all.js"></script>-->
+		<!-- 上传组件 -->
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.UI.File.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.UI.Image.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/package/info/local.js"></script>
+		<!-- 本页JS脚本 -->
+
+		<script type="text/javascript">
+			var webSocket_cts = 'ws://testapi.zxwave.com/besafe/backend';
+			var ctx = 'http://testapi.zxwave.com/besafe/manager';
+			var webSocket_code = '6612';
+			var adminIsTrue = false;
+		</script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/js/webSocket.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/anew/js/app.js?v=20171109"></script>
+		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/anew/js/newapp.js?v=20171109"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/**
+				 * 手机预览
+				 */
+				$('#preview-btn').click(function() {
+					//内容校检
+//					if(!$("#form-add").validationEngine("validate")) {
+//						return;
+//					}
+//					if(ue.getContent() == '') {
+//						alert("内容不可为空");
+//						return
+//					}
+					var previewContent = "";
+					previewContent = ue.getContent();//内容
+					var titleVal = $("#title").val(),//标题
+						sourceVal = $("#source").val();//来源
+					var imgSrcArr = [];
+					$('.u-img img').each(function(){//缩略图
+						imgSrcArr.push($(this)[0].src)
+					})
+					
+					//文章详情预览
+					$("#title-app").empty();
+					$("#source-app").empty();
+					$(".content-app").empty();
+					//加载内容
+					$("#title-app").append(titleVal);
+					$("#source-app").append(sourceVal);
+					$(".content-app").append(previewContent);
+					$(".preview-box").fadeIn();
+					
+					//标题预览
+						//清空
+					$('.titlePreview').empty();
+						//纯文本
+					var imgNo = '<div class="img-none">' +
+							'<div class="cen-left">' +
+								'<div>' + titleVal + '</div>' +
+								'<span>' + sourceVal + '</span>' +
+							'</div>' +
+						'</div>';
+					var imgRight = '<div class="img-right">'+
+										'<div class="cen-left">'+
+											'<div>'+titleVal+'</div>'+
+											'<span>'+sourceVal+'</span>'+
+										'</div>'+
+										'<div class="cen-right">'+
+											'<img src="'+imgSrcArr[0]+'"/>'+
+										'</div>'+
+									'</div>';
+					var imgBotOne = '<div class="img-bot">'+
+										'<div class="cen-left">'+titleVal+'</div>'+
+										'<div class="cen-img">'+
+											'<div class="one-img">'+
+												'<img src="'+imgSrcArr[0]+'"/>'+
+											'</div>'+
+										'</div>'+
+										'<span>'+sourceVal+'</span>'+
+									'</div>'
+					var imgBotTwo = '<div class="img-bot">'+
+										'<div class="cen-left">'+titleVal+'</div>'+
+										'<div class="cen-img">'+
+											'<div class="two-img">'+
+												'<img src="'+imgSrcArr[0]+'"/>'+
+											'</div>'+
+											'<div class="two-img">'+
+												'<img src="'+imgSrcArr[1]+'"/>'+
+											'</div>'+
+										'</div>'+
+										'<span>'+sourceVal+'</span>'+
+									'</div>';
+									
+					var imgBotThree = '<div class="img-bot">'+
+										'<div class="cen-left">'+titleVal+'</div>'+
+										'<div class="cen-img">'+
+											'<div class="three-img">'+
+												'<img src="'+imgSrcArr[0]+'"/>'+
+											'</div>'+
+											'<div class="three-img">'+
+												'<img src="'+imgSrcArr[1]+'"/>'+
+											'</div>'+
+											'<div class="three-img">'+
+												'<img src="'+imgSrcArr[2]+'"/>'+
+											'</div>'+
+										'</div>'+
+										'<span>'+sourceVal+'</span>'+
+									'</div>';
+
+					var positionVal = $("input[name='thumbDisplay']:checked").val();//1纯文本2右侧3下方
+					if (positionVal==1) {
+						$('.titlePreview').append(imgNo)
+					} else if(positionVal==2){
+						if(imgSrcArr.length==0){
+							$('.titlePreview').append(imgNo)
+						}else{
+							$('.titlePreview').append(imgRight)
+						}
+					} else if(positionVal==3){
+						if(imgSrcArr.length==0){
+							$('.titlePreview').append(imgNo)
+						}else if (imgSrcArr.length==1) {
+							$('.titlePreview').append(imgBotOne)
+						} else if(imgSrcArr.length==2){
+							$('.titlePreview').append(imgBotTwo)
+						}else{
+							$('.titlePreview').append(imgBotThree)
+						}	
+					}
+
+
+				})
+				//切换标题和内容预览
+				$('.preview-type li').click(function() {
+					$(this).addClass('active').siblings('li').removeClass('active')
+					$('div.preview-content-cen').eq($(this).index()).show().siblings("div.preview-content-cen").hide()
+				})
+				//关闭预览
+				$('.close-preview').click(function() {
+					$(".preview-box").fadeOut()
+				})
+
+
+
+				$('.multiple-options').multiselect({
+					nonSelectedText: '未选择',
+					allSelectedText: '全部',
+					nSelectedText: '已选择',
+					maxHeight: 400
+				});
+
+				//datetimepicker
+				$(".form_date").datetimepicker({
+					language: 'zh-CN',
+					format: 'yyyy-mm-dd',
+					autoclose: true,
+					minView: 2,
+					startView: 2,
+					pickerPosition: "bottom-left"
+				});
+
+				// 数据初始化
+				var tableURL = ctx + '/info/list.json';
+				$('#table-local').bootstrapTable({
+					url: tableURL,
+					uniqueId: "id",
+					showColumns: true,
+					showRefresh: true,
+					showToggle: true,
+					pagination: true,
+					sidePagination: 'server',
+					pageSize: 10, //每页显示的记录数
+					pageNumber: 1, //当前第几页
+					pageList: [10, 25, 50, 100], //记录数可选列表
+					queryParamsType: "undefined",
+					method: 'post',
+					dataType: 'json',
+					toolbar: '#table-toolbar',
+					responseHandler: function(res) {
+						if(res.total != 0) {
+							return {
+								"rows": res.rows,
+								"total": res.total
+							};
+						} else {
+							return {
+								"rows": [],
+								"total": 0
+							};
+						}
+					},
+					queryParams: function(params) {
+						curPageSize = params.pageSize;
+						curPageNumber = params.pageNumber;
+						var formElementArray = $('#form-local').serializeArray();
+						var resultParams = {
+							module: 'Local',
+							pageSize: curPageSize,
+							pageNumber: curPageNumber
+						}
+						for(var i = 0; i < formElementArray.length; i++) {
+							var element = formElementArray[i];
+							resultParams[element.name] = element.value;
+						}
+						return resultParams;
+
+					},
+					columns: [{
+						checkbox: true
+					}, {
+						title: '序号', //标题  可不加
+						align: 'center',
+						width: '5%',
+						formatter: function(value, row, index) {
+							return(curPageNumber - 1) * curPageSize + (index + 1);
+						}
+					}, {
+						field: 'title',
+						title: '标题',
+						formatter: function(value, row, index) {
+							return '<a style="color:#06B3F6" href="' + ctx + '/info/detail/' + row.id + '?back=/info/local">' + row.title + '</a>';
+						}
+					}, {
+						field: 'source',
+						width: '10%',
+						title: '来源'
+					}, {
+						field: 'tags',
+						width: '10%',
+						title: '标签'
+					}, {
+						field: 'code',
+						width: '10%',
+						title: '隶属',
+						formatter: function(value, row, index) {
+							return '新疆兵团十二师';
+						}
+					}, {
+						field: 'createdAt',
+						width: '12%',
+						title: '创建时间'
+					}, {
+						field: 'updatedAt',
+						width: '12%',
+						title: '发布时间'
+					}, {
+						field: 'statusDesc',
+						width: '5%',
+						align: 'center',
+						title: '状态'
+					}, {
+						field: 'isTop',
+						title: '置顶',
+						width: '5%',
+						align: 'center',
+						formatter: function(value, row, index) {
+							if(value == 1) {
+								return '已置顶';
+							} else {
+								return '-';
+							}
+						}
+					}]
+				});
+			});
+
+			function queryLocal(e) {
+				if(e) {
+					e.preventDefault();
+				}
+				// 判定时间
+				var startStr = $('#queryStart').val();
+				var endStr = $('#queryEnd').val();
+				if(startStr != '' && endStr != '') {
+					if(new Date(startStr).getTime() > new Date(endStr).getTime()) {
+						alert('开始时间在结束时间之后，请修改后再查询');
+						return;
+					}
+				}
+
+				curPageNumber = 1;
+				// 首先会应用配置内的参数，在用设定的query中的参数进行覆盖，没有提供的参数则不变
+				$('#table-local').bootstrapTable('refresh', {
+					query: {
+						pageNumber: 1
+					}
+				});
+			}
+
+			// 上传组件 https://github.com/devin87/web-uploader
+
+			var thumbArray = []; // 上传结果缓存数组
+				imageArray = []
+			new Q.Uploader({
+				url: "http://testapi.zxwave.com/besafe/manager/util/upload", //上传接口地址
+				target: document.getElementById("upload-img"), //上传按钮
+				view: document.getElementById('upload-img-view'), //上传任务视图
+				allows: ".jpg,.png,.gif,.bmp,.jpeg", // 允许上传的图片类型
+				on: {
+					remove: function(task) {
+						//移除时重新遍历数据
+						setTimeout(function() {
+							imageArray = []
+							$('.upload-img-obj').each(function() {
+								imageArray.push($(this).data("dataUrl"))
+							})
+							console.log(imageArray)
+						}, 300)
+					},
+					//添加之前触发
+					add: function(task) {
+						//判断上传图片大小
+						if(task.size > 5 * 1024 * 1024) {
+							alert('允许上传的图片大小为5MB');
+							//返回false时该文件不会添加到上传队列
+							return false;
+						}
+						//判断是否为规定格式文件
+						if(task.disabled) return alert("允许上传的文件格式为：" + this.ops.allows);
+						setTimeout(function() {
+							$('.u-img').each(function(index, item) {
+								if($(this).find('.selectedimg').length > 0) {
+									// already exit, do nothing
+								} else {
+									var img = $(this).find('img')[0];
+									var height = $(img)[0].height,
+										width = $(img)[0].width,
+										boxSize = 0;
+									if(width > height) {
+										boxSize = height;
+									} else {
+										boxSize = width;
+									}
+									var html = '<div id="upload_image_' + task.id + '" class="selectedimg" style="width:' + boxSize + 'px;height:' + boxSize + 'px"></div>';
+									$(this).append(html)
+								}
+							})
+						}, 300)
+					},
+					complete: function(result) {
+						// 上传完成回调
+						var data = JSON.parse(result.response).data; //返回json数据
+						var imgUrl = data.url; //获取url
+						//在this添加input用来存值
+						var html = '<input class="upload-img-obj" type="hidden" name="" value="" />';
+						$(result.box).append(html)
+						$(result.box).children("input").data("dataUrl", imgUrl)
+
+						setTimeout(function() {
+							//遍历数据
+							imageArray = []
+							$('.upload-img-obj').each(function() {
+								imageArray.push($(this).data("dataUrl"));
+							});
+							$('#thumbArrayStr').val(imageArray);
+							 console.log(imageArray)
+						}, 300)
+						
+					}
+				}
+
+			});
+
+			function stickyPost() {
+				var items = $('#table-local').bootstrapTable('getSelections');
+				if(items.length == 0) {
+					alert('请选择一篇文章');
+					return;
+				}
+
+				$.ajax({
+					type: "POST",
+					url: 'http://testapi.zxwave.com/besafe/manager' + '/info/stikyPost/' + items[0].id,
+					dataType: 'json',
+					success: function(data) {
+						alert('置顶成功');
+						queryLocal();
+					}
+				});
+			}
+
+			function cancelStickyPost() {
+				var items = $('#table-local').bootstrapTable('getSelections');
+				if(items.length == 0) {
+					alert('请选择一篇文章');
+					return;
+				}
+				var item = items[0];
+				if(item.isTop == 0) {
+					alert('文章未置顶，无需取消');
+					return;
+				}
+
+				$.ajax({
+					type: "POST",
+					url: 'http://testapi.zxwave.com/besafe/manager' + '/info/cancelStikyPost/' + item.id,
+					dataType: 'json',
+					success: function(data) {
+						alert('取消成功');
+						queryLocal();
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>
