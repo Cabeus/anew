@@ -1,0 +1,208 @@
+@charset "UTF-8";
+.benefit-web110 {
+    .alert-icon-box{
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        right: 30px;
+        top: 60px;
+        display: flex;
+        cursor: pointer;
+        img{
+            display: block;
+            margin: auto;
+        }
+        span{
+            width: 10px;
+            height: 10px;
+            display: block;
+            position: absolute;
+            top:5px;
+            right:5px;
+            background: #F25E4B;
+            border-radius: 50%;
+            
+        }
+    }
+    .chat-window {
+        width: 790px;
+        height: 550px;
+        background: #fff;
+        position: absolute;
+        left: calc(50% - 335px);
+        top: calc(50% - 275px);
+        .chat-header {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+            background: #464D5B;
+            font-size: 16px;
+            color: #FFFFFF;
+            span {
+                margin-left: 10px;
+            }
+            .status {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #f44336;
+                margin-left: 5px;
+            }
+            .status.success {
+                background-color: #00e676
+            }
+            .chat-header-right {
+                height: 100%;
+                float: right;
+                span {
+                    cursor: pointer;
+                }
+            }
+        }
+        .chat-con {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            .chat-con-left {
+                width: 185px;
+                height: 500px;
+                .search {
+                    width: 100%;
+                    height: 36px;
+                    padding: 5px;
+                    input {
+                        height: 26px;
+                        width: 100%;
+                        border: 1px solid #D3D3D3;
+                        border-radius: 2px;
+                        font-size: 14px;
+                        padding: 0 5px;
+                        text-align: center;
+                    }
+                }
+                .contact-list {
+                    width: 100%;
+                    height: 464px;
+                    overflow: auto;
+                    .contact {
+                        width: 100%;
+                        height: 58px;
+                        padding: 10px;
+                        display: flex;
+                        cursor: pointer;
+                        &.active {
+                            background: #F5F5F5;
+                        }
+                        img {
+                            width: 38px;
+                            height: 38px;
+                            border-radius: 50%;
+                            display: block;
+                        }
+                        div {
+                            padding: 0 10px;
+                            line-height: 38px;
+                        }
+                        span {
+                            margin: auto 0;
+                            text-align: center;
+                            color: #fff;
+                            font-size: 14px;
+                            width: 18px;
+                            height: 18px;
+                            border-radius: 50%;
+                            background: #F25E4B;
+                        }
+                    }
+                }
+            }
+            .chat-con-right {
+                width: 605px;
+                height: 500px;
+                border-left: 1px solid #EEEEEE;
+                .chat-con-right-top {
+                    width: 100%;
+                    height: 80px;
+                    padding: 10px 20px;
+                    .address {
+                        width: 100%;
+                        height: 30px;
+                        line-height: 30px;
+                        display: flex;
+                        div {
+                            width: 30px;
+                            display: flex;
+                            img {
+                                display: block;
+                                margin: auto;
+                                width: 12px;
+                                height: 15.2px;
+                            }
+                        }
+                    }
+                    .release-time {
+                        width: 100%;
+                        height: 30px;
+                        line-height: 30px;
+                        display: flex;
+                        div {
+                            width: 30px;
+                            display: flex;
+                            img {
+                                display: block;
+                                margin: auto;
+                                width: 13px;
+                                height: 13px;
+                            }
+                        }
+                    }
+                }
+                .chat-con-right-cen {
+                    width: 100%;
+                    height: 320px;
+                    border-top: 1px solid #EEEEEE;
+                    border-bottom: 1px solid #EEEEEE;
+                    overflow: auto;
+                    .chat-content{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                .chat-con-right-bot {
+                    width: 100%;
+                    height: 100px;
+                    #contents {
+                        width: 100%;
+                        height: 100%;
+                        border: 0;
+                        padding: 10px;
+                        font-size: 16px;
+                        color: rgba(0, 0, 0, .65);
+                        resize: none;
+                    }
+                    #post {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        border: 0;
+                        margin: 5px;
+                        width: 80px;
+                        height: 30px;
+                        font-size: 14px;
+                        background-color: #03a9f4;
+                        color: #fff;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                    #post:hover {
+                        background-color: #039be5;
+                    }
+                }
+            }
+        }
+    }
+}
