@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .benefit-web110 {
-    .alert-icon-box{
+    .alert-icon-box {
         width: 74px;
         height: 74px;
         border-radius: 50%;
@@ -10,21 +10,20 @@
         top: 60px;
         display: flex;
         cursor: pointer;
-        img{
+        img {
             display: block;
             margin: auto;
         }
-        span{
-            width: 10px;
-            height: 10px;
-            display: block;
-            position: absolute;
-            top:5px;
-            right:5px;
-            background: #F25E4B;
-            border-radius: 50%;
-            
-        }
+//      span {
+//          width: 10px;
+//          height: 10px;
+//          display: block;
+//          position: absolute;
+//          top: 5px;
+//          right: 5px;
+//          background: #F25E4B;
+//          border-radius: 50%;
+//      }
     }
     .chat-window {
         width: 790px;
@@ -94,8 +93,11 @@
                         padding: 10px;
                         display: flex;
                         cursor: pointer;
-                        &.active {
+                        &.active,&.hasread {
                             background: #F5F5F5;
+                            span{
+                                display: none;
+                            }
                         }
                         img {
                             width: 38px;
@@ -121,13 +123,16 @@
                 }
             }
             .chat-con-right {
+                //右侧聊天
                 width: 605px;
                 height: 500px;
                 border-left: 1px solid #EEEEEE;
                 .chat-con-right-top {
+                    //个人信息
                     width: 100%;
                     height: 80px;
                     padding: 10px 20px;
+                    position: relative;
                     .address {
                         width: 100%;
                         height: 30px;
@@ -144,7 +149,7 @@
                             }
                         }
                     }
-                    .release-time {
+                    .phone {
                         width: 100%;
                         height: 30px;
                         line-height: 30px;
@@ -160,19 +165,112 @@
                             }
                         }
                     }
+                    .show-map{
+                        width: 24px;
+                        height: 24px;
+                        background: url(../img/add-icon.png);
+                        position: absolute;
+                        right:30px;
+                        top: 25px;
+                        cursor: pointer;
+                        &:hover{
+                            background: url(../img/add-iconHover.png);
+                        }
+                    }
                 }
                 .chat-con-right-cen {
+                    //聊天窗口
                     width: 100%;
                     height: 320px;
                     border-top: 1px solid #EEEEEE;
                     border-bottom: 1px solid #EEEEEE;
                     overflow: auto;
-                    .chat-content{
+                    .chat-content {
                         width: 100%;
                         height: auto;
+//                      display: none;
+                        &.show{
+                            display: block;
+                        }
+                        .user-chat {
+                            display: inline-flex;
+                            position: relative;
+                            background-color: #e3f2fd;
+                            padding: 10px;
+                            margin: 10px 10px 10px 10px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            color: #333;
+                            width: auto;
+                            max-width: 60%;
+                            //                          white-space: pre;
+                            align-items: center;
+                            &:before {
+                                position: absolute;
+                                bottom: 13px;
+                                left: -7px;
+                                content: '';
+                                display: inline-block;
+                                border-top: 8px solid transparent;
+                                border-bottom: 8px solid transparent;
+                                border-right: 8px solid #e3f2fd;
+                            }
+                            .img {
+                                width: auto;
+                                max-width: 100%;
+                                img {
+                                    width: auto;
+                                    max-width: 100%;
+                                }
+                            }
+                            .video {
+                                width: auto;
+                                max-width: 100%;
+                                position: relative;
+                                video {
+                                    width: auto;
+                                    max-width: 100%;
+                                }
+                                p {
+                                    width: 48px;
+                                    height: 48px;
+                                }
+                                .video-cover {
+                                    position: absolute;
+                                    left: calc(50% - 24px);
+                                    top: calc(50% - 24px);
+                                }
+                            }
+                        }
+                        .admin-chat {
+                            display: inline-flex;
+                            position: relative;
+                            background-color: #e3f2fd;
+                            padding: 10px;
+                            margin: 10px 10px 10px 10px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            color: #333;
+                            width: auto;
+                            max-width: 60%;
+                            float: right;
+                            //                          white-space: pre;
+                            align-items: center;
+                            &:before {
+                                position: absolute;
+                                bottom: 13px;
+                                right: -7px;
+                                content: '';
+                                display: inline-block;
+                                border-top: 8px solid transparent;
+                                border-bottom: 8px solid transparent;
+                                border-left: 8px solid #e3f2fd;
+                            }
+                        }
                     }
                 }
                 .chat-con-right-bot {
+                    //文字编辑窗口
                     width: 100%;
                     height: 100px;
                     #contents {

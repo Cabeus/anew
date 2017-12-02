@@ -1754,6 +1754,227 @@ td {
       background: url(../img/Play-voice-icon.png) no-repeat 0px 0px;
       background-size: 25px;
       animation: audio_playing 2s infinite; }
+.task-detail #task-track {
+  margin-top: 10px;
+  position: relative; }
+.task-detail .panel1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 400px;
+  height: calc(100% - 10px);
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5); }
+  .task-detail .panel1 .page-title {
+    width: 400px;
+    height: 50px;
+    background: #464D5B; }
+    .task-detail .panel1 .page-title p {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 20px;
+      color: #fff; }
+      .task-detail .panel1 .page-title p a {
+        float: left;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-left: 5px; }
+        .task-detail .panel1 .page-title p a img {
+          width: 50%;
+          display: inline-flex;
+          vertical-align: middle; }
+      .task-detail .panel1 .page-title p span {
+        float: right;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        margin-right: 5px; }
+        .task-detail .panel1 .page-title p span img {
+          width: 50%;
+          display: inline-flex;
+          vertical-align: middle; }
+  .task-detail .panel1 .panel-tab {
+    width: 400px;
+    height: 40px;
+    background: #3E4351; }
+    .task-detail .panel1 .panel-tab p {
+      display: block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      overflow: hidden; }
+      .task-detail .panel1 .panel-tab p span {
+        color: #fff;
+        font-size: 14px;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+        float: left; }
+        .task-detail .panel1 .panel-tab p span.active {
+          background: #333947; }
+  .task-detail .panel1 .panel-content .now .search {
+    height: 40px;
+    line-height: 40px;
+    width: 400px; }
+    .task-detail .panel1 .panel-content .now .search span {
+      height: 100%;
+      float: left;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      color: #000000; }
+      .task-detail .panel1 .panel-content .now .search span input {
+        display: inline-block;
+        width: 210px;
+        height: 32px;
+        border-radius: 4px;
+        margin-left: 5px;
+        border: 0px;
+        padding-left: 5px; }
+      .task-detail .panel1 .panel-content .now .search span b {
+        color: #fff; }
+      .task-detail .panel1 .panel-content .now .search span .do-search {
+        display: inline-block;
+        line-height: 32px;
+        margin-top: 5px;
+        width: 70px;
+        height: 32px;
+        float: left;
+        font-weight: normal;
+        cursor: pointer;
+        background: #1E93FF;
+        border-radius: 5px;
+        margin-left: 10px; }
+      .task-detail .panel1 .panel-content .now .search span .clean-search {
+        display: inline-block;
+        line-height: 32px;
+        margin-top: 5px;
+        width: 70px;
+        height: 33px;
+        float: left;
+        font-weight: normal;
+        cursor: pointer;
+        background: #F25E4B;
+        border-radius: 5px;
+        margin-left: 10px; }
+  .task-detail .panel1 .panel-content .now .lists {
+    color: #fff; }
+    .task-detail .panel1 .panel-content .now .lists .item {
+      height: 40px;
+      padding: 0 10px;
+      margin: 0; }
+      .task-detail .panel1 .panel-content .now .lists .item.active {
+        background: #666; }
+      .task-detail .panel1 .panel-content .now .lists .item p {
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        position: relative; }
+        .task-detail .panel1 .panel-content .now .lists .item p span {
+          margin: 0 15px;
+          padding: 0; }
+        .task-detail .panel1 .panel-content .now .lists .item p .account {
+          float: right;
+          color: #fff;
+          font-size: 14px; }
+        .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"] {
+          -webkit-appearance: none;
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          background: #fff;
+          margin-top: 12px; }
+        .task-detail .panel1 .panel-content .now .lists .item p input[type="radio"] {
+          position: absolute;
+          height: 40px;
+          line-height: 40px;
+          margin: 0;
+          cursor: pointer; }
+        .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:checked {
+          background: darkorange;
+          outline: none; }
+        .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:focus {
+          outline: none; }
+  .task-detail .panel1 .panel-content .history {
+    display: none; }
+    .task-detail .panel1 .panel-content .history .timepicker input {
+      display: inline-block;
+      width: 140px;
+      height: 33px;
+      border-radius: 4px;
+      margin-left: 5px;
+      border: 0px;
+      padding-left: 5px; }
+    .task-detail .panel1 .panel-content .history .do-search {
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      line-height: 32px;
+      margin-top: 5px;
+      width: 70px;
+      height: 33px;
+      font-weight: normal;
+      cursor: pointer;
+      background: #1E93FF;
+      border-radius: 5px;
+      margin-left: 10px; }
+    .task-detail .panel1 .panel-content .history .lists {
+      color: #fff; }
+      .task-detail .panel1 .panel-content .history .lists .item {
+        height: 40px;
+        padding: 0 10px;
+        margin: 0; }
+        .task-detail .panel1 .panel-content .history .lists .item.active {
+          background: #666; }
+        .task-detail .panel1 .panel-content .history .lists .item p {
+          height: 40px;
+          line-height: 40px;
+          cursor: pointer;
+          position: relative;
+          display: flex; }
+          .task-detail .panel1 .panel-content .history .lists .item p span {
+            margin: 0 15px;
+            padding: 0; }
+          .task-detail .panel1 .panel-content .history .lists .item p .status {
+            display: flex; }
+          .task-detail .panel1 .panel-content .history .lists .item p .account {
+            flex: 1;
+            color: #fff;
+            font-size: 14px;
+            text-align: right; }
+          .task-detail .panel1 .panel-content .history .lists .item p .hashistory {
+            display: block;
+            width: 80px;
+            height: 5px;
+            margin: auto;
+            border-radius: 10px; }
+          .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"] {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background: #fff;
+            margin-top: 12px; }
+          .task-detail .panel1 .panel-content .history .lists .item p input[type="radio"] {
+            position: absolute;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            cursor: pointer; }
+          .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"]:checked {
+            background: darkorange;
+            outline: none; }
+          .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"]:focus {
+            outline: none; }
+.task-detail span.BMap_Marker div, .task-detail span.BMap_noprint {
+  border-radius: 50%; }
+.task-detail span.BMap_Marker div img {
+  width: 48px;
+  height: 48px; }
 
 .info-local-modal #post {
   border: 1px solid #ccc;
@@ -2123,15 +2344,6 @@ td {
   .benefit-web110 .alert-icon-box img {
     display: block;
     margin: auto; }
-  .benefit-web110 .alert-icon-box span {
-    width: 10px;
-    height: 10px;
-    display: block;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: #F25E4B;
-    border-radius: 50%; }
 .benefit-web110 .chat-window {
   width: 790px;
   height: 550px;
@@ -2192,8 +2404,10 @@ td {
           padding: 10px;
           display: flex;
           cursor: pointer; }
-          .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact.active {
+          .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact.active, .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact.hasread {
             background: #F5F5F5; }
+            .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact.active span, .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact.hasread span {
+              display: none; }
           .benefit-web110 .chat-window .chat-con .chat-con-left .contact-list .contact img {
             width: 38px;
             height: 38px;
@@ -2218,7 +2432,8 @@ td {
       .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top {
         width: 100%;
         height: 80px;
-        padding: 10px 20px; }
+        padding: 10px 20px;
+        position: relative; }
         .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .address {
           width: 100%;
           height: 30px;
@@ -2232,19 +2447,29 @@ td {
               margin: auto;
               width: 12px;
               height: 15.2px; }
-        .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .release-time {
+        .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .phone {
           width: 100%;
           height: 30px;
           line-height: 30px;
           display: flex; }
-          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .release-time div {
+          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .phone div {
             width: 30px;
             display: flex; }
-            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .release-time div img {
+            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .phone div img {
               display: block;
               margin: auto;
               width: 13px;
               height: 13px; }
+        .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .show-map {
+          width: 24px;
+          height: 24px;
+          background: url(../img/add-icon.png);
+          position: absolute;
+          right: 30px;
+          top: 25px;
+          cursor: pointer; }
+          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-top .show-map:hover {
+            background: url(../img/add-iconHover.png); }
       .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen {
         width: 100%;
         height: 320px;
@@ -2254,6 +2479,71 @@ td {
         .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content {
           width: 100%;
           height: auto; }
+          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content.show {
+            display: block; }
+          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat {
+            display: inline-flex;
+            position: relative;
+            background-color: #e3f2fd;
+            padding: 10px;
+            margin: 10px 10px 10px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            width: auto;
+            max-width: 60%;
+            align-items: center; }
+            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat:before {
+              position: absolute;
+              bottom: 13px;
+              left: -7px;
+              content: '';
+              display: inline-block;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-right: 8px solid #e3f2fd; }
+            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .img {
+              width: auto;
+              max-width: 100%; }
+              .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .img img {
+                width: auto;
+                max-width: 100%; }
+            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .video {
+              width: auto;
+              max-width: 100%;
+              position: relative; }
+              .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .video video {
+                width: auto;
+                max-width: 100%; }
+              .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .video p {
+                width: 48px;
+                height: 48px; }
+              .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .user-chat .video .video-cover {
+                position: absolute;
+                left: calc(50% - 24px);
+                top: calc(50% - 24px); }
+          .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .admin-chat {
+            display: inline-flex;
+            position: relative;
+            background-color: #e3f2fd;
+            padding: 10px;
+            margin: 10px 10px 10px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            width: auto;
+            max-width: 60%;
+            float: right;
+            align-items: center; }
+            .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-cen .chat-content .admin-chat:before {
+              position: absolute;
+              bottom: 13px;
+              right: -7px;
+              content: '';
+              display: inline-block;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid #e3f2fd; }
       .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-bot {
         width: 100%;
         height: 100px; }
