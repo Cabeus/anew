@@ -13,7 +13,7 @@
 
 		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/bootstrap-theme.css">
 
-		<link rel="stylesheet" href="../webim/src/css/style.css">
+		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/webim/src/css/style.css">
 
 		<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/css/grid/main.css?v=20171113">
 
@@ -665,7 +665,8 @@
 									<video id="privateVideo"></video>
 								</div>
 							</div>
-
+							
+							<!--报警按钮-->
 							<div class="alert-icon-box">
 								<img src="img/alerticon.png" />
 								<img src="img/alerticon.gif" style="display: none;" />
@@ -688,20 +689,24 @@
 									<!--联系人列表-->
 									<div class="chat-con-left">
 										<div class="search">
-											<input type="search" name="" id="" value="" placeholder="搜索" />
+											<input type="search" name="" id="searchchat" value="" placeholder="搜索" />
 										</div>
 										<div class="contact-list">
-											<div class="contact">
+											<!--<div class="contact">
 												<img src="../image/favicon.png" />
 												<div>李欣怡</div>
 												<span>5</span>
 											</div>
 											<div class="contact active">
 												<img src="../image/favicon.png" />
-												<div>李欣怡</div>
+												<div>章泽天</div>
 												<span>5</span>
+											</div>-->
+											<div class="no-contact-list">
+												<img src="img/no-tact-list.png"/>
 											</div>
 										</div>
+										
 									</div>
 									<!--聊天框内容-->
 									<div class="chat-con-right">
@@ -792,6 +797,10 @@
 											<textarea id="contents" rows="4"></textarea>
 											<button id="post">发送</button>
 										</div>
+										<!--没有聊天时站位图-->
+										<!--<div class="no-chat">
+											<img src="img/no-chct.png"/>
+										</div>-->
 									</div>
 								</div>
 							</div>
@@ -823,7 +832,7 @@
 		<!-- own -->
 		<!--<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/webim/src/js/app.js?v=20171113"></script>-->
 		<!-- <script src="../webim/src/js/napp.js" type="text/javascript" charset="utf-8"></script> -->
-		<script src="../webim/src/js/最新.js"></script>
+		<script src="../webim/src/js/app.js"></script>
 
 		<script type="text/javascript">
 			var webSocket_cts = 'ws://testapi.zxwave.com/besafe/backend';
@@ -974,6 +983,20 @@
 				function alertAnimation(){
 					$('.alert-icon-box img').first().show().siblings("img").hide();
 				}
+				/**
+				 * 搜索联系人
+				 */
+				$('#searchchat').bind('input propertychange', function(){  
+		            $('.contact-list .contact div').each(function(){
+		            	if ($('#searchchat').val() == '') {
+		            		$(this).parents('.contact').show()
+		            	}else if ( $(this).text().indexOf($('#searchchat').val()) != -1) {
+		            		$(this).parents('.contact').show()
+		            	} else{
+		            		$(this).parents('.contact').hide()
+		            	}
+		            }) 
+			    });  
 				
 			})
 		</script>

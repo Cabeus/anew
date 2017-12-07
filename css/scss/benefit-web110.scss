@@ -14,16 +14,16 @@
             display: block;
             margin: auto;
         }
-//      span {
-//          width: 10px;
-//          height: 10px;
-//          display: block;
-//          position: absolute;
-//          top: 5px;
-//          right: 5px;
-//          background: #F25E4B;
-//          border-radius: 50%;
-//      }
+        //      span {
+        //          width: 10px;
+        //          height: 10px;
+        //          display: block;
+        //          position: absolute;
+        //          top: 5px;
+        //          right: 5px;
+        //          background: #F25E4B;
+        //          border-radius: 50%;
+        //      }
     }
     .chat-window {
         width: 790px;
@@ -69,6 +69,7 @@
             .chat-con-left {
                 width: 185px;
                 height: 500px;
+                background: #FDFCFD;
                 .search {
                     width: 100%;
                     height: 36px;
@@ -81,6 +82,7 @@
                         font-size: 14px;
                         padding: 0 5px;
                         text-align: center;
+                        background: #E0E0E0;
                     }
                 }
                 .contact-list {
@@ -90,12 +92,18 @@
                     .contact {
                         width: 100%;
                         height: 58px;
+                        overflow: hidden;
                         padding: 10px;
                         display: flex;
                         cursor: pointer;
-                        &.active,&.hasread {
+                        &.active {
                             background: #F5F5F5;
-                            span{
+                            span {
+                                display: none;
+                            }
+                        }
+                        &.hasread {
+                            span {
                                 display: none;
                             }
                         }
@@ -108,6 +116,8 @@
                         div {
                             padding: 0 10px;
                             line-height: 38px;
+                            width: 100px;
+                            overflow: hidden;
                         }
                         span {
                             margin: auto 0;
@@ -121,18 +131,28 @@
                         }
                     }
                 }
+                .no-contact-list {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    img{
+                        margin: auto;
+                    }
+                }
             }
             .chat-con-right {
                 //右侧聊天
                 width: 605px;
                 height: 500px;
                 border-left: 1px solid #EEEEEE;
+                position: relative;
                 .chat-con-right-top {
                     //个人信息
                     width: 100%;
                     height: 80px;
                     padding: 10px 20px;
-                    position: relative;
+                    background: #FDFCFD;
+                    
                     .address {
                         width: 100%;
                         height: 30px;
@@ -165,15 +185,15 @@
                             }
                         }
                     }
-                    .show-map{
+                    .show-map {
                         width: 24px;
                         height: 24px;
                         background: url(../img/add-icon.png);
                         position: absolute;
-                        right:30px;
+                        right: 30px;
                         top: 25px;
                         cursor: pointer;
-                        &:hover{
+                        &:hover {
                             background: url(../img/add-iconHover.png);
                         }
                     }
@@ -181,21 +201,25 @@
                 .chat-con-right-cen {
                     //聊天窗口
                     width: 100%;
-                    height: 320px;
+                    height: 314px;
                     border-top: 1px solid #EEEEEE;
                     border-bottom: 1px solid #EEEEEE;
                     overflow: auto;
+                    position: relative;
                     .chat-content {
                         width: 100%;
                         height: auto;
-//                      display: none;
-                        &.show{
+                        display: none;
+                        &.show {
                             display: block;
+                        }
+                        >div{
+                            clear: both;
                         }
                         .user-chat {
                             display: inline-flex;
                             position: relative;
-                            background-color: #e3f2fd;
+                            background-color: #f5f5f5;
                             padding: 10px;
                             margin: 10px 10px 10px 10px;
                             border-radius: 5px;
@@ -213,7 +237,7 @@
                                 display: inline-block;
                                 border-top: 8px solid transparent;
                                 border-bottom: 8px solid transparent;
-                                border-right: 8px solid #e3f2fd;
+                                border-right: 8px solid #f5f5f5;
                             }
                             .img {
                                 width: auto;
@@ -245,7 +269,7 @@
                         .admin-chat {
                             display: inline-flex;
                             position: relative;
-                            background-color: #e3f2fd;
+                            background-color: #EBF8FF;
                             padding: 10px;
                             margin: 10px 10px 10px 10px;
                             border-radius: 5px;
@@ -264,7 +288,7 @@
                                 display: inline-block;
                                 border-top: 8px solid transparent;
                                 border-bottom: 8px solid transparent;
-                                border-left: 8px solid #e3f2fd;
+                                border-left: 8px solid #EBF8FF;
                             }
                         }
                     }
@@ -272,7 +296,7 @@
                 .chat-con-right-bot {
                     //文字编辑窗口
                     width: 100%;
-                    height: 100px;
+                    height: 106px;
                     #contents {
                         width: 100%;
                         height: 100%;
@@ -281,14 +305,19 @@
                         font-size: 16px;
                         color: rgba(0, 0, 0, .65);
                         resize: none;
+                        &:focus{
+                            box-shadow: none;
+                            outline: none;
+                            border: 0;
+                        }
                     }
                     #post {
                         position: absolute;
-                        bottom: 0;
-                        right: 0;
+                        bottom: 10px;
+                        right: 10px;
                         border: 0;
                         margin: 5px;
-                        width: 80px;
+                        width: 60px;
                         height: 30px;
                         font-size: 14px;
                         background-color: #03a9f4;
@@ -298,6 +327,18 @@
                     }
                     #post:hover {
                         background-color: #039be5;
+                    }
+                }
+                .no-chat{
+                    width: 605px;
+                    height: 393px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    background: #fff;
+                    img{
+                        margin: auto;
                     }
                 }
             }

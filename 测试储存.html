@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+	</head>
+
+	<body style="background: #000;box-sizing: border-box;">
+		<div class="benefit-web110">
+
+			<!--报警按钮-->
+			<div class="alert-icon-box">
+				<img src="img/alerticon.png" />
+				<img src="img/alerticon.gif" style="display: none;" />
+				<!--<span class=""></span>-->
+			</div>
+			<!--聊天窗口-->
+			<div class="chat-window">
+				<!--聊天标题-->
+				<div class="chat-header">
+					<span>接警信息窗口</span>
+					<span>接警人：西山民警 </span>
+					<span>通信状态</span>
+					<span class="status"></span>
+					<div class="chat-header-right">
+						<span onclick="lishixiaoxi()"><img src="img/HistoryrecordIcon.png"/></span>
+						<span class="close-box"><img src="img/Closeicon.png"/></span>
+					</div>
+				</div>
+				<div class="chat-con">
+					<!--联系人列表-->
+					<div class="chat-con-left">
+						<div class="search">
+							<input type="search" name="" id="searchchat" value="" placeholder="搜索" />
+						</div>
+						<div class="contact-list">
+							<div class="contact">
+								<img src="../image/favicon.png" />
+								<div>李欣怡</div>
+								<span>5</span>
+							</div>
+							<div class="contact active">
+								<img src="../image/favicon.png" />
+								<div>章泽天</div>
+								<span>5</span>
+							</div>
+						</div>
+					</div>
+					<!--聊天框内容-->
+					<div class="chat-con-right">
+						<!--信息-->
+						<div class="chat-con-right-top">
+							<div class="address">
+								<div>
+									<img src="img/Locationicon.png" />
+								</div>
+								<span>维吾尔族自治区乌鲁木齐</span>
+							</div>
+							<div class="phone">
+								<div>
+									<img src="img/phone.png" />
+								</div>
+								<span>13313313311</span>
+							</div>
+							<div class="show-map">
+								<!--<img src="img/add-icon.png"/>-->
+							</div>
+						</div>
+						<!--聊天内容-->
+						<div class="chat-con-right-cen">
+							<div class="chat-content">
+								<!--文字-->
+								<div>
+									<div class="user-chat">
+										<span class="user"></span>
+										<div class="text">文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息</div>
+									</div>
+								</div>
+								<!--图片-->
+								<div>
+									<div class="user-chat">
+										<span class="user"></span>
+										<div class="img">
+											<img src="img/alerticon.gif" />
+										</div>
+									</div>
+								</div>
+								<!--语音-->
+								<div>
+									<div class="user-chat">
+										<span class="user"></span>
+										<div class="msg-audio">
+											<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/audio.png">
+											<span>12'</span>
+											<audio src="../rescue/sound.mp3"></audio>
+										</div>
+									</div>
+								</div>
+								<!--视频-->
+								<div>
+									<div>
+										<div class="user-chat">
+											<div class="video">
+												<video src="img/9026c7f49d125958a776b5cc04fe4c92.mp4"></video>
+												<p class="video-cover">
+													<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/play.png">
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="user-chat">
+										<div class="video" id="">
+											<div class="video-loading">
+												<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/loading.gif">
+												<span>视频加载中...</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--本地管理员发送-->
+								<div>
+									<div class="admin-chat">
+										<span class="user"></span>
+										<div class="text">文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息文本消息</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!--发送消息框-->
+						<div class="chat-con-right-bot">
+							<textarea id="contents" rows="4" style="box-sizing: border-box;"></textarea>
+							<button id="post">发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="dianji1" style="background: #fff;width: 5cm;height: 2cm;">
+			相同管理员，用户，消息；
+		</div>
+		<div class="dianji2" style="background: #fff;width: 5cm;height: 2cm;">
+			相同管理员，不同用户，消息；
+		</div>
+		<div class="dianji3" style="background: #fff;width: 5cm;height: 2cm;">
+			不同管理员，用户，消息；
+		</div>
+		<div class="dianji4" style="background: #fff;width: 5cm;height: 2cm;">
+			不同管理员，不同用户，消息；
+		</div>
+
+		<script src="js/lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/**
+				 * 打开关闭聊天窗口
+				 */
+				$('.alert-icon-box').click(function() {
+					$('.chat-window').show();
+				})
+				$('.close-box').click(function() {
+					$('.chat-window').hide();
+				})
+				$('.show-map').click(function() {
+					$('.chat-window').hide();
+				})
+				/**
+				 * 有新消息时警报
+				 */
+				//开始动画
+				function alertAnimation() {
+					$('.alert-icon-box img').last().show().siblings("img").hide();
+				}
+				//停止动画
+				function alertAnimation() {
+					$('.alert-icon-box img').first().show().siblings("img").hide();
+				}
+				/**
+				 * 搜索联系人
+				 */
+				$('#searchchat').bind('input propertychange', function() {
+					$('.contact-list .contact div').each(function() {
+						if($('#searchchat').val() == '') {
+							$(this).parents('.contact').show()
+						} else if($(this).text().indexOf($('#searchchat').val()) != -1) {
+							$(this).parents('.contact').show()
+						} else {
+							$(this).parents('.contact').hide()
+						}
+					})
+				});
+
+			})
+		</script>
+
+		<script type="text/javascript">
+//			var historyChat = [{
+//			from: "1600c30af090002"
+//			id: "407936220027422692"
+//			to: "16016bf436e0002"
+//
+//			adminID:"1",
+//				data: [{
+//					userID: "10001",
+//					userName: "刘强东",
+//					userIcon: "../../WEB-INF/views/commons/assets/img/clean.png",
+//					list: [{
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}, {
+//						time: "2017-01-01",
+//						type: 1,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}]
+//				}, {
+//					userID: "10002",
+//					userName: "马化腾",
+//					userIcon: "../../WEB-INF/views/commons/assets/img/clean.png",
+//					list: [{
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}, {
+//						time: "2017-01-01",
+//						type: 1,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}]
+//				}, ]
+//
+//			},{
+//				adminID: "2",
+//				data: [{
+//					userID: "10001",
+//					userName: "刘强东",
+//					userIcon: "../../WEB-INF/views/commons/assets/img/clean.png",
+//					list: [{
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}, {
+//						time: "2017-01-01",
+//						type: 1,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}]
+//				}, {
+//					userID: "10002",
+//					userName: "马化腾",
+//					userIcon: "../../WEB-INF/views/commons/assets/img/clean.png",
+//					list: [{
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}, {
+//						time: "2017-01-01",
+//						type: 1,
+//						chatType: "txt",
+//						data: "文本"
+//					}, {
+//						time: "2017-01-01",
+//						type: 0,
+//						chatType: "img",
+//						data: "../../WEB-INF/views/commons/assets/img/clean.png"
+//					}]
+//				}, ]
+//
+//			}]
+
+			$('.dianji1').click(function(){
+				SaveHistoryChat(to01fr01);
+				console.log(historyChat)
+			})
+			$('.dianji2').click(function(){
+				SaveHistoryChat(to01fr02);
+				console.log(historyChat)
+			})
+			$('.dianji3').click(function(){
+				SaveHistoryChat(to02fr01);
+				console.log(historyChat)
+			})
+			$('.dianji4').click(function(){
+				SaveHistoryChat(to02fr02);
+				console.log(historyChat)
+			})
+			
+			
+			var historyChat = [];
+			
+			var to01fr01 = {
+					data: "8888",
+					from: "20001",
+					to: "10001",
+					type: "chat"
+				};
+			var to01fr02 = {
+					data: "8888",
+					from: "20002",
+					to: "10001",
+					type: "chat"
+				}
+			var to02fr01 = {
+					data: "8888",
+					from: "20001",
+					to: "10002",
+					type: "chat"
+				}
+			var to02fr02 = {
+					data: "8888",
+					from: "20002",
+					to: "10002",
+					type: "chat"
+				}
+			
+			
+			/**
+			 * 判断是否有存储历史记录
+			 */
+			if (localStorage.historyChat) {
+				var historyChat = JSON.parse(localStorage.historyChat);
+			} else{
+				var historyChatStr = JSON.stringify(historyChat)
+				// 存储
+				localStorage.historyChat = historyChatStr;
+			}
+	
+			
+			/**
+			 * 存储消息到本地
+			 */
+			function SaveHistoryChat(message) {
+				var to = message.to,//管理员id
+					from = message.from,//报警人id
+					type = message.type,//消息类型
+					data = message.data;//消息内容
+			
+//				if(historyChat.length) {//判断是否有管理员记录
+//					console.log("有管理员")
+////					console.log(historyChat)
+					//拿出当前管理员聊天
+					var ThisHistoryChat = historyChat.filter(function(item) {  
+						return item.to == to;
+					});
+					//拿出非当前管理员信息
+					var oldHistoryChat = historyChat.filter(function(item) {  
+						return item.to != to;
+					});	
+//					console.log(ThisHistoryChat);
+//					console.log(newHistoryChat);
+					
+					if(ThisHistoryChat.length) {//
+//						console.log("有当前管理员")
+//						console.log(ThisHistoryChat)
+						//拿出当前的记录
+						var ThisHistoryChat1 = ThisHistoryChat[0].list.filter(function(item) {  
+							return item.from == from;
+						});
+						//拿出非当前的记录
+						var ThisHistoryChat2 = ThisHistoryChat[0].list.filter(function(item) {  
+							return item.from != from;
+						});
+//						console.log(ThisHistoryChat1);
+//						console.log(ThisHistoryChat2);
+						
+						if(ThisHistoryChat1.length){
+//							console.log("有当前用户");
+							var thisChat = {
+								chatType:type,
+								data:data,
+								type:0
+							}
+							ThisHistoryChat1[0].list.push(thisChat);
+						}else{
+//							console.log("没有当前用户");
+							var thisFrom= {
+								from:from,
+								list:[{
+									chatType:type,
+									data:data,
+									type:0
+								}]
+							};
+							ThisHistoryChat[0].list.push(thisFrom)
+						}
+					} else {
+//						console.log("无当前当前管理员")
+						var thisAdminChat = {
+							to : to,
+							list : [{
+								from:from,
+								list:[{
+									chatType:type,
+									data:data,
+									type:0
+								}]
+							}]
+						}
+						ThisHistoryChat.push(thisAdminChat);
+					}
+					
+					historyChat = ThisHistoryChat.concat(oldHistoryChat);
+					
+					
+//					historyChat.push(ThisHistoryChat);
+//					historyChat.push(newHistoryChat)
+					
+//				} else {//没有管理员记录，添加记录
+//					console.log("没有有管理员");
+//					var thisAdminChat = {
+//						to : to,
+//						list : [{
+//							from:from,
+//							list:[{
+//								chatType:type,
+//								data:data,
+//								type:0
+//							}]
+//						}]
+//					}
+//					historyChat.push(thisAdminChat)
+//				}
+			}
+			
+			
+			/**
+			 * 获取历史信息
+			 */
+			function getHistoryChat(id,historyChat) {
+				if(obj.adminID == 1) {
+					for(let i in obj.data) {
+						//						console.log(obj.data[i]);
+						var objdata = obj.data[i];
+						var html = '<div class="contact" id="' + objdata.userID + '">' +
+							'<img src="' + objdata.userIcon + '">' +
+							'<div>' + objdata.userName + '</div>' +
+							'</div>';
+						$('.contact-list').append(html);
+						//                      console.log(objdata.userID)
+
+						var chatCen = $('.chat-con-right-cen'); //聊天内容框
+						//              			 chatIDfrom = $('.chat-con-right-cen #' + objdata.userID); //单个聊天框
+
+						//聊天Box
+						
+						var html = '';
+						for(let i in objdata.list) {					
+							//文本
+							var chatText = '<div>' +
+								'<div class="user-chat">' +
+								'<div class="text">' + objdata.list[i].data + '</div>' +
+								'</div>' +
+								'</div>';
+
+							//图片
+							var chatImg = '<div>' +
+								'<div class="user-chat">' +
+								'<div class="img">' +
+								'<img src="' + objdata.list[i].data + '" />' +
+								'</div>' +
+								'</div>' +
+								'</div>'; 
+							//语音
+							var chatAudio = '<div>' +
+								'<div class="user-chat">' +
+								'<div class="msg-audio">' +
+								'<img src="http://testapi.zxwave.com/besafe/manager/static/webim/src/img/audio.png">' +
+								'<span>' + objdata.list[i].length + '</span>' +
+								'<audio src="' + objdata.list[i].playUrl + '"></audio>' +
+								'</div>' +
+								'</div>' +
+								'</div>';
+							if (objdata.list[i].type==0) {
+								if (objdata.list[i].chatType == "txt") {
+									html+= chatText;
+								} else if(objdata.list[i].chatType == "img"){
+									html+= chatImg;
+								}
+								
+								
+							} else if(objdata.list[i].type==1){
+								if (objdata.list[i].chatType == "txt") {
+									html+= chatText;
+								} else if(objdata.list[i].chatType == "img"){
+									html+= chatImg;
+								}
+							}
+								
+							
+
+						}
+						console.log(html)
+						var chatBox = '<div class="chat-content" id="' + objdata.userID + '">'+html+'</div>';
+						chatCen.append(chatBox);
+
+					}
+				} else {
+					alert("暂无记录")
+				}
+			}
+		</script>
+	</body>
+
+</html>
