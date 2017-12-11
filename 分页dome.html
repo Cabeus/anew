@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<style type="text/css">
+			.clearfix {
+				zoom: 1;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.hide {
+				display: none;
+			}
+			
+			.notContent {
+				padding: 15px 0;
+				text-align: center;
+			}
+			
+			.page {
+				/*text-align: center;*/
+				width: 100%;
+				/*margin: 0 auto;*/
+			}
+			
+			.pageMenu {
+				display: inline-block;
+				position: relative;
+				left: 20%;
+			}
+			
+			.pageMenu li {
+				border: solid thin #ddd;
+				margin: 3px;
+				float: left;
+				padding: 5px 10px;
+				cursor: pointer;
+				background: #fff;
+			}
+			
+			.pageMenu li.firstPage {}
+			
+			.pageMenu li.prevPage {}
+			
+			.pageMenu li.pageNum {}
+			
+			.pageMenu li.nextPage {}
+			
+			.pageMenu li.lastPage {}
+			
+			.pageMenu li.disabled {
+				background-color: #DDDDDD;
+				cursor: not-allowed;
+			}
+			
+			.pageMenu li.active {
+				border: solid thin #0099FF;
+				background-color: #0099FF;
+				color: white;
+			}
+			
+			.pageMenu li.last {
+				background: transparent;
+				border: 0;
+				position: relative;
+				top: -4px;
+			}
+			
+			.page .keuInput {
+				padding: 0 5px;
+				width: 40px;
+				border: solid thin #ddd;
+				height: 30px;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			.page .btnSure {
+				padding: 4px 8px;
+				border: solid thin #ddd;
+				outline: none;
+				text-align: center;
+				font-size: 16px;
+				background: #fff;
+				position: relative;
+				top: 0px;
+			}
+			
+			.page .btnSure:hover {
+				cursor: pointer;
+			}
+			
+			.pageObj {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="taskPageBox">
+			<div class="taskPage pageDiv clearfix">
+
+			</div>
+
+			<div class="page">
+				<ul class="pageMenu clearfix">
+					<li class="prevPage"> &lt; </li>
+					<div class="pageObj clearfix">
+
+					</div>
+					<li class="nextPage"> &gt; </li>
+					<li class="last" style="font-size: 14px;">
+						共<span class="totalPage"></span>页，跳转至 <input type="number" class="keuInput" value="1">
+						<button type="button" class="btnSure">确定</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="js/lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/page.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".taskPageBox").pageFun({
+					interFace: "page.json",
+					displayCount: 5,
+					maxPage: 5,
+					dataFun: function(data) {
+
+						var htmlTop = '<div style="overflow:auto;padding:15px;border-bottom:1px solid #eee;display:flex;">' +
+							'<div style="margin-right: 20px;">' +
+							'<div style="width:40px;">' +
+							'<img style="width: 100%;border-radius: 50%;" src="' + data.icon + '" />' +
+							'</div>' +
+							'</div>' +
+							'<div>' +
+							'<div style="font-size: 14px;">' +
+							'<span style="margin-right: 15px;">' + data.name + '</span><span style="margin-right: 15px;">' + data.region + '</span><span style="margin-right: 15px;">' + data.time + '</span>' +
+							'</div>';
+						var htmlBot = '</div></div>';
+
+						var type = data.type;
+//						var html = '';
+						if(type == "txt") {
+//							文字
+							var dataTxt = '<div>' +
+								'<p style = "line-height: 22px;padding-top: 10px;" >' + data.content + '</p>' +
+								'</div>';
+							var dataHtml = dataTxt;
+						} else if(type == "img") {
+							//图片
+							var dataImgTop = '<div style="overflow: auto;">' +
+								'<div class="baguetteBoxOne" style="display: block;overflow: auto;">';
+							var dataImgBot = '</div></div>'
+							var dataImg = '';
+							for(let i in data.imagesUrl) {
+								dataImg += '<a style="width: 150px;height: 150px;display:flex;float:left;margin:4px;border: 1px solid #ddd;overflow:hidden;border-radius: 4px;" href="' + data.imagesUrl[i] + '">' +
+									'<img style="display:block;margin:auto;padding: 0px;" class="img-thumbnail" src="' + data.imagesUrl[i] + '"/>' +
+									'</a>';
+							}
+							var dataHtml = dataImgTop + dataImg + dataImgBot;
+						} else if(type == "file") {
+							var filesHtml = '';
+							var filesTop = '<div style="overflow: auto;">';
+							var datafile = '';
+							for(let i in data.files) {
+								datafile += '<a style="color: #FF9B77;" href="' + data.files[i].fileUrl + '">' + data.files[i].fileName + '</a>&nbsp;&nbsp;&nbsp;';
+							}
+							var dataHtml = filesTop+datafile+'</div>';
+
+						}
+						var html = htmlTop + dataHtml + htmlBot;
+						return html;
+					},
+					pageFun: function(i) {
+						var pageHtml = '<li class="pageNum">' + i + '</li>';
+						return pageHtml;
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

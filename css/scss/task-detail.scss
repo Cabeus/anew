@@ -225,7 +225,8 @@
         .page-title {
             width: 346px;
             height: 50px;
-            background: #505766;;
+            background: #505766;
+            ;
             p {
                 height: 50px;
                 line-height: 50px;
@@ -269,7 +270,7 @@
                 line-height: 40px;
                 overflow: hidden;
                 span {
-//                  color: #fff;
+                    //                  color: #fff;
                     font-size: 14px;
                     display: inline-block;
                     width: 50%;
@@ -337,7 +338,7 @@
                     }
                 }
                 .lists {
-//                  color: #fff;
+                    //                  color: #fff;
                     .item {
                         height: 40px;
                         padding: 0 10px;
@@ -350,13 +351,13 @@
                             line-height: 40px;
                             cursor: pointer;
                             position: relative;
-                            span{
+                            span {
                                 margin: 0 15px;
                                 padding: 0;
                             }
                             .account {
-//                              float: right;
-//                              color: #fff;
+                                //                              float: right;
+                                //                              color: #fff;
                                 font-size: 14px;
                                 margin: 0;
                             }
@@ -366,7 +367,7 @@
                                 height: 15px;
                                 display: inline-block;
                                 border: 1px solid #333;
-//                              background: #fff;
+                                //                              background: #fff;
                                 margin-top: 12px;
                             }
                             input[type="radio"] {
@@ -377,7 +378,7 @@
                                 cursor: pointer;
                             }
                             input[type="checkbox"]:checked {
-                                background: #1E93FF ;
+                                background: #1E93FF;
                                 outline: none;
                             }
                             input[type="checkbox"]:focus {
@@ -413,7 +414,7 @@
                     margin-left: 10px;
                 }
                 .lists {
-//                  color: #fff;
+                    //                  color: #fff;
                     .item {
                         height: 40px;
                         padding: 0 10px;
@@ -427,18 +428,18 @@
                             cursor: pointer;
                             position: relative;
                             display: flex;
-                            span{
+                            span {
                                 margin: 0 15px;
                                 padding: 0;
                             }
-                            .status{
+                            .status {
                                 display: flex;
                             }
                             .account {
                                 flex: 1;
-//                              color: #fff;
+                                //                              color: #fff;
                                 font-size: 14px;
-//                              text-align: right;
+                                //                              text-align: right;
                             }
                             .hashistory {
                                 display: block;
@@ -475,11 +476,91 @@
             }
         }
     }
-    span.BMap_Marker div, span.BMap_noprint {
+    span.BMap_Marker div,
+    span.BMap_noprint {
         border-radius: 50%;
     }
     span.BMap_Marker div img {
         width: 48px;
         height: 48px;
+    }
+    .taskPageBox {
+        .clearfix {
+            zoom: 1;
+        }
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .hide {
+            display: none;
+        }
+        .notContent {
+            padding: 15px 0;
+            text-align: center;
+        }
+        .page {
+            /*text-align: center;*/
+            width: 100%;
+            /*margin: 0 auto;*/
+        }
+        .pageMenu {
+            display: inline-block;
+            position: relative;
+            left: 20%;
+        }
+        .pageMenu li {
+            border: solid thin #ddd;
+            margin: 3px;
+            float: left;
+            padding: 5px 10px;
+            cursor: pointer;
+            background: #fff;
+        }
+        .pageMenu li.firstPage {}
+        .pageMenu li.prevPage {}
+        .pageMenu li.pageNum {}
+        .pageMenu li.nextPage {}
+        .pageMenu li.lastPage {}
+        .pageMenu li.disabled {
+            background-color: #DDDDDD;
+            cursor: not-allowed;
+        }
+        .pageMenu li.active {
+            border: solid thin #0099FF;
+            background-color: #0099FF;
+            color: white;
+        }
+        .pageMenu li.last {
+            background: transparent;
+            border: 0;
+            position: relative;
+            top: -4px;
+        }
+        .page .keuInput {
+            padding: 0 5px;
+            width: 40px;
+            border: solid thin #ddd;
+            height: 30px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .page .btnSure {
+            padding: 4px 8px;
+            border: solid thin #ddd;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+            background: #fff;
+            position: relative;
+            top: 0px;
+        }
+        .page .btnSure:hover {
+            cursor: pointer;
+        }
+        .pageObj {
+            float: left;
+        }
     }
 }

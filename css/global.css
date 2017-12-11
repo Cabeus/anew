@@ -1962,11 +1962,70 @@ td {
           outline: none; }
         .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"]:focus {
           outline: none; }
-.task-detail span.BMap_Marker div, .task-detail span.BMap_noprint {
+.task-detail span.BMap_Marker div,
+.task-detail span.BMap_noprint {
   border-radius: 50%; }
 .task-detail span.BMap_Marker div img {
   width: 48px;
   height: 48px; }
+.task-detail .taskPageBox .clearfix {
+  zoom: 1; }
+.task-detail .taskPageBox .clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+.task-detail .taskPageBox .hide {
+  display: none; }
+.task-detail .taskPageBox .notContent {
+  padding: 15px 0;
+  text-align: center; }
+.task-detail .taskPageBox .page {
+  /*text-align: center;*/
+  width: 100%;
+  /*margin: 0 auto;*/ }
+.task-detail .taskPageBox .pageMenu {
+  display: inline-block;
+  position: relative;
+  left: 20%; }
+.task-detail .taskPageBox .pageMenu li {
+  border: solid thin #ddd;
+  margin: 3px;
+  float: left;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #fff; }
+.task-detail .taskPageBox .pageMenu li.disabled {
+  background-color: #DDDDDD;
+  cursor: not-allowed; }
+.task-detail .taskPageBox .pageMenu li.active {
+  border: solid thin #0099FF;
+  background-color: #0099FF;
+  color: white; }
+.task-detail .taskPageBox .pageMenu li.last {
+  background: transparent;
+  border: 0;
+  position: relative;
+  top: -4px; }
+.task-detail .taskPageBox .page .keuInput {
+  padding: 0 5px;
+  width: 40px;
+  border: solid thin #ddd;
+  height: 30px;
+  text-align: center;
+  font-size: 16px; }
+.task-detail .taskPageBox .page .btnSure {
+  padding: 4px 8px;
+  border: solid thin #ddd;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  background: #fff;
+  position: relative;
+  top: 0px; }
+.task-detail .taskPageBox .page .btnSure:hover {
+  cursor: pointer; }
+.task-detail .taskPageBox .pageObj {
+  float: left; }
 
 .info-local-modal #post {
   border: 1px solid #ccc;

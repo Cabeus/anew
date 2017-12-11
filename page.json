@@ -1,0 +1,73 @@
+{
+	"status": "ok",
+	"message": "success",
+	"datas": [
+		{
+			"type": "txt",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"content": "这里是任务总结文字的内容"
+		}, {
+			"type": "img",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"imagesUrl": [
+				"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+				"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+			]
+		}, {
+			"type": "file",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"files": [
+				{
+					"fileName": "123.doc",
+					"fileUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+				}, {
+					"fileName": "123.doc",
+					"fileUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+				}
+			]
+		}, {
+			"type": "txt",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"content": "这里是任务总结文字的内容"
+		}, {
+			"type": "img",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"imagesUrl": [
+				"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+				"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+			]
+		}, {
+			"type": "file",
+			"icon": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg",
+			"name": "张三",
+			"region": "头屯河绿洲北社区",
+			"time": "2017-10-10 10:10",
+			"files": [
+				{
+					"fileName": "123.doc",
+					"fileUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+				}, {
+					"fileName": "123.doc",
+					"fileUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3280477423,3335196010&fm=27&gp=0.jpg"
+				}
+			]
+		}
+	]
+}
+
+
