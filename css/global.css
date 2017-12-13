@@ -1756,15 +1756,36 @@ td {
       animation: audio_playing 2s infinite; }
 .task-detail #task-track {
   margin-top: 10px;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 .task-detail .panel1 {
   position: absolute;
   top: 0px;
   right: 10px;
   width: 346px;
   height: 100%;
-  overflow: auto;
-  background: #fff; }
+  background: #fff;
+  transition: 0.5s; }
+  .task-detail .panel1.open {
+    right: -346px;
+    transition: 0.5s; }
+  .task-detail .panel1 .retract {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: -10px;
+    width: 15px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 1px;
+    display: flex; }
+    .task-detail .panel1 .retract img {
+      width: 6px;
+      height: 11px;
+      display: none;
+      margin: auto;
+      cursor: pointer; }
+      .task-detail .panel1 .retract img.noopen {
+        display: block; }
   .task-detail .panel1 .page-title {
     width: 346px;
     height: 50px;

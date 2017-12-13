@@ -715,6 +715,10 @@
 															<div class="lists"></div>
 														</div>
 													</div>
+													<div class="retract">
+														<img class="open" src="img/left-icon .png"/>
+														<img class="noopen" src="img/right-icon.png"/>
+													</div>
 												</div>
 
 											</div>
@@ -1046,8 +1050,9 @@
 				}
 			});
 
-			//语音播放功能
+
 			$(document).ready(function() {
+				//语音播放功能
 				$('.Voice-box .Voice').click(function() {
 					//音频播放判断
 					if($(this).children('audio').hasClass('pause')) {
@@ -1076,6 +1081,22 @@
 						}
 					}
 				})
+				
+				//跟踪轨迹的展开和收起
+				$('.retract .open').click(function(){
+					$(this).hide();
+					$('.retract .noopen').show();
+					$('.panel1').removeClass('open');
+				})
+				
+				$('.retract .noopen').click(function(){
+					$(this).hide();
+					$('.retract .open').show();
+					$('.panel1').addClass('open');
+					
+				})
+				
+				
 			})
 		</script>
 	</body>
