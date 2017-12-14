@@ -68,30 +68,30 @@
 				'data': {
 					'id': '1001'
 				}
-			}, {
-				'lng': 116.404,
-				'lat': 39.911,
-				'data': {
-					'id': '1002'
-				}
-			}, {
-				'lng': 116.404,
-				'lat': 39.912,
-				'data': {
-					'id': '1003'
-				}
-			}, {
-				'lng': 116.404,
-				'lat': 39.913,
-				'data': {
-					'id': '1004'
-				}
-			}, {
-				'lng': 116.404,
-				'lat': 39.914,
-				'data': {
-					'id': '1005'
-				}
+//			}, {
+//				'lng': 116.404,
+//				'lat': 39.911,
+//				'data': {
+//					'id': '1002'
+//				}
+//			}, {
+//				'lng': 116.404,
+//				'lat': 39.912,
+//				'data': {
+//					'id': '1003'
+//				}
+//			}, {
+//				'lng': 116.404,
+//				'lat': 39.913,
+//				'data': {
+//					'id': '1004'
+//				}
+//			}, {
+//				'lng': 116.404,
+//				'lat': 39.914,
+//				'data': {
+//					'id': '1005'
+//				}
 			}]
 
 			for(let i in arr) {
@@ -113,6 +113,19 @@
 				marker.addEventListener("click", function() {
 					this.openInfoWindow(addInfoWindow(point));
 				});
+				
+				
+				
+		        var circle = new BMap.Circle(pt, 500, {
+		            strokeColor:'blue',
+		            strokeWeight:3,
+		            strokeStyle:'dashed',
+		            fillOpacity:0.3
+		        });
+		        circle.data = point.data;
+		        circle.dataType = 1; 
+		        map.addOverlay(circle);
+				
 			}
 
 			function addInfoWindow(point) {
@@ -135,13 +148,24 @@
 					if(arr[i].data.id == id) {
 						var point = arr[i];
 						for(let i in map.getOverlays()) {
+							
+//							console.log(map.getOverlays()[i])
 							if(typeof map.getOverlays()[i].data == "undefined") {
 								console.log("undefined")
 							} else {
-								//								console.log(map.getOverlays()[i])
-								if(map.getOverlays()[i].data.id == id) {
+								//console.log(map.getOverlays()[i])
+//								console.log(map.getOverlays()[i].dataType)
+								if (map.getOverlays()[i].dataType != "1") {
+									if(map.getOverlays()[i].data.id == id) {
 									map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
 								}
+								} else{
+									
+								}
+								
+//								if(map.getOverlays()[i].data.id == id) {
+//									map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
+//								}
 							}
 						}
 					}

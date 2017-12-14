@@ -99,7 +99,6 @@ td {
 .click-title-color {
     color: #3bafda;
 }
-
 //上传图片删除按钮
 .uu-remove {
     position: absolute;
@@ -113,4 +112,10 @@ td {
     height: 22px;
     cursor: pointer;
     text-align: center;
+}
+//清空筛选选项
+.empty-screen-btn{
+    font-size: 14px;
+    padding:4px 20px;
+    color: #06B3F6;
 }

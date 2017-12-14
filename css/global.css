@@ -156,6 +156,11 @@ td {
   cursor: pointer;
   text-align: center; }
 
+.empty-screen-btn {
+  font-size: 14px;
+  padding: 4px 20px;
+  color: #06B3F6; }
+
 .header {
   display: flex;
   width: 100%;
