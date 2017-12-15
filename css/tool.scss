@@ -99,6 +99,7 @@ td {
 .click-title-color {
     color: #3bafda;
 }
+
 //上传图片删除按钮
 .uu-remove {
     position: absolute;
@@ -113,9 +114,79 @@ td {
     cursor: pointer;
     text-align: center;
 }
+
 //清空筛选选项
-.empty-screen-btn{
+.empty-screen-btn {
     font-size: 14px;
-    padding:4px 20px;
+    padding: 4px 20px;
     color: #06B3F6;
+}
+
+//阅读统计 2017-12-15
+.reading-statistics-box {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #DEDEDE;
+    h4 {
+        height: 40px;
+        line-height: 40px;
+    }
+    //柱状图
+    .bar-graph-box {
+        width: 100%;
+        height: 400px;
+        #bar-graph {
+            width: 100%;
+            height: 350px;
+        }
+    }
+    //详情
+    .reading-detail-box {
+        display: none;
+        width: 100%;
+        //区域选择
+        .selection-area {
+            height: 50px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        //饼状图
+        .pie-chart-box {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            #pie-chart {
+                width: 300px;
+                height: 300px;
+                margin: auto;
+            }
+        }
+        .switch-button {
+            display: inline-block;
+            width: 100px;
+            height: 34px;
+            line-height: 34px;
+            background: #DEDEDE;
+            border-radius: 2px;
+            font-size: 16px;
+            color: #4A4A4A;
+            text-align: center;
+            a,
+            a:hover {
+                width: 100%;
+                height: 100%;
+                display: block;
+                list-style: none;
+                text-decoration: none;
+                color: #4A4A4A;
+            }
+            &.active {
+                background: #FAB420;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
 }
