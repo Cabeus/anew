@@ -609,7 +609,7 @@
 											
 										</div>
 										<div role="tabpanel" class="tab-pane" id="profile">
-											<!-- 已读未读 -->
+
 											<ul class="type-box" role="tablist" style="margin-bottom: 10px;">
 												<li role="presentation" class="switch-button active">
 													<a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab" id="">终端用户</a>
@@ -664,7 +664,9 @@
 		<script type="text/javascript">
 			
 			
-			
+			/**
+			 * 阅读统计
+			 */
 			$('.form-multiple-select').multiselect({
 				maxHeight: 400
 			});
@@ -709,7 +711,8 @@
 				series: [{
 					type: 'bar',
 					barWidth: '60%',
-					data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 55, 65, ]
+					data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 55, 65 ],
+					id:[10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65 ]
 				}]
 			};
 			// 使用刚指定的配置项和数据显示图表。
@@ -717,9 +720,11 @@
 			// 绑定点击事件
 			barGraphChart.on('click', function(params) {
 				console.log(params);
+//				console.log(option)
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').show();
-//				hideTypeBox()
+				var arr = params.seriesId.split(",")
+				console.log(arr[params.dataIndex])
 			});
 			//饼图
 			var pieChartChart = echarts.init(document.getElementById('pie-chart'));
@@ -752,9 +757,16 @@
 				$('.reading-detail-box').hide();
 			})
 			
-			//隐藏终端 和 系统按钮
+			//隐藏终端和系统按钮事件
 			function hideTypeBox(){
 				$('.type-box').hide()
+			}
+			
+			//隐藏柱状图和区域选择和返回按钮功能
+			function hideBarGraph(){
+				$('.bar-graph-box').hide();
+				$('.reading-detail-box').show();
+				$('.selection-area').hide();
 			}
 			
 			

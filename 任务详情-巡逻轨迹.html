@@ -21,13 +21,13 @@
 
 		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/app.css?v=20171115">
 		<!--<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/anew/css/global.css?v=20171115">-->
-		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
 
 		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/css/multiselect/bootstrap-multiselect.css">
 		<link rel="stylesheet" href="http://testapi.zxwave.com/besafe/manager/static/extend/bootstrap-table/bootstrap-table.min.css">
 		<!-- bootstrap-table -->
 
-		<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/map/css/main.css?v=20171115">
+		<!--<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/map/css/main.css?v=20171115">-->
 		<link rel="stylesheet" type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/map/css/animate.min.css">
 		<link type="text/css" href="http://testapi.zxwave.com/besafe/manager/static/Validate/validationEngine.jquery.css" rel="stylesheet">
 
@@ -700,24 +700,80 @@
 															<p class="search">
 																<span><input type="text" id="search-name" placeholder="搜索"></span>
 																<span>
-				<b class="do-search">查询</b>
-				<b class="clean-search">清除</b>
-			</span>
+																<b class="do-search">查询</b>
+																<b class="clean-search">清除</b>
+															</span>
 															</p>
 															<div class="lists"></div>
 														</div>
 														<div class="history">
 															<div class="timepicker">
-																<input class="datepicker" type="text" value="" style="margin-left:5px;">
-																<input type="text" id="search-history-name" placeholder="请输入姓名">
+																<!--<input class="datepicker" type="text" value="" style="margin-left:5px;">-->
+																<input type="text" id="search-history-name" placeholder="搜索">
 																<b type="button" class="do-search searchhis">查询</b>
+																<b class="clean-search">清除</b>
 															</div>
-															<div class="lists"></div>
+															<div class="lists">
+
+																<div class="item">
+																	<div class="item-top">
+																		<div class="arrow-box">
+																			<b class="fa fa-caret-right faright"></b>
+																			<b class="fa fa-caret-down fadown"></b>
+																		</div>
+																		<div class="img-box">
+																			<img src="../img/cS-8.jpg" />
+																		</div>
+																		<div class="text">
+																			李欣怡
+																		</div>
+																	</div>
+																	<div class="item-bot">
+																		<div class="time-list">
+																			<span><b></b></span>
+																			<div class="time">
+																				2017-12-12  13:12
+																			</div>
+																			<div class="when-long">
+																				时长60:00
+																			</div>
+																		</div>
+																		<div class="time-list active">
+																			<span><b></b></span>
+																			<div class="time">
+																				2017-12-12  13:12
+																			</div>
+																			<div class="when-long">
+																				时长60:00
+																			</div>
+																		</div>
+																		<div class="time-list">
+																			<span><b></b></span>
+																			<div class="time">
+																				2017-12-12  13:12
+																			</div>
+																			<div class="no-when-long">
+																				异常结束
+																			</div>
+																		</div>
+																		<div class="time-list">
+																			<span><b></b></span>
+																			<div class="time">
+																				2017-12-12  13:12
+																			</div>
+																			<div class="when-long">
+																				时长60:00
+																			</div>
+																		</div>
+																	</div>
+																</div>
+	
+															</div>
 														</div>
 													</div>
 													<div class="retract">
-														<img class="open" src="img/left-icon .png"/>
-														<img class="noopen" src="img/right-icon.png"/>
+														<img class="open" src="img/left-icon .png" />
+														<img class="noopen" src="img/right-icon.png" />
 													</div>
 												</div>
 
@@ -807,6 +863,20 @@
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/jquery.min.js"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/bootstrap.min.js"></script>
 
+		<script type="text/javascript">
+			$('.history .lists .item .item-top').click(function() {
+				if($(this).parent('.item').hasClass('open')) {
+					$(this).parent('.item').removeClass('open').find('.item-bot').slideToggle({
+						duration: 200
+					});
+				} else {
+					$(this).parent('.item').addClass('open').find('.item-bot').slideToggle({
+						duration: 200
+					});
+				}
+			})
+		</script>
+
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/multiselect/bootstrap-multiselect.js"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/messenger/messenger.min.js"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/messenger/messenger-theme-flat.js"></script>
@@ -833,7 +903,8 @@
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.UI.File.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/upload/Q.Uploader.UI.Image.js" type="text/javascript" charset="utf-8"></script>
 		<!--巡逻轨迹-->
-		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/patrol/js/app.js?v=20171115"></script>
+		<!--<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/patrol/js/app.js?v=20171115"></script>-->
+		<script src="../patrol/js/app.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
 			var webSocket_cts = 'ws://testapi.zxwave.com/besafe/backend';
@@ -851,20 +922,36 @@
 				"total": 1,
 				"message": "成功",
 				"entities": [{
-					"code": "6612510702",
-					"entity_name": "15e0e4518d10008",
-					"icon": "http://101.201.54.133:8888/group1/M00/00/34/Zck2hVnIvkuAB76jAABX_823ufs057.jpg",
-					"del": 0,
-					"userId": 2049,
-					"createdAt": 1512211562000,
-					"tenantId": 1,
-					"id": 2450,
-					"endTime": 1512212370000,
-					"taskId": 603,
-					"updatedAt": 1512212370000,
-					"status": 1,
-					"username": "佟小华"
-				}],
+						"code": "6612510702",
+						"entity_name": "15e0e4518d10008",
+						"icon": "http://101.201.54.133:8888/group1/M00/00/34/Zck2hVnIvkuAB76jAABX_823ufs057.jpg",
+						"del": 0,
+						"userId": 2049,
+						"createdAt": 1512211562000,
+						"tenantId": 1,
+						"id": 2450,
+						"endTime": 1512212370000,
+						"taskId": 603,
+						"updatedAt": 1512212370000,
+						"status": 1,
+						"username": "佟小华"
+					},
+					{
+						"code": "6612510702",
+						"entity_name": "15e0e4518d10008",
+						"icon": "http://101.201.54.133:8888/group1/M00/00/34/Zck2hVnIvkuAB76jAABX_823ufs057.jpg",
+						"del": 0,
+						"userId": 2049,
+						"createdAt": 1512211562000,
+						"tenantId": 1,
+						"id": 2450,
+						"endTime": 1512212370000,
+						"taskId": 603,
+						"updatedAt": 1512212370000,
+						"status": 1,
+						"username": "佟小华"
+					}
+				],
 				"status": 0
 			});
 
@@ -1050,7 +1137,6 @@
 				}
 			});
 
-
 			$(document).ready(function() {
 				//语音播放功能
 				$('.Voice-box .Voice').click(function() {
@@ -1081,22 +1167,21 @@
 						}
 					}
 				})
-				
+
 				//跟踪轨迹的展开和收起
-				$('.retract .open').click(function(){
+				$('.retract .open').click(function() {
 					$(this).hide();
 					$('.retract .noopen').show();
 					$('.panel1').removeClass('open');
 				})
-				
-				$('.retract .noopen').click(function(){
+
+				$('.retract .noopen').click(function() {
 					$(this).hide();
 					$('.retract .open').show();
 					$('.panel1').addClass('open');
-					
+
 				})
-				
-				
+
 			})
 		</script>
 	</body>

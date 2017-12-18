@@ -1893,153 +1893,200 @@ td {
         float: left; }
         .task-detail .panel1 .panel-tab p span.active {
           background: #fff; }
-  .task-detail .panel1 .panel-content .now .search {
-    height: 40px;
-    line-height: 40px;
-    width: 346px; }
-    .task-detail .panel1 .panel-content .now .search span {
-      height: 100%;
-      float: left;
-      text-align: center;
-      color: #fff;
-      cursor: pointer;
-      color: #000000; }
-      .task-detail .panel1 .panel-content .now .search span input {
-        display: inline-block;
-        width: 170px;
-        height: 32px;
-        margin-left: 5px;
-        padding-left: 5px;
-        border: 1px solid #EEEEEE;
-        border-radius: 2px; }
-      .task-detail .panel1 .panel-content .now .search span b {
-        color: #fff; }
-      .task-detail .panel1 .panel-content .now .search span .do-search {
-        display: inline-block;
-        line-height: 32px;
-        margin-top: 5px;
-        width: 70px;
-        height: 32px;
-        float: left;
-        font-weight: normal;
-        cursor: pointer;
-        background: #1E93FF;
-        border-radius: 5px;
-        margin-left: 10px; }
-      .task-detail .panel1 .panel-content .now .search span .clean-search {
-        display: inline-block;
-        line-height: 32px;
-        margin-top: 5px;
-        width: 70px;
-        height: 33px;
-        float: left;
-        font-weight: normal;
-        cursor: pointer;
-        background: #F25E4B;
-        border-radius: 5px;
-        margin-left: 10px; }
-  .task-detail .panel1 .panel-content .now .lists .item {
-    height: 40px;
-    padding: 0 10px;
-    margin: 0; }
-    .task-detail .panel1 .panel-content .now .lists .item.active {
-      background: #F1F8FF; }
-    .task-detail .panel1 .panel-content .now .lists .item p {
-      height: 40px;
-      line-height: 40px;
-      cursor: pointer;
-      position: relative; }
-      .task-detail .panel1 .panel-content .now .lists .item p span {
-        margin: 0 15px;
-        padding: 0; }
-      .task-detail .panel1 .panel-content .now .lists .item p .account {
-        font-size: 14px;
-        margin: 0; }
-      .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"] {
-        -webkit-appearance: none;
-        width: 15px;
-        height: 15px;
-        display: inline-block;
-        border: 1px solid #333;
-        margin-top: 12px; }
-      .task-detail .panel1 .panel-content .now .lists .item p input[type="radio"] {
-        position: absolute;
+  .task-detail .panel1 .panel-content {
+    height: calc(100% - 90px); }
+    .task-detail .panel1 .panel-content .notip {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center; }
+    .task-detail .panel1 .panel-content .now {
+      height: 100%; }
+      .task-detail .panel1 .panel-content .now .search {
         height: 40px;
         line-height: 40px;
-        margin: 0;
-        cursor: pointer; }
-      .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:checked {
-        background: #1E93FF;
-        outline: none; }
-      .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:focus {
-        outline: none; }
-  .task-detail .panel1 .panel-content .history {
-    display: none; }
-    .task-detail .panel1 .panel-content .history .timepicker input {
-      display: inline-block;
-      width: 120px;
-      height: 33px;
-      margin-left: 5px;
-      padding-left: 5px;
-      border: 1px solid #EEEEEE;
-      border-radius: 2px; }
-    .task-detail .panel1 .panel-content .history .do-search {
-      display: inline-block;
-      color: #fff;
-      text-align: center;
-      line-height: 32px;
-      margin-top: 5px;
-      width: 70px;
-      height: 33px;
-      font-weight: normal;
-      cursor: pointer;
-      background: #1E93FF;
-      border-radius: 5px;
-      margin-left: 10px; }
-    .task-detail .panel1 .panel-content .history .lists .item {
-      height: 40px;
-      padding: 0 10px;
-      margin: 0; }
-      .task-detail .panel1 .panel-content .history .lists .item.active {
-        background: #666; }
-      .task-detail .panel1 .panel-content .history .lists .item p {
-        height: 40px;
-        line-height: 40px;
-        cursor: pointer;
-        position: relative;
-        display: flex; }
-        .task-detail .panel1 .panel-content .history .lists .item p span {
-          margin: 0 15px;
-          padding: 0; }
-        .task-detail .panel1 .panel-content .history .lists .item p .status {
-          display: flex; }
-        .task-detail .panel1 .panel-content .history .lists .item p .account {
-          flex: 1;
-          font-size: 14px; }
-        .task-detail .panel1 .panel-content .history .lists .item p .hashistory {
-          display: block;
-          width: 80px;
-          height: 5px;
-          margin: auto;
-          border-radius: 10px; }
-        .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"] {
-          -webkit-appearance: none;
-          width: 15px;
-          height: 15px;
+        width: 346px; }
+        .task-detail .panel1 .panel-content .now .search input {
           display: inline-block;
-          background: #fff;
-          margin-top: 12px; }
-        .task-detail .panel1 .panel-content .history .lists .item p input[type="radio"] {
-          position: absolute;
+          width: 170px;
+          height: 32px;
+          margin-left: 5px;
+          padding-left: 5px;
+          border: 1px solid #EEEEEE;
+          border-radius: 2px; }
+        .task-detail .panel1 .panel-content .now .search b {
+          color: #fff;
+          text-align: center; }
+        .task-detail .panel1 .panel-content .now .search .do-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 32px;
+          font-weight: normal;
+          cursor: pointer;
+          background: #1E93FF;
+          border-radius: 5px;
+          margin-left: 10px; }
+        .task-detail .panel1 .panel-content .now .search .clean-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 33px;
+          font-weight: normal;
+          cursor: pointer;
+          background: #F25E4B;
+          border-radius: 5px;
+          margin-left: 10px; }
+      .task-detail .panel1 .panel-content .now .lists {
+        height: calc(100% - 40px);
+        overflow: auto; }
+        .task-detail .panel1 .panel-content .now .lists .item {
           height: 40px;
-          line-height: 40px;
+          padding: 0 10px;
+          margin: 0; }
+          .task-detail .panel1 .panel-content .now .lists .item.active {
+            background: #F1F8FF; }
+          .task-detail .panel1 .panel-content .now .lists .item p {
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            position: relative; }
+            .task-detail .panel1 .panel-content .now .lists .item p span {
+              margin: 0 15px;
+              padding: 0; }
+            .task-detail .panel1 .panel-content .now .lists .item p .account {
+              font-size: 14px;
+              margin: 0; }
+            .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"] {
+              -webkit-appearance: none;
+              width: 15px;
+              height: 15px;
+              display: inline-block;
+              border: 1px solid #333;
+              margin-top: 12px; }
+            .task-detail .panel1 .panel-content .now .lists .item p input[type="radio"] {
+              position: absolute;
+              height: 40px;
+              line-height: 40px;
+              margin: 0;
+              cursor: pointer; }
+            .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:checked {
+              background: #1E93FF;
+              outline: none; }
+            .task-detail .panel1 .panel-content .now .lists .item p input[type="checkbox"]:focus {
+              outline: none; }
+    .task-detail .panel1 .panel-content .history {
+      height: 100%;
+      display: none; }
+      .task-detail .panel1 .panel-content .history .timepicker {
+        height: 40px;
+        line-height: 40px;
+        width: 346px; }
+        .task-detail .panel1 .panel-content .history .timepicker input {
+          display: inline-block;
+          width: 170px;
+          height: 32px;
+          margin-left: 5px;
+          padding-left: 5px;
+          border: 1px solid #EEEEEE;
+          border-radius: 2px; }
+        .task-detail .panel1 .panel-content .history .timepicker b {
+          color: #fff;
+          text-align: center; }
+        .task-detail .panel1 .panel-content .history .timepicker .do-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 32px;
+          font-weight: normal;
+          cursor: pointer;
+          background: #1E93FF;
+          border-radius: 5px;
+          margin-left: 10px; }
+        .task-detail .panel1 .panel-content .history .timepicker .clean-search {
+          display: inline-block;
+          line-height: 32px;
+          margin-top: 5px;
+          width: 70px;
+          height: 33px;
+          font-weight: normal;
+          cursor: pointer;
+          background: #F25E4B;
+          border-radius: 5px;
+          margin-left: 10px; }
+      .task-detail .panel1 .panel-content .history .lists {
+        height: calc(100% - 40px);
+        overflow: auto; }
+        .task-detail .panel1 .panel-content .history .lists .item {
+          width: 97%;
+          padding: 0;
           margin: 0;
-          cursor: pointer; }
-        .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"]:checked {
-          background: darkorange;
-          outline: none; }
-        .task-detail .panel1 .panel-content .history .lists .item p input[type="checkbox"]:focus {
-          outline: none; }
+          float: right;
+          border-bottom: 1px solid #EEEEEE; }
+          .task-detail .panel1 .panel-content .history .lists .item .item-top {
+            height: 50px;
+            display: flex;
+            color: #666666;
+            cursor: pointer; }
+            .task-detail .panel1 .panel-content .history .lists .item .item-top .arrow-box {
+              width: 30px;
+              height: 100%;
+              display: flex; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-top .arrow-box b {
+                margin: auto;
+                font-size: 20px; }
+                .task-detail .panel1 .panel-content .history .lists .item .item-top .arrow-box b.fadown {
+                  display: none; }
+            .task-detail .panel1 .panel-content .history .lists .item .item-top .img-box {
+              width: 50px;
+              height: 50px;
+              display: flex; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-top .img-box img {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                margin: auto; }
+            .task-detail .panel1 .panel-content .history .lists .item .item-top .text {
+              line-height: 50px;
+              font-size: 15px;
+              color: #333333; }
+          .task-detail .panel1 .panel-content .history .lists .item .item-bot {
+            display: none;
+            padding: 0 10px; }
+            .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list {
+              width: 100%;
+              height: 40px;
+              line-height: 40px;
+              display: flex;
+              border-bottom: 1px dashed #EEEEEE;
+              cursor: pointer; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list.active {
+                background: #FCFCFC; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list span {
+                width: 20px;
+                height: 40px;
+                display: flex; }
+                .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list span b {
+                  margin: auto;
+                  width: 7px;
+                  height: 7px;
+                  background: #1E93FF;
+                  border-radius: 50%; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .time {
+                flex: 1; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .when-long {
+                width: 70px;
+                color: #1E93FF; }
+              .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .no-when-long {
+                width: 70px;
+                color: #F25E4B; }
+          .task-detail .panel1 .panel-content .history .lists .item.open .arrow-box b.fadown {
+            display: inline-block; }
+          .task-detail .panel1 .panel-content .history .lists .item.open .arrow-box b.faright {
+            display: none; }
 .task-detail span.BMap_Marker div,
 .task-detail span.BMap_noprint {
   border-radius: 50%; }
