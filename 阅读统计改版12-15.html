@@ -725,6 +725,7 @@
 				$('.reading-detail-box').show();
 				var arr = params.seriesId.split(",")
 				console.log(arr[params.dataIndex])
+				hideTypeBox24()
 			});
 			//饼图
 			var pieChartChart = echarts.init(document.getElementById('pie-chart'));
@@ -757,10 +758,20 @@
 				$('.reading-detail-box').hide();
 			})
 			
-			//隐藏终端和系统按钮事件
-			function hideTypeBox(){
+			//隐藏终端和系统按钮事件 显示1和3表
+			function hideTypeBox13(){
 				$('.type-box').hide()
 			}
+			
+			//隐藏终端和系统按钮事件 显示1和3表
+			function hideTypeBox24(){
+				$('.type-box').hide()
+				$('#tab1').removeClass('active');
+				$('#tab3').removeClass('active');
+				$('#tab2').addClass('active');
+				$('#tab4').addClass('active');	
+			}
+			
 			
 			//隐藏柱状图和区域选择和返回按钮功能
 			function hideBarGraph(){

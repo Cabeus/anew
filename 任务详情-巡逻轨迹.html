@@ -632,7 +632,7 @@
 											<!-- 任务详情 -->
 											<div role="tabpanel" class="tab-pane active" id="task-detail">
 												<div style="margin-top:10px;margin-left:15px;">不要重启了</div>
-
+												
 												<div style="margin-top:10px;margin-left:15px;">
 													<p id="detail-map-title" style="display:none">任务地点</p>
 													<div id="detail-map" style="width:100%;height:450px;margin-bottom:15px;display:none"></div>
@@ -732,16 +732,18 @@
 																		<div class="time-list">
 																			<span><b></b></span>
 																			<div class="time">
-																				2017-12-12  13:12
+																				2017-12-12 13:12
 																			</div>
 																			<div class="when-long">
 																				时长60:00
 																			</div>
+																			<input type="hidden" name="" id="" value="" />
+																			<input type="hidden" name="" id="" value="" />
 																		</div>
 																		<div class="time-list active">
 																			<span><b></b></span>
 																			<div class="time">
-																				2017-12-12  13:12
+																				2017-12-12 13:12
 																			</div>
 																			<div class="when-long">
 																				时长60:00
@@ -750,7 +752,7 @@
 																		<div class="time-list">
 																			<span><b></b></span>
 																			<div class="time">
-																				2017-12-12  13:12
+																				2017-12-12 13:12
 																			</div>
 																			<div class="no-when-long">
 																				异常结束
@@ -759,7 +761,7 @@
 																		<div class="time-list">
 																			<span><b></b></span>
 																			<div class="time">
-																				2017-12-12  13:12
+																				2017-12-12 13:12
 																			</div>
 																			<div class="when-long">
 																				时长60:00
@@ -767,7 +769,7 @@
 																		</div>
 																	</div>
 																</div>
-	
+
 															</div>
 														</div>
 													</div>
@@ -863,19 +865,7 @@
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/jquery.min.js"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/bootstrap.min.js"></script>
 
-		<script type="text/javascript">
-			$('.history .lists .item .item-top').click(function() {
-				if($(this).parent('.item').hasClass('open')) {
-					$(this).parent('.item').removeClass('open').find('.item-bot').slideToggle({
-						duration: 200
-					});
-				} else {
-					$(this).parent('.item').addClass('open').find('.item-bot').slideToggle({
-						duration: 200
-					});
-				}
-			})
-		</script>
+		
 
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/multiselect/bootstrap-multiselect.js"></script>
 		<script src="http://testapi.zxwave.com/besafe/manager/static/js/messenger/messenger.min.js"></script>
@@ -918,43 +908,55 @@
 		<script type="text/javascript" src="http://testapi.zxwave.com/besafe/manager/static/anew/js/newapp.js?v=20171115"></script>
 
 		<script type="text/javascript">
-			init({
-				"total": 1,
-				"message": "成功",
-				"entities": [{
-						"code": "6612510702",
-						"entity_name": "15e0e4518d10008",
-						"icon": "http://101.201.54.133:8888/group1/M00/00/34/Zck2hVnIvkuAB76jAABX_823ufs057.jpg",
-						"del": 0,
-						"userId": 2049,
-						"createdAt": 1512211562000,
-						"tenantId": 1,
-						"id": 2450,
-						"endTime": 1512212370000,
-						"taskId": 603,
-						"updatedAt": 1512212370000,
-						"status": 1,
-						"username": "佟小华"
+			init({"abc":[{
+					"entity_name": "16055dd588e0002",
+					"username": "郎晋斌",
+					"obj":[{
+						"start":10000,
+						"end":2000,
+						"type":1
 					},
 					{
-						"code": "6612510702",
-						"entity_name": "15e0e4518d10008",
-						"icon": "http://101.201.54.133:8888/group1/M00/00/34/Zck2hVnIvkuAB76jAABX_823ufs057.jpg",
-						"del": 0,
-						"userId": 2049,
-						"createdAt": 1512211562000,
-						"tenantId": 1,
-						"id": 2450,
-						"endTime": 1512212370000,
-						"taskId": 603,
-						"updatedAt": 1512212370000,
-						"status": 1,
-						"username": "佟小华"
-					}
-				],
-				"status": 0
+						"start":10000,
+						"end":2000,
+						"type":1
+					}]
+				},{
+					"entity_name": "16055dd588e000",
+					"username": "郎晋斌",
+					"obj":[{
+						"start":10000,
+						"end":2000,
+						"type":1
+					}]
+				}]
 			});
-
+			
+			init({"total":1,"message":"成功","entities":[{"icon":"","createdAt":1513333814,"endTime":1513420214,"entity_name":"16055dd588e0002","username":"郎晋斌"}],"status":0});
+			
+			
+			init({"entities":[{"thirdParty":"16055dd588e0002","createdAt":1513333814,"endTime":1513420214,"userIcon":"","userName":"郎晋斌"}]});
+```
+			init({"entities":[{"thirdParty":"16055dd588e0002","createdAt":1513333814,"endTime":1513420214,"userIcon":"","userName":"郎晋斌"}]},[{thirdParty=16055dd588e0002, userName=郎晋斌, userIcon=, userId=5411, tracks=[{userId=5411, createdAt=2017-12-15 18:30:14.0, endTime=null}]}]);
+			
+			
+			
+			
+			
+			
+			[{"thirdParty":"16055dd588e0002",
+			"userName":"郎晋斌",
+			"userIcon":"",
+			"userId":5411,
+			"tracks":[{
+				"userId":5411,
+				"createdAt":"2017-12-15 18:30:14",
+				"endTime":"2017-12-15 23:30:14"}]}]
+			
+			
+			
+			
+			
 			//初始化图片放大方法
 			baguetteBox.run('.baguetteBoxOne', {
 				animation: 'fadeIn',
@@ -1182,6 +1184,22 @@
 
 				})
 
+			})
+		</script>
+		
+		
+		<script type="text/javascript">
+			$('.history .lists .item .item-top').click(function() {
+				console.log(this)
+				if($(this).parent('.item').hasClass('open')) {
+					$(this).parent('.item').removeClass('open').find('.item-bot').slideToggle({
+						duration: 200
+					});
+				} else {
+					$(this).parent('.item').addClass('open').find('.item-bot').slideToggle({
+						duration: 200
+					});
+				}
 			})
 		</script>
 	</body>
