@@ -583,7 +583,7 @@
 									<!-- 带有用户的已读未读         panes -->
 									<div class="tab-content">
 										<div role="tabpanel" class="tab-pane active" id="home">
-											
+
 											<ul class="type-box" role="tablist" style="margin-bottom: 10px;">
 												<li role="presentation" class="switch-button active">
 													<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab" id="">终端用户</a>
@@ -592,7 +592,7 @@
 													<a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab" id="">系统用户</a>
 												</li>
 											</ul>
-											
+
 											<!-- Tab panes -->
 											<div class="tab-content">
 												<div role="tabpanel" class="tab-pane active" id="tab1">
@@ -606,7 +606,7 @@
 													</table>
 												</div>
 											</div>
-											
+
 										</div>
 										<div role="tabpanel" class="tab-pane" id="profile">
 
@@ -627,7 +627,7 @@
 												</div>
 												<div role="tabpanel" class="tab-pane" id="tab4">
 													444444
-													<table id="table4" class="table table-bordered" style="background: #fff;">
+													<table id="table4" class="table table-bordered" style="background: #fff;font-weight: bold;">
 													</table>
 												</div>
 											</div>
@@ -662,14 +662,19 @@
 		<script src="js/lib/echarts.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			
-			
 			/**
 			 * 阅读统计
 			 */
 			$('.form-multiple-select').multiselect({
 				maxHeight: 400
 			});
+			
+			$('.form-multiple-select').multiselect({
+	            onChange: function(element, checked) {
+	            	console.log(123)
+	                console.log($('.form-multiple-select').val())
+	            }
+	        });
 
 			// 柱状图
 			var barGraphChart = echarts.init(document.getElementById('bar-graph'));
@@ -710,9 +715,10 @@
 				}],
 				series: [{
 					type: 'bar',
-					barWidth: '60%',
-					data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 55, 65 ],
-					id:[10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65 ]
+					barWidth: 50,
+					barMinHeight:3,
+					data: [0,0,0,0,0,0,0,0,0,0,0,110],
+					id: [10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65]
 				}]
 			};
 			// 使用刚指定的配置项和数据显示图表。
@@ -720,76 +726,155 @@
 			// 绑定点击事件
 			barGraphChart.on('click', function(params) {
 				console.log(params);
-//				console.log(option)
+				//				console.log(option)
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').show();
 				var arr = params.seriesId.split(",")
 				console.log(arr[params.dataIndex])
 				hideTypeBox24()
 			});
+
 			//饼图
 			var pieChartChart = echarts.init(document.getElementById('pie-chart'));
+
+			var echartData = [{
+				value: 2222,
+				name: '已读'
+			}, {
+				value: 3854,
+				name: '未读'
+			}]
+			
+			//饼图样式
+			var rich = {
+				yellow: {
+					color: "#ffc72b",
+					fontSize: 25,
+					padding: [5, 4],
+					align: 'center'
+				},
+				total: {
+					color: "#579bec",//中心数字
+					fontSize: 30,
+					align: 'center'
+				},
+				white: {
+//					color: "#fff",
+					align: 'center',
+					fontWeight: '600',
+					fontSize: 16,
+					padding: [5, 0]
+				},
+				blue: {
+					color: '#f76675',
+					fontSize: 18,
+					align: 'center'
+				},
+				hr: {
+					borderColor: '#0b5263',
+					width: '100%',
+					borderWidth: 1,
+					height: 0,
+				}
+			}
 			// 指定图表的配置项和数据
 			var pieChartOption = {
-				series: {
+//				backgroundColor: '#031f2d',
+				title: {
+					text: '总人数',
+					left: 'center',
+					top: '53%',
+					padding: [24, 0],
+					textStyle: {
+						color: '#579bec',
+						fontSize: 14,
+						align: 'center'
+					}
+				},
+				legend: {
+					selectedMode: false,
+					formatter: function(name) {
+						var total = 0; //
+						var averagePercent; //
+						echartData.forEach(function(value, index, array) {
+							total += value.value;
+						});
+						return '{total|' + total + '}';
+					},
+					data: [echartData[0].name],
+					// data: [''],
+//					 itemGap: 50,
+					left: 'center',
+					top: 'center',
+					icon: 'none',
+					align: 'center',
+					textStyle: {
+//						color: "#fff",
+						fontSize: 16,
+						rich: rich
+					},
+				},
+				series: [{
+//					name: '',
 					type: 'pie',
-					data: [{
-							name: 'A',
-							value: 1212
+					radius: ['42%', '60%'],
+					hoverAnimation: false,
+					color: ['#509af3', '#cecece'],
+					label: {
+						normal: {
+							formatter: function(params, ticket, callback) {
+								var total = 0; //
+								var percent = 0; //
+								echartData.forEach(function(value, index, array) {
+									total += value.value;
+								});
+								percent = ((params.value / total) * 100).toFixed(1);
+								return '{white|' + params.name + '}\n{white|' + params.value + '}\n{blue|' + percent + '%}';
+							},
+							rich: rich
 						},
-						{
-							name: 'B',
-							value: 2323
-						},
-						{
-							name: 'C',
-							value: 1919
+					},
+					labelLine: {
+						normal: {
+							length: 30,
+							length2: 0,
+							lineStyle: {
+								color: '#0b5263'
+							}
 						}
-					]
-				}
+					},
+					data: echartData
+				}]
 			};
 			// 使用刚指定的配置项和数据显示图表。
 			pieChartChart.setOption(pieChartOption);
-			
-			
+
 			//返回按钮
-			$('.go-return').click(function(){
+			$('.go-return').click(function() {
 				$('.bar-graph-box').show();
 				$('.reading-detail-box').hide();
 			})
-			
+
 			//隐藏终端和系统按钮事件 显示1和3表
-			function hideTypeBox13(){
+			function hideTypeBox13() {
 				$('.type-box').hide()
 			}
-			
+
 			//隐藏终端和系统按钮事件 显示1和3表
-			function hideTypeBox24(){
+			function hideTypeBox24() {
 				$('.type-box').hide()
 				$('#tab1').removeClass('active');
 				$('#tab3').removeClass('active');
 				$('#tab2').addClass('active');
-				$('#tab4').addClass('active');	
+				$('#tab4').addClass('active');
 			}
-			
-			
+
 			//隐藏柱状图和区域选择和返回按钮功能
-			function hideBarGraph(){
+			function hideBarGraph() {
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').show();
 				$('.selection-area').hide();
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		</script>
 
 		<script type="text/javascript">

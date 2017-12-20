@@ -187,7 +187,7 @@ td {
       height: 300px;
       display: flex; }
       .reading-statistics-box .reading-detail-box .pie-chart-box #pie-chart {
-        width: 300px;
+        width: 800px;
         height: 300px;
         margin: auto; }
     .reading-statistics-box .reading-detail-box .switch-button {
