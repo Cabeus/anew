@@ -75,7 +75,7 @@
                 height: inherit;
                 line-height: inherit;
                 a {
-                    display: block;
+                    display: flex;
                     height: inherit;
                     padding: 0 15px;
                     line-height: inherit;
@@ -92,6 +92,10 @@
                     &:hover {
                         background-color: $bc2;
                     }
+                    .name-text{
+                        height: inherit;
+                        line-height: 80px;
+                    }
                 }
             }
             //active
@@ -105,7 +109,7 @@
                     display: none;
                     position: absolute;
                     top: 77px;
-                    left: -150px;
+                    left: calc(50% - 163px);
                     width: 325px;
                     height: 300px;
                     border: 1px solid #efefef;
@@ -149,7 +153,7 @@
                     position: absolute;
                     width: 0;
                     height: 0;
-                    left: 50%;
+                    left: calc(50% - 15px);
                     top: -35px;
                     border-width: 0 15px 15px;
                     border-style: solid;
@@ -171,7 +175,7 @@
                     display: none;
                     position: absolute;
                     border: 1px solid #efefef;
-                    left: -205px;
+                    left: calc(50% - 225px);
                     width: 450px;
                     top: 77px;
                     z-index: 999;
@@ -184,7 +188,7 @@
                     position: absolute;
                     width: 0;
                     height: 0;
-                    left: 50%;
+                    left: calc(50% - 15px);
                     top: -35px;
                     border-width: 0 15px 15px;
                     border-style: solid;

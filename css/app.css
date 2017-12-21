@@ -597,11 +597,12 @@ body{
 /** 141,164 注销 */
 .aside ul li ul li a{
 	color: #fff !important;
-    padding-left: 12px;
+	padding: 0;
+    padding-left: 25px;
     font-size: 12px;
     height: 40px;
     line-height: 40px;
-    padding: 0;
+    /*padding: 0;*/
 }
 .aside ul li ul li a i{
 	/*display: inline-block;

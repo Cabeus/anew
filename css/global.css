@@ -288,7 +288,7 @@ td {
         height: inherit;
         line-height: inherit; }
         .header .nav-right ul li a {
-          display: block;
+          display: flex;
           height: inherit;
           padding: 0 15px;
           line-height: inherit;
@@ -302,6 +302,9 @@ td {
             vertical-align: middle; }
           .header .nav-right ul li a:hover {
             background-color: #2D323E; }
+          .header .nav-right ul li a .name-text {
+            height: inherit;
+            line-height: 80px; }
       .header .nav-right ul .active {
         background-color: #2D323E !important; }
       .header .nav-right ul .common {
@@ -310,7 +313,7 @@ td {
           display: none;
           position: absolute;
           top: 77px;
-          left: -150px;
+          left: calc(50% - 163px);
           width: 325px;
           height: 300px;
           border: 1px solid #efefef;
@@ -345,7 +348,7 @@ td {
           position: absolute;
           width: 0;
           height: 0;
-          left: 50%;
+          left: calc(50% - 15px);
           top: -35px;
           border-width: 0 15px 15px;
           border-style: solid;
@@ -363,7 +366,7 @@ td {
           display: none;
           position: absolute;
           border: 1px solid #efefef;
-          left: -205px;
+          left: calc(50% - 225px);
           width: 450px;
           top: 77px;
           z-index: 999;
@@ -375,7 +378,7 @@ td {
           position: absolute;
           width: 0;
           height: 0;
-          left: 50%;
+          left: calc(50% - 15px);
           top: -35px;
           border-width: 0 15px 15px;
           border-style: solid;
@@ -2092,10 +2095,10 @@ td {
               .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .time {
                 flex: 1; }
               .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .when-long {
-                width: 70px;
+                width: 90px;
                 color: #1E93FF; }
               .task-detail .panel1 .panel-content .history .lists .item .item-bot .time-list .no-when-long {
-                width: 70px;
+                width: 90px;
                 color: #F25E4B; }
           .task-detail .panel1 .panel-content .history .lists .item.open .arrow-box b.fadown {
             display: inline-block; }
