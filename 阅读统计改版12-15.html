@@ -545,6 +545,16 @@
 
 							<div class="reading-statistics-box">
 								<h4>阅读统计</h4>
+								
+								<!--无数据站位图-->
+								<div class="no-data-box">
+									<div class="no-data">
+										<div class="no-data-img">
+											<img src="img/no-data.png"/>
+										</div>
+									</div>
+									
+								</div>
 
 								<!--柱状图总览-->
 								<div class="bar-graph-box">
@@ -875,6 +885,14 @@
 				$('.reading-detail-box').show();
 				$('.selection-area').hide();
 			}
+			
+			//无数据站位图
+			function noData(){
+				$('.no-data-box').show();
+				$('.bar-graph-box').hide();
+				$('.reading-detail-box').hide();
+			}
+//			noData()
 		</script>
 
 		<script type="text/javascript">

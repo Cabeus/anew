@@ -132,6 +132,26 @@ td {
         height: 40px;
         line-height: 40px;
     }
+    //
+    .no-data-box{
+        display: none;
+        width: 100%;
+        height: 400px;
+        .no-data{
+            width: 100%;
+            height: 400px;
+            display: flex;
+            .no-data-img{
+                margin: auto;
+                width: 120px;
+                height: 97px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
     //柱状图
     .bar-graph-box {
         width: 100%;

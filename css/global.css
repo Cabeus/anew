@@ -169,6 +169,20 @@ td {
   .reading-statistics-box h4 {
     height: 40px;
     line-height: 40px; }
+  .reading-statistics-box .no-data-box {
+    display: none;
+    width: 100%;
+    height: 400px; }
+    .reading-statistics-box .no-data-box .no-data {
+      width: 100%;
+      height: 400px;
+      display: flex; }
+      .reading-statistics-box .no-data-box .no-data .no-data-img {
+        margin: auto;
+        width: 120px;
+        height: 97px; }
+        .reading-statistics-box .no-data-box .no-data .no-data-img img {
+          width: 100%; }
   .reading-statistics-box .bar-graph-box {
     width: 100%;
     height: 400px; }
