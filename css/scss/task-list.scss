@@ -236,15 +236,15 @@
                     padding-left: 20px;
                     line-height: 28px;
                 }
-                .input-checkbox {
+                .input-checkbox,.input-checkboxAll{
                     position: absolute;
                     visibility: hidden;
                 }
-                .input-checkbox:checked+label {
+                .input-checkbox:checked+label,.input-checkboxAll:checked+label{
                     background: $c6;
                     border: 1px solid $c6;
                 }
-                .input-checkbox+label {
+                .input-checkbox+label,.input-checkboxAll+label {
                     display: inline-block;
                     width: 20px;
                     height: 20px;
@@ -254,7 +254,7 @@
                     top: 4px;
                     background: #fff;
                 }
-                .input-checkbox:checked+label:after {
+                .input-checkbox:checked+label:after,.input-checkboxAll:checked+label:after {
                     content: "";
                     position: absolute;
                     left: 4px;
