@@ -545,15 +545,15 @@
 
 							<div class="reading-statistics-box">
 								<h4>阅读统计</h4>
-								
+
 								<!--无数据站位图-->
 								<div class="no-data-box">
 									<div class="no-data">
 										<div class="no-data-img">
-											<img src="img/no-data.png"/>
+											<img src="img/no-data.png" />
 										</div>
 									</div>
-									
+
 								</div>
 
 								<!--柱状图总览-->
@@ -678,19 +678,20 @@
 			$('.form-multiple-select').multiselect({
 				maxHeight: 400
 			});
-			
+
 			$('.form-multiple-select').multiselect({
-	            onChange: function(element, checked) {
-	            	console.log(123)
-	                console.log($('.form-multiple-select').val())
-	            }
-	        });
+				onChange: function(element, checked) {
+					console.log(123)
+					console.log($('.form-multiple-select').val())
+				}
+			});
 
 			// 柱状图
 			var barGraphChart = echarts.init(document.getElementById('bar-graph'));
 			// 指定图表的配置项和数据
 			var barGraphOption = {
 				color: ['#4A90E2'],
+//				calculable: true,
 				grid: {
 					left: '3%',
 					right: '4%',
@@ -710,24 +711,31 @@
 				xAxis: [{
 					type: 'category',
 					data: ['网格一', '网格二', '网格三', '网格一', '网格二', '网格三'],
-					axisTick: {
-						alignWithLabel: true
-					}
+//					axisTick: {
+//						alignWithLabel: true
+//					},
+					//设置文字属性
+//					axisLabel: {
+//						clickable: true
+//					},
+//					clickable: true
+triggerEvent:true
+					
 				}],
 				yAxis: [{
 					type: 'value',
 					axisLabel: {
 						show: true,
 						interval: 'auto',
-						formatter: '{value} %'
+						formatter: '{value} %',
 					},
 					show: true
 				}],
 				series: [{
 					type: 'bar',
 					barWidth: 40,
-					barMinHeight:4,
-					data: [80,70,60,50,40,0,0,0,0,0,0,90],
+					barMinHeight: 4,
+					data: [80, 70, 60, 50, 40, 0, 0, 0, 0, 0, 0, 90],
 					id: [10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65]
 				}]
 			};
@@ -736,6 +744,7 @@
 			// 绑定点击事件
 			barGraphChart.on('click', function(params) {
 				console.log(params);
+
 				//				console.log(option)
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').show();
@@ -754,7 +763,7 @@
 				value: 3854,
 				name: '未读'
 			}]
-			
+
 			//饼图样式
 			var rich = {
 				yellow: {
@@ -764,12 +773,12 @@
 					align: 'center'
 				},
 				total: {
-					color: "#579bec",//中心数字
+					color: "#579bec", //中心数字
 					fontSize: 30,
 					align: 'center'
 				},
 				white: {
-//					color: "#fff",
+					//					color: "#fff",
 					align: 'center',
 					fontWeight: '600',
 					fontSize: 16,
@@ -789,7 +798,7 @@
 			}
 			// 指定图表的配置项和数据
 			var pieChartOption = {
-//				backgroundColor: '#031f2d',
+				//				backgroundColor: '#031f2d',
 				title: {
 					text: '总人数',
 					left: 'center',
@@ -813,19 +822,19 @@
 					},
 					data: [echartData[0].name],
 					// data: [''],
-//					 itemGap: 50,
+					//					 itemGap: 50,
 					left: 'center',
 					top: 'center',
 					icon: 'none',
 					align: 'center',
 					textStyle: {
-//						color: "#fff",
+						//						color: "#fff",
 						fontSize: 16,
 						rich: rich
 					},
 				},
 				series: [{
-//					name: '',
+					//					name: '',
 					type: 'pie',
 					radius: ['45%', '60%'],
 					hoverAnimation: false,
@@ -839,7 +848,7 @@
 									total += value.value;
 								});
 								percent = ((params.value / total) * 100).toFixed(1);
-								return '{white|' + params.name +" "+ params.value + '}\n{blue|' + percent + '%}';
+								return '{white|' + params.name + " " + params.value + '}\n{blue|' + percent + '%}';
 							},
 							rich: rich
 						},
@@ -885,14 +894,14 @@
 				$('.reading-detail-box').show();
 				$('.selection-area').hide();
 			}
-			
+
 			//无数据站位图
-			function noData(){
+			function noData() {
 				$('.no-data-box').show();
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').hide();
 			}
-//			noData()
+			//			noData()
 		</script>
 
 		<script type="text/javascript">
