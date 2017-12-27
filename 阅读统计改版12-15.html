@@ -691,7 +691,7 @@
 			// 指定图表的配置项和数据
 			var barGraphOption = {
 				color: ['#4A90E2'],
-//				calculable: true,
+				//				calculable: true,
 				grid: {
 					left: '3%',
 					right: '4%',
@@ -711,16 +711,17 @@
 				xAxis: [{
 					type: 'category',
 					data: ['网格一', '网格二', '网格三', '网格一', '网格二', '网格三'],
-//					axisTick: {
-//						alignWithLabel: true
-//					},
+//					name:[10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65],
+					//					axisTick: {
+					//						alignWithLabel: true
+					//					},
 					//设置文字属性
-//					axisLabel: {
-//						clickable: true
-//					},
-//					clickable: true
-triggerEvent:true
-					
+					//					axisLabel: {
+					//						clickable: true
+					//					},
+					//					clickable: true
+					triggerEvent: true
+
 				}],
 				yAxis: [{
 					type: 'value',
@@ -729,27 +730,34 @@ triggerEvent:true
 						interval: 'auto',
 						formatter: '{value} %',
 					},
-					show: true
+					show: true,
+					max:100
 				}],
 				series: [{
 					type: 'bar',
 					barWidth: 40,
 					barMinHeight: 4,
-					data: [80, 70, 60, 50, 40, 0, 0, 0, 0, 0, 0, 90],
-					id: [10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65]
+					data: [60, 30, 20, 50, 40, 0 ],
+//					id: [10, 20, 30, 40, 50, 60, 11111, 80, 90, 100, 55, 65]
 				}]
 			};
-			// 使用刚指定的配置项和数据显示图表。
 			barGraphChart.setOption(barGraphOption);
 			// 绑定点击事件
 			barGraphChart.on('click', function(params) {
+				console.log(params.event.target.anid);
 				console.log(params);
-
+				var abc = params.event.target.anid
+				
+				var def = params.event.target.anid.slice(6);
+				console.log(abc)
+				console.log(def)
+				
+				
 				//				console.log(option)
 				$('.bar-graph-box').hide();
 				$('.reading-detail-box').show();
-				var arr = params.seriesId.split(",")
-				console.log(arr[params.dataIndex])
+//				var arr = params.seriesId.split(",")
+//				console.log(arr[params.dataIndex])
 				hideTypeBox24()
 			});
 

@@ -701,6 +701,8 @@ td {
 .together .btn:visited,
 .together .btn:focus {
   color: #ffffff; }
+.together .daterangepicker .btn-default:hover {
+  color: #000; }
 .together .btn_tag,
 .together .btn_group_notify,
 .together .btn_group_patrol,

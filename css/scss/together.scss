@@ -20,6 +20,14 @@
     .btn:focus {
         color: #ffffff;
     }
+    
+    .daterangepicker{
+        .btn-default:hover{
+            color: #000;
+        }
+    }
+    
+    
     .btn_tag,
     .btn_group_notify,
     .btn_group_patrol,
