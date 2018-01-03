@@ -68,38 +68,44 @@
 				'data': {
 					'id': '1001'
 				}
-//			}, {
-//				'lng': 116.404,
-//				'lat': 39.911,
-//				'data': {
-//					'id': '1002'
-//				}
-//			}, {
-//				'lng': 116.404,
-//				'lat': 39.912,
-//				'data': {
-//					'id': '1003'
-//				}
-//			}, {
-//				'lng': 116.404,
-//				'lat': 39.913,
-//				'data': {
-//					'id': '1004'
-//				}
-//			}, {
-//				'lng': 116.404,
-//				'lat': 39.914,
-//				'data': {
-//					'id': '1005'
-//				}
+				//			}, {
+				//				'lng': 116.404,
+				//				'lat': 39.911,
+				//				'data': {
+				//					'id': '1002'
+				//				}
+				//			}, {
+				//				'lng': 116.404,
+				//				'lat': 39.912,
+				//				'data': {
+				//					'id': '1003'
+				//				}
+				//			}, {
+				//				'lng': 116.404,
+				//				'lat': 39.913,
+				//				'data': {
+				//					'id': '1004'
+				//				}
+				//			}, {
+				//				'lng': 116.404,
+				//				'lat': 39.914,
+				//				'data': {
+				//					'id': '1005'
+				//				}
 			}]
 
 			for(let i in arr) {
-				addMarkerInfo(arr[i]);
+//				addMarkerInfo(arr[i]);
+				addOverlay({
+					poi:{lng: 87.310418, lat: 43.865402},
+					icon:"http://developing.zxwave.com/besafe/manager/static/img/video.png"
+				}, function() {
+					playVideo(item.point.data.videoUrl, item.point.data.desc)
+				})
 			}
 
 			function addMarkerInfo(point) {
-				var myIcon = new BMap.Icon("http://testapi.zxwave.com/besafe/manager/static/img/person.png", new BMap.Size(40, 40), {
+				var myIcon = new BMap.Icon("http://developing.zxwave.com/besafe/manager/static/img/video.png", new BMap.Size(40, 40), {
 					imageSize: new BMap.Size(32, 41)
 				});
 				var pt = new BMap.Point(point.lng, point.lat);
@@ -113,19 +119,17 @@
 				marker.addEventListener("click", function() {
 					this.openInfoWindow(addInfoWindow(point));
 				});
-				
-				
-				
-		        var circle = new BMap.Circle(pt, 500, {
-		            strokeColor:'blue',
-		            strokeWeight:3,
-		            strokeStyle:'dashed',
-		            fillOpacity:0.3
-		        });
-		        circle.data = point.data;
-		        circle.dataType = 1; 
-		        map.addOverlay(circle);
-				
+
+				var circle = new BMap.Circle(pt, 500, {
+					strokeColor: 'blue',
+					strokeWeight: 3,
+					strokeStyle: 'dashed',
+					fillOpacity: 0.3
+				});
+				circle.data = point.data;
+				circle.dataType = 1;
+				map.addOverlay(circle);
+
 			}
 
 			function addInfoWindow(point) {
@@ -148,24 +152,24 @@
 					if(arr[i].data.id == id) {
 						var point = arr[i];
 						for(let i in map.getOverlays()) {
-							
-//							console.log(map.getOverlays()[i])
+
+							//							console.log(map.getOverlays()[i])
 							if(typeof map.getOverlays()[i].data == "undefined") {
 								console.log("undefined")
 							} else {
 								//console.log(map.getOverlays()[i])
-//								console.log(map.getOverlays()[i].dataType)
-								if (map.getOverlays()[i].dataType != "1") {
+								//								console.log(map.getOverlays()[i].dataType)
+								if(map.getOverlays()[i].dataType != "1") {
 									if(map.getOverlays()[i].data.id == id) {
-									map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
+										map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
+									}
+								} else {
+
 								}
-								} else{
-									
-								}
-								
-//								if(map.getOverlays()[i].data.id == id) {
-//									map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
-//								}
+
+								//								if(map.getOverlays()[i].data.id == id) {
+								//									map.getOverlays()[i].openInfoWindow(addInfoWindow(point));
+								//								}
 							}
 						}
 					}

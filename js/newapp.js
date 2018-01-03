@@ -1,14 +1,23 @@
 //设置内容的高度
 $(document).ready(function () {
-    var height = $(window).height() - 76;
+    var height = $(window).height() - 88;
     $('.aside').height(height);
     $('.main-content').height(height);
 });
 $(window).resize(function () {
-    var height = $(window).height() - 76;
+    var height = $(window).height() - 88;
     $('.aside').height(height);
     $('.main-content').height(height);
 })
+//地区选择下拉框
+$('.single-dropdown').mouseenter (function(){
+	$(this).children('.single-ul').slideDown(0)
+})
+$('.single-dropdown').mouseleave (function(){
+	$(this).children('.single-ul').slideUp(0)
+})
+							
+
 
 //消息提示框
 $(".message").click(function (event) {

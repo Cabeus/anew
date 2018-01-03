@@ -100,14 +100,14 @@
 //联防队员 警务站 摄像监控类别选择位置
 .command-show-options {
     position: absolute;
-    top: 90px;
+    top: 100px;
     left: 80px;
 }
 
 //定向发布按钮
 .release-button {
     position: absolute;
-    top: 90px;
+    top: 100px;
     right: 250px;
     box-shadow: 0 0 10px #ccc;
     >span {
@@ -128,6 +128,6 @@
 //地图切换按钮
 .command-maptype {
     position: absolute;
-    top: 90px;
+    top: 100px;
     right: 10px;
 }
