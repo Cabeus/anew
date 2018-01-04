@@ -2686,6 +2686,13 @@ td {
       float: right; }
       .benefit-web110 .chat-window .chat-header .chat-header-right span {
         cursor: pointer; }
+  .benefit-web110 .chat-window .no-chct-bitmap {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    z-index: 1; }
   .benefit-web110 .chat-window .chat-con {
     width: 100%;
     height: 500px;
@@ -2904,7 +2911,7 @@ td {
         .benefit-web110 .chat-window .chat-con .chat-con-right .chat-con-right-bot #post:hover {
           background-color: #039be5; }
       .benefit-web110 .chat-window .chat-con .chat-con-right .no-chat {
-        width: 605px;
+        width: 604px;
         height: 393px;
         position: absolute;
         top: 0;
@@ -2913,5 +2920,44 @@ td {
         background: #fff; }
         .benefit-web110 .chat-window .chat-con .chat-con-right .no-chat img {
           margin: auto; }
+
+.watch-list-modal .input-con {
+  position: relative;
+  display: inline-block;
+  line-height: 28px;
+  padding-right: 15px; }
+.watch-list-modal .input-checkbox,
+.watch-list-modal .input-checkboxAll {
+  position: absolute;
+  visibility: hidden; }
+.watch-list-modal .input-checkbox:checked + label,
+.watch-list-modal .input-checkboxAll:checked + label {
+  background: #03ADEF;
+  border: 1px solid #03ADEF; }
+.watch-list-modal .input-checkbox + label,
+.watch-list-modal .input-checkboxAll + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  position: absolute;
+  top: 4px;
+  background: #fff; }
+.watch-list-modal .input-checkbox:checked + label:after,
+.watch-list-modal .input-checkboxAll:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: 7px;
+  width: 11px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  -ms-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-45deg); }
 
 /*# sourceMappingURL=global.css.map */

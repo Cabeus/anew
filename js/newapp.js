@@ -16,8 +16,12 @@ $('.single-dropdown').mouseenter (function(){
 $('.single-dropdown').mouseleave (function(){
 	$(this).children('.single-ul').slideUp(0)
 })
-							
 
+//地区无数据时弹出框 
+function noDataAlert(){
+	alert('该区域暂无数据');
+}
+						
 
 //消息提示框
 $(".message").click(function (event) {
