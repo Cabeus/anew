@@ -161,12 +161,31 @@
     .row-wid .col-xs-6 {
         padding: 0;
     }
-    .flow-box, 
+    .flow-box,
     .behind-box,
     .behind-box-bot {
         width: 100%;
         padding: 5px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
+        
+    }
+    .renkou-box {
+        width: 100%;
+        height: 30px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+    .flow-cen,
+    .behind-cen {
+        position: relative;
+    }
+    .flow-disabled,
+    .behind-disabled {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 300;
+        cursor: not-allowed;
     }
 }
