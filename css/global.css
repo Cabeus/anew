@@ -227,6 +227,29 @@ td {
         .reading-statistics-box .reading-detail-box .switch-button.active a {
           color: #fff; }
 
+.select-custom {
+  width: 60%;
+  padding: 3px 15px;
+  color: #333;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: hidden;
+  /*background-image: none;*/
+  background: url("../img/arrow.png") no-repeat scroll right center transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+.select-custom::-ms-expand {
+  display: none; }
+
 .header-page .navigation-bar {
   height: 38px;
   background-color: #545A6F;
@@ -1351,112 +1374,146 @@ td {
       .rescue-list .showinfo .content-message-box .infos {
         padding: 10px 0 0 40px; }
 
-.resident-list, .resident-list-modal {
+.resident-list,
+.resident-list-modal {
   /*本页面模态框媒体查询*/
   /*展示信息模态框样式*/
   /*选框文字过长隐藏*/ }
-  .resident-list .col-xs-3, .resident-list-modal .col-xs-3 {
+  .resident-list .col-xs-3,
+  .resident-list-modal .col-xs-3 {
     padding: 0; }
-  .resident-list .col-xs-3 > .form-group, .resident-list-modal .col-xs-3 > .form-group {
+  .resident-list .col-xs-3 > .form-group,
+  .resident-list-modal .col-xs-3 > .form-group {
     width: 100%;
     margin-bottom: 10px; }
-  .resident-list .col-xs-3 > .form-group > label, .resident-list-modal .col-xs-3 > .form-group > label {
+  .resident-list .col-xs-3 > .form-group > label,
+  .resident-list-modal .col-xs-3 > .form-group > label {
     display: inline-block;
     width: 30%;
     text-align: right; }
-  .resident-list .col-xs-3 > .form-group > input, .resident-list-modal .col-xs-3 > .form-group > input {
+  .resident-list .col-xs-3 > .form-group > input,
+  .resident-list-modal .col-xs-3 > .form-group > input {
     display: inline-block;
     height: 28px;
     width: 60%; }
-  .resident-list .col-xs-3 > .form-group > .btn-group, .resident-list-modal .col-xs-3 > .form-group > .btn-group {
+  .resident-list .col-xs-3 > .form-group > .btn-group,
+  .resident-list-modal .col-xs-3 > .form-group > .btn-group {
     width: 60%; }
-  .resident-list .col-xs-3 > .form-group > .btn-group > button, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button {
+  .resident-list .col-xs-3 > .form-group > .btn-group > button,
+  .resident-list-modal .col-xs-3 > .form-group > .btn-group > button {
     padding: 3px 15px;
     width: 100%; }
-  .resident-list .col-xs-3 > .form-group > .btn-group > button > span, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > span {
+  .resident-list .col-xs-3 > .form-group > .btn-group > button > span,
+  .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > span {
     float: left; }
-  .resident-list .col-xs-3 > .form-group > .btn-group > button > b, .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > b {
+  .resident-list .col-xs-3 > .form-group > .btn-group > button > b,
+  .resident-list-modal .col-xs-3 > .form-group > .btn-group > button > b {
     float: right;
     margin-top: 8px; }
-  .resident-list .add-s > .form-group, .resident-list-modal .add-s > .form-group {
+  .resident-list .add-s > .form-group,
+  .resident-list-modal .add-s > .form-group {
     width: 13.5%; }
-  .resident-list .add-s > .form-group > .btn-group, .resident-list-modal .add-s > .form-group > .btn-group {
+  .resident-list .add-s > .form-group > .btn-group,
+  .resident-list-modal .add-s > .form-group > .btn-group {
     width: 100%; }
-  .resident-list .add-s > .form-group > .btn-group > button, .resident-list-modal .add-s > .form-group > .btn-group > button {
+  .resident-list .add-s > .form-group > .btn-group > button,
+  .resident-list-modal .add-s > .form-group > .btn-group > button {
     padding: 3px 15px;
     width: 100% !important; }
-  .resident-list .add-s > .form-group > .btn-group > button > span, .resident-list-modal .add-s > .form-group > .btn-group > button > span {
+  .resident-list .add-s > .form-group > .btn-group > button > span,
+  .resident-list-modal .add-s > .form-group > .btn-group > button > span {
     float: left; }
-  .resident-list .add-s > .form-group > .btn-group > button > b, .resident-list-modal .add-s > .form-group > .btn-group > button > b {
+  .resident-list .add-s > .form-group > .btn-group > button > b,
+  .resident-list-modal .add-s > .form-group > .btn-group > button > b {
     float: right;
     margin-top: 8px; }
-  .resident-list .add-s > .input-group, .resident-list-modal .add-s > .input-group {
+  .resident-list .add-s > .input-group,
+  .resident-list-modal .add-s > .input-group {
     height: 20px;
     width: 13.5%; }
-  .resident-list .add-s > .input-group > input, .resident-list-modal .add-s > .input-group > input {
+  .resident-list .add-s > .input-group > input,
+  .resident-list-modal .add-s > .input-group > input {
     height: 30px;
     padding: 3px 15px; }
-  .resident-list .add-s > .input-group > span, .resident-list-modal .add-s > .input-group > span {
+  .resident-list .add-s > .input-group > span,
+  .resident-list-modal .add-s > .input-group > span {
     height: 30px;
     padding: 3px 15px; }
-  .resident-list .col-xs-4 > .form-group, .resident-list-modal .col-xs-4 > .form-group {
+  .resident-list .col-xs-4 > .form-group,
+  .resident-list-modal .col-xs-4 > .form-group {
     width: 100%;
     margin-bottom: 10px; }
-  .resident-list .col-xs-4 > .form-group > label, .resident-list-modal .col-xs-4 > .form-group > label {
+  .resident-list .col-xs-4 > .form-group > label,
+  .resident-list-modal .col-xs-4 > .form-group > label {
     display: inline-block;
     width: 33%;
     text-align: right; }
-  .resident-list .form-group > input, .resident-list-modal .form-group > input {
+  .resident-list .form-group > input,
+  .resident-list-modal .form-group > input {
     display: inline-block;
     height: 28px;
     width: 60%; }
-  .resident-list .col-xs-4 > .form-group > .btn-group, .resident-list-modal .col-xs-4 > .form-group > .btn-group {
+  .resident-list .col-xs-4 > .form-group > .btn-group,
+  .resident-list-modal .col-xs-4 > .form-group > .btn-group {
     width: 60%; }
-  .resident-list .col-xs-4 > .form-group > .btn-group > button, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button {
+  .resident-list .col-xs-4 > .form-group > .btn-group > button,
+  .resident-list-modal .col-xs-4 > .form-group > .btn-group > button {
     padding: 3px 15px;
     width: 100%; }
-  .resident-list .col-xs-4 > .form-group > .btn-group > button > span, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > span {
+  .resident-list .col-xs-4 > .form-group > .btn-group > button > span,
+  .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > span {
     float: left; }
-  .resident-list .col-xs-4 > .form-group > .btn-group > button > b, .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > b {
+  .resident-list .col-xs-4 > .form-group > .btn-group > button > b,
+  .resident-list-modal .col-xs-4 > .form-group > .btn-group > button > b {
     float: right;
     margin-top: 8px; }
   @media (min-width: 992px) {
-    .resident-list .modal-lg, .resident-list-modal .modal-lg {
+    .resident-list .modal-lg,
+    .resident-list-modal .modal-lg {
       width: 1000px; } }
-  .resident-list .nav-pills > li, .resident-list-modal .nav-pills > li {
+  .resident-list .nav-pills > li,
+  .resident-list-modal .nav-pills > li {
     background: #2D323E; }
   .resident-list .nav-pills > li:focus,
-  .resident-list .nav-pills > li:hover, .resident-list-modal .nav-pills > li:focus,
+  .resident-list .nav-pills > li:hover,
+  .resident-list-modal .nav-pills > li:focus,
   .resident-list-modal .nav-pills > li:hover {
     color: #fff !important;
     background-color: #9974D2; }
   .resident-list .nav-pills > li.active,
   .resident-list .nav-pills > li.active:focus,
-  .resident-list .nav-pills > li.active:hover, .resident-list-modal .nav-pills > li.active,
+  .resident-list .nav-pills > li.active:hover,
+  .resident-list-modal .nav-pills > li.active,
   .resident-list-modal .nav-pills > li.active:focus,
   .resident-list-modal .nav-pills > li.active:hover {
     color: #fff !important;
     background-color: #9974D2; }
   .resident-list .nav-pills > li.active > a,
   .resident-list .nav-pills > li.active > a:focus,
-  .resident-list .nav-pills > li.active > a:hover, .resident-list-modal .nav-pills > li.active > a,
+  .resident-list .nav-pills > li.active > a:hover,
+  .resident-list-modal .nav-pills > li.active > a,
   .resident-list-modal .nav-pills > li.active > a:focus,
   .resident-list-modal .nav-pills > li.active > a:hover {
     color: #fff !important;
     background-color: #9974D2; }
-  .resident-list .nav-justified, .resident-list-modal .nav-justified {
+  .resident-list .nav-justified,
+  .resident-list-modal .nav-justified {
     border-radius: 4px;
     overflow: hidden; }
-  .resident-list .nav-justified > li > a, .resident-list-modal .nav-justified > li > a {
+  .resident-list .nav-justified > li > a,
+  .resident-list-modal .nav-justified > li > a {
     color: #fff !important; }
   .resident-list .nav-justified > li > a:focus,
-  .resident-list .nav-justified > li > a:hover, .resident-list-modal .nav-justified > li > a:focus,
+  .resident-list .nav-justified > li > a:hover,
+  .resident-list-modal .nav-justified > li > a:focus,
   .resident-list-modal .nav-justified > li > a:hover {
     background-color: #9974D2;
     color: #fff !important; }
-  .resident-list .form-horizontal .form-group, .resident-list-modal .form-horizontal .form-group {
+  .resident-list .form-horizontal .form-group,
+  .resident-list-modal .form-horizontal .form-group {
     margin-left: 0px; }
-  .resident-list .multiselect-selected-text, .resident-list-modal .multiselect-selected-text {
+  .resident-list .multiselect-selected-text,
+  .resident-list-modal .multiselect-selected-text {
     width: 85%;
     text-align: left;
     display: inline-block;
@@ -1467,6 +1524,20 @@ td {
   table-layout: auto; }
   .resident-list-modal #home table td {
     width: inherit; }
+
+.resident-list-modal .row-wid {
+  width: 100%;
+  height: 45px; }
+.resident-list-modal .row-wid .col-xs-4,
+.resident-list-modal .row-wid .col-xs-6 {
+  padding: 0; }
+.resident-list-modal .flow-box,
+.resident-list-modal .behind-box,
+.resident-list-modal .behind-box-bot {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; }
 
 .task-list .modal-style > .modal-header,
 .task-list-modal .modal-style > .modal-header {

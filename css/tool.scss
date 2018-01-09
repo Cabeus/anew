@@ -133,24 +133,23 @@ td {
         line-height: 40px;
     }
     //
-    .no-data-box{
+    .no-data-box {
         display: none;
         width: 100%;
         height: 400px;
-        .no-data{
+        .no-data {
             width: 100%;
             height: 400px;
             display: flex;
-            .no-data-img{
+            .no-data-img {
                 margin: auto;
                 width: 120px;
                 height: 97px;
-                img{
+                img {
                     width: 100%;
                 }
             }
         }
-        
     }
     //柱状图
     .bar-graph-box {
@@ -209,4 +208,30 @@ td {
             }
         }
     }
+}
+
+//自定义下拉列表
+.select-custom {
+    width: 60%;
+    padding: 3px 15px;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+//  text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: hidden;
+    /*background-image: none;*/
+    background: url("../img/arrow.png") no-repeat scroll right center transparent;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.select-custom::-ms-expand {
+    display: none;
 }
