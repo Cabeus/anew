@@ -619,9 +619,11 @@
     span.BMap_noprint {
         border-radius: 50%;
     }
-    span.BMap_Marker div img {
-        width: 48px;
-        height: 48px;
+    .allmap {
+        span.BMap_Marker div img {
+            width: 48px;
+            height: 48px;
+        }
     }
     .taskPageBox {
         .clearfix {
@@ -706,7 +708,7 @@
     .trajectory-box {
         width: 230px;
         height: 90px;
-//      background: pink;
+        //      background: pink;
         .top {
             font-size: 15px;
             color: #333333;
@@ -716,7 +718,7 @@
             .time-long {
                 float: right;
             }
-            .no-time-long{
+            .no-time-long {
                 float: right;
                 color: #F25E4B;
             }
@@ -747,7 +749,7 @@
                 background: #F25E4B;
                 border-radius: 3px;
                 color: #fff;
-                 margin-right: 5px;
+                margin-right: 5px;
             }
         }
     }
