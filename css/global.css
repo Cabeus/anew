@@ -1520,10 +1520,8 @@ td {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-.resident-list-modal #home table {
-  table-layout: auto; }
-  .resident-list-modal #home table td {
-    width: inherit; }
+.resident-list-modal #home table td {
+  width: inherit; }
 
 .resident-list-modal .row-wid {
   width: 100%;
