@@ -2283,7 +2283,7 @@ td {
 .task-detail span.BMap_Marker div,
 .task-detail span.BMap_noprint {
   border-radius: 50%; }
-.task-detail .allmap span.BMap_Marker div img {
+.task-detail #allmap span.BMap_Marker div img {
   width: 48px;
   height: 48px; }
 .task-detail .taskPageBox .clearfix {
