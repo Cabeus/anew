@@ -40,7 +40,12 @@
 				<li id="1004">id1004</li>
 				<li id="1005">id1005</li>
 			</ul>
+			<div>
+				<p>烟感报警器</p>
+				<p>名字名字</p>
+			</div>
 		</div>
+		
 		<script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("allmap");
@@ -68,41 +73,128 @@
 				'data': {
 					'id': '1001'
 				}
-				//			}, {
-				//				'lng': 116.404,
-				//				'lat': 39.911,
-				//				'data': {
-				//					'id': '1002'
-				//				}
-				//			}, {
-				//				'lng': 116.404,
-				//				'lat': 39.912,
-				//				'data': {
-				//					'id': '1003'
-				//				}
-				//			}, {
-				//				'lng': 116.404,
-				//				'lat': 39.913,
-				//				'data': {
-				//					'id': '1004'
-				//				}
-				//			}, {
-				//				'lng': 116.404,
-				//				'lat': 39.914,
-				//				'data': {
-				//					'id': '1005'
-				//				}
+			}, {
+				'lng': 116.404,
+				'lat': 39.911,
+				'data': {
+					'id': '1002'
+				}
+			}, {
+				'lng': 116.404,
+				'lat': 39.912,
+				'data': {
+					'id': '1003'
+				}
+			}, {
+				'lng': 116.404,
+				'lat': 39.913,
+				'data': {
+					'id': '1004'
+				}
+			}, {
+				'lng': 116.404,
+				'lat': 39.914,
+				'data': {
+					'id': '1005'
+				}
 			}]
 
-			for(let i in arr) {
-//				addMarkerInfo(arr[i]);
-				addOverlay({
-					poi:{lng: 87.310418, lat: 43.865402},
-					icon:"http://developing.zxwave.com/besafe/manager/static/img/video.png"
-				}, function() {
-					playVideo(item.point.data.videoUrl, item.point.data.desc)
-				})
+			var arr1 = [{
+					"id": "sensor001",
+					'lng': "116.404",
+					'lat': "39.910",
+					"tag": "sensor",
+					"name": "XX商店烟感报警器1",
+					"status": "normal"
+				},
+				{
+					"id": "sensor002",
+					'lng': "116.404",
+					'lat': "39.914",
+					"tag": "sensor",
+					"name": "XX商店烟感报警器2",
+					"status": "bug"
+				},
+				{
+					"id": "sensor003",
+					'lng': "116.404",
+					'lat': "39.912",
+					"tag": "sensor",
+					"name": "XX商店烟感报警器3",
+					"status": "alert"
+				}
+			]
+
+			for(let i in arr1) {
+				var item = arr1[i];
+				var element = {
+					point: {
+						poi: {
+							lat: item.lat,
+							lng: item.lng
+						},
+						icon: "http://developing.zxwave.com/besafe/manager/static/img/video.png",
+						data: {
+							id: item.id,
+							tag: item.tag,
+							name: item.name,
+							status: item.status
+						}
+					}
+				};
+				sensorInfo(element.point);
+				//				addOverlay({
+				//					poi:{lng: 87.310418, lat: 43.865402},
+				//					icon:"http://developing.zxwave.com/besafe/manager/static/img/video.png"
+				//				}, function() {
+				//					playVideo(item.point.data.videoUrl, item.point.data.desc)
+				//				})
 			}
+
+			//传感器 画点 弹框
+			function sensorInfo(point) {
+				//画点
+				var pt = new BMap.Point(point.poi.lng, point.poi.lat);
+				//画图标
+				var myIcon = new BMap.Icon(point.icon, new BMap.Size(40, 40), {
+					imageSize: new BMap.Size(32, 41)
+				});
+				//创建标注
+				var marker = new BMap.Marker(pt, {
+					icon: myIcon
+				}); //创建标注
+
+				marker.data = point.data; //附带信息
+
+				map.addOverlay(marker);
+				
+				
+								
+				var opts = {
+					width : 250,     // 信息窗口宽度
+					height: 80,     // 信息窗口高度
+					title : "烟感报警器"  // 信息窗口标题
+				   };
+				var sContent = '<div>'+
+								'	<span>名字名字</span><br/>'+
+									'<span>更新时间</span>'+
+								'</div>';
+
+				var infoWindow = new BMap.InfoWindow(sContent,opts); //创建信息窗口对象
+
+//				infoWindow.data = point.data;
+
+				infoWindow.addEventListener('open', function() { //open
+					console.log(this.data)
+				}, false)
+
+				marker.addEventListener("click", function() {
+					this.openInfoWindow(infoWindow);
+				});
+
+			}
+			
+			
 
 			function addMarkerInfo(point) {
 				var myIcon = new BMap.Icon("http://developing.zxwave.com/besafe/manager/static/img/video.png", new BMap.Size(40, 40), {
@@ -133,6 +225,7 @@
 			}
 
 			function addInfoWindow(point) {
+
 				var sContent = '<div class="con">' + point.data.id + '</div>';
 				var infoWindow = new BMap.InfoWindow(sContent); // 创建信息窗口对象
 				infoWindow.disableCloseOnClick(); // 点击地图关闭信息弹窗
