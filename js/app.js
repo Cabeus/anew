@@ -51,7 +51,7 @@ $('.aside ul li a').mouseenter(function() {
 		console.log(top, left)
 	}
 
-})
+});
 $('.aside ul li a').mouseleave(function() {
 	if($(this).parents('.aside').hasClass('mini-aside')) {
 		$('.arrow_box').remove()

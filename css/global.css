@@ -250,6 +250,42 @@ td {
 .select-custom::-ms-expand {
   display: none; }
 
+.video-box {
+  position: absolute;
+  width: 970px;
+  height: 613px;
+  background-color: rgba(0, 0, 0, 0.65);
+  margin: auto;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px; }
+  .video-box .video-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+  .video-box .video-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px; }
+    .video-box .video-content .desc {
+      width: 100%;
+      height: 50px;
+      color: #fff;
+      font-size: 20px; }
+    .video-box .video-content .thevideo {
+      width: 100%;
+      height: 522px; }
+      .video-box .video-content .thevideo video {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%; }
+
 .header-page .navigation-bar {
   height: 38px;
   background-color: #545A6F;
@@ -3138,5 +3174,169 @@ td {
   -moz-transform: rotate(-60deg);
   -webkit-transform: rotate(-60deg);
   transform: rotate(-45deg); }
+
+.grid-manager,
+.grid-manager-modal {
+  /*列表hover样式*/ }
+  .grid-manager .fixed-table-body,
+  .grid-manager-modal .fixed-table-body {
+    background: #464C5B; }
+  .grid-manager .fixed-table-container,
+  .grid-manager-modal .fixed-table-container {
+    border: 1px solid #635F77 !important;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px; }
+  .grid-manager .fixed-table-container thead th,
+  .grid-manager-modal .fixed-table-container thead th {
+    border-left: 0px; }
+  .grid-manager .fixed-table-container tbody td,
+  .grid-manager-modal .fixed-table-container tbody td {
+    border-left: 0px; }
+  .grid-manager .fixed-table-container td,
+  .grid-manager-modal .fixed-table-container td {
+    border-bottom: 1px solid #635F77 !important; }
+  .grid-manager .fixed-table-container thead tr:hover,
+  .grid-manager-modal .fixed-table-container thead tr:hover {
+    color: #FFF; }
+  .grid-manager .fixed-table-container tr:hover,
+  .grid-manager-modal .fixed-table-container tr:hover {
+    background: #eee;
+    color: #000; }
+  .grid-manager .fixed-table-container th,
+  .grid-manager-modal .fixed-table-container th {
+    border-bottom: 1px solid #635F77 !important;
+    font-weight: normal;
+    background-color: #3B4754;
+    text-align: center; }
+  .grid-manager .one,
+  .grid-manager .two,
+  .grid-manager-modal .one,
+  .grid-manager-modal .two {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+  .grid-manager .img,
+  .grid-manager-modal .img {
+    width: 100px;
+    height: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center; }
+  .grid-manager .img > img,
+  .grid-manager-modal .img > img {
+    width: 80px;
+    margin: 0 auto 10px; }
+  .grid-manager .box,
+  .grid-manager-modal .box {
+    background-color: #F8F8FF;
+    color: black;
+    border: 1px solid black;
+    /* 设置阴影 */
+    -webkit-box-shadow: 1px 1px 3px #292929;
+    -moz-box-shadow: 1px 1px 3px #292929;
+    box-shadow: 1px 1px 3px #292929; }
+  .grid-manager .fixed-table-container tr:hover,
+  .grid-manager-modal .fixed-table-container tr:hover {
+    background: #3f4251 !important;
+    color: #fff; }
+  .grid-manager .table-bordered td,
+  .grid-manager-modal .table-bordered td {
+    border: 1px solid #635F77 !important; }
+  .grid-manager th,
+  .grid-manager-modal th {
+    text-align: left !important; }
+  .grid-manager #table-household th,
+  .grid-manager-modal #table-household th {
+    color: #fff; }
+  .grid-manager .table-bordered th,
+  .grid-manager-modal .table-bordered th {
+    border: 1px solid #635F77 !important;
+    font-weight: normal;
+    background-color: #3B4754;
+    text-align: center; }
+  .grid-manager .nav-pills > li,
+  .grid-manager-modal .nav-pills > li {
+    background: #2D323E; }
+  .grid-manager .nav-pills > li:focus,
+  .grid-manager .nav-pills > li:hover,
+  .grid-manager-modal .nav-pills > li:focus,
+  .grid-manager-modal .nav-pills > li:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .grid-manager .nav-pills > li.active,
+  .grid-manager .nav-pills > li.active:focus,
+  .grid-manager .nav-pills > li.active:hover,
+  .grid-manager-modal .nav-pills > li.active,
+  .grid-manager-modal .nav-pills > li.active:focus,
+  .grid-manager-modal .nav-pills > li.active:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .grid-manager .nav-pills > li.active > a,
+  .grid-manager .nav-pills > li.active > a:focus,
+  .grid-manager .nav-pills > li.active > a:hover,
+  .grid-manager-modal .nav-pills > li.active > a,
+  .grid-manager-modal .nav-pills > li.active > a:focus,
+  .grid-manager-modal .nav-pills > li.active > a:hover {
+    color: #fff !important;
+    background-color: #9974D2; }
+  .grid-manager .nav-justified,
+  .grid-manager-modal .nav-justified {
+    border-radius: 4px;
+    overflow: hidden; }
+  .grid-manager .nav-justified > li > a,
+  .grid-manager-modal .nav-justified > li > a {
+    color: #fff !important; }
+  .grid-manager .nav-justified > li > a:focus,
+  .grid-manager .nav-justified > li > a:hover,
+  .grid-manager-modal .nav-justified > li > a:focus,
+  .grid-manager-modal .nav-justified > li > a:hover {
+    background-color: #9974D2;
+    color: #fff !important; }
+  .grid-manager #from-query > .col-xs-3 > .form-group,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group {
+    width: 100%;
+    margin-bottom: 10px; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > label,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > label {
+    display: inline-block;
+    width: 30%;
+    text-align: right; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > input,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > input {
+    display: inline-block;
+    height: 28px;
+    width: 60%; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > .btn-group,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > .btn-group {
+    width: 60%; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > .btn-group > button,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > .btn-group > button {
+    padding: 3px 15px;
+    width: 100%; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > .btn-group > button > span,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > .btn-group > button > span {
+    float: left; }
+  .grid-manager #from-query > .col-xs-3 > .form-group > .btn-group > button > b,
+  .grid-manager-modal #from-query > .col-xs-3 > .form-group > .btn-group > button > b {
+    float: right;
+    margin-top: 8px; }
+  .grid-manager .instructions:link,
+  .grid-manager .instructions:hover,
+  .grid-manager .instructions:active,
+  .grid-manager .instructions:visited,
+  .grid-manager .instructions:focus,
+  .grid-manager-modal .instructions:link,
+  .grid-manager-modal .instructions:hover,
+  .grid-manager-modal .instructions:active,
+  .grid-manager-modal .instructions:visited,
+  .grid-manager-modal .instructions:focus {
+    color: #ffffff; }
+  .grid-manager .fixed-table-loading,
+  .grid-manager-modal .fixed-table-loading {
+    background: #363b47; }
+  .grid-manager #table-resident-info td,
+  .grid-manager-modal #table-resident-info td {
+    width: auto; }
 
 /*# sourceMappingURL=global.css.map */
