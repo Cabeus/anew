@@ -800,16 +800,18 @@ ul{
 	display: inline-block;
 	width: 100%;
 	height: calc(100% - 54px);
+    padding: 0 18px;
 }
 .video-list-item{
 	display: flex;
     justify-content: center;
     align-items: center;
 	text-align: center;
-	border: 1px solid #dfdfdf;
-	background: #333;
+	border: 1px solid rgba(46,50,62,1);
+	background: rgba(70,78,91,1);
 	max-height: calc(100%/3);
-	height: calc((100% - 10px)/3)
+	height: calc(100%/3);
+    padding: 0 12px;
 }
 .video-list-item video{
 	max-width: 100%;
