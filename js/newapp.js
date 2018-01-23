@@ -10,18 +10,18 @@ $(window).resize(function () {
     $('.main-content').height(height);
 })
 //地区选择下拉框
-$('.single-dropdown').mouseenter (function(){
-	$(this).children('.single-ul').slideDown(0)
+$('.single-dropdown').mouseenter(function () {
+    $(this).children('.single-ul').slideDown(0)
 })
-$('.single-dropdown').mouseleave (function(){
-	$(this).children('.single-ul').slideUp(0)
+$('.single-dropdown').mouseleave(function () {
+    $(this).children('.single-ul').slideUp(0)
 })
 
 //地区无数据时弹出框 
-function noDataAlert(){
-	alert('该区域暂无数据');
+function noDataAlert() {
+    alert('该区域暂无数据');
 }
-						
+
 
 //消息提示框
 $(".message").click(function (event) {
@@ -222,6 +222,115 @@ Date.prototype.Format = function (fmt) { //author: meizz
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 };
+
+/**
+ * 表单数据转对象
+ * @param form
+ * @returns {{}}
+ */
+function serializeObject(form) {
+    let obj = {};
+    $.each(form.serializeArray(), function (index) {
+        if (obj[this['name']]) {
+            obj[this['name']] = obj[this['name']] + "," + this['value'];
+        } else {
+            obj[this['name']] = this['value'];
+        }
+    });
+    return obj;
+}
+
+/**
+ * 设置table状态到storge
+ * @param table table名
+ * @param form 表单名
+ * @param page 页数
+ */
+function setStorageTableParameter(table, form, page) {
+    let url = window.location.href.split('manager')[1];
+    let obj = {
+        url: url,
+        tableName: table,
+        data: serializeObject($(form)),
+        pageN: page
+    };
+    sessionStorage.setItem('table_parameter', JSON.stringify(obj));
+}
+
+
+function setTableParameter() {
+    let thisUrl = window.location.href.split('manager')[1];
+    let obj = JSON.parse(sessionStorage.getItem('table_parameter'));
+    //判断是否存在sessionstorage
+    if (obj != undefined) {
+        //判断当前页是否为储存页
+        if (thisUrl != obj.url) {
+            sessionStorage.removeItem('table_parameter');
+        } else {
+
+            if (obj.url == '/task/list') {
+                //判断是否为任务列表页
+
+                if (obj.tableName == '#table-task-list') {
+                    console.log(obj.data)
+                    $('#keyword1').val(obj.data.title);
+                    selected('status1', obj.data.status);
+                    $('#total-startDate').val(obj.data.startDate);
+                    $('#total-endDate').val(obj.data.endDate);
+                    $('.nav-tabs>li').eq(0).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(0).addClass('active').siblings('div').removeClass('active');
+                    initTaskTable({table: '#table-task-list', toolbar: '#toolbar-task-list', tag: 'total'}, obj.pageN);
+
+                } else if (obj.tableName == '#table-task-received') {
+                    console.log(obj.data)
+                    $('#keyword2').val(obj.data.title);
+                    selected('status2', obj.data.status);
+                    $('#received-startDate').val(obj.data.startDate);
+                    $('#received-endDate').val(obj.data.endDate);
+                    $('.nav-tabs li').eq(1).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(1).addClass('active').siblings('div').removeClass('active');
+                    initTaskTable({
+                        table: '#table-task-received',
+                        toolbar: '#toolbar-task-received',
+                        tag: 'received'
+                    }, obj.pageN);
+
+                } else if (obj.tableName == '#table-task-posted') {
+                    console.log(obj.data)
+                    $('#keyword3').val(obj.data.title);
+                    selected('status3', obj.data.status);
+                    $('#posted-startDate').val(obj.data.startDate);
+                    $('#posted-endDate').val(obj.data.endDate);
+                    $('.nav-tabs li').eq(2).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(2).addClass('active').siblings('div').removeClass('active');
+                    initTaskTable({
+                        table: '#table-task-posted',
+                        toolbar: '#toolbar-task-posted',
+                        tag: 'posted'
+                    }, obj.pageN);
+                }
+            } else if (obj.url == '/info/local') {
+                //判断本地宣传
+
+
+            } else if (obj.url == '/info/recommend') {
+                //判断时政资讯
+
+            } else if (obj.url == '/info/database') {
+                //判断宗旨文库
+
+            } else if (obj.url == '/feedback/listPage') {
+                //判断线索管理
+
+            } else if (obj.url == '/info/notification') {
+                //通知公告
+
+            }
+        }
+        sessionStorage.removeItem('table_parameter');
+    }
+}
+
 /**
  * Simple Map
  *
