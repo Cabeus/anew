@@ -120,4 +120,9 @@
             color: $c4; //列表头部字体颜色
         }
     }
+    #table-notice-latest,#table-task-latest,#table-feedback-latest{
+        td{
+            padding: 7px;
+        }
+    }
 }

@@ -796,7 +796,7 @@ ul{
     height: auto;
 }
 
-.map-style, .list-style{
+.map-style{
 	display: inline-block;
 	width: 100%;
 	height: calc(100% - 54px);
