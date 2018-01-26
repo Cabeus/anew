@@ -2,7 +2,7 @@
  * @Author: Kai.Jiang 
  * @Date: 2018-01-23 20:48:16 
  * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-01-23 20:55:27
+ * @Last Modified time: 2018-01-26 14:16:17
  */
 
 /******************************************************功能变量、方法****************************************************/
@@ -26,7 +26,7 @@ Main.EventMap = (function () {
     return {
         /* 告警事件上报 */
         __200: function (strAlarmInfo) {
-            //alert(strAlarmInfo);
+            console.log(strAlarmInfo);
         }
     };
 })();
@@ -99,7 +99,6 @@ if (0 != retcode2) {
 }
 
 
-
 var DeviceHandle = -1;
 var CloudHandle = -1;
 
@@ -154,10 +153,6 @@ function Devlogin() {
     } else {
         var result = JSON.parse(SDKRet);
         DeviceHandle = result.UserID;
-        document.getElementById("start").disabled = false;
-
-        //					$("#playerContainer").css("height", "400px");
-
         DevisLogin = true;
 
     }
@@ -182,8 +177,7 @@ function startVideo() {
     if (0 != retcode) {
         alert("播放实况失败。");
     } else {
-        document.getElementById("start").disabled = false;
-        document.getElementById("stop").disabled = false;
+
     }
 }
 
@@ -194,8 +188,6 @@ function stopVideo() {
     if (0 != retcode) {
         alert("停流失败。");
     } else {
-        document.getElementById("start").disabled = false;
-        document.getElementById("stop").disabled = true;
 
     }
 }
@@ -234,8 +226,8 @@ function getVideo() {
 
     for (let i in data) {
         // for(var i = 0;i<= data.length;i++){
-            setTimeout(function () {
-        // requestAnimationFrame(function () {
+        setTimeout(function () {
+            // requestAnimationFrame(function () {
             // alert(i)
             let username = data[i].username;
             let password = data[i].password;
@@ -248,7 +240,7 @@ function getVideo() {
             jsonStr = JSON.stringify(dataMap1);
             var SDKRet = sdk_viewer.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
             if (-1 == SDKRet) {
-                // alert("设备登录失败"+ i );
+                console.log("设备登录失败" + i);
             } else {
                 let result = JSON.parse(SDKRet);
                 DeviceHandle = result.UserID;
@@ -266,71 +258,65 @@ function getVideo() {
             var ResourceId = i;
             var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
             if (0 != retcode) {
-                // alert("播放实况失败。" + i );
+                console.log("播放实况失败。" + i);
             } else {
-//						document.getElementById("start").disabled = false;
-//						document.getElementById("stop").disabled = false;
+
             }
         }, 0);
-    // })
+        // })
     }
 
 };
 
 Cloudlogin2();
-function playVideo(username,password) {
+
+function playVideo(username, password) {
     $('.video-box').show();
-    $('.video-box').css({"width":"970px","height":"613px"})
-    // playerContainer2
-
+    $('.video-box').css({"width": "970px", "height": "613px"})
     setTimeout(function () {
+        var SDKRet2 = 0;
+        var dataMap1 = {
+            szDeviceName: username,
+            szDevicePassword: password,
+            dwT2UTimeout: 0
+        }
+        jsonStr = JSON.stringify(dataMap1);
+        var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
 
+        if (-1 == SDKRet2) {
+            console.log("设备登录失败");
+        } else {
+            let result = JSON.parse(SDKRet2);
+            DeviceHandle = result.UserID;
+            DevisLogin = true;
+            $('#playerContainer2').css({"width": "100%", "height": "522px"})
+        }
 
-    var SDKRet2 = 0;
-    var dataMap1 = {
-        szDeviceName: username,
-        szDevicePassword: password,
-        dwT2UTimeout: 0
-    }
-    jsonStr = JSON.stringify(dataMap1);
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
+        var dataMap2 = {
+            dwChannelID: 1,
+            dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
+            dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
+            dwFluency: 0
+        }
 
-    if (-1 == SDKRet2) {
-        // alert("设备登录失败");
-    } else {
-        let result = JSON.parse(SDKRet2);
-        DeviceHandle = result.UserID;
-        DevisLogin = true;
-        $('#playerContainer2').css({"width":"100%","height":"522px"})
-    }
+        jsonStr = JSON.stringify(dataMap2);
+        var ResourceId = 0;
+        var retcode = sdk_viewer2.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
+        if (0 != retcode) {
+            console.log("播放实况失败。");
+        } else {
 
-    var dataMap2 = {
-        dwChannelID: 1,
-        dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
-        dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
-        dwFluency: 0
-    }
+        }
 
-    jsonStr = JSON.stringify(dataMap2);
-    var ResourceId = 0;
-    var retcode = sdk_viewer2.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
-    if (0 != retcode) {
-        // alert("播放实况失败。");
-    } else {
-//						document.getElementById("start").disabled = false;
-//						document.getElementById("stop").disabled = false;
-    }
-
-    },200)
+    }, 200)
 }
+
 function stopVideo1() {
     var ResourceId = 0;
     var retcode = sdk_viewer2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
     if (0 != retcode) {
-        // alert("停流失败。");
+        console.log("停流失败。");
     } else {
-        // document.getElementById("start").disabled = false;
-        // document.getElementById("stop").disabled = true;
 
     }
 }

@@ -150,9 +150,6 @@
             }
         }
     }
-}
-
-.resident-list-modal {
     .row-wid {
         width: 100%;
         height: 45px;
@@ -187,5 +184,12 @@
         height: 100%;
         z-index: 300;
         cursor: not-allowed;
+    }
+    #table-resident-info,#table-resident-info-flow,#table-resident-info-behind,#table-household{
+        th,td{
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
     }
 }

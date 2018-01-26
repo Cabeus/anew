@@ -1,5 +1,11 @@
 @charset "UTF-8";
 .feedback-detail {
+    #table-addition{
+        td{
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+    }
     .Voice-box {
         .Voice {
             width: 80px;
