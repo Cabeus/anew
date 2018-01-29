@@ -257,7 +257,9 @@ function setStorageTableParameter(table, form, page) {
     sessionStorage.setItem('table_parameter', JSON.stringify(obj));
 }
 
-
+/**
+ * 设置列表返回时还原现场
+ */
 function setTableParameter() {
     let thisUrl = window.location.href.split('manager')[1];
     let obj = JSON.parse(sessionStorage.getItem('table_parameter'));
@@ -311,20 +313,65 @@ function setTableParameter() {
                 }
             } else if (obj.url == '/info/local') {
                 //判断本地宣传
-
+                if (obj.tableName == '#table-local') {
+                    console.log(obj.data)
+                    $("input[name='title']").val(obj.data.title);
+                    $("input[name='startDate']").val(obj.data.startDate);
+                    $("input[name='endDate']").val(obj.data.endDate);
+                }
 
             } else if (obj.url == '/info/recommend') {
                 //判断时政资讯
-
+                if (obj.tableName == '#table-recommend') {
+                    console.log(obj.data);
+                    $('#form_title').val(obj.data.title);
+                    $('#form_startDate').val(obj.data.startDate);
+                    $('#form_endDate').val(obj.data.endDate);
+                }
             } else if (obj.url == '/info/database') {
-                //判断宗旨文库
-
+                //判断综治文库
+                if (obj.tableName == '##table-recommend') {
+                    console.log(obj.data);
+                    $('#form_title').val(obj.data.title);
+                    $('#form_startDate').val(obj.data.startDate);
+                    $('#form_endDate').val(obj.data.endDate);
+                }
             } else if (obj.url == '/feedback/listPage') {
                 //判断线索管理
-
+                if (obj.tableName == '#table1') {
+                    console.log(obj.data)
+                    $("#from-query input[name='title']").val(obj.data.title);
+                    $("#from-query input[name='status']").val(obj.data.status);
+                    $("#from-query input[name='region']").val(obj.data.region);
+                    $("#from-query input[name='startDate']").val(obj.data.startDate);
+                    $("#from-query input[name='endDate']").val(obj.data.endDate);
+                    $('.nav-tabs li').eq(0).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(0).addClass('active').siblings('div').removeClass('active');
+                }else if(obj.tableName == '#table2'){
+                    $("#from-query1 input[name='title']").val(obj.data.title);
+                    $("#from-query1 input[name='status']").val(obj.data.status);
+                    $("#from-query1 input[name='region']").val(obj.data.region);
+                    $("#from-query1 input[name='startDate']").val(obj.data.startDate);
+                    $("#from-query1 input[name='endDate']").val(obj.data.endDate);
+                    $('.nav-tabs li').eq(1).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(1).addClass('active').siblings('div').removeClass('active');
+                }
             } else if (obj.url == '/info/notification') {
                 //通知公告
-
+                if (obj.tableName == '#table1') {
+                    console.log(obj.data)
+                    $("#from-query input[name='title']").val(obj.data.title);
+                    $("#from-query input[name='startDate']").val(obj.data.startDate);
+                    $("#from-query input[name='endDate']").val(obj.data.endDate);
+                    $('.nav-tabs li').eq(0).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(0).addClass('active').siblings('div').removeClass('active');
+                }else if(obj.tableName == '#table2'){
+                    $("#from-query1 input[name='title']").val(obj.data.title);
+                    $("#from-query1 input[name='startDate']").val(obj.data.startDate);
+                    $("#from-query1 input[name='endDate']").val(obj.data.endDate);
+                    $('.nav-tabs li').eq(1).addClass('active').siblings('li').removeClass('active');
+                    $('.tab-content>div').eq(1).addClass('active').siblings('div').removeClass('active');
+                }
             }
         }
         sessionStorage.removeItem('table_parameter');
