@@ -49,7 +49,7 @@ var cfg2 = {
     backgColor: '373737', //控件背景色，注意：参数形如'xxxxxx'，为颜色的16进制，以b g r 顺序，而不是r g b (可选)
     // noCreateWnd: 'true'
 }
-
+//
 var LiveStream = {
     LIVE_STREAM_INDEX_MAIN: 0, // 主流
     LIVE_STREAM_INDEX_AUX: 1, // 辅流
@@ -73,7 +73,6 @@ if (0 != retcode2) {
 var DeviceHandle = -1;
 var CloudHandle = -1;
 
-//			console.log(sdk_viewer)
 /****************************************初始化控件end****************************************/
 
 // 云登录
@@ -87,7 +86,6 @@ function Cloudlogin2() {
         CloudHandle = SDKRet2;
     }
 }
-
 
 /************************************************实况 相关**************************************************/
 Cloudlogin2();

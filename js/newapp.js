@@ -381,7 +381,6 @@ function setTableParameter() {
 /**
  * Simple Map
  *
- *
  * var m = new Map();
  * m.put('key','value');
  * ...

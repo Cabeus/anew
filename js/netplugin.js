@@ -102,7 +102,6 @@ if (0 != retcode2) {
 var DeviceHandle = -1;
 var CloudHandle = -1;
 
-//			console.log(sdk_viewer)
 /****************************************初始化控件end****************************************/
 
 // 云登录
@@ -310,7 +309,7 @@ function playVideo(username, password) {
 
     }, 200)
 }
-
+//
 function stopVideo1() {
     var ResourceId = 0;
     var retcode = sdk_viewer2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流

@@ -1451,9 +1451,13 @@ td {
         width: 80px; }
       .rescue-list .list-container #history table .itemid {
         width: 80px; }
+      .rescue-list .list-container #history table .top-line td {
+        padding: 0; }
     .rescue-list .list-container #history td {
       width: auto;
-      text-align: center; }
+      text-align: center;
+      padding: 0;
+      margin: 0; }
     .rescue-list .list-container #history .item {
       padding: 0px;
       margin: 0px;

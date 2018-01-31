@@ -61,36 +61,3 @@ $('.aside ul li a').mouseleave(function() {
 $('.close-dialog').click(function(event) {
 	$('.dialog').hide();
 });
-// 二级菜单收起
-// $('.saside-control').click(function() {
-// 	if($('.sec-aside').hasClass('slideup')) {
-// 		$('.sec-aside').removeClass('slideup')
-// 	} else {
-// 		$('.sec-aside').addClass('slideup')
-// 	}
-// })
-// var permission = {
-// 	getInitPermission: function(ctx, id) {
-// 		$.ajax({
-// 			type: "POST",
-// 			url: ctx + '/permission/getInitPermission',
-// 			data: {
-// 				id: id
-// 			},
-// 			dataType: "json",
-// 			success: function(data) {
-// 				var a1 = $("<ul></ul>");
-// 				$.each(data.data.list, function(i, v) {
-// 					var a2 = $('<li><a href="' + ctx + v.content + '"><div class="nav-icon"></div><div class="nav-title">' + v.name + '</div></a></li>');
-// 					a1.append(a2);
-// 				});
-// 				$('#initPermission').append(a1);
-// 				$("#initPermission a").each(function() {
-// 					if($(this).attr("href") == window.location.href) {
-// 						$(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
-// 					}
-// 				});
-// 			}
-// 		});
-// 	}
-// };
