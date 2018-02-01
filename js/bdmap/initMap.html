@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>initMap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<section style="width: 100vw;height: 100vh;">
+    <div id="map" style="width:100%;height:100%;"></div>
+</section>
+
+<!--百度地图相关-->
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=FRGH8U5owxghRjZdVMzllFp4aDQbw8sm"></script>
+<script type="text/javascript"
+        src="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script><!--加载鼠标绘制工具-->
+<script type="text/javascript" src="initMap.js"></script>
+
+<script>
+    // var map = initMap('map',{});
+
+
+    var map = BMap.Map('map', {
+        // minZoom: Number,	                //地图允许展示的最小级别
+        // maxZoom: Number,                   //地图允许展示的最大级别
+        // mapType: MapType,	            //地图类型，默认为BMAP_NORMAL_MAP
+        // enableHighResolution: Boolean,	//是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4默认为开启状态
+        // enableAutoResize: Boolean,	    //是否自动适应地图容器变化，默认启用
+        enableMapClick:true       //是否开启底图可点功能，默认启用
+    })
+
+
+</script>
+
+
+</body>
+</html>
