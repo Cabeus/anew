@@ -374,7 +374,9 @@ function setTableParameter() {
                 }
             }
         }
-        sessionStorage.removeItem('table_parameter');
+        setTimeout(function () {
+            sessionStorage.removeItem('table_parameter');
+        },2000);
     }
 }
 

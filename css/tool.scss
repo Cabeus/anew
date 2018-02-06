@@ -51,6 +51,11 @@ td {
     padding: 8px;
 }
 
+//去掉百度地图版权logo.
+.anchorBL{
+    display:none;
+}
+
 //地图 卫星 type
 .maptype {
     position: absolute;

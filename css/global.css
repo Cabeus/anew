@@ -102,6 +102,9 @@ td {
   text-overflow: ellipsis;
   padding: 8px; }
 
+.anchorBL {
+  display: none; }
+
 .maptype {
   position: absolute;
   top: 10px;

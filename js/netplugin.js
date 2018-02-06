@@ -221,13 +221,15 @@ function getVideo() {
     }, {
         username: 'Device0002',
         password: ''
-    }]
+    }];
 
-    for (let i in data) {
+    // for (let i in data) {
         // for(var i = 0;i<= data.length;i++){
-        setTimeout(function () {
+        // setTimeout(function () {
             // requestAnimationFrame(function () {
             // alert(i)
+            var i = 0;
+
             let username = data[i].username;
             let password = data[i].password;
             var SDKRet = 0;
@@ -261,12 +263,12 @@ function getVideo() {
             } else {
 
             }
-        }, 0);
+        // }, 0);
         // })
-    }
+    // }
 
 };
-
+getVideo();
 Cloudlogin2();
 
 function playVideo(username, password) {
