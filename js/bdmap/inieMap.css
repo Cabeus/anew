@@ -9,6 +9,9 @@ body {
 .anchorBL {
   display: none; }
 
+.BMapLabel {
+  max-width: 500px; }
+
 .map-type {
   position: absolute;
   top: 40px;

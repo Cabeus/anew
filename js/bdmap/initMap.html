@@ -30,12 +30,37 @@
 <script type="text/javascript" src="initMap.js"></script>
 
 <script>
-    var map = initMap('map-box',{
+    var map = new initMap('map-box',{
 
     });
-    var map1 = initMap('map1-box',{
+    var map1 = new initMap('map1-box',{
 
     });
+    map.setCenter(87.322871,43.871356,16);
+    map1.setCenter(116.402544,39.915156,12);
+    map1.setPoint(116.402544,39.815156,"北京","1001",true);
+    map1.setPoint(116.402544,39.915156,"北京","1001",true);
+    map1.setPoint(116.402544,39.995156,"北京","1001",false);
+
+    var arrrr = [{lng: 87.322871, lat: 43.871356}, {lng: 87.322188, lat: 43.868965}, {lng: 87.322583, lat: 43.867509}, {lng: 87.330345, lat: 43.869303}, {lng: 87.33056, lat: 43.869953}, {lng: 87.322943, lat: 43.87133}]
+
+    map.drawPolygon(arrrr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // var map = new mapinit('map-box');
     // var map1 = new mapinit('map1-box');
     // map.map()
@@ -43,7 +68,7 @@
     // map.fn('map-box');
 
     // let map = new BMap.Map('map', {
-    //     // minZoom: Number,	                //地图允许展示的最小级别
+    //     // minZoom: Number,	                 //地图允许展示的最小级别
     //     // maxZoom: Number,                   //地图允许展示的最大级别
     //     // mapType: MapType,	            //地图类型，默认为BMAP_NORMAL_MAP
     //     // enableHighResolution: Boolean,	//是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4默认为开启状态

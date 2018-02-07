@@ -2,7 +2,7 @@
  * @Author: Kai.Jiang 
  * @Date: 2018-02-01 16:43:13 
  * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-02-02 17:03:55
+ * @Last Modified time: 2018-02-07 15:06:25
  */
 
 /*
@@ -18,6 +18,11 @@
 
 
 // 初始化地图
+/**
+ *
+ * @param selector
+ * @param config
+ */
 function initMap(selector, config) {
 
     $('#' + selector).css({'position': 'relative', 'overflow': 'hidden'});
@@ -25,20 +30,19 @@ function initMap(selector, config) {
     //  地图初始化配置
     let bmapConfig = {
         centerPoint: {lng: 87.543446, lat: 43.921639}, // 初始化中心点，当定位模式为'point'时有效
-        mapZoom: 12,	// 地图初始层级
-        mapType: 'weixing', //初始地图类型
-        hasMapType: true,	// 是否有地图类型切换
-        isShowRoad: false,	// 地图类型切换到卫星模式下，是否显示道路
-        hasSearch: true,	// 是否有搜索功能
-        hasNControl: true,  //是否显示缩放平移控件
+        mapZoom: 12,	     // 地图初始层级
+        mapType: 'weixing',  // 初始地图类型
+        hasMapType: true,	 // 是否有地图类型切换
+        isShowRoad: false,	 // 地图类型切换到卫星模式下，是否显示道路
+        hasSearch: true,	 // 是否有搜索功能
+        hasNControl: true,  // 是否显示缩放平移控件
     };
-    let map = null;
-
     if (config) {
         for (var key in config) {
             bmapConfig[key] = config[key];
         }
     }
+    let map = null;
     var selectorMap = selector.split("-box").join("");
     map = new BMap.Map(selectorMap, {enableMapClick: false});	//初始化地图，禁止默认点击事件
     let poi = new BMap.Point(bmapConfig.centerPoint.lng, bmapConfig.centerPoint.lat); //设置中心点
@@ -156,32 +160,94 @@ function initMap(selector, config) {
             $('#' + selector + ' .map-search-result').removeClass('show');
         })
     }
-    return map;
+
+    /**
+     * 设置中心点
+     * @param lng
+     * @param lat
+     * @param zoom
+     */
+    this.setCenter = function (lng, lat, zoom) {
+        map.centerAndZoom(new BMap.Point(lng, lat), zoom)
+    };
+
+    /**
+     * 展示点 行政 区域标签
+     * @param lng
+     * @param lat
+     * @param title
+     * @param id
+     * @param bool  识别行政 还是 区域
+     */
+    this.setPoint = function (lng, lat, title, id, bool) {
+        let point = new BMap.Point(lng, lat);
+
+        let marker;  //点
+        let label;   //标签
+        //判断普通点   行政点
+        if (bool) {
+            marker = new BMap.Marker(point);
+            let labelHtml = '<div class="" title="' + title + '" aid="' + id + '">' +
+                '<p class="">' + title + '</p>' +
+                '</div>';
+            label = new BMap.Label(labelHtml, {offset: new BMap.Size(-25, -50)});
+            label.setStyle({
+                border: '1px',
+                borderColor: '#438eb9',
+                borderStyle: 'solid',
+                fontSize: '18px',
+                height:'38px',
+                // lineHeight:'38px',
+                borderRadius:"5px",
+                padding:'5px'
+            });
+        } else {
+            let adIcon = new BMap.Icon("http://127.0.0.1:8080/manager/static/image/location_centre.png", new BMap.Size(22, 33));
+            marker = new BMap.Marker(point, {icon: adIcon});
+            let labelHtml = '<div class="" title="' + title + '" aid="' + id + '">' +
+                '<p class=""><i class="fa fa-flag"></i>' + title + '</p>' +
+                '</div>';
+            label = new BMap.Label(labelHtml, {offset: new BMap.Size(-45, -50)});
+            label.setStyle({
+                border: '1px',
+                borderColor: '#cecece',
+                borderStyle: 'solid',
+                boxShadow: '2px 3px 6px #999',
+                fontSize: '14px',
+                background: '#fff',
+                height: '35px',
+                lineHeight: '24px'
+            });
+        }
+        //
+        marker.setLabel(label);
+        map.addOverlay(marker);
+    };
+
+    /**
+     * 建立多边形覆盖
+     * @param points
+     * @param color
+     */
+    this.drawPolygon = function (points, color) {
+        let pointArr = points.map(function(item){
+            let lng = item.lng;
+            let lat = item.lat;
+            lng = Number(lng);
+            lat = Number(lat);
+            return new BMap.Point(lng, lat)
+        });
+        let polygon = new BMap.Polygon(pointArr, {
+            strokeStyle: 'dashed',	//边界线样式 solid/dashed
+            strokeWeight: 1, 		//边框宽度
+            strokeColor: color ? color :'#00FFFF',	    //边框色值
+            strokeOpacity: 0.8,		//边框透明度
+            fillColor: color ? color :'#00FFFF',	    //覆盖物颜色
+            fillOpacity: 0.5	    //覆盖物透明度
+        });
+        map.addOverlay(polygon);
+    }
+
+
 }
 
-
-
-
-//
-// var mapinit = function (selector) {
-//     this.bmapConfig = {
-//         centerPoint: {lng: 87.543446, lat: 43.921639}, // 初始化中心点，当定位模式为'point'时有效
-//         mapZoom: 12,	// 地图初始层级
-//         mapType:'weixing', //初始地图类型
-//         hasMapType: true,	// 是否有地图类型切换
-//         isShowRoad: false,	// 地图类型切换到卫星模式下，是否显示道路
-//         hasSearch: true,	// 是否有搜索功能
-//         hasNControl:true,  //是否显示缩放平移控件
-//         selector:selector
-//     };
-//     this.map = function () {
-//         let map = null;
-//         var selectorMap =  this.bmapConfig.selector.split("-box").join("");
-//         map = new BMap.Map(selectorMap, {enableMapClick: false});	//初始化地图，禁止默认点击事件
-//         let poi = new BMap.Point(this.bmapConfig.centerPoint.lng, this.bmapConfig.centerPoint.lat); //设置中心点
-//         map.centerAndZoom(poi, this.bmapConfig.mapZoom);   //设置地图展示层级
-//         map.enableScrollWheelZoom();	//允许滚轮缩放
-//         return map;
-//     };
-//     this.map();
-// };

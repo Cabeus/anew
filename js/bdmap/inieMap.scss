@@ -14,6 +14,11 @@ body {
   display: none;
 }
 
+//由有bootstrap样式干扰
+.BMapLabel{
+  max-width: 500px;
+}
+
 .map-type {
   position: absolute;
   top: 40px;
