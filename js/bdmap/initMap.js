@@ -23,41 +23,47 @@
  * @param selector
  * @param config
  */
-function initMap(selector, config) {
+function initMap(selector, bmapConfig) {
 
+    //添加style
     $('#' + selector).css({'position': 'relative', 'overflow': 'hidden'});
+    //添加地图div
+    $('#' + selector).append('<div id="' + selector + 'map" style="width: 100%;height: 100%"></div>');
+
+    let selectorBox = $('#' + selector)[0];
+    let selectorMap = $('#' + selector + 'map')[0];
 
     //  地图初始化配置
-    let bmapConfig = {
-        centerPoint: {lng: 87.543446, lat: 43.921639}, // 初始化中心点，当定位模式为'point'时有效
+    let config = {
+        centerPoint: {lng: 87.543446, lat: 43.921639}, // 初始化中心点
         mapZoom: 12,	     // 地图初始层级
-        mapType: 'weixing',  // 初始地图类型
+        mapType: 'weixing',  // 初始地图类型 卫星  地图
         hasMapType: true,	 // 是否有地图类型切换
         isShowRoad: false,	 // 地图类型切换到卫星模式下，是否显示道路
         hasSearch: true,	 // 是否有搜索功能
         hasNControl: true,  // 是否显示缩放平移控件
     };
-    if (config) {
-        for (var key in config) {
-            bmapConfig[key] = config[key];
+    if (bmapConfig) {
+        for (var key in bmapConfig) {
+            config[key] = bmapConfig[key];
         }
     }
     let map = null;
-    var selectorMap = selector.split("-box").join("");
+
     map = new BMap.Map(selectorMap, {enableMapClick: false});	//初始化地图，禁止默认点击事件
-    let poi = new BMap.Point(bmapConfig.centerPoint.lng, bmapConfig.centerPoint.lat); //设置中心点
-    map.centerAndZoom(poi, bmapConfig.mapZoom);   //设置地图展示层级
+    let poi = new BMap.Point(config.centerPoint.lng, config.centerPoint.lat); //设置中心点
+    map.centerAndZoom(poi, config.mapZoom);   //设置地图展示层级
     map.enableScrollWheelZoom();	//允许滚轮缩放
 
     //是否左上角，添加默认缩放平移控件
-    if (bmapConfig.hasNControl) {
+    if (config.hasNControl) {
         map.addControl(new BMap.NavigationControl());//左上角，添加默认缩放平移控件
     }
 
     //初始显示地图类型   卫星：weixin  普通：ditu
-    if (bmapConfig.mapType == 'weixing') {
+    if (config.mapType == 'weixing') {
         map.setMapType(BMAP_SATELLITE_MAP);  // 使用卫星地图
-    } else if (bmapConfig.mapType == 'ditu') {
+    } else if (config.mapType == 'ditu') {
         map.setMapType(BMAP_NORMAL_MAP);     //使用普通地图
     } else {
         map.setMapType(BMAP_NORMAL_MAP);     //普通
@@ -65,9 +71,9 @@ function initMap(selector, config) {
 
 
     //是否显示地图类型切换按钮
-    if (bmapConfig.hasMapType) {
+    if (config.hasMapType) {
         //判断地图类型
-        if (bmapConfig.mapType == 'weixing') {
+        if (config.mapType == 'weixing') {
             let MapTypeHtml = '<!-- 地图类型控制 -->' +
                 '<div class="map-type">' +
                 '<ul>' +
@@ -76,7 +82,7 @@ function initMap(selector, config) {
                 '</ul>' +
                 '</div>';
             $('#' + selector).append(MapTypeHtml);
-        } else if (bmapConfig.mapType == 'ditu') {
+        } else if (config.mapType == 'ditu') {
             let MapTypeHtml = '<!-- 地图类型控制 -->' +
                 '<div class="map-type">' +
                 '<ul>' +
@@ -108,7 +114,7 @@ function initMap(selector, config) {
                 if (type === 'ditu') {
                     map.setMapType(BMAP_NORMAL_MAP)
                 } else if (type === 'weixing') {
-                    if (bmapConfig.isShowRoad) {
+                    if (config.isShowRoad) {
                         map.setMapType(BMAP_HYBRID_MAP)
                     } else {
                         map.setMapType(BMAP_SATELLITE_MAP)
@@ -119,7 +125,7 @@ function initMap(selector, config) {
     }
 
     // 是否有搜索功能
-    if (bmapConfig.hasSearch) {
+    if (config.hasSearch) {
         let MapSearchHtml = '<!-- 地点搜索框 -->' +
             '<div class="map-search">' +
             '<input type="text" value="" placeholder="输入地名检索"/>' +
@@ -196,10 +202,10 @@ function initMap(selector, config) {
                 borderColor: '#438eb9',
                 borderStyle: 'solid',
                 fontSize: '18px',
-                height:'38px',
+                height: '38px',
                 // lineHeight:'38px',
-                borderRadius:"5px",
-                padding:'5px'
+                borderRadius: "5px",
+                padding: '5px'
             });
         } else {
             let adIcon = new BMap.Icon("http://127.0.0.1:8080/manager/static/image/location_centre.png", new BMap.Size(22, 33));
@@ -230,7 +236,7 @@ function initMap(selector, config) {
      * @param color
      */
     this.drawPolygon = function (points, color) {
-        let pointArr = points.map(function(item){
+        let pointArr = points.map(function (item) {
             let lng = item.lng;
             let lat = item.lat;
             lng = Number(lng);
@@ -240,12 +246,35 @@ function initMap(selector, config) {
         let polygon = new BMap.Polygon(pointArr, {
             strokeStyle: 'dashed',	//边界线样式 solid/dashed
             strokeWeight: 1, 		//边框宽度
-            strokeColor: color ? color :'#00FFFF',	    //边框色值
+            strokeColor: color ? color : '#00FFFF',	    //边框色值
             strokeOpacity: 0.8,		//边框透明度
-            fillColor: color ? color :'#00FFFF',	    //覆盖物颜色
+            fillColor: color ? color : '#00FFFF',	    //覆盖物颜色
             fillOpacity: 0.5	    //覆盖物透明度
         });
         map.addOverlay(polygon);
+    };
+
+    /**
+     * 添加 点击点  网格长等
+     * @param point
+     */
+    this.addMarkerPoint = function (point) {
+        console.log(point);
+        let pt = new BMap.Point(point.poi.lng, point.poi.lat);
+
+        let myIcon = new BMap.Icon(point.icon, new BMap.Size(40, 40), {
+            imageSize: new BMap.Size(32, 41)
+        });
+        let marker = new BMap.Marker(pt, {icon: myIcon});  // 创建标注
+
+        marker.data = point.data;   //附带信息
+
+        map.addOverlay(marker);
+
+        marker.addEventListener("click", function () {
+            // this.openInfoWindow(addinfoWindow(point));
+            console.log(123123);
+        });
     }
 
 

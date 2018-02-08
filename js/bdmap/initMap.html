@@ -13,12 +13,11 @@
 <body style="width: 100vw;height: 100vh;display: flex">
 <section id="map-box" style="width:1152px;height:648px;margin: auto;">
 
-    <div id="map" style="width: 100%;height: 100%"></div>
 
 </section>
 <section id="map1-box" style="width:1152px;height:648px;margin: auto;">
 
-    <div id="map1" style="width: 100%;height: 100%"></div>
+    <!--<div id="map1" style="width: 100%;height: 100%"></div>-->
 
 </section>
 <script src="../../../anew/js/lib/jquery-3.2.1.js"></script>
@@ -26,38 +25,39 @@
 
 <!--百度地图相关-->
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=FRGH8U5owxghRjZdVMzllFp4aDQbw8sm"></script>
-<script type="text/javascript" src="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script><!--加载鼠标绘制工具-->
+<script type="text/javascript"
+        src="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script><!--加载鼠标绘制工具-->
 <script type="text/javascript" src="initMap.js"></script>
 
 <script>
-    var map = new initMap('map-box',{
+    var map = new initMap('map-box', {});
+    var map1 = new initMap('map1-box', {});
+    map.setCenter(87.322871, 43.871356, 16);
+    map1.setCenter(116.402544, 39.915156, 12);
+    map1.setPoint(116.402544, 39.815156, "北京", "1001", true);
+    map1.setPoint(116.402544, 39.915156, "北京", "1001", true);
+    map1.setPoint(116.402544, 39.995156, "北京", "1001", false);
 
-    });
-    var map1 = new initMap('map1-box',{
-
-    });
-    map.setCenter(87.322871,43.871356,16);
-    map1.setCenter(116.402544,39.915156,12);
-    map1.setPoint(116.402544,39.815156,"北京","1001",true);
-    map1.setPoint(116.402544,39.915156,"北京","1001",true);
-    map1.setPoint(116.402544,39.995156,"北京","1001",false);
-
-    var arrrr = [{lng: 87.322871, lat: 43.871356}, {lng: 87.322188, lat: 43.868965}, {lng: 87.322583, lat: 43.867509}, {lng: 87.330345, lat: 43.869303}, {lng: 87.33056, lat: 43.869953}, {lng: 87.322943, lat: 43.87133}]
-
-    map.drawPolygon(arrrr)
+    var arrrr = [{lng: 87.322871, lat: 43.871356}, {lng: 87.322188, lat: 43.868965}, {
+        lng: 87.322583,
+        lat: 43.867509
+    }, {lng: 87.330345, lat: 43.869303}, {lng: 87.33056, lat: 43.869953}, {lng: 87.322943, lat: 43.87133}];
 
 
+    map.drawPolygon(arrrr);
 
-
-
-
-
-
-
-
-
-
-
+    var point = {
+        data: {
+            id: "16055dd588e0002",
+            tag: "person",
+            telePhone: "13331011466",
+            userId: 5411,
+            userName: "郎晋斌"
+        },
+        icon: "http://developing.zxwave.com/besafe/manager/static/img/person.png",
+        poi: {lat: "43.871356", lng: "87.322871"}
+    };
+    map.addMarkerPoint(point);
 
 
 
@@ -87,7 +87,6 @@
     // map.addControl(top_left_navigation);
 
 
-
     var objfn = function () {
         this.obj = 123;
         this.fn = function () {
@@ -96,7 +95,7 @@
         }
     }
 
-    var aa= new objfn();
+    var aa = new objfn();
     aa.obj = 456;
     aa.fn();
 
