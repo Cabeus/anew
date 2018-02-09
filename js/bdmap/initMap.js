@@ -178,6 +178,19 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
+     * 设置点
+     * @param lng
+     * @param lat
+     */
+    this.setMarker = function (lng, lat) {
+        let point = new BMap.Point(lng, lat);
+        let marker;  //点
+        marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    };
+
+    /**
      * 展示点 行政 区域标签
      * @param lng
      * @param lat
