@@ -108,4 +108,33 @@ body {
     padding-top: 25px;
     overflow-y: auto; }
 
+.drawing-manager {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  width: auto;
+  height: auto;
+  background: #fff;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 5px 5px 50px #999; }
+  .drawing-manager a {
+    width: 50px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 10px;
+    background: #fff;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    cursor: pointer;
+    color: #333; }
+    .drawing-manager a span {
+      color: #333;
+      font-size: 12px;
+      display: block;
+      margin-top: 5px; }
+
 /*# sourceMappingURL=inieMap.css.map */
