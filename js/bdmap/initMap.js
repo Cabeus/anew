@@ -2,7 +2,7 @@
  * @Author: Kai.Jiang 
  * @Date: 2018-02-01 16:43:13 
  * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-02-07 15:06:25
+ * @Last Modified time: 2018-02-26 14:19:18
  */
 
 /*
@@ -220,7 +220,7 @@ function initMap(selector, bmapConfig) {
                 padding: '5px'
             });
         } else {
-            let adIcon = new BMap.Icon("http://developing.zxwave.com/besafe/manager/static/image/location_centre.png", new BMap.Size(22, 33));
+            let adIcon = new BMap.Icon("location_centre.png", new BMap.Size(22, 33));
             marker = new BMap.Marker(point, {icon: adIcon});
             let labelHtml = '<div class="" title="' + title + '" aid="' + id + '">' +
                 '<p class=""><i class="fa fa-flag"></i>' + title + '</p>' +
@@ -294,6 +294,17 @@ function initMap(selector, bmapConfig) {
     let roadPoints    = [];  // 路线数据
     let locPoints     = [];  // 位置数据
 
+
+    let styleOptions = {
+        strokeColor:"blue",    //边线颜色。
+        // fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+        strokeWeight: 3,       //边线的宽度，以像素为单位。
+        strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
+        fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+        strokeStyle: 'dashed',//边线的样式，solid或dashed。
+        enableEditing : true     // 编辑模式
+    };
+
     /**
      * 启用画点画线功能
      * @param type
@@ -312,15 +323,6 @@ function initMap(selector, bmapConfig) {
         $('#' + selector).append(MapTypeHtml);
 
 
-        let styleOptions = {
-            strokeColor:"blue",    //边线颜色。
-            // fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
-            strokeWeight: 3,       //边线的宽度，以像素为单位。
-            strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
-            fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
-            strokeStyle: 'dashed',//边线的样式，solid或dashed。
-            // enableEditing : true     // 编辑模式
-        };
         //实例化鼠标绘制工具
         let drawingManager = new BMapLib.DrawingManager(map, {
             isOpen: false, //是否开启绘制模式
@@ -364,15 +366,6 @@ function initMap(selector, bmapConfig) {
             locPoints     = [];  // 位置数据，点数组
         });
 
-        // let overlays = [];
-        // let overlaycomplete = function(e){
-        //     overlays.push(e.overlay);
-        //     console.log(overlays);
-        // };
-        // //添加鼠标绘制工具监听事件，用于获取绘制结果
-        // drawingManager.addEventListener('overlaycomplete', overlaycomplete);
-
-
         //监听绘制点事件
         drawingManager.addEventListener("markercomplete", function(e, overlay) {
             // console.log(overlay);
@@ -384,8 +377,6 @@ function initMap(selector, bmapConfig) {
             // console.log(overlay);
             locPoints.push(overlay);
         });
-
-
     };
 
     /**
@@ -396,5 +387,43 @@ function initMap(selector, bmapConfig) {
         console.log(roadPoints);
         console.log(locPoints);
     };
+
+    /**
+     * 将画点数据展示在地图上  与画点画线功能无关
+     * @param data
+     */
+    this.drawPoints = function(data) {
+        for (let i = 0; i < data.length; i++) {
+            let item = data[i];
+            let point = new BMap.Point(item.lng, item.lat);
+            let marker = new BMap.Marker(point);
+            map.addOverlay(marker);
+            locPoints.push(point);
+        }
+    };
+
+    /**
+     * 将画线数据展示在地图上  与画点画线功能无关
+     * @param data
+     */
+    this.drawLines = function(data) {
+        let points = [];
+        for (let i = 0; i < data.length; i++) {
+            let item = data[i];
+            let point = new BMap.Point(item.lng, item.lat);
+            points.push(point);
+        }
+        let polyline = new BMap.Polyline(points, styleOptions);
+        map.addOverlay(polyline);
+        let index = roadPoints.length;
+        roadPoints.push(polyline.getPath());
+        polyline.addEventListener('lineupdate', function(event) {
+            roadPoints[index] = event.target.ia;
+        });
+    };
+
+    /**
+     *
+     */
 }
 
