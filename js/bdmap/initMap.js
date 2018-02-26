@@ -17,9 +17,8 @@
  */
 
 
-// 初始化地图
 /**
- *
+ * 初始化地图
  * @param selector
  * @param config
  */
@@ -289,15 +288,23 @@ function initMap(selector, bmapConfig) {
     };
 
 
+    /**
+     * 用于存放 画点 画线的数据
+     */
+    let roadPoints    = [];  // 路线数据
+    let locPoints     = [];  // 位置数据
 
-
+    /**
+     * 启用画点画线功能
+     * @param type
+     * @constructor
+     */
     this.DrawingManager = function (type) {
-
         //http://api.map.baidu.com/library/DrawingManager/1.4/docs/symbols/BMapLib.DrawingManager.html
 
         let MapTypeHtml = '<!-- 绘制工具操作 -->\n' +
             '<div class="drawing-manager">\n' +
-            '<a class="map-opt-center"><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>中心</span></a>\n' +
+            // '<a class="map-opt-center"><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>中心</span></a>\n' +
             '<a class="map-opt-point"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>单点</span></a>\n' +
             '<a class="map-opt-region"><i class="fa fa-lemon-o" aria-hidden="true"></i><span>区域</span></a>\n' +
             '<a class="map-opt-clear"><i class="fa fa-trash" aria-hidden="true"></i><span>清除</span></a>\n' +
@@ -353,7 +360,8 @@ function initMap(selector, bmapConfig) {
             if(drawingManager) {
                 drawingManager.close();
             }
-
+            roadPoints    = [];  // 路线数据，二位数组，子数组为点数组roadPoints[i] 为路线
+            locPoints     = [];  // 位置数据，点数组
         });
 
         // let overlays = [];
@@ -367,20 +375,26 @@ function initMap(selector, bmapConfig) {
 
         //监听绘制点事件
         drawingManager.addEventListener("markercomplete", function(e, overlay) {
-            console.log(overlay);
+            // console.log(overlay);
+            roadPoints.push(overlay);
         });
 
         //监听绘制多边形事件
         drawingManager.addEventListener("polylinecomplete", function(e, overlay) {
-            console.log(overlay);
+            // console.log(overlay);
+            locPoints.push(overlay);
         });
 
 
-    }
+    };
 
-
-
-
-
+    /**
+     * 画点画线返回数据
+     * @constructor
+     */
+    this.DrawingManagerData = function () {
+        console.log(roadPoints);
+        console.log(locPoints);
+    };
 }
 
