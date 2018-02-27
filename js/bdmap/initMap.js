@@ -20,7 +20,7 @@
 /**
  * 初始化地图
  * @param selector
- * @param config
+ * @param bmapConfig
  */
 function initMap(selector, bmapConfig) {
 
@@ -177,11 +177,24 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
-     * 设置点
+     * 展示普通点
      * @param lng
      * @param lat
      */
-    this.setMarker = function (lng, lat) {
+    this.showMarker = function (lng, lat) {
+        let point = new BMap.Point(lng, lat);
+        let marker;  //点
+        marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    };
+
+    /**
+     * 展示跳动点
+     * @param lng
+     * @param lat
+     */
+    this.showMarkerAnimantion = function (lng, lat) {
         let point = new BMap.Point(lng, lat);
         let marker;  //点
         marker = new BMap.Marker(point);
@@ -190,14 +203,14 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
-     * 展示点 行政 区域标签
+     * 展示带点标签
      * @param lng
      * @param lat
      * @param title
      * @param id
      * @param bool  识别行政 还是 区域
      */
-    this.setPoint = function (lng, lat, title, id, bool) {
+    this.showLabelMarker = function (lng, lat, title, id, bool) {
         let point = new BMap.Point(lng, lat);
 
         let marker;  //点
@@ -242,12 +255,34 @@ function initMap(selector, bmapConfig) {
         map.addOverlay(marker);
     };
 
+
+    /**
+     * 添加 点击点  网格长联防队员警务站等
+     * @param point
+     */
+    this.showIconMarker = function (point) {
+        let pt = new BMap.Point(point.poi.lng, point.poi.lat);
+        let myIcon = new BMap.Icon(point.icon, new BMap.Size(40, 40), {
+            imageSize: new BMap.Size(32, 41)
+        });
+        let marker = new BMap.Marker(pt, {icon: myIcon});  // 创建标注
+
+        marker.data = point.data;   //附带信息
+
+        map.addOverlay(marker);  //添加到地图
+
+        marker.addEventListener("click", function () {   //绑定点击事件
+            // this.openInfoWindow(addinfoWindow(point));
+            console.log('绑定点的点击事件');
+        });
+    };
+
     /**
      * 建立多边形覆盖
      * @param points
      * @param color
      */
-    this.drawPolygon = function (points, color) {
+    this.showPolygon = function (points, color) {
         let pointArr = points.map(function (item) {
             let lng = item.lng;
             let lat = item.lat;
@@ -266,26 +301,6 @@ function initMap(selector, bmapConfig) {
         map.addOverlay(polygon);
     };
 
-    /**
-     * 添加 点击点  网格长联防队员警务站等
-     * @param point
-     */
-    this.addMarkerPoint = function (point) {
-        let pt = new BMap.Point(point.poi.lng, point.poi.lat);
-        let myIcon = new BMap.Icon(point.icon, new BMap.Size(40, 40), {
-            imageSize: new BMap.Size(32, 41)
-        });
-        let marker = new BMap.Marker(pt, {icon: myIcon});  // 创建标注
-
-        marker.data = point.data;   //附带信息
-
-        map.addOverlay(marker);  //添加到地图
-
-        marker.addEventListener("click", function () {   //绑定点击事件
-            // this.openInfoWindow(addinfoWindow(point));
-            console.log('绑定点的点击事件');
-        });
-    };
 
 
     /**
@@ -297,12 +312,12 @@ function initMap(selector, bmapConfig) {
 
     let styleOptions = {
         strokeColor:"blue",    //边线颜色。
-        // fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+        // fillColor:"red",    //填充颜色。当参数为空时，圆形将没有填充效果。
         strokeWeight: 3,       //边线的宽度，以像素为单位。
         strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
         fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
-        strokeStyle: 'dashed',//边线的样式，solid或dashed。
-        enableEditing : true     // 编辑模式
+        strokeStyle: 'dashed', //边线的样式，solid或dashed。
+        enableEditing : true   //编辑模式
     };
 
     /**
@@ -392,7 +407,7 @@ function initMap(selector, bmapConfig) {
      * 将画点数据展示在地图上  与画点画线功能无关
      * @param data
      */
-    this.drawPoints = function(data) {
+    this.showDrawMarker = function(data) {
         for (let i = 0; i < data.length; i++) {
             let item = data[i];
             let point = new BMap.Point(item.lng, item.lat);
@@ -406,7 +421,7 @@ function initMap(selector, bmapConfig) {
      * 将画线数据展示在地图上  与画点画线功能无关
      * @param data
      */
-    this.drawLines = function(data) {
+    this.showDrawLines = function(data) {
         let points = [];
         for (let i = 0; i < data.length; i++) {
             let item = data[i];
