@@ -272,10 +272,74 @@ function initMap(selector, bmapConfig) {
         map.addOverlay(marker);  //添加到地图
 
         marker.addEventListener("click", function () {   //绑定点击事件
-            // this.openInfoWindow(addinfoWindow(point));
+            this.openInfoWindow(addinfoWindow(point));
             console.log('绑定点的点击事件');
         });
     };
+
+
+    /**
+     * 添加maeker点的信息框
+     * @param {Object} point
+     */
+    function addinfoWindow(point){
+        // console.log(465546)
+        var hContent = '';
+        if( point.data.tag === 'police' ){
+            hContent = '<p>警务站: '+point.data.name+'&nbsp;&nbsp;&nbsp;&nbsp;接警电话: '+point.data.phone+'</p>';
+        }else if( point.data.tag === 'person' ){
+            hContent = '<p>网格长: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
+        }else if( point.data.tag === 'guard' ){
+            hContent = '<p>联防队员: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
+        }
+
+        var sContent =
+            '<div class="jjdiv" id="jj-'+point.data.id+'">'+
+            '<div class="jj-header">'+
+            hContent+
+            '</div>'+
+            '<div class="jj-chat show-item">'+
+
+            '</div>'+
+            '<div class="jj-input">'+
+            '<textarea autofocus id="jjcontents" rows="4"></textarea>'+
+            '<button id="jjpost">发送</button>'+
+            '</div>'+
+            '</div>';
+
+        var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        infoWindow.disableCloseOnClick();   // 点击地图关闭信息弹窗
+        // 设置聊天窗口size
+        infoWindow.setWidth(300);
+        infoWindow.setHeight(500);
+        infoWindow.data = point.data;
+
+        infoWindow.addEventListener('open', function(){ // open
+            console.log(this.data);
+            $('#jjchat').val(this.data.id); // 记录当前聊天警务站id
+            $('#jjpost').unbind('click').click(function(){
+                var message = $('#jjcontents').val();
+                var toUserId = $('#jjchat').val();
+                if(!message || !toUserId) return;
+                sendPrivateText(toUserId, message, 'jj');
+            })
+        } ,false);
+        infoWindow.addEventListener('close', function(){    // close
+            $('#jjchat').val('')
+        }, false);
+        return infoWindow;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 建立多边形覆盖
@@ -377,8 +441,8 @@ function initMap(selector, bmapConfig) {
             if(drawingManager) {
                 drawingManager.close();
             }
-            roadPoints    = [];  // 路线数据，二位数组，子数组为点数组roadPoints[i] 为路线
-            locPoints     = [];  // 位置数据，点数组
+            roadPoints = [];  // 路线数据，二位数组，子数组为点数组roadPoints[i] 为路线
+            locPoints  = [];  // 位置数据，点数组
         });
 
         //监听绘制点事件
