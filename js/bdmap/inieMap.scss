@@ -15,7 +15,7 @@ body {
 }
 
 //由有bootstrap样式干扰
-.BMapLabel{
+.BMapLabel {
   max-width: 500px;
 }
 
@@ -85,7 +85,8 @@ body {
     margin-left: 7px;
   }
 }
-.map-search-result{
+
+.map-search-result {
   position: absolute;
   right: -310px;
   top: 130px;
@@ -95,10 +96,10 @@ body {
   background-color: #fff;
   box-shadow: -2px 2px 10px #999;
   transition: all 0.3s ease-in-out;
-  &.show{
+  &.show {
     right: 0;
   }
-  .close-result{
+  .close-result {
     position: absolute;
     height: 25px;
     line-height: 25px;
@@ -106,7 +107,7 @@ body {
     background-color: #fff;
     text-align: right;
     padding: 0 10px;
-    i{
+    i {
       position: absolute;
       right: 0;
       display: inline-block;
@@ -117,7 +118,7 @@ body {
       line-height: 25px;
     }
   }
-  .r-result{
+  .r-result {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -125,7 +126,8 @@ body {
     overflow-y: auto;
   }
 }
-.drawing-manager{
+
+.drawing-manager {
   position: absolute;
   top: 100px;
   right: 10px;
@@ -135,7 +137,7 @@ body {
   z-index: 10;
   border-radius: 5px;
   box-shadow: 5px 5px 50px #999;
-  a{
+  a {
     width: 50px;
     display: inline-block;
     float: left;
@@ -148,11 +150,145 @@ body {
     box-shadow: 0 0 10px #ccc;
     cursor: pointer;
     color: #333;
-    span{
+    span {
       color: #333;
       font-size: 12px;
       display: block;
       margin-top: 5px;
+    }
+  }
+}
+
+//用于修改百度地图infowindow弹窗样式
+.BMap_bubble_content {
+  height: 100% !important;
+}
+
+.map-info-window {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: #fff;
+  .window-top {
+    min-height: 30px;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    background: #eef2f1;
+    color: rgba(0, 0, 0, .85);
+    padding: 5px;
+  }
+  .window-con {
+    display: block;
+    flex: 1;
+    overflow: auto;
+    padding: 5px 0;
+  }
+  .window-bot {
+    height: 90px;
+    border: 1px solid #dedede;
+    position: relative;
+    textarea {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      border: 0;
+      background-color: transparent;
+      padding: 5px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, .85);
+    }
+    button {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      border: 0;
+      background: #00b0ff;
+      color: #fff;
+      font-size: 12px;
+      width: 40px;
+      height: 24px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+  .user-chat {
+    display: inline-flex;
+    position: relative;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    width: auto;
+    max-width: 60%;
+    //                          white-space: pre;
+    align-items: center;
+    &:before {
+      position: absolute;
+      bottom: 13px;
+      left: -7px;
+      content: '';
+      display: inline-block;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid #f5f5f5;
+    }
+    .img {
+      width: auto;
+      max-width: 100%;
+      img {
+        width: auto;
+        max-width: 100%;
+      }
+    }
+    .video {
+      width: auto;
+      max-width: 100%;
+      position: relative;
+      video {
+        width: auto;
+        max-width: 100%;
+      }
+      p {
+        width: 48px;
+        height: 48px;
+      }
+      .video-cover {
+        position: absolute;
+        left: calc(50% - 24px);
+        top: calc(50% - 24px);
+      }
+    }
+  }
+  .admin-chat {
+    display: inline-flex;
+    position: relative;
+    background-color: #EBF8FF;
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    width: auto;
+    max-width: 60%;
+    float: right;
+    //                          white-space: pre;
+    align-items: center;
+    &:before {
+      position: absolute;
+      bottom: 13px;
+      right: -7px;
+      content: '';
+      display: inline-block;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid #EBF8FF;
     }
   }
 }

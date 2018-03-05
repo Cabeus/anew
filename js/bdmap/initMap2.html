@@ -11,15 +11,15 @@
 
 </head>
 <body style="width: 100vw;height: 100vh;display: flex">
-<section id="map-box" style="width:1152px;height:648px;margin: auto;">
+<!--<section id="map-box" style="width:1152px;height:648px;margin: auto;">-->
 
-
-</section>
-<!--<section id="map1-box" style="width:1152px;height:648px;margin: auto;">-->
-
-    <!--&lt;!&ndash;<div id="map1" style="width: 100%;height: 100%"></div>&ndash;&gt;-->
 
 <!--</section>-->
+<section id="map1-box" style="width:1152px;height:648px;margin: auto;">
+
+    <!--<div id="map1" style="width: 100%;height: 100%"></div>-->
+
+</section>
 <script src="lib/jquery-3.2.1.js"></script>
 <script src="lib/bootstrap.js"></script>
 
@@ -36,13 +36,13 @@
 <script type="text/javascript" src="easemob.js"></script>
 
 <script>
-    var map = new initMap('map-box', {});
-    // var map1 = new initMap('map1-box', {});
-    map.setCenter(87.322871, 43.871356, 16);
-    // map1.setCenter(116.402544, 39.915156, 12);
-    // map1.showLabelMarker(116.402544, 39.815156, "北京", "1001", true);
-    // map1.showLabelMarker(116.402544, 39.915156, "北京", "1001", true);
-    // map1.showLabelMarker(116.402544, 39.995156, "北京", "1001", false);
+    // var map = new initMap('map-box', {});
+    var map1 = new initMap('map1-box', {});
+    // map.setCenter(87.322871, 43.871356, 16);
+    map1.setCenter(116.402544, 39.915156, 12);
+    map1.showLabelMarker(116.402544, 39.815156, "北京", "1001", true);
+    map1.showLabelMarker(116.402544, 39.915156, "北京", "1001", true);
+    map1.showLabelMarker(116.402544, 39.995156, "北京", "1001", false);
 
     var point1 = {
         data: {
@@ -72,23 +72,23 @@
 
 
     var arr1 =[{lng: 116.343903, lat: 39.955432},{lng: 116.43014, lat: 39.958972}, {lng: 116.436464, lat:39.885044}, {lng: 116.29446, lat: 39.895231}];
-    // map1.showPolygon(arr1);
-    // map1.showIconMarker(point1);
-    map.showIconMarker(point2)
-    // map1.showMarkerAnimantion(116.337579,39.920469);
+    map1.showPolygon(arr1);
+    map1.showIconMarker(point1);
+    // map.showIconMarker(point2)
+    map1.showMarkerAnimantion(116.337579,39.920469);
 
 
     var arr = [{lng: 87.322871, lat: 43.871356}, {lng: 87.322188, lat: 43.868965}, {lng: 87.322583,lat: 43.867509}, {lng: 87.330345, lat: 43.869303}, {lng: 87.33056, lat: 43.869953}, {lng: 87.322943, lat: 43.87133}];
 
-    map.DrawingManager();
-    map.showDrawMarker(arr);
-    map.showDrawLines(arr);
-    map.showDrawMarker([{lng: 87.329871, lat: 43.871356}])
+    // map.DrawingManager();
+    // map.showDrawMarker(arr);
+    // map.showDrawLines(arr);
+    // map.showDrawMarker([{lng: 87.329871, lat: 43.871356}])
 
 
 
     // EasemobUtil('16058ffd24c0002','123456');
-    EasemobUtil('16055fbd4480006','123123');
+    EasemobUtil('16058ffd24c0002','123456');
 
     function add123(data) {
         $('#16055dd588e0002 .window-con').append(data)

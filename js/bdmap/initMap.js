@@ -1,9 +1,4 @@
-/*
- * @Author: Kai.Jiang 
- * @Date: 2018-02-01 16:43:13 
- * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-02-26 14:19:18
- */
+
 
 /*
  * 地图初始化
@@ -273,7 +268,7 @@ function initMap(selector, bmapConfig) {
 
         marker.addEventListener("click", function () {   //绑定点击事件
             this.openInfoWindow(addinfoWindow(point));
-            console.log('绑定点的点击事件');
+            console.log('绑定点击事件，打开infoWindow');
         });
     };
 
@@ -283,8 +278,8 @@ function initMap(selector, bmapConfig) {
      * @param {Object} point
      */
     function addinfoWindow(point){
-        // console.log(465546)
-        var hContent = '';
+
+        let hContent = '';
         if( point.data.tag === 'police' ){
             hContent = '<p>警务站: '+point.data.name+'&nbsp;&nbsp;&nbsp;&nbsp;接警电话: '+point.data.phone+'</p>';
         }else if( point.data.tag === 'person' ){
@@ -293,39 +288,50 @@ function initMap(selector, bmapConfig) {
             hContent = '<p>联防队员: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
         }
 
-        var sContent =
-            '<div class="jjdiv" id="jj-'+point.data.id+'">'+
-            '<div class="jj-header">'+
-            hContent+
-            '</div>'+
-            '<div class="jj-chat show-item">'+
+        let sContent =
+            '<div class="map-info-window" id="'+ point.data.id +'">'+
+                '<div class="window-top">'+
+                hContent+
+                '</div>'+
+                '<div class="window-con" id="message'+ point.data.id + '">'+
 
-            '</div>'+
-            '<div class="jj-input">'+
-            '<textarea autofocus id="jjcontents" rows="4"></textarea>'+
-            '<button id="jjpost">发送</button>'+
-            '</div>'+
+                '</div>'+
+                '<div class="window-bot">'+
+                    '<textarea autofocus rows="4"></textarea>'+
+                    '<button>发送</button>'+
+                '</div>'+
             '</div>';
 
-        var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        let infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
         infoWindow.disableCloseOnClick();   // 点击地图关闭信息弹窗
         // 设置聊天窗口size
         infoWindow.setWidth(300);
         infoWindow.setHeight(500);
         infoWindow.data = point.data;
 
-        infoWindow.addEventListener('open', function(){ // open
+        infoWindow.addEventListener('open', function(){  // open
+            console.log("open InfoWindow");
             console.log(this.data);
-            $('#jjchat').val(this.data.id); // 记录当前聊天警务站id
-            $('#jjpost').unbind('click').click(function(){
-                var message = $('#jjcontents').val();
-                var toUserId = $('#jjchat').val();
-                if(!message || !toUserId) return;
-                sendPrivateText(toUserId, message, 'jj');
-            })
+
+            let toid = this.data.id;
+
+
+            $('#'+ point.data.id + ' button').click(function () {
+                console.log("点击消息发送按钮");
+                let messageCon = $('#'+ point.data.id + ' textarea').val();
+                if(messageCon != ''){
+                    console.log(messageCon);
+                    sendMessage(toid,messageCon);
+                    $('#'+ point.data.id + ' textarea').val('');
+                    messageCon = '';
+                }
+            });
+
         } ,false);
         infoWindow.addEventListener('close', function(){    // close
-            $('#jjchat').val('')
+            console.log("close infoWindow");
+            $('#'+ point.data.id + ' textarea').val('');
+            messageCon = '';
         }, false);
         return infoWindow;
     }
