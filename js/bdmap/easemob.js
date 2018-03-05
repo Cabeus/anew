@@ -10,7 +10,6 @@ var conn = new WebIM.connection({
     isMultiLoginSessions: WebIM.config.isMultiLoginSessions
 });
 
-
 /**
  * 环信用户密码
  * @param user
