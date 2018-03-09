@@ -102,6 +102,9 @@ td {
   text-overflow: ellipsis;
   padding: 8px; }
 
+.table-a-color {
+  color: #06B3F6; }
+
 .anchorBL {
   display: none; }
 

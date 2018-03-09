@@ -1,9 +1,4 @@
 
-
-/*
- * 地图初始化
- */
-
 /**
  * 涉及API
  * http://lbsyun.baidu.com/index.php?title=jspopular/guide/tool
@@ -252,7 +247,7 @@ function initMap(selector, bmapConfig) {
 
 
     /**
-     * 添加 点击点  网格长联防队员警务站等
+     * 展示自定义图标点
      * @param point
      */
     this.showIconMarker = function (point) {
@@ -274,81 +269,7 @@ function initMap(selector, bmapConfig) {
 
 
     /**
-     * 添加maeker点的信息框
-     * @param {Object} point
-     */
-    function addinfoWindow(point){
-
-        let hContent = '';
-        if( point.data.tag === 'police' ){
-            hContent = '<p>警务站: '+point.data.name+'&nbsp;&nbsp;&nbsp;&nbsp;接警电话: '+point.data.phone+'</p>';
-        }else if( point.data.tag === 'person' ){
-            hContent = '<p>网格长: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
-        }else if( point.data.tag === 'guard' ){
-            hContent = '<p>联防队员: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
-        }
-
-        let sContent =
-            '<div class="map-info-window" id="'+ point.data.id +'">'+
-                '<div class="window-top">'+
-                hContent+
-                '</div>'+
-                '<div class="window-con" id="message'+ point.data.id + '">'+
-
-                '</div>'+
-                '<div class="window-bot">'+
-                    '<textarea autofocus rows="4"></textarea>'+
-                    '<button>发送</button>'+
-                '</div>'+
-            '</div>';
-
-        let infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
-        infoWindow.disableCloseOnClick();   // 点击地图关闭信息弹窗
-        // 设置聊天窗口size
-        infoWindow.setWidth(300);
-        infoWindow.setHeight(500);
-        infoWindow.data = point.data;
-
-        infoWindow.addEventListener('open', function(){  // open
-            console.log("open InfoWindow");
-            console.log(this.data);
-
-            let toid = this.data.id;
-
-
-            $('#'+ point.data.id + ' button').click(function () {
-                console.log("点击消息发送按钮");
-                let messageCon = $('#'+ point.data.id + ' textarea').val();
-                if(messageCon != ''){
-                    console.log(messageCon);
-                    sendMessage(toid,messageCon);
-                    $('#'+ point.data.id + ' textarea').val('');
-                    messageCon = '';
-                }
-            });
-
-        } ,false);
-        infoWindow.addEventListener('close', function(){    // close
-            console.log("close infoWindow");
-            $('#'+ point.data.id + ' textarea').val('');
-            messageCon = '';
-        }, false);
-        return infoWindow;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * 建立多边形覆盖
+     * 展示多边形覆盖区
      * @param points
      * @param color
      */
@@ -391,7 +312,7 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
-     * 启用画点画线功能
+     * 启用绘制功能
      * @param type
      * @constructor
      */
@@ -465,7 +386,7 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
-     * 画点画线返回数据
+     * 绘制返回数据--返回画点画线数据
      * @constructor
      */
     this.DrawingManagerData = function () {
@@ -508,7 +429,66 @@ function initMap(selector, bmapConfig) {
     };
 
     /**
-     *
+     * 添加maeker点的信息框
+     * @param {Object} point
      */
+    function addinfoWindow(point){
+
+        let hContent = '';
+        if( point.data.tag === 'police' ){
+            hContent = '<p>警务站: '+point.data.name+'&nbsp;&nbsp;&nbsp;&nbsp;接警电话: '+point.data.phone+'</p>';
+        }else if( point.data.tag === 'person' ){
+            hContent = '<p>网格长: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
+        }else if( point.data.tag === 'guard' ){
+            hContent = '<p>联防队员: '+point.data.userName+'&nbsp;&nbsp;&nbsp;&nbsp;联系电话: '+point.data.telePhone+'</p>';
+        }
+
+        let sContent =
+            '<div class="map-info-window" id="'+ point.data.id +'">'+
+            '<div class="window-top">'+
+            hContent+
+            '</div>'+
+            '<div class="window-con" id="message'+ point.data.id + '">'+
+
+            '</div>'+
+            '<div class="window-bot">'+
+            '<textarea autofocus rows="4"></textarea>'+
+            '<button>发送</button>'+
+            '</div>'+
+            '</div>';
+
+        let infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        infoWindow.disableCloseOnClick();   // 点击地图关闭信息弹窗
+        // 设置聊天窗口size
+        infoWindow.setWidth(300);
+        infoWindow.setHeight(500);
+        infoWindow.data = point.data;
+
+        infoWindow.addEventListener('open', function(){  // open
+            console.log("open InfoWindow");
+            console.log(this.data);
+
+            let toid = this.data.id;
+
+
+            $('#'+ point.data.id + ' button').click(function () {
+                console.log("点击消息发送按钮");
+                let messageCon = $('#'+ point.data.id + ' textarea').val();
+                if(messageCon != ''){
+                    console.log(messageCon);
+                    sendMessage(toid,messageCon);
+                    $('#'+ point.data.id + ' textarea').val('');
+                    messageCon = '';
+                }
+            });
+
+        } ,false);
+        infoWindow.addEventListener('close', function(){    // close
+            console.log("close infoWindow");
+            $('#'+ point.data.id + ' textarea').val('');
+            messageCon = '';
+        }, false);
+        return infoWindow;
+    }
 }
 

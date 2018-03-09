@@ -8,14 +8,14 @@ $(window).resize(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
     $('.main-content').height(height);
-})
+});
 //地区选择下拉框
 $('.single-dropdown').mouseenter(function () {
     $(this).children('.single-ul').slideDown(0)
-})
+});
 $('.single-dropdown').mouseleave(function () {
     $(this).children('.single-ul').slideUp(0)
-})
+});
 
 //地区无数据时弹出框 
 function noDataAlert() {
@@ -23,19 +23,35 @@ function noDataAlert() {
 }
 
 
+
 //消息提示框
-$(".message").click(function (event) {
-    event.stopPropagation();
-    $('.common-box').hide();
-    $(".common").removeClass('active')
-    if ($('.message').hasClass('active')) {
-        $('.message-box').hide();
-        $(".message").removeClass('active')
-    } else {
+$(".message").mouseenter(function (event) {
+    // event.stopPropagation();
+    // $('.common-box').hide();
+    // $(".common").removeClass('active')
+    // if ($('.message').hasClass('active')) {
+    //     $('.message-box').hide();
+    //     $(".message").removeClass('active');
+    // } else {
         $('.message-box').show();
         $(".message").addClass('active')
-    }
+    // }
 });
+
+$(".message").mouseleave(function (event) {
+    // event.stopPropagation();
+    // $('.common-box').hide();
+    // $(".common").removeClass('active')
+    // if ($('.message').hasClass('active')) {
+        $('.message-box').hide();
+        $(".message").removeClass('active')
+    // } else {
+    // $('.message-box').show();
+    // $(".message").addClass('active');
+    // }
+});
+
+//清空所有消息
 $(".empty-all").click(function () {
     if (confirm("确认全部清空吗？")) {
         $.ajax({
@@ -57,33 +73,49 @@ $(".empty-all").click(function () {
     }
 });
 
-$('.message-box').click(function (event) {
-    event.stopPropagation();
-})
-//常用功能框
-$(".common").click(function (event) {
-    event.stopPropagation();
-    $('.message-box').hide();
-    $(".message").removeClass('active')
-    if ($('.common').hasClass('active')) {
-        $('.common-box').hide();
-        $(".common").removeClass('active')
-    } else {
-        $('.common-box').show();
-        $(".common").addClass('active')
-    }
-})
-$('.common-box').click(function (event) {
-    event.stopPropagation();
-})
 
-//全局事件关闭其他窗口
-$(document).click(function () {
-    $('.message-box').hide();
-    $(".message").removeClass('active');
+
+// $('.message-box').click(function (event) {
+    // event.stopPropagation();
+// })
+
+//常用功能框
+$(".common").mouseenter(function (event) {
+    // event.stopPropagation();
+// $('.message-box').hide();
+// $(".message").removeClass('active')
+// if ($('.common').hasClass('active')) {
+//     $('.common-box').hide();
+//     $(".common").removeClass('active')
+// } else {
+    $('.common-box').show();
+    $(".common").addClass('active')
+// }
+});
+$(".common").mouseleave(function (event) {
+    // event.stopPropagation();
+// $('.message-box').hide();
+// $(".message").removeClass('active')
+// if ($('.common').hasClass('active')) {
     $('.common-box').hide();
     $(".common").removeClass('active');
-})
+// } else {
+//     $('.common-box').show();
+//     $(".common").addClass('active')
+// }
+});
+
+// $('.common-box').click(function (event) {
+    // event.stopPropagation();
+// })
+
+//全局事件关闭其他窗口
+// $(document).click(function () {
+//     $('.message-box').hide();
+//     $(".message").removeClass('active');
+//     $('.common-box').hide();
+//     $(".common").removeClass('active');
+// })
 
 //修改密码
 function changeMyPassword() {
