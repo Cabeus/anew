@@ -1,9 +1,4 @@
-/*
- * @Author: Kai.Jiang
- * @Date: 2018-01-23 20:48:16
- * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-01-26 14:16:17
- */
+
 
 /******************************************************功能变量、方法****************************************************/
 var sdk_viewer2 = null; // 控件（插件）对象
@@ -77,46 +72,43 @@ var CloudHandle = -1;
 
 // 云登录
 
-function Cloudlogin2() {
+// function Cloudlogin2() {
+//     var SDKRet = -1;
+//     var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloud", "http://ezcloud.uniview.com/", "j00504", "fb58dc95b011a5efd7879717feff598d");
+//     if (-1 == SDKRet2) {
+//         alert("云登录失败");
+//     } else {
+//         CloudHandle = SDKRet2;
+//     }
+// }
+//本地登录
+function localLogin2() {
     var SDKRet = -1;
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloud", "http://ezcloud.uniview.com/", "j00504", "fb58dc95b011a5efd7879717feff598d");
+    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
     if (-1 == SDKRet2) {
-        alert("云登录失败");
+        alert("登录失败");
     } else {
-        CloudHandle = SDKRet2;
+        // CloudHandle = SDKRet2;
+        var result = JSON.parse(SDKRet2);
+        DeviceHandle = result.UserID;
     }
 }
 
 /************************************************实况 相关**************************************************/
-Cloudlogin2();
+localLogin2();
 
-function playVideo(username, password) {
+function playVideo(dwChannelID) {
     $('.video-box').show();
     $('.video-box').css({"width": "970px", "height": "613px"})
     setTimeout(function () {
         var SDKRet2 = 0;
-        var dataMap1 = {
-            szDeviceName: username,
-            szDevicePassword: password,
-            dwT2UTimeout: 0
-        }
-        jsonStr = JSON.stringify(dataMap1);
-        var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
-
-        if (-1 == SDKRet2) {
-            console.log("设备登录失败");
-        } else {
-            let result = JSON.parse(SDKRet2);
-            DeviceHandle = result.UserID;
-            DevisLogin = true;
-            $('#playerContainer2').css({"width": "100%", "height": "522px"})
-        }
+        $('#playerContainer2').css({"width": "100%", "height": "522px"})
 
         var dataMap2 = {
-            dwChannelID: 1,
-            dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
+            dwChannelID: dwChannelID,
+            dwStreamType: LiveStream.LIVE_STREAM_INDEX_AUX,
             dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
-            dwFluency: 0
+            dwFluency: 1
         }
 
         jsonStr = JSON.stringify(dataMap2);
@@ -130,7 +122,7 @@ function playVideo(username, password) {
 
     }, 200)
 }
-
+//
 function stopVideo1() {
     var ResourceId = 0;
     var retcode = sdk_viewer2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流

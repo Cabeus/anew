@@ -12,7 +12,7 @@
  * @param selector
  * @param bmapConfig
  */
-function initMap(selector, bmapConfig) {
+function newinitMap(selector, bmapConfig) {
 
     //添加style
     $('#' + selector).css({'position': 'relative', 'overflow': 'hidden'});
@@ -223,7 +223,7 @@ function initMap(selector, bmapConfig) {
                 padding: '5px'
             });
         } else {
-            let adIcon = new BMap.Icon("location_centre.png", new BMap.Size(22, 33));
+            let adIcon = new BMap.Icon(ctx + "/static/anew/library/newinitMap/location_centre.png", new BMap.Size(22, 33));
             marker = new BMap.Marker(point, {icon: adIcon});
             let labelHtml = '<div class="" title="' + title + '" aid="' + id + '">' +
                 '<p class=""><i class="fa fa-flag"></i>' + title + '</p>' +
@@ -250,12 +250,10 @@ function initMap(selector, bmapConfig) {
      * 展示自定义图标点
      * @param point
      */
-    this.showIconMarker = function (point) {
-        let pt = new BMap.Point(point.poi.lng, point.poi.lat);
-        let myIcon = new BMap.Icon(point.icon, new BMap.Size(40, 40), {
-            imageSize: new BMap.Size(32, 41)
-        });
-        let marker = new BMap.Marker(pt, {icon: myIcon});  // 创建标注
+    this.showIconMarker = function (lng,lat) {
+        let pt = new BMap.Point(lng, lat);
+        let adIcon = new BMap.Icon(ctx + "/static/anew/library/newinitMap/location_centre.png", new BMap.Size(22, 33));
+        let marker = new BMap.Marker(pt, {icon: adIcon});  // 创建标注
         map.addOverlay(marker);  //添加到地图
     };
 
@@ -403,8 +401,8 @@ function initMap(selector, bmapConfig) {
      * @constructor
      */
     this.DrawingManagerData = function () {
-        return  roadPoints;  // 路线数据
-        // let locPoints     = [];  // 位置数据
+        console.log(roadPoints);
+        console.log(locPoints);
     };
 
     /**

@@ -17,10 +17,23 @@ $('.single-dropdown').mouseleave(function () {
     $(this).children('.single-ul').slideUp(0)
 });
 
-//地区无数据时弹出框 
+//地区无数据时弹出框
 function noDataAlert() {
     alert('该区域暂无数据');
 }
+
+//拼接导航栏链接
+$(document).ready(function () {
+    // 获取当前页面地址
+    let thisUrl = window.location.href;
+    // let index = window.location.href.lastIndexOf(ctx);
+    // let thisUrl=window.location.href.substring(index+8,window.location.href.length);
+    $('.navigation-links').each(function () {
+        if(this.href.indexOf('/index/backtrack?')!= -1){
+            $(this).attr("href",$(this).attr("href")+thisUrl);
+        }
+    });
+});
 
 
 
@@ -33,8 +46,8 @@ $(".message").mouseenter(function (event) {
     //     $('.message-box').hide();
     //     $(".message").removeClass('active');
     // } else {
-        $('.message-box').show();
-        $(".message").addClass('active')
+    $('.message-box').show();
+    $(".message").addClass('active')
     // }
 });
 
@@ -43,8 +56,8 @@ $(".message").mouseleave(function (event) {
     // $('.common-box').hide();
     // $(".common").removeClass('active')
     // if ($('.message').hasClass('active')) {
-        $('.message-box').hide();
-        $(".message").removeClass('active')
+    $('.message-box').hide();
+    $(".message").removeClass('active')
     // } else {
     // $('.message-box').show();
     // $(".message").addClass('active');
@@ -76,7 +89,7 @@ $(".empty-all").click(function () {
 
 
 // $('.message-box').click(function (event) {
-    // event.stopPropagation();
+// event.stopPropagation();
 // })
 
 //常用功能框
@@ -106,7 +119,7 @@ $(".common").mouseleave(function (event) {
 });
 
 // $('.common-box').click(function (event) {
-    // event.stopPropagation();
+// event.stopPropagation();
 // })
 
 //全局事件关闭其他窗口
@@ -211,11 +224,12 @@ $(document).ready(function () {
     // var num=url.substring(url.lastIndexOf('/')+1);
     // if(!isNaN(num)){
     //    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
-    // console.log(url);
     // }
     if (adminIsTrue) {
         $('#backjump').show();
         $('#backjump').attr('href', ctx + '/index/backtrack?back=' + url);
+    console.log(ctx + '/index/backtrack?back=' + url);
+    console.log($('#backjump').attr('href'));
     } else {
         $('#backjump').hide();
     }

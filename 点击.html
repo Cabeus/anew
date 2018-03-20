@@ -13,6 +13,16 @@
 <body>
 
 
+<a class="aaa" href="111">111</a>
+<a class="aaa" href="222">222</a>
+<a class="aaa" href="333">333</a>
+<a class="aaa" href="444">444</a>
+<a class="aaa" href="555">555</a>
+
+
+
+
+<script src="js/lib/jquery-3.2.1.min.js"></script>
 <script>
     (function () {
         var coreSocialistValues = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"],
@@ -44,6 +54,18 @@
             }
         }
     }());
+    $(document).ready(function () {
+        // 获取当前页面地址
+        let index = window.location.href.lastIndexOf("manager/");
+        let thisUrl=window.location.href.substring(index+8,window.location.href.length);
+
+        $('.aaa').each(function () {
+            $(this).attr("href",$(this).attr("href")+thisUrl);
+            console.log()
+        })
+
+
+    });
 
 </script>
 </body>

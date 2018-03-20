@@ -1,0 +1,58 @@
+@charset "UTF-8";
+//网格管理
+.region-list,.region-list-modal{
+    .ztree li span.button.add {
+        margin-left: 2px;
+        margin-right: -1px;
+        background-position: -144px 0;
+        vertical-align: top;
+        *vertical-align: middle
+    }
+    .qwer {
+        width: 100px;
+    }
+    .modal-dialog {
+        width: 90%;
+        height: 90%;
+    }
+    .modal-content {
+        height: 100%
+    }
+    .modal-body {
+        height: calc(100% - 120px);
+    }
+    .modal-footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .map-container {
+        height: calc(100% - 88px) !important;
+    }
+}
+.region-list{
+    .show-details{
+        padding: 25px;
+        .details-info{
+            width:100%;
+            height: auto;
+            padding: 5px 0;
+            span{
+                width:200px;
+                height: 20px;
+                margin: 0 15px 0 0;
+                display: inline-block;
+                font-size: 14px;
+                color: #333333;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .details-map{
+            width: 100%;
+            height: calc(100% - 100px);
+        }
+    }
+}

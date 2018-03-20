@@ -1,8 +1,6 @@
 @charset "UTF-8";
 
-////
 //文字颜色
-////
 $cf:#fff;
 $c0:#000;
 //常用紫色
@@ -14,10 +12,7 @@ $c5:#00F0F9;
 //任务发布-接受对象选中颜色
 $c6:#03ADEF;
 
-
-////
 //背景颜色
-////
 $bcf:#fff;
 $bc0:#000;
 //header 背景颜色
@@ -32,3 +27,109 @@ $bc4:#FB9576;
 $bc5:rgb(54,59,71);
 //语音背景颜色，蓝色
 $bc6:rgb(40,194,255);
+
+//button
+.btn {
+  border-radius: 2px;
+}
+
+//蓝色按钮  （完成任务、新增用户、导出用户、新增、发布等）
+.btn-blue{
+  background: #0092DE;
+  color: #fff;
+  &:hover,&:focus{
+    background: #0386CB;
+    color: #fff;
+  }
+
+}
+//蓝绿按钮 （轮播展示、导入居民信息）
+.btn-blue-green{
+  background: #0AA9D6;
+  color: #fff;
+  &:hover,&:focus{
+    background: #0798C2;
+    color: #fff;
+  }
+}
+//红色按钮 （下架、删除）
+.btn-red{
+  background: #F25E4B;
+  color: #fff;
+  &:hover,&:focus{
+    background: #E05745;
+    color: #fff;
+  }
+}
+//红味黄按钮（返回、取消置顶、今日反映）
+.btn-red-yellow{
+  background: #FAB420;
+  color: #fff;
+  &:hover,&:focus{
+    background: #ECAA21;
+    color: #fff;
+  }
+}
+//绿按钮（查询、搜索）
+.btn-green{
+  background: #00BE9A;
+  color: #fff;
+  &:hover,&:focus{
+    background: #04AF8F;
+    color: #fff;
+  }
+}
+//灰色按钮 （已完成）
+.btn-gray{
+  background: #C3C3C3;
+  color: #fff;
+  &:hover,&:focus{
+    background: #C3C3C3;
+    color: #fff;
+  }
+}
+
+//input
+.form-control {
+  border-radius: 2px;
+}
+.input-group-addon{
+  border-radius: 2px;
+}
+
+//modal
+.modal-content {
+  border-radius: 2px;
+}
+
+//nav
+.nav-tabs>li>a {
+  border-radius: 2px 2px 0 0;
+}
+
+//breadcrumb
+.breadcrumb{
+  border-radius: 2px;
+}
+
+//dropdown-menu
+.dropdown-menu {
+  border-radius: 2px;
+}
+
+//bootstrap -table
+.fixed-table-toolbar .btn-group>.btn-group:last-child>.btn {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.pagination>li:last-child>a, .pagination>li:last-child>span {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.fixed-table-pagination{
+  padding: 0 10px;
+}

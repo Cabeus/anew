@@ -1,9 +1,3 @@
-/*
- * @Author: Kai.Jiang 
- * @Date: 2018-01-23 20:48:16 
- * @Last Modified by: Kai.Jiang
- * @Last Modified time: 2018-01-26 14:16:17
- */
 
 /******************************************************功能变量、方法****************************************************/
 var sdk_viewer = null; // 控件（插件）对象
@@ -104,80 +98,56 @@ var CloudHandle = -1;
 
 /****************************************初始化控件end****************************************/
 
-// 云登录
-function Cloudlogin() {
+
+//本地设备登录
+function localLogin1() {
     var SDKRet = -1;
-    var SDKRet = sdk_viewer.execFunction("NETDEV_LoginCloud", "http://ezcloud.uniview.com/", "j00504", "fb58dc95b011a5efd7879717feff598d");
+    var SDKRet = sdk_viewer.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
     if (-1 == SDKRet) {
-        alert("云登录失败");
+        alert("登录失败");
     } else {
-        CloudHandle = SDKRet;
-    }
-}
-
-function Cloudlogin2() {
-    var SDKRet = -1;
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloud", "http://ezcloud.uniview.com/", "j00504", "fb58dc95b011a5efd7879717feff598d");
-    if (-1 == SDKRet2) {
-        alert("云登录失败");
-    } else {
-        CloudHandle = SDKRet2;
-    }
-}
-
-
-// 获取设备列表
-function GetCloudDevList() {
-    var SDKRet = sdk_viewer.execFunction("NETDEV_GetCloudDevList", CloudHandle);
-    if (1 != SDKRet) {
-        alert(SDKRet);
-    } else {
-        alert("设备发现失败");
-    }
-}
-
-// 设备登录
-function Devlogin() {
-    var SDKRet = 0;
-    var dataMap = {
-        szDeviceName: document.getElementById("CloudDevname").value,
-        szDevicePassword: document.getElementById("CloudDevPassword").value,
-        dwT2UTimeout: 0
-    }
-
-    jsonStr = JSON.stringify(dataMap);
-    var SDKRet = sdk_viewer.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
-    if (-1 == SDKRet) {
-        // alert("设备登录失败");
-    } else {
+        // CloudHandle = SDKRet;
         var result = JSON.parse(SDKRet);
         DeviceHandle = result.UserID;
-        DevisLogin = true;
+    }
+}
 
+function localLogin2() {
+    var SDKRet = -1;
+    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
+    if (-1 == SDKRet2) {
+        alert("登录失败");
+    } else {
+        // CloudHandle = SDKRet2;
+        var result = JSON.parse(SDKRet2);
+        DeviceHandle = result.UserID;
     }
 }
 
 /************************************************实况 相关**************************************************/
 // 启流
-function startVideo() {
-    var dataMap = {
-        dwChannelID: 1,
-        dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
-        dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
-        dwFluency: 0
+function startVideo1() {
+    for(let i = 0; i<8; i++){
+        setTimeout(function () {
+            var dataMap = {
+                dwChannelID: i+1,
+                dwStreamType: LiveStream.LIVE_STREAM_INDEX_AUX,
+                dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
+                dwFluency: 1
+            }
+
+            jsonStr = JSON.stringify(dataMap);
+            var ResourceId = i;
+
+            var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
+            if (0 != retcode) {
+                alert("播放实况失败。");
+            } else {
+
+            }
+        },100)
     }
 
-    jsonStr = JSON.stringify(dataMap);
-    var ResourceId = sdk_viewer.execFunction("NetSDKGetFocusWnd");
-
-    console.log(ResourceId)
-
-    var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
-    if (0 != retcode) {
-        alert("播放实况失败。");
-    } else {
-
-    }
 }
 
 // 停流
@@ -191,113 +161,59 @@ function stopVideo() {
     }
 }
 
-function getVideo() {
-    Cloudlogin();
-    //获取列表
-    let data = [{
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }, {
-        username: 'Device0002',
-        password: ''
-    }];
-
-    // for (let i in data) {
-        // for(var i = 0;i<= data.length;i++){
-        // setTimeout(function () {
-            // requestAnimationFrame(function () {
-            // alert(i)
-            var i = 0;
-
-            let username = data[i].username;
-            let password = data[i].password;
-            var SDKRet = 0;
-            var dataMap1 = {
-                szDeviceName: username,
-                szDevicePassword: password,
-                dwT2UTimeout: 0
-            }
-            jsonStr = JSON.stringify(dataMap1);
-            var SDKRet = sdk_viewer.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
-            if (-1 == SDKRet) {
-                console.log("设备登录失败" + i);
-            } else {
-                let result = JSON.parse(SDKRet);
-                DeviceHandle = result.UserID;
-                DevisLogin = true;
-            }
-
-            var dataMap2 = {
-                dwChannelID: 1,
-                dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
-                dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
-                dwFluency: 0
-            }
-
-            jsonStr = JSON.stringify(dataMap2);
+function stopVideo9() {
+    for(let i = 0; i<8; i++){
+        setTimeout(function () {
             var ResourceId = i;
-            var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
+            var retcode = sdk_viewer.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
             if (0 != retcode) {
-                console.log("播放实况失败。" + i);
+                console.log("停流失败。");
             } else {
 
             }
-        // }, 0);
-        // })
-    // }
+        },50)
+    }
+}
 
-};
-getVideo();
-Cloudlogin2();
+function getVideo() {
+    localLogin1();
+    startVideo1();
+}
 
-function playVideo(username, password) {
+localLogin2()
+
+
+// function startVideo111() {
+//     var dataMap = {
+//         dwChannelID: 1,
+//         dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
+//         dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
+//         dwFluency: 0
+//     }
+//
+//     jsonStr = JSON.stringify(dataMap);
+//     var ResourceId = sdk_viewer.execFunction("NetSDKGetFocusWnd");
+//
+//     var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
+//     if (0 != retcode) {
+//         alert("播放实况失败。");
+//     } else {
+//
+//     }
+// }
+
+function playVideo(dwChannelID) {
     $('.video-box').show();
     $('.video-box').css({"width": "970px", "height": "613px"})
     setTimeout(function () {
         var SDKRet2 = 0;
-        var dataMap1 = {
-            szDeviceName: username,
-            szDevicePassword: password,
-            dwT2UTimeout: 0
-        }
-        jsonStr = JSON.stringify(dataMap1);
-        var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloudDev", CloudHandle, jsonStr);
-
-        if (-1 == SDKRet2) {
-            console.log("设备登录失败");
-        } else {
-            let result = JSON.parse(SDKRet2);
-            DeviceHandle = result.UserID;
-            DevisLogin = true;
-            $('#playerContainer2').css({"width": "100%", "height": "522px"})
-        }
+        $('#playerContainer2').css({"width": "100%", "height": "522px"})
 
         var dataMap2 = {
-            dwChannelID: 1,
-            dwStreamType: LiveStream.LIVE_STREAM_INDEX_MAIN,
+            dwChannelID: dwChannelID,
+            dwStreamType: LiveStream.LIVE_STREAM_INDEX_AUX,
             dwLinkMode: Protocal.TRANSPROTOCAL_RTPTCP,
-            dwFluency: 0
+            dwFluency: 1
         }
 
         jsonStr = JSON.stringify(dataMap2);
