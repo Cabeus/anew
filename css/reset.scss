@@ -59,8 +59,21 @@ a {
     text-decoration: none;
     font-family: "微软雅黑";
 }
-a:hover{
-    text-decoration: none;
+a:link{
+    text-decoration:none;
+    /* 指正常的未被访问过的链接*/
+}
+a:visited{
+    text-decoration:none;
+    /*指已经访问过的链接*/
+}a:hover{
+     text-decoration:none;
+     color: #C81623;
+     /*指鼠标在链接*/
+ }
+a:active{
+    text-decoration:none;
+    /* 指正在点的链接*/
 }
 
 img {

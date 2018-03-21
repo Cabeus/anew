@@ -133,3 +133,23 @@ $bc6:rgb(40,194,255);
 .fixed-table-pagination{
   padding: 0 10px;
 }
+
+
+//全局初始化
+.main-content{
+  display: inline-block;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 10px 15px;
+  overflow: auto;
+}
+.main-content-two{
+  display: inline-block;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 10px 15px;
+  overflow: auto;
+}
+

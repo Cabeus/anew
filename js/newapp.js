@@ -2,12 +2,14 @@
 $(document).ready(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
-    $('.main-content').height(height);
+    $('.main-content').height(height -20);
+    $('.main-content-two').height(height - 64);
 });
 $(window).resize(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
-    $('.main-content').height(height);
+    $('.main-content').height(height -20);
+    $('.main-content-two').height(height - 64);
 });
 //地区选择下拉框
 $('.single-dropdown').mouseenter(function () {

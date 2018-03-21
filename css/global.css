@@ -56,8 +56,22 @@ a {
   text-decoration: none;
   font-family: "微软雅黑"; }
 
+a:link {
+  text-decoration: none;
+  /* 指正常的未被访问过的链接*/ }
+
+a:visited {
+  text-decoration: none;
+  /*指已经访问过的链接*/ }
+
 a:hover {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #C81623;
+  /*指鼠标在链接*/ }
+
+a:active {
+  text-decoration: none;
+  /* 指正在点的链接*/ }
 
 img {
   display: inline-block; }
@@ -145,6 +159,22 @@ html, body {
 .fixed-table-pagination {
   padding: 0 10px; }
 
+.main-content {
+  display: inline-block;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 10px 15px;
+  overflow: auto; }
+
+.main-content-two {
+  display: inline-block;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 10px 15px;
+  overflow: auto; }
+
 .shadow-2dp {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -165,6 +195,10 @@ html, body {
 
 .right {
   float: right; }
+
+.no-spacing {
+  margin: 0;
+  padding: 0; }
 
 .dispaly {
   display: none; }
@@ -1001,85 +1035,89 @@ td {
   .position-refresh img {
     margin: auto; }
 
-.together .table-bordered td {
-  border: 1px solid #635F77 !important; }
-.together .table-bordered th {
-  border: 1px solid #635F77 !important;
-  font-weight: normal;
-  background-color: #3B4754; }
-.together .btn_circle {
-  border-radius: 15px; }
-.together .btn:link,
-.together .btn:hover,
-.together .btn:active,
-.together .btn:visited,
-.together .btn:focus {
-  color: #ffffff; }
-.together .daterangepicker .btn-default:hover {
-  color: #000; }
-.together .btn_tag,
-.together .btn_group_notify,
-.together .btn_group_patrol,
-.together .btn_group_feedback {
-  width: 25%; }
-.together .btn_selected {
-  background-color: #9974D2; }
-.together .btn_normal {
-  background-color: #2D323E; }
-.together .btn_total_accepted {
-  background-color: #8B56DD;
-  font-size: 16px;
-  font-weight: bold; }
-.together .btn_total_totay {
-  background-color: #0BA8F1;
-  font-size: 16px;
-  font-weight: bold; }
-.together .btn_one_third {
-  width: 33.3%;
-  padding: 3px 5px; }
-.together .item {
-  background-color: #363b47;
-  color: #ffffff;
-  padding: 0px;
-  margin-bottom: 0px; }
-.together .modal-content {
-  color: #000; }
-.together #table-schedule th {
-  color: #00F0F9; }
-.together .row-box {
-  width: 100%;
-  height: 280px;
-  margin-bottom: 10px; }
-  .together .row-box .reset-padding {
-    padding: 0 5px;
-    height: 100%; }
-    .together .row-box .reset-padding .plate-titles {
+.together .main-content-two {
+  background: #383C45;
+  color: #fff; }
+  .together .main-content-two .col-md-4, .together .main-content-two .col-md-5, .together .main-content-two .col-md-3 {
+    padding: 0 5px; }
+  .together .main-content-two .daterange-btn {
+    display: inline-block;
+    height: 25px;
+    padding: 0px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #282E3A;
+    border: 1px solid #4D4D4D;
+    border-radius: 2px; }
+  .together .main-content-two .data-table {
+    width: 100%;
+    height: 440px;
+    margin-bottom: 10px; }
+    .together .main-content-two .data-table .data-table-nav {
       width: 100%;
-      text-align: center;
-      height: 28px;
-      line-height: 28px;
-      font-size: 16px;
-      color: #FF906C; }
-    .together .row-box .reset-padding .plate-titles-left {
+      height: 35px;
+      line-height: 35px;
+      display: flex;
+      background: #282E3A;
+      border: 1px solid #545A6F;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px; }
+      .together .main-content-two .data-table .data-table-nav li {
+        flex: 1;
+        text-align: center; }
+        .together .main-content-two .data-table .data-table-nav li a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          color: #fff; }
+        .together .main-content-two .data-table .data-table-nav li.active {
+          background: #363B47; }
+          .together .main-content-two .data-table .data-table-nav li.active a {
+            color: #FD9678; }
+    .together .main-content-two .data-table .data-table-content {
       width: 100%;
-      height: 30px;
-      font-size: 16px;
-      color: #FF906C;
-      /*button   hover样式*/ }
-      .together .row-box .reset-padding .plate-titles-left .btn,
-      .together .row-box .reset-padding .plate-titles-left .btn:hover {
-        color: #000;
-        padding: 2px 12px; }
-    .together .row-box .reset-padding .item-bg {
-      padding: 5px;
-      background: #464C5B; }
-      .together .row-box .reset-padding .item-bg #tabsCon {
-        height: 209px; }
-      .together .row-box .reset-padding .item-bg #table-event,
-      .together .row-box .reset-padding .item-bg #table-schedule {
-        color: #ffffff;
-        margin-bottom: 0;
-        height: 242px; }
+      height: 400px;
+      background: #2D323E;
+      border: 1px solid #545A6F; }
+      .together .main-content-two .data-table .data-table-content .plate-titles {
+        width: 100%;
+        height: 50px;
+        padding: 25px 15px 0;
+        line-height: 25px; }
+        .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-left {
+          float: left;
+          font-weight: 700; }
+          .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-left i {
+            display: inline-block;
+            width: 6px;
+            height: 17px;
+            margin: 4px 2px;
+            float: left;
+            background: #8370EA; }
+        .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-right {
+          float: right; }
+  .together .main-content-two .trend-map {
+    width: 100%;
+    height: 305px;
+    background: #ffa2d3;
+    margin-bottom: 10px; }
+  .together .main-content-two .cumulative {
+    width: 100%;
+    height: 260px;
+    background: #00B83F;
+    margin-bottom: 10px; }
+  .together .main-content-two .form-list {
+    width: 100%;
+    height: 440px;
+    margin-bottom: 10px;
+    background: #8dff62; }
 
 .home-statistics {
   /*button   hover样式*/
