@@ -1,0 +1,29 @@
+body .them-layer-class.them-layer-class-msg {
+  text-align: center;
+  min-width: 476px;
+  background: #545A6F;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #FFFFFF; }
+  body .them-layer-class.them-layer-class-msg .layui-layer-content {
+    text-align: center;
+    padding: 20px 20px 20px 20px; }
+  body .them-layer-class.them-layer-class-msg .layui-layer-ico {
+    position: static;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px; }
+body .them-layer-class .layui-layer-title {
+  border: none;
+  font-size: 15px;
+  color: #4A4A4A;
+  text-align: center;
+  padding: 0;
+  background: #fff; }
+body .them-layer-class .layui-layer-content {
+  text-align: center; }
+body .them-layer-class .layui-layer-btn {
+  text-align: center; }
+
+/*# sourceMappingURL=them-layer.css.map */

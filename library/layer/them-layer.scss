@@ -1,0 +1,42 @@
+@charset "UTF-8";
+//body .them-layer-class .layui-layer-title{background:#c00; color:#fff; border: none;}
+//body .layer-class .layui-layer-btn{border-top:1px solid #E9E7E7}
+//body .layer-class .layui-layer-btn a{background:#333;}
+//body .layer-class .layui-layer-btn .layui-layer-btn1{background:#999;}
+body .them-layer-class {
+  &.them-layer-class-msg {
+    text-align: center;
+    min-width: 476px;
+    background: #545A6F;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #FFFFFF;
+    .layui-layer-content {
+      text-align: center;
+      padding: 20px 20px 20px 20px;
+    }
+    .layui-layer-ico {
+      position: static;
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+
+  .layui-layer-title {
+    border: none;
+    font-size: 15px;
+    color: #4A4A4A;
+    text-align: center;
+    padding: 0;
+    background: #fff;
+  }
+  .layui-layer-content{
+    text-align: center;
+  }
+  .layui-layer-btn{
+    text-align: center;
+  }
+
+}

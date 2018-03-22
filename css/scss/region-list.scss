@@ -8,29 +8,43 @@
         vertical-align: top;
         *vertical-align: middle
     }
-    .qwer {
-        width: 100px;
+
+    //输入框
+    .md-input{
+        width: 350px;
+        height: 40px;
+        float: left;
+        .qwer{
+            width: 110px;
+        }
     }
-    .modal-dialog {
-        width: 90%;
-        height: 90%;
-    }
-    .modal-content {
-        height: 100%
-    }
-    .modal-body {
-        height: calc(100% - 120px);
-    }
-    .modal-footer {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-    }
+
     .map-container {
-        height: calc(100% - 88px) !important;
+        margin-top: 20px;
+        height: 550px;
     }
 }
+
+.region-list-modal{
+  .modal-dialog {
+    width: 80%;
+    height: 90%;
+  }
+  .modal-content {
+    height: 100%
+  }
+  .modal-body {
+    height: calc(100% - 120px);
+    padding: 20px 30px;
+  }
+  .modal-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
 .region-list{
     .show-details{
         padding: 25px;
