@@ -31,35 +31,48 @@
         move: false
     });
 
+    // layer.msg('视频播放失败',{
+    //     time:2000,
+    //     icon:2
+    // },function () {
+    //
+    // });
+
+    function aaa() {
+        this.f = true;
+        layer.confirm('您是如何看待程序开发您是如何看待程序开发您是如何看待程序开发您是如何看待程序开发您是如何？', {
+            btn: ['重要', '奇葩'] //按钮
+        }, function (index) {
+            layer.close(index);
+            // return this
+            this.f = true;
+        }, function (index) {
+            layer.close(index);
+            this.f = false;
+            // return false
+            // console.log(this)
+        });
+        // console.log(this.f)
+    }
+
     //弹出一个提示层
     $('#test1').on('click', function () {
-        layer.msg('删除成功',{
-            time:2000,
-            icon:1
-        },function () {
-            layer.confirm('您是如何看待程序开发？', {
-                btn: ['重要', '奇葩'] //按钮
-            }, function () {
-                layer.msg('的确很重要', {
-                    icon: 0,
-                    time: 2000,
-                },function () {
+        // layer.msg('删除成功',{
+        //     time:200,
+        //     icon:1
+        // },function () {
 
-                });
-            }, function () {
-                layer.msg('也可以这样', {
-                    icon: 1,
-                    time: 2000, //20s后自动关闭
-                },function () {
-
-                });
-            });
-        });
+        // });
+        // aaa()
+        // console.log(aaa.f)
 
 
-
-
-        
+layer.alert("aaaa",{
+    btn: ['重要', '奇葩']
+},function () {
+    console.log(123)
+})
+        console.log(123)
 
 
         // layer.msg('你确定你很帅么？', {
@@ -129,6 +142,59 @@
     $('#test5').on('click', function () {
         layer.tips('Hello tips!', '#test5');
     });
+
+
+
+
+
+
+     var  a = function(treeId, treeNode){//删除节点之前
+        var zTree = $.fn.zTree.getZTreeObj("addTarget");
+        zTree.selectNode(treeNode);
+
+        if(treeNode.id==1){
+            layer.open({
+                content : "请勿删除顶级指标！",
+                btn : [ "确定" ],
+                shadeClose : false,
+                yes : function(index) {
+                    layer.close(index);
+                }
+            });
+            return false;
+        }
+        var flag=false;//此处必须定义一个变量，不然还没确定就把节点从树上删除
+        layer.confirm("确认要删除当前指标及其下级指标吗？", {
+            btn: ['确定','取消']
+        }, function(){
+            var result = "";
+            result=getAllChildrenNodes(treeNode, result);//获取当前节点的子节点字符串数组
+            $.post("${resource}executive/activity/delTarget",{"targetId":treeNode.id,"childrenIds":result},function(data){
+                flag=true;
+                layer.open({
+                    content : "删除成功！",
+                    btn : [ "确定" ],
+                    shadeClose : false,
+                    yes : function(index) {
+                        layer.close(index);
+                        zTree.removeChildNodes(treeNode);//删除当前节点子节点
+                        zTree.removeNode(treeNode);//删除当前节点
+                    }
+                });
+            })
+        }, function(index){
+            layer.close(index);
+            flag=false;
+        })
+        return flag;
+    }
+
+
+
+
+
+
+
 </script>
 
 

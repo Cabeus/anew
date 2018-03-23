@@ -21,7 +21,12 @@ $('.single-dropdown').mouseleave(function () {
 
 //地区无数据时弹出框
 function noDataAlert() {
-    alert('该区域暂无数据');
+    layer.msg('该区域暂无数据',{
+        time:2000,
+        icon:0
+    },function () {
+
+    });
 }
 
 //拼接导航栏链接
@@ -68,24 +73,29 @@ $(".message").mouseleave(function (event) {
 
 //清空所有消息
 $(".empty-all").click(function () {
-    if (confirm("确认全部清空吗？")) {
+    layer.confirm('确认全部清空吗？', {
+        btn: ['确定', '取消'] //按钮
+    }, function () {
         $.ajax({
             type: 'POST',
             url: ctx + '/message/delAll',
             success: function (data) {
                 tmp = $('<li id="remove" style="text-align: center">暂无内容</li>');
                 $('.header_message').append(tmp);
-                // if(data.msg == "success") {
-                //     alert("消息全部清空了");
-                // } else {
-                //     alert(data.msg);
-                // }
+                layer.msg('消息已全部清空', {
+                    time: 1000,
+                    icon: 1
+                });
             }
         });
         $(".header_message").empty();
         $('.header_message_num').hide();
         $(".empty-all").addClass('none').unbind('click');//灰色
-    }
+
+    }, function () {
+
+    });
+
 });
 
 
@@ -139,28 +149,56 @@ function changeMyPassword() {
     var repeat = $("#form-change-password input[name='repeat']").val();
 
     if (original == '') {
-        alert('请填写原密码');
+        layer.msg('请填写原密码',{
+            time:1500,
+            icon:0
+        },function () {
+
+        });
         return;
     }
     if (newPassword == '') {
-        alert('请填写新密码');
+        layer.msg('请填写新密码',{
+            time:1500,
+            icon:0
+        },function () {
+
+        });
         return;
     }
     if (repeat == '') {
-        alert('请再次填写新密码');
+        layer.msg('请再次填写新密码',{
+            time:1500,
+            icon:0
+        },function () {
+
+        });
         return;
     }
 
     if (original == newPassword) {
-        alert('新密码与原密码一致，请重新填写');
+        layer.msg('新密码与原密码一致，请重新填写',{
+            time:1500,
+            icon:0
+        },function () {
+
+        });
         return;
     }
     if (repeat != newPassword) {
-        alert('两次输入的新密码不一致，请重新填写');
+        layer.msg('两次输入的新密码不一致，请重新填写',{
+            time:1500,
+            icon:0
+        },function () {
+
+        });
         return;
     }
 
-    if (confirm("确认变更吗？")) {
+
+    layer.confirm('确认变更吗？', {
+        btn: ['确定', '取消'] //按钮
+    }, function () {
         var postBody = $("#form-change-password").serialize();
         $.ajax({
             type: 'POST',
@@ -168,14 +206,27 @@ function changeMyPassword() {
             data: postBody,
             success: function (data) {
                 if (data.msg == "success") {
-                    alert("变更成功");
-                    $('#modal-change-password').modal('toggle');
+                    layer.msg('变更成功',{
+                        time:1000,
+                        icon:1
+                    },function () {
+                        $('#modal-change-password').modal('toggle');
+                    });
                 } else {
-                    alert(data.msg);
+                    layer.msg(data.msg,{
+                        time:1500,
+                        icon:0
+                    },function () {
+
+                    });
                 }
             }
         });
-    }
+    }, function () {
+
+    });
+
+
 }
 
 //header 菜单的选中状态

@@ -83,13 +83,25 @@ $("#playerContainer").show();
 sdk_viewer = new Utils.Player(cfg); //初始化控件
 var retcode = sdk_viewer.execFunction("NetSDKSetPlayWndNum", 9); //分屏
 if (0 != retcode) {
-    alert("实况窗口实例化失败");
+    //视频窗口实例化失败
+    layer.msg('视频加载失败',{
+        time:2000,
+        icon:2
+    },function () {
+
+    })
 }
 
 sdk_viewer2 = new Utils.Player(cfg2); //初始化控件
 var retcode2 = sdk_viewer2.execFunction("NetSDKSetPlayWndNum", 1); //分屏
 if (0 != retcode2) {
-    alert("实况窗口实例化失败");
+    //视频窗口实例化失败
+    layer.msg('视频加载失败',{
+        time:2000,
+        icon:2
+    },function () {
+
+    })
 }
 
 
@@ -104,7 +116,13 @@ function localLogin1() {
     var SDKRet = -1;
     var SDKRet = sdk_viewer.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
     if (-1 == SDKRet) {
-        alert("登录失败");
+        //本地登录失败
+        layer.msg('视频获取失败',{
+            time:2000,
+            icon:2
+        },function () {
+
+        })
     } else {
         // CloudHandle = SDKRet;
         var result = JSON.parse(SDKRet);
@@ -116,7 +134,13 @@ function localLogin2() {
     var SDKRet = -1;
     var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
     if (-1 == SDKRet2) {
-        alert("登录失败");
+        //本地登录失败
+        layer.msg('视频获取失败',{
+            time:2000,
+            icon:2
+        },function () {
+
+        })
     } else {
         // CloudHandle = SDKRet2;
         var result = JSON.parse(SDKRet2);
@@ -141,7 +165,13 @@ function startVideo1() {
 
             var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
             if (0 != retcode) {
-                alert("播放实况失败。");
+                // 视频播放失败
+                layer.msg('视频播放失败',{
+                    time:2000,
+                    icon:2
+                },function () {
+
+                })
             } else {
 
             }
@@ -155,7 +185,12 @@ function stopVideo() {
     var ResourceId = sdk_viewer.execFunction("NetSDKGetFocusWnd");
     var retcode = sdk_viewer.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
     if (0 != retcode) {
-        alert("停流失败。");
+        // layer.msg('视频停止播放失败',{
+        //     time:2000,
+        //     icon:2
+        // },function () {
+        //
+        // })
     } else {
 
     }
@@ -167,7 +202,7 @@ function stopVideo9() {
             var ResourceId = i;
             var retcode = sdk_viewer.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
             if (0 != retcode) {
-                console.log("停流失败。");
+
             } else {
 
             }
@@ -180,7 +215,9 @@ function getVideo() {
     startVideo1();
 }
 
-localLogin2()
+setTimeout(function () {
+    localLogin2();
+},1500);
 
 
 // function startVideo111() {
@@ -196,7 +233,7 @@ localLogin2()
 //
 //     var retcode = sdk_viewer.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
 //     if (0 != retcode) {
-//         alert("播放实况失败。");
+//         console.log("播放实况失败。");
 //     } else {
 //
 //     }
@@ -220,7 +257,13 @@ function playVideo(dwChannelID) {
         var ResourceId = 0;
         var retcode = sdk_viewer2.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
         if (0 != retcode) {
-            console.log("播放实况失败。");
+            // 视频播放失败
+            layer.msg('视频播放失败',{
+                time:2000,
+                icon:2
+            },function () {
+
+            })
         } else {
 
         }
@@ -232,7 +275,12 @@ function stopVideo1() {
     var ResourceId = 0;
     var retcode = sdk_viewer2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
     if (0 != retcode) {
-        console.log("停流失败。");
+        // layer.msg('视频停止播放失败',{
+        //     time:2000,
+        //     icon:2
+        // },function () {
+        //
+        // })
     } else {
 
     }
