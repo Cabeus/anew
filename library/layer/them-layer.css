@@ -9,7 +9,8 @@ body .them-layer-class.them-layer-class-msg {
     box-sizing: border-box;
     text-align: center;
     padding: 10px 20px;
-    height: 46px; }
+    height: 46px;
+    color: #FFFFFF; }
   body .them-layer-class.them-layer-class-msg .layui-layer-ico {
     position: static;
     width: 16px;
@@ -24,7 +25,8 @@ body .them-layer-class .layui-layer-title {
   padding: 0;
   background: #fff; }
 body .them-layer-class .layui-layer-content {
-  text-align: center; }
+  text-align: center;
+  color: #333; }
 body .them-layer-class .layui-layer-btn {
   text-align: center;
   padding-bottom: 20px; }

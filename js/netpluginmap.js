@@ -76,21 +76,10 @@ var CloudHandle = -1;
 
 /****************************************初始化控件end****************************************/
 
-// 云登录
-
-// function Cloudlogin2() {
-//     var SDKRet = -1;
-//     var SDKRet2 = sdk_viewer2.execFunction("NETDEV_LoginCloud", "http://ezcloud.uniview.com/", "j00504", "fb58dc95b011a5efd7879717feff598d");
-//     if (-1 == SDKRet2) {
-//         console.log("云登录失败");
-//     } else {
-//         CloudHandle = SDKRet2;
-//     }
-// }
 //本地登录
-function localLogin2() {
-    var SDKRet = -1;
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "192.168.1.30", "80", "admin","654321");
+function localLogin2(port) {
+    var SDKRet2 = -1;
+    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "117.190.234.42", port, "admin","123456ABCabc");
     if (-1 == SDKRet2) {
         //本地登录失败
         layer.msg('视频获取失败',{
@@ -108,9 +97,9 @@ function localLogin2() {
 
 /************************************************实况 相关**************************************************/
 
-setTimeout(function () {
-    localLogin2();
-},1500);
+// setTimeout(function () {
+    // localLogin2();
+// },1500);
 
 function playVideo(dwChannelID) {
     $('.video-box').show();
@@ -148,13 +137,7 @@ function stopVideo1() {
     var ResourceId = 0;
     var retcode = sdk_viewer2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
     if (0 != retcode) {
-        // console.log("停流失败。");
-        // layer.msg('视频停止播放失败',{
-        //     time:2000,
-        //     icon:2
-        // },function () {
-        //
-        // })
+
     } else {
 
     }

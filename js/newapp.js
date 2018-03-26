@@ -141,7 +141,11 @@ $(".common").mouseleave(function (event) {
 //     $('.common-box').hide();
 //     $(".common").removeClass('active');
 // })
-
+//变更密码初始化
+function changeNewPassword() {
+    $('#modal-change-password').modal('toggle');
+    $('#form-change-password input').val('');
+}
 //修改密码
 function changeMyPassword() {
     var original = $("#form-change-password input[name='original']").val();
