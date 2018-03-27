@@ -1,6 +1,9 @@
 
 
 /******************************************************功能变量、方法****************************************************/
+
+var videoFlagTag = '';
+
 var sdk_viewer2 = null; // 控件（插件）对象
 
 var Main = {
@@ -90,6 +93,7 @@ function localLogin2(port) {
         })
     } else {
         // CloudHandle = SDKRet2;
+        console.log("视频登录成功")
         var result = JSON.parse(SDKRet2);
         DeviceHandle = result.UserID;
     }
