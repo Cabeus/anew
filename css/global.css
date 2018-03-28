@@ -1034,85 +1034,205 @@ td {
   .position-refresh img {
     margin: auto; }
 
-.together .table-bordered td {
-  border: 1px solid #635F77 !important; }
-.together .table-bordered th {
-  border: 1px solid #635F77 !important;
-  font-weight: normal;
-  background-color: #3B4754; }
-.together .btn_circle {
-  border-radius: 15px; }
-.together .btn:link,
-.together .btn:hover,
-.together .btn:active,
-.together .btn:visited,
-.together .btn:focus {
-  color: #ffffff; }
-.together .daterangepicker .btn-default:hover {
-  color: #000; }
-.together .btn_tag,
-.together .btn_group_notify,
-.together .btn_group_patrol,
-.together .btn_group_feedback {
-  width: 25%; }
-.together .btn_selected {
-  background-color: #9974D2; }
-.together .btn_normal {
-  background-color: #2D323E; }
-.together .btn_total_accepted {
-  background-color: #8B56DD;
-  font-size: 16px;
-  font-weight: bold; }
-.together .btn_total_totay {
-  background-color: #0BA8F1;
-  font-size: 16px;
-  font-weight: bold; }
-.together .btn_one_third {
-  width: 33.3%;
-  padding: 3px 5px; }
-.together .item {
-  background-color: #363b47;
-  color: #ffffff;
-  padding: 0px;
-  margin-bottom: 0px; }
-.together .modal-content {
-  color: #000; }
-.together #table-schedule th {
-  color: #00F0F9; }
-.together .row-box {
-  width: 100%;
-  height: 280px;
-  margin-bottom: 10px; }
-  .together .row-box .reset-padding {
-    padding: 0 5px;
-    height: 100%; }
-    .together .row-box .reset-padding .plate-titles {
+.together .main-content-two {
+  background: #383C45;
+  color: #fff; }
+  .together .main-content-two .col-md-4, .together .main-content-two .col-md-5, .together .main-content-two .col-md-3 {
+    padding: 0 5px; }
+  .together .main-content-two .daterange-btn {
+    display: inline-block;
+    height: 25px;
+    padding: 0px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #282E3A;
+    border: 1px solid #4D4D4D;
+    border-radius: 2px; }
+  .together .main-content-two .data-table {
+    width: 100%;
+    height: 376px;
+    margin-bottom: 10px; }
+    .together .main-content-two .data-table .data-table-nav {
       width: 100%;
-      text-align: center;
-      height: 28px;
-      line-height: 28px;
-      font-size: 16px;
-      color: #FF906C; }
-    .together .row-box .reset-padding .plate-titles-left {
+      height: 35px;
+      line-height: 35px;
+      display: flex;
+      background: #282E3A;
+      border: 1px solid #545A6F;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px; }
+      .together .main-content-two .data-table .data-table-nav li {
+        flex: 1;
+        text-align: center; }
+        .together .main-content-two .data-table .data-table-nav li a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          color: #fff; }
+        .together .main-content-two .data-table .data-table-nav li.active {
+          background: #363B47; }
+          .together .main-content-two .data-table .data-table-nav li.active a {
+            color: #FD9678; }
+    .together .main-content-two .data-table .data-table-content {
       width: 100%;
-      height: 30px;
-      font-size: 16px;
-      color: #FF906C;
-      /*button   hover样式*/ }
-      .together .row-box .reset-padding .plate-titles-left .btn,
-      .together .row-box .reset-padding .plate-titles-left .btn:hover {
-        color: #000;
-        padding: 2px 12px; }
-    .together .row-box .reset-padding .item-bg {
-      padding: 5px;
-      background: #464C5B; }
-      .together .row-box .reset-padding .item-bg #tabsCon {
-        height: 209px; }
-      .together .row-box .reset-padding .item-bg #table-event,
-      .together .row-box .reset-padding .item-bg #table-schedule {
-        color: #ffffff;
-        margin-bottom: 0;
-        height: 242px; }
+      height: 336px;
+      background: #2D323E;
+      border: 1px solid #545A6F; }
+      .together .main-content-two .data-table .data-table-content .plate-titles {
+        width: 100%;
+        height: 35px;
+        padding: 10px 15px 0;
+        line-height: 25px; }
+        .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-left {
+          float: left;
+          font-weight: 700; }
+          .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-left i {
+            display: inline-block;
+            width: 6px;
+            height: 17px;
+            margin: 4px 2px;
+            float: left;
+            background: #8370EA; }
+        .together .main-content-two .data-table .data-table-content .plate-titles .plate-titles-right {
+          float: right; }
+      .together .main-content-two .data-table .data-table-content .echart-calc {
+        width: 100%;
+        height: 170px;
+        display: flex; }
+        .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right {
+          height: 100%;
+          flex: 1; }
+          .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left h4, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 25px; }
+          .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .num-box, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .num-box {
+            width: 100%;
+            height: 40px; }
+            .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .num-box span, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .num-box span {
+              display: inline-block;
+              width: 27px;
+              height: 38px;
+              line-height: 38px;
+              background: #393e49;
+              border: 1px solid #575b64;
+              text-align: center;
+              font-size: 24px;
+              font-weight: 700;
+              color: #FFFFFF; }
+          .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .echart-calc-right-bot, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .echart-calc-right-bot {
+            padding-top: 10px;
+            width: 100%;
+            display: flex; }
+            .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .echart-calc-right-bot > div, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .echart-calc-right-bot > div {
+              flex: 1; }
+              .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .echart-calc-right-bot > div .b-title, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .echart-calc-right-bot > div .b-title {
+                font-size: 12px;
+                color: #fff; }
+                .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .echart-calc-right-bot > div .b-title i, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .echart-calc-right-bot > div .b-title i {
+                  display: inline-block;
+                  width: 4px;
+                  height: 10px;
+                  margin-right: 4px; }
+                .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-left .echart-calc-right-bot > div .b-title span, .together .main-content-two .data-table .data-table-content .echart-calc .echart-calc-right .echart-calc-right-bot > div .b-title span {
+                  font-size: 12px;
+                  line-height: 16px; }
+      .together .main-content-two .data-table .data-table-content .total-box {
+        width: 100%;
+        display: flex;
+        padding: 15px 20px;
+        font-weight: 700; }
+        .together .main-content-two .data-table .data-table-content .total-box .total {
+          flex: 1;
+          text-align: center;
+          height: 60px; }
+          .together .main-content-two .data-table .data-table-content .total-box .total > div {
+            font-size: 16px;
+            color: #FEE954;
+            height: 21px;
+            line-height: 21px;
+            margin-bottom: 10px; }
+          .together .main-content-two .data-table .data-table-content .total-box .total > span {
+            font-size: 14px;
+            color: #FFFFFF;
+            height: 19px;
+            line-height: 19px; }
+        .together .main-content-two .data-table .data-table-content .total-box .lll {
+          display: block;
+          width: 1px;
+          margin: 10px 0;
+          height: 40px;
+          opacity: 0.3;
+          background: #FD9678; }
+  .together .main-content-two .trend-map {
+    width: 100%;
+    height: 254px;
+    background: #2D323E;
+    border: 1px solid #464D5B;
+    margin-bottom: 10px; }
+    .together .main-content-two .trend-map .trend-map-titles {
+      width: 100%;
+      height: 34px;
+      padding: 5px 15px;
+      background: #282E3A; }
+      .together .main-content-two .trend-map .trend-map-titles .titles-left {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 25px;
+        color: #FD9678;
+        float: left; }
+      .together .main-content-two .trend-map .trend-map-titles .titles-right {
+        float: right; }
+  .together .main-content-two .cumulative {
+    width: 100%;
+    height: 234px;
+    margin-bottom: 10px; }
+    .together .main-content-two .cumulative .table-nav {
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      display: flex;
+      background: #282E3A;
+      border: 1px solid #545A6F;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px; }
+      .together .main-content-two .cumulative .table-nav li {
+        flex: 1;
+        text-align: center; }
+        .together .main-content-two .cumulative .table-nav li a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          color: #fff; }
+        .together .main-content-two .cumulative .table-nav li.active {
+          background: #363B47; }
+          .together .main-content-two .cumulative .table-nav li.active a {
+            color: #FD9678; }
+    .together .main-content-two .cumulative .table-content {
+      width: 100%;
+      height: 194px;
+      background: #2D323E;
+      border: 1px solid #545A6F; }
+  .together .main-content-two .form-list1 {
+    width: 100%;
+    height: 362px;
+    margin-bottom: 10px;
+    background: #2D323E;
+    border: 1px solid #464D5B; }
+  .together .main-content-two .form-list2 {
+    width: 100%;
+    height: 390px;
+    margin-bottom: 10px;
+    background: #2D323E;
+    border: 1px solid #464D5B; }
 
 .home-statistics {
   color: #fff;
