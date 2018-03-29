@@ -298,10 +298,10 @@ function stopVideo() {
 }
 
 function stopVideoList1() {
-    for(let i = 0; i<8; i++){
+    for(let i = 0; i<9; i++){
         setTimeout(function () {
             var ResourceId = i;
-            var retcode = sdk_viewerList2.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
+            var retcode = sdk_viewer.execFunction("NETDEV_StopRealPlay", parseInt(ResourceId)); //关闭视频流
             if (0 != retcode) {
 
             } else {
