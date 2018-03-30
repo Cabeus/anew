@@ -1258,6 +1258,7 @@ td {
           font-size: 14px;
           color: #FFFFFF;
           box-sizing: border-box;
+          text-align: center;
           border-right: 1px solid #575757; }
         .together .main-content-two .form-list1 .form-list1-table .list-item > a {
           display: inline-block;
