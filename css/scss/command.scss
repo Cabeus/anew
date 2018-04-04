@@ -1,149 +1,481 @@
 @charset "UTF-8";
 .command {
-    .box {
-        /* 设置阴影 */
-        -webkit-box-shadow: 1px 1px 3px #292929;
-        -moz-box-shadow: 1px 1px 3px #292929;
-        box-shadow: 1px 1px 3px #292929;
-    }
-    .btn:link,
-    .btn:hover,
-    .btn:active,
-    .btn:visited,
-    .btn:focus {
-        color: #ffffff;
-    }
-    .btn:focus,
-    .btn:hover {
-        color: #000;
-    }
-    .btn_selected {
-        background-color: #9974D2;
-        color: #fff
-    }
-    .btn_normal {
-        background-color: #2D323E;
-        color: #fff
-    }
-    .btn_selected_orange {
-        background-color: #FF906C;
-        color: #fff
-    }
-    .BMapLabel {
-        position: relative;
-        overflow: hidden;
-    }
-    .BMapLabel:after {
-        content: " ";
-        position: absolute;
-        left: calc(50% - 3px);
-        bottom: -5px;
-        width: 0;
-        height: 0;
-        font-size: 0;
-        line-height: 0;
-        border-width: 5px;
-        border-color: #fff;
-        border-bottom-width: 0;
-        border-style: dashed;
-        border-top-style: solid;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        display: block;
-        z-index: 999;
-    }
-    .label-title {
-        margin: 0 !important;
-    }
-    /*指挥提示下次不提醒input*/
-    .input-con {
-        position: relative;
-        display: block;
-        padding-left: 20px;
-        line-height: 28px;
-    }
-    .input-checkbox {
-        position: absolute;
-        visibility: hidden;
-    }
-    .input-checkbox+label {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        border-radius: 3px;
-        position: absolute;
-        top: 4px;
-        background: #fff;
-    }
-    .input-checkbox:checked+label:after {
-        content: "";
-        position: absolute;
-        left: 5px;
-        bottom: 7px;
-        width: 10px;
-        height: 6px;
-        border: 1px solid #000;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        -ms-transform: rotate(-60deg);
-        -moz-transform: rotate(-60deg);
-        -webkit-transform: rotate(-60deg);
-        transform: rotate(-45deg);
-    }
-    .map-container .label-title {
-        color: #000;
-        font-family: "微软雅黑";
-    }
+  .box {
+    /* 设置阴影 */
+    -webkit-box-shadow: 1px 1px 3px #292929;
+    -moz-box-shadow: 1px 1px 3px #292929;
+    box-shadow: 1px 1px 3px #292929;
+  }
+  .btn:link,
+  .btn:hover,
+  .btn:active,
+  .btn:visited,
+  .btn:focus {
+    color: #ffffff;
+  }
+  .btn:focus,
+  .btn:hover {
+    color: #000;
+  }
+  .btn_selected {
+    background-color: #9974D2;
+    color: #fff
+  }
+  .btn_normal {
+    background-color: #2D323E;
+    color: #fff
+  }
+  .btn_selected_orange {
+    background-color: #FF906C;
+    color: #fff
+  }
+  .BMapLabel {
+    position: relative;
+    overflow: hidden;
+  }
+  .BMapLabel:after {
+    content: " ";
+    position: absolute;
+    left: calc(50% - 3px);
+    bottom: -5px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-color: #fff;
+    border-bottom-width: 0;
+    border-style: dashed;
+    border-top-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    display: block;
+    z-index: 999;
+  }
+  .label-title {
+    margin: 0 !important;
+  }
+  /*指挥提示下次不提醒input*/
+  .input-con {
+    position: relative;
+    display: block;
+    padding-left: 20px;
+    line-height: 28px;
+  }
+  .input-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+  .input-checkbox + label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    position: absolute;
+    top: 4px;
+    background: #fff;
+  }
+  .input-checkbox:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 7px;
+    width: 10px;
+    height: 6px;
+    border: 1px solid #000;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    transform: rotate(-45deg);
+  }
+  .map-container .label-title {
+    color: #000;
+    font-family: "微软雅黑";
+  }
 }
 
 //联防队员 警务站 摄像监控类别选择位置
 .command-show-options {
-    position: absolute;
-    top: 100px;
-    left: 80px;
+  position: absolute;
+  top: 100px;
+  left: 80px;
 }
 
 //定向发布按钮
 .release-button {
-    position: absolute;
-    top: 100px;
-    right: 315px;
-    box-shadow: 0 0 10px #ccc;
-    >span {
-        background: #fff;
-        font-size: 16px;
-        color: rgba(0, 0, 0, .65);
-        display: block;
-        width: 100px;
-        height: 35px;
-        line-height: 35px;
-        text-align: center;
-        padding: 0 5px;
-        font-weight: 500;
-        cursor: pointer;
-    }
+  position: absolute;
+  top: 100px;
+  right: 315px;
+  box-shadow: 0 0 10px #ccc;
+  > span {
+    background: #fff;
+    font-size: 16px;
+    color: rgba(0, 0, 0, .65);
+    display: block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    padding: 0 5px;
+    font-weight: 500;
+    cursor: pointer;
+  }
 }
 
 //地图切换按钮
 .command-maptype {
-    position: absolute;
-    top: 100px;
-    right: 75px;
+  position: absolute;
+  top: 100px;
+  right: 75px;
 }
 
 .position-refresh {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 10px #ccc;
+  position: absolute;
+  top: 96px;
+  right: 15px;
+  transition: 1s;
+  img {
+    margin: auto;
+  }
+}
+
+.command {
+  .release-box {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
     display: flex;
-    background: #fff;
-    box-shadow: 0 0 10px #ccc;
-    position: absolute;
-    top: 96px;
-    right: 15px;
-    transition: 1s;
-    img {
-        margin: auto;
+    .release-con {
+      width: 932px;
+      height: 555px;
+      background: #545A6F;
+      border-radius: 4px;
+      margin: auto;
+      color: #fff;
+      .release-top {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        font-size: 18px;
+        .close-box {
+          float: right;
+          cursor: pointer;
+        }
+      }
+      .release-cen {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        > div {
+          padding: 0 10px;
+          line-height: 30px;
+          font-size: 15px;
+          font-weight: 700;
+          &.active {
+            color: #03ADEF;
+            > span {
+              background: #03ADEF;
+              border: 1px solid #03ADEF;
+              color: #fff;
+            }
+            > i {
+              background: #03ADEF;
+            }
+          }
+          > span {
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #FFFFFF;
+          }
+          > i {
+            display: block;
+            float: left;
+            margin-top: 15px;
+            margin-right: 10px;
+            width: 150px;
+            height: 1px;
+            opacity: 0.5;
+            background: #FFFFFF;
+          }
+        }
+
+      }
+      .release-bot {
+        width: 100%;
+        height: 445px;
+        .step1-box, .step2-box, .step3-box {
+          width: 100%;
+          height: 100%;
+        }
+        .step1-box {
+          display: flex;
+          .tree-box {
+            padding: 10px;
+            overflow: auto;
+            width: 280px;
+            height: 100%;
+            //transform:scale(1.2);
+            .ztree li a {
+              color: #fff;
+            }
+            .ztree li a.curSelectedNode {
+              padding-top: 0px;
+              background-color: rgba(0, 0, 0, 0.5);
+              height: 16px;
+              border: 1px #FFB951 solid;
+              opacity: 0.8;
+            }
+          }
+          .table-box {
+            height: 100%;
+            flex: 1;
+            border-left: 1px solid rgb(132, 136, 150);
+            > form {
+              width: 100%;
+              height: 35px;
+              padding: 0 10px;
+              input {
+                width: 130px;
+                height: 30px;
+                display: inline-block;
+                background: inherit;
+                color: #fff;
+                padding: 0 5px;
+                border: 1px solid rgb(132, 136, 150);
+                border-radius: 2px;
+                float: left;
+                margin-right: 5px;
+                &::placeholder {
+                  color: rgba(255, 255, 255, 1);
+                }
+              }
+              .select-custom {
+                width: 130px;
+                height: 30px;
+                border: 1px solid rgb(132, 136, 150);
+                border-radius: 2px;
+                color: #fff;
+                background: url("../img/arrow1.png") no-repeat scroll right center transparent;
+                option {
+                  color: #000;
+                }
+              }
+              .search {
+                width: 70px;
+                height: 30px;
+                background: #00BE9A;
+                border: none;
+                border-radius: 2px;
+                margin: 0 10px;
+              }
+              .emp {
+                background: none;
+                border: none;
+                color: #fff;
+              }
+            }
+            .table-con-box {
+              margin: 10px;
+              position: relative;
+              .all-ck{
+                display: flex;
+                position: absolute;
+                left: 13px;
+                bottom: 20px;
+              }
+              div.th-inner{
+                input{
+                  display: none;
+                }
+              }
+              .fixed-table-container {
+                border-radius: 2px;
+                //border: 1px solid rgb(132, 136, 150);
+                border: none;
+                //border-right: 1px solid rgb(132, 136, 150);
+              }
+              .bootstrap-table .table > thead > tr > th {
+                border-bottom: 1px solid rgb(132, 136, 150);
+                background: #464D5B;
+                color: #fff;
+                &:last-child {
+                  border-right: 1px solid rgb(132, 136, 150);
+                  box-sizing: border-box;
+                }
+              }
+              .fixed-table-container thead th {
+                border-left: 1px solid rgb(132, 136, 150);
+              }
+              .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+                border-top: 1px solid rgb(132, 136, 150);
+              }
+              .table > tbody > tr > td {
+                &:last-child {
+                  border-right: 1px solid rgb(132, 136, 150);
+                  box-sizing: border-box;
+                }
+              }
+              .fixed-table-container tbody td {
+                border-left: 1px solid rgb(132, 136, 150);
+              }
+              .bootstrap-table .table {
+                border-bottom: 1px solid rgb(132, 136, 150);
+              }
+              .pull-left {
+                display: none;
+              }
+              .table-hover > tbody > tr:hover {
+                background-color: inherit;
+              }
+              .fixed-table-container tbody .selected td {
+                background-color: inherit;
+              }
+              //  分页按钮
+              .pagination > li > a, .pagination > li > span {
+                background-color: inherit;
+                border: 1px solid rgb(132, 136, 150);
+                color: #fff;
+              }
+              .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+                z-index: 3;
+                color: #fff;
+                cursor: default;
+                background: #03ADEF;
+                border-color: #337ab7;
+              }
+
+            }
+            .step1-next{
+              width: 100%;
+              height: 50px;
+              text-align: center;
+              button{
+                width: 70px;
+                height: 30px;
+                background: #03ADEF;
+                border: none;
+                border-radius: 2px;
+                margin: 0 10px;
+              }
+            }
+
+          }
+        }
+        .step2-box {
+          display: flex;
+          .list-box {
+            padding: 10px;
+            overflow: auto;
+            width: 280px;
+            height: 100%;
+            .count{
+              width: 100%;
+              height: 32px;
+              line-height: 32px;
+              padding: 0 10px;
+              background: #464D5B;
+            }
+            .list-con{
+              width: 100%;
+              height: calc(100% - 32px);
+              overflow: auto;
+              >li{
+                width: 100%;
+                height: 37px;
+                line-height: 37px;
+                padding: 0 15px;
+                border-bottom: 1px solid rgb(132, 136, 150);
+                &:hover{
+                  .close-this{
+                    display: inline-block;
+                  }
+                }
+                >span{
+                  display: inline-block;
+                  &:first-child{
+                    width: 180px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                  &:nth-child(2){
+                    width: 0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                }
+                .close-this{
+                  width: 12px;
+                  height: 12px;
+                  float: right;
+                  display: none;
+                  cursor: pointer;
+                  img{
+                    width: 12px;
+                    height: 12px;
+                  }
+                }
+              }
+            }
+          }
+          .news-box {
+            height: 100%;
+            flex: 1;
+            border-left: 1px solid rgb(132, 136, 150);
+            padding: 15px;
+            .title{
+              width: 120px;
+              height: 36px;
+              text-align: right;
+              padding: 0 10px;
+              display: inline-block;
+            }
+            input{
+              width: 470px;
+              height: 30px;
+              color: #000;
+            }
+            .step2-next {
+              width: 100%;
+              height: 50px;
+              text-align: center;
+              padding-top: 10px;
+              button {
+                width: 70px;
+                height: 30px;
+                background: #03ADEF;
+                border: none;
+                border-radius: 2px;
+                margin: 0 10px;
+                &.back-btn{
+                  background: none;
+                  border: 1px solid #CBCBCB;
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

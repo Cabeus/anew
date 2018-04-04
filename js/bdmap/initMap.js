@@ -387,7 +387,7 @@ function initMap(selector, bmapConfig) {
 
         //监听绘制点事件
         drawingManager.addEventListener("markercomplete", function(e, overlay) {
-            // console.log(overlay);
+            console.log(overlay.point.lat);
             roadPoints.push(overlay);
         });
 

@@ -7,6 +7,8 @@
  */
 
 
+var onePoint= '';
+
 /**
  * 初始化地图
  * @param selector
@@ -308,6 +310,7 @@ function newinitMap(selector, bmapConfig) {
     /**
      * 用于存放 画点 画线的数据
      */
+
     let roadPoints    = [];  // 路线数据
     let locPoints     = [];  // 位置数据
 
@@ -330,14 +333,27 @@ function newinitMap(selector, bmapConfig) {
     this.DrawingManager = function (type) {
         //http://api.map.baidu.com/library/DrawingManager/1.4/docs/symbols/BMapLib.DrawingManager.html
 
-        let MapTypeHtml = '<!-- 绘制工具操作 -->\n' +
-            '<div class="drawing-manager">\n' +
-            // '<a class="map-opt-center"><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>中心</span></a>\n' +
-            '<a class="map-opt-point"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>单点</span></a>\n' +
-            '<a class="map-opt-region"><i class="fa fa-lemon-o" aria-hidden="true"></i><span>区域</span></a>\n' +
-            '<a class="map-opt-clear"><i class="fa fa-trash" aria-hidden="true"></i><span>清除</span></a>\n' +
-            '</div>';
-        $('#' + selector).append(MapTypeHtml);
+
+
+        if(type == "onePoint"){
+            let MapTypeHtml = '<!-- 绘制工具操作 -->\n' +
+                '<div class="drawing-manager">\n' +
+                '<a class="map-opt-one-point"><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>中心</span></a>\n' +
+                // '<a class="map-opt-point"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>单点</span></a>\n' +
+                // '<a class="map-opt-region"><i class="fa fa-lemon-o" aria-hidden="true"></i><span>区域</span></a>\n' +
+                // '<a class="map-opt-clear"><i class="fa fa-trash" aria-hidden="true"></i><span>清除</span></a>\n' +
+                '</div>';
+            $('#' + selector).append(MapTypeHtml);
+        }else {
+            let MapTypeHtml = '<!-- 绘制工具操作 -->\n' +
+                '<div class="drawing-manager">\n' +
+                // '<a class="map-opt-center"><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>中心</span></a>\n' +
+                '<a class="map-opt-point"><i class="fa fa-location-arrow" aria-hidden="true"></i><span>单点</span></a>\n' +
+                '<a class="map-opt-region"><i class="fa fa-lemon-o" aria-hidden="true"></i><span>区域</span></a>\n' +
+                '<a class="map-opt-clear"><i class="fa fa-trash" aria-hidden="true"></i><span>清除</span></a>\n' +
+                '</div>';
+            $('#' + selector).append(MapTypeHtml);
+        }
 
 
         //实例化鼠标绘制工具
@@ -354,11 +370,12 @@ function newinitMap(selector, bmapConfig) {
             rectangleOptions: styleOptions //矩形的样式
         });
 
-        $('#' + selector + ' .map-opt-center').click(function () {
+        $('#' + selector + ' .map-opt-one-point').click(function () {
             // 画点
             specialPointMode = true;
             drawingManager.open();
             drawingManager.setDrawingMode(BMAP_DRAWING_MARKER);
+
         });
 
         $('#' + selector + ' .map-opt-point').click(function () {
@@ -385,8 +402,17 @@ function newinitMap(selector, bmapConfig) {
 
         //监听绘制点事件
         drawingManager.addEventListener("markercomplete", function(e, overlay) {
-            // console.log(overlay);
-            roadPoints.push(overlay);
+            if(type == "onePoint"){
+                map.removeOverlay(onePoint.lng, onePoint.lat);
+                onePoint = overlay.point;
+                let point = new BMap.Point(onePoint.lng, onePoint.lat);
+                let marker;  //点
+                marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+            }else {
+                console.log(overlay);
+                roadPoints.push(overlay);
+            }
         });
 
         //监听绘制多边形事件

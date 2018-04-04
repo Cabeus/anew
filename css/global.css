@@ -1034,6 +1034,263 @@ td {
   .position-refresh img {
     margin: auto; }
 
+.command .release-box {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  display: flex; }
+  .command .release-box .release-con {
+    width: 932px;
+    height: 555px;
+    background: #545A6F;
+    border-radius: 4px;
+    margin: auto;
+    color: #fff; }
+    .command .release-box .release-con .release-top {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
+      font-size: 18px; }
+      .command .release-box .release-con .release-top .close-box {
+        float: right;
+        cursor: pointer; }
+    .command .release-box .release-con .release-cen {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      padding-top: 10px; }
+      .command .release-box .release-con .release-cen > div {
+        padding: 0 10px;
+        line-height: 30px;
+        font-size: 15px;
+        font-weight: 700; }
+        .command .release-box .release-con .release-cen > div.active {
+          color: #03ADEF; }
+          .command .release-box .release-con .release-cen > div.active > span {
+            background: #03ADEF;
+            border: 1px solid #03ADEF;
+            color: #fff; }
+          .command .release-box .release-con .release-cen > div.active > i {
+            background: #03ADEF; }
+        .command .release-box .release-con .release-cen > div > span {
+          display: inline-block;
+          line-height: 30px;
+          text-align: center;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid #FFFFFF; }
+        .command .release-box .release-con .release-cen > div > i {
+          display: block;
+          float: left;
+          margin-top: 15px;
+          margin-right: 10px;
+          width: 150px;
+          height: 1px;
+          opacity: 0.5;
+          background: #FFFFFF; }
+    .command .release-box .release-con .release-bot {
+      width: 100%;
+      height: 445px; }
+      .command .release-box .release-con .release-bot .step1-box, .command .release-box .release-con .release-bot .step2-box, .command .release-box .release-con .release-bot .step3-box {
+        width: 100%;
+        height: 100%; }
+      .command .release-box .release-con .release-bot .step1-box {
+        display: flex; }
+        .command .release-box .release-con .release-bot .step1-box .tree-box {
+          padding: 10px;
+          overflow: auto;
+          width: 280px;
+          height: 100%; }
+          .command .release-box .release-con .release-bot .step1-box .tree-box .ztree li a {
+            color: #fff; }
+          .command .release-box .release-con .release-bot .step1-box .tree-box .ztree li a.curSelectedNode {
+            padding-top: 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 16px;
+            border: 1px #FFB951 solid;
+            opacity: 0.8; }
+        .command .release-box .release-con .release-bot .step1-box .table-box {
+          height: 100%;
+          flex: 1;
+          border-left: 1px solid #848896; }
+          .command .release-box .release-con .release-bot .step1-box .table-box > form {
+            width: 100%;
+            height: 35px;
+            padding: 0 10px; }
+            .command .release-box .release-con .release-bot .step1-box .table-box > form input {
+              width: 130px;
+              height: 30px;
+              display: inline-block;
+              background: inherit;
+              color: #fff;
+              padding: 0 5px;
+              border: 1px solid #848896;
+              border-radius: 2px;
+              float: left;
+              margin-right: 5px; }
+              .command .release-box .release-con .release-bot .step1-box .table-box > form input::placeholder {
+                color: white; }
+            .command .release-box .release-con .release-bot .step1-box .table-box > form .select-custom {
+              width: 130px;
+              height: 30px;
+              border: 1px solid #848896;
+              border-radius: 2px;
+              color: #fff;
+              background: url("../img/arrow1.png") no-repeat scroll right center transparent; }
+              .command .release-box .release-con .release-bot .step1-box .table-box > form .select-custom option {
+                color: #000; }
+            .command .release-box .release-con .release-bot .step1-box .table-box > form .search {
+              width: 70px;
+              height: 30px;
+              background: #00BE9A;
+              border: none;
+              border-radius: 2px;
+              margin: 0 10px; }
+            .command .release-box .release-con .release-bot .step1-box .table-box > form .emp {
+              background: none;
+              border: none;
+              color: #fff; }
+          .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box {
+            margin: 10px;
+            position: relative; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .all-ck {
+              display: flex;
+              position: absolute;
+              left: 13px;
+              bottom: 20px; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box div.th-inner input {
+              display: none; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .fixed-table-container {
+              border-radius: 2px;
+              border: none; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .bootstrap-table .table > thead > tr > th {
+              border-bottom: 1px solid #848896;
+              background: #464D5B;
+              color: #fff; }
+              .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .bootstrap-table .table > thead > tr > th:last-child {
+                border-right: 1px solid #848896;
+                box-sizing: border-box; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .fixed-table-container thead th {
+              border-left: 1px solid #848896; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > tbody > tr > td, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > tbody > tr > th, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > tfoot > tr > td, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > tfoot > tr > th, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > thead > tr > td, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > thead > tr > th {
+              border-top: 1px solid #848896; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table > tbody > tr > td:last-child {
+              border-right: 1px solid #848896;
+              box-sizing: border-box; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .fixed-table-container tbody td {
+              border-left: 1px solid #848896; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .bootstrap-table .table {
+              border-bottom: 1px solid #848896; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pull-left {
+              display: none; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .table-hover > tbody > tr:hover {
+              background-color: inherit; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .fixed-table-container tbody .selected td {
+              background-color: inherit; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > li > a, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > li > span {
+              background-color: inherit;
+              border: 1px solid #848896;
+              color: #fff; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > a, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > a:focus, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > a:hover, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > span, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > span:focus, .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .pagination > .active > span:hover {
+              z-index: 3;
+              color: #fff;
+              cursor: default;
+              background: #03ADEF;
+              border-color: #337ab7; }
+          .command .release-box .release-con .release-bot .step1-box .table-box .step1-next {
+            width: 100%;
+            height: 50px;
+            text-align: center; }
+            .command .release-box .release-con .release-bot .step1-box .table-box .step1-next button {
+              width: 70px;
+              height: 30px;
+              background: #03ADEF;
+              border: none;
+              border-radius: 2px;
+              margin: 0 10px; }
+      .command .release-box .release-con .release-bot .step2-box {
+        display: flex; }
+        .command .release-box .release-con .release-bot .step2-box .list-box {
+          padding: 10px;
+          overflow: auto;
+          width: 280px;
+          height: 100%; }
+          .command .release-box .release-con .release-bot .step2-box .list-box .count {
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            padding: 0 10px;
+            background: #464D5B; }
+          .command .release-box .release-con .release-bot .step2-box .list-box .list-con {
+            width: 100%;
+            height: calc(100% - 32px);
+            overflow: auto; }
+            .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li {
+              width: 100%;
+              height: 37px;
+              line-height: 37px;
+              padding: 0 15px;
+              border-bottom: 1px solid #848896; }
+              .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li:hover .close-this {
+                display: inline-block; }
+              .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li > span {
+                display: inline-block; }
+                .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li > span:first-child {
+                  width: 180px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis; }
+                .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li > span:nth-child(2) {
+                  width: 0px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis; }
+              .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li .close-this {
+                width: 12px;
+                height: 12px;
+                float: right;
+                display: none;
+                cursor: pointer; }
+                .command .release-box .release-con .release-bot .step2-box .list-box .list-con > li .close-this img {
+                  width: 12px;
+                  height: 12px; }
+        .command .release-box .release-con .release-bot .step2-box .news-box {
+          height: 100%;
+          flex: 1;
+          border-left: 1px solid #848896;
+          padding: 15px; }
+          .command .release-box .release-con .release-bot .step2-box .news-box .title {
+            width: 120px;
+            height: 36px;
+            text-align: right;
+            padding: 0 10px;
+            display: inline-block; }
+          .command .release-box .release-con .release-bot .step2-box .news-box input {
+            width: 470px;
+            height: 30px;
+            color: #000; }
+          .command .release-box .release-con .release-bot .step2-box .news-box .step2-next {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            padding-top: 10px; }
+            .command .release-box .release-con .release-bot .step2-box .news-box .step2-next button {
+              width: 70px;
+              height: 30px;
+              background: #03ADEF;
+              border: none;
+              border-radius: 2px;
+              margin: 0 10px; }
+              .command .release-box .release-con .release-bot .step2-box .news-box .step2-next button.back-btn {
+                background: none;
+                border: 1px solid #CBCBCB; }
+
 .together .main-content-two {
   background: #383C45;
   color: #fff; }
