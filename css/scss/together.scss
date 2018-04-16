@@ -299,6 +299,7 @@
         }
       }
     }
+    //今日值班情况
     .form-list2 {
       //height: 390px;
       .list-titles2{
@@ -346,6 +347,9 @@
             &:first-child{
               width: 30%;
               color: #00F0F9;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
             &:nth-child(2){
               width: 40%;

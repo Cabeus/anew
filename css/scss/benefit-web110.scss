@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .benefit-web110 {
     .alert-icon-box {
         width: 74px;
@@ -62,6 +63,7 @@
                 }
             }
         }
+        //没有报警站位图
         .no-chct-bitmap{
             width: 100%;
             height: 500px;
@@ -70,6 +72,69 @@
             top: 50px;
             z-index: 1;
         }
+
+        //视频通话接听挂断
+        .video-yes-no{
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            z-index: 2;
+            display: none;
+            .video-yes-no-con{
+                position: absolute;
+                width: 100%;
+                height: 500px;
+                left: 0;
+                top: 0;
+                .user-details{
+                    width: 100%;
+                    height: 330px;
+                    .img-icon{
+                        width: 100%;
+                        height: 180px;
+                        display: flex;
+                        &>img{
+                            display: block;
+                            margin: auto;
+                            width: 90px;
+                            height: 90px;
+                            border-radius: 50%;
+                        }
+                    }
+                    .details-con{
+                        width: 100%;
+                        height: 150px;
+                        &>div{
+                            margin-left: 250px;
+                            font-size: 15px;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+                .yes-no-btn{
+                    width: 100%;
+                    height: 32px;
+                    &>div{
+                        width: 300px;
+                        height: 32px;
+                        display: flex;
+                        margin: 0 auto;
+                        justify-content: space-between;
+                        span{
+                            display: block;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+        //消息内容
         .chat-con {
             width: 100%;
             height: 500px;

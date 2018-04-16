@@ -270,7 +270,8 @@ $(document).ready(function () {
             } else {
                 $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
             }
-
+        }else if($(this).attr("href").indexOf(url.split("back=")[1]) != -1){
+            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
         }
     });
 })

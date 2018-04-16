@@ -27,7 +27,7 @@
     .btn_group_notify,
     .btn_group_patrol,
     .btn_group_feedback {
-        width: 33%;
+        width: 33.33%;
     }
     .btn_selected {
         background-color: #9974D2;
@@ -126,4 +126,23 @@
             padding: 7px;
         }
     }
+
+
+
+    //数据汇总改版统一样式
+    .btn-group {
+        border: 1px solid #545A6F;
+        background: #2D323E;
+    }
+    .btn_selected {
+        background: #363B47;
+        color: $c4;
+        &:focus{
+            color: $c4;
+        }
+        &:hover{
+            color: $c4;
+        }
+    }
+
 }

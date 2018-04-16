@@ -105,25 +105,58 @@
 }
 
 //定向发布按钮
-.release-button {
+//.release-button {
+//  position: absolute;
+//  top: 100px;
+//  right: 315px;
+//  box-shadow: 0 0 10px #ccc;
+//  > span {
+//    background: #fff;
+//    font-size: 16px;
+//    color: rgba(0, 0, 0, .65);
+//    display: block;
+//    width: 100px;
+//    height: 35px;
+//    line-height: 35px;
+//    text-align: center;
+//    padding: 0 5px;
+//    font-weight: 500;
+//    cursor: pointer;
+//  }
+//}
+
+.release-button,.choice-button{
   position: absolute;
-  top: 100px;
-  right: 315px;
+  top: 200px;
+  right: 50px;
+  width: 74px;
+  height: 74px;
+  border-radius: 4px;
+  border: 1px solid #999;
   box-shadow: 0 0 10px #ccc;
-  > span {
-    background: #fff;
-    font-size: 16px;
-    color: rgba(0, 0, 0, .65);
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  img{
     display: block;
-    width: 100px;
-    height: 35px;
-    line-height: 35px;
+    width: 20px;
+    height: 20px;
+    margin: 12px auto;
+  }
+  span{
+    display: block;
     text-align: center;
-    padding: 0 5px;
-    font-weight: 500;
-    cursor: pointer;
   }
 }
+.choice-button{
+  top: 300px;
+  .choice-d,.choice-a{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
 
 //地图切换按钮
 .command-maptype {

@@ -284,7 +284,7 @@ function initEchart(viewID, type, data) {
             }
         }];
 
-    } else if (type == "feedback" || type == "rescue") {
+    } else if (type == "feedback") {
 
         thisData = [{
             "value": data.first,
@@ -312,16 +312,44 @@ function initEchart(viewID, type, data) {
             }
         }];
 
+    } else if (type == "rescue") {
+
+        thisData = [{
+            "value": data.first,
+            "name": "已响应",
+            itemStyle: {
+                normal: {
+                    color: '#F25E4B',
+                }
+            }
+        }, {
+            "value": data.second,
+            "name": "未响应",
+            itemStyle: {
+                normal: {
+                    color: '#50E3C2',
+                }
+            }
+        }, {
+            "value": data.third,
+            "name": "已结束",
+            itemStyle: {
+                normal: {
+                    color: '#03ADEF',
+                }
+            }
+        }];
+
     }
 
-    let data_name = [];
+    // let data_name = [];
     for (let n  in thisData) {
         if (data.total == 0) {
             thisData[n]['name'] = thisData[n]['name'] + '\n0%';
-            data_name.push(thisData[n]['name'])
+            // data_name.push(thisData[n]['name'])
         } else {
             thisData[n]['name'] = thisData[n]['name'] + '\n' + Math.round(thisData[n]['value'] * 100 / data.total * 100) / 100 + '%';
-            data_name.push(thisData[n]['name'])
+            // data_name.push(thisData[n]['name'])
         }
 
     }
@@ -690,7 +718,7 @@ function initArea(begin, end) {
                     left: '3%',
                     right: '4%',
                     bottom: '10%',
-                    top: '25%',
+                    top: '30%',
                     containLabel: true
                 },
                 xAxis: [

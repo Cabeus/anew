@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="lib/fonts/css/font-awesome.min.css">
 </head>
 <body>
-
+<button id="rtCall">Call</button>
+<button id="rtAcceptCall">接听</button>
+<button id="rtEndCall">拒绝</button>
+<div>
+    <video id="video" style="border: 1px solid red" autoplay></video>
+    <video id="localVideo" style="border: 1px solid blue" autoplay muted></video>
+</div>
 
 <script src="lib/jquery-3.2.1.js"></script>
 <script src="lib/bootstrap.js"></script>
@@ -16,11 +22,77 @@
 <script type='text/javascript' src='lib/webim/webim.config.js'></script>
 <script type='text/javascript' src='lib/webim/strophe-1.2.8.js'></script>
 <script type='text/javascript' src='lib/webim/websdk-1.4.10.js'></script>
+<script src="lib/webim/adapter.js"></script>
+<script src="lib/webim/webrtc-1.4.12.js"></script>
 
 <script type='text/javascript' src='easemob.js'></script>
 
 <script>
     EasemobUtil('16055fbd4480006','123123');
+
+
+    var rtcCall = new WebIM.WebRTC.Call({
+        connection: conn,
+        mediaStreamConstaints: {
+            audio: true,
+            video: true
+        },
+
+        listener: {
+            onAcceptCall: function (from, options) {
+                console.log('onAcceptCall::', 'from: ', from, 'options: ', options);
+            },
+            //通过streamType区分视频流和音频流，streamType: 'VOICE'(音频流)，'VIDEO'(视频流)
+            onGotRemoteStream: function (stream, streamType) {
+                console.log('onGotRemoteStream::', 'stream: ', stream, 'streamType: ', streamType);
+                var video = document.getElementById('video');
+                video.srcObject = stream;
+            },
+            onGotLocalStream: function (stream, streamType) {
+                console.log('onGotLocalStream::', 'stream:', stream, 'streamType: ', streamType);
+                var video = document.getElementById('localVideo');
+                video.srcObject = stream;
+            },
+            onRinging: function (caller) {
+                console.log('onRinging::', 'caller:', caller);
+            },
+            onTermCall: function (reason) {
+                console.log('onTermCall::');
+                console.log('reason:', reason);
+            },
+            onIceConnectionStateChange: function (iceState) {
+                console.log('onIceConnectionStateChange::', 'iceState:', iceState);
+            },
+            onError: function (e) {
+                console.log(e);
+            }
+        }
+    });
+
+
+    // 视频呼叫对方
+    var call = function () {
+        rtcCall.caller = '16055fbd4480006';
+        rtcCall.makeVideoCall('16058ffd24c0002');
+    };
+    // // 音频呼叫对方
+    // var call = function () {
+    //     rtcCall.caller = '16058ffd24c0002';
+    //     rtcCall.makeVoiceCall('16055fbd4480006');
+    // };
+    // 关掉/拒绝视频
+    var endCall = function () {
+        rtcCall.endCall();
+    }
+    // 接受对方呼叫
+    var acceptCall = function () {
+        rtcCall.acceptCall();
+    }
+
+    document.getElementById('rtCall').onclick = call;
+    document.getElementById('rtEndCall').onclick = endCall;
+    document.getElementById('rtAcceptCall').onclick = acceptCall;
+
 </script>
 
 </body>
