@@ -8,15 +8,48 @@
     <script type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.6.0/aliplayer-min.js"></script>
 </head>
 <body>
-<div class="prism-player" id="J_prismPlayer" style="position: absolute"></div>
+<div class="prism-player" id="J_prismPlayer"></div>
+
+
+<button id="capture">Capture</button>
+<div id="output"></div>
+
+
+<script src="js/lib/jquery-3.2.1.js"></script>
 <script>
+    $().ready(function () {
+        var video, output;
+        var scale = 1;
+        var initialize = function () {
+            output = $("#output");
+            video = $("#J_prismPlayer video").get(0);
+            $("#capture").click(captureImage);
+        };
+        var captureImage = function () {
+            var canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth * scale;
+            canvas.height = video.videoHeight * scale;
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            var img = document.createElement("img");
+            img.src = canvas.toDataURL();
+            console.log(canvas.toDataURL())
+            output.prepend(img);
+        };
+        $(initialize);
+    });
+
+
+
+
+
     var player = new Aliplayer({
         id: 'J_prismPlayer',
         width: '800px',
         height:'450px',
         autoplay: true, //自动播放
+        snapshot:true,//截图
         //支持播放地址播放,此播放优先级最高
-        source: 'rtmp://live.hkstv.hk.lxdns.com/live/hks',
+        source: 'http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8',
         //播放方式二：点播用户推荐
         // vid: '1e067a2831b641db90d570b6480fbc40',
         // playauth: '',

@@ -2,13 +2,13 @@
 $(document).ready(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
-    $('.main-content').height(height -20);
+    $('.main-content').height(height - 20);
     $('.main-content-two').height(height - 64);
 });
 $(window).resize(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
-    $('.main-content').height(height -20);
+    $('.main-content').height(height - 20);
     $('.main-content-two').height(height - 64);
 });
 //地区选择下拉框
@@ -21,10 +21,10 @@ $('.single-dropdown').mouseleave(function () {
 
 //地区无数据时弹出框
 function noDataAlert() {
-    layer.msg('该区域暂无数据',{
-        time:2000,
-        icon:0
-    },function () {
+    layer.msg('该区域暂无数据', {
+        time: 2000,
+        icon: 0
+    }, function () {
 
     });
 }
@@ -36,12 +36,11 @@ $(document).ready(function () {
     // let index = window.location.href.lastIndexOf(ctx);
     // let thisUrl=window.location.href.substring(index+8,window.location.href.length);
     $('.navigation-links').each(function () {
-        if(this.href.indexOf('/index/backtrack?')!= -1){
-            $(this).attr("href",$(this).attr("href")+thisUrl);
+        if (this.href.indexOf('/index/backtrack?') != -1) {
+            $(this).attr("href", $(this).attr("href") + thisUrl);
         }
     });
 });
-
 
 
 //消息提示框
@@ -99,7 +98,6 @@ $(".empty-all").click(function () {
 });
 
 
-
 // $('.message-box').click(function (event) {
 // event.stopPropagation();
 // })
@@ -146,6 +144,7 @@ function changeNewPassword() {
     $('#modal-change-password').modal('toggle');
     $('#form-change-password input').val('');
 }
+
 //修改密码
 function changeMyPassword() {
     var original = $("#form-change-password input[name='original']").val();
@@ -153,47 +152,47 @@ function changeMyPassword() {
     var repeat = $("#form-change-password input[name='repeat']").val();
 
     if (original == '') {
-        layer.msg('请填写原密码',{
-            time:1500,
-            icon:0
-        },function () {
+        layer.msg('请填写原密码', {
+            time: 1500,
+            icon: 0
+        }, function () {
 
         });
         return;
     }
     if (newPassword == '') {
-        layer.msg('请填写新密码',{
-            time:1500,
-            icon:0
-        },function () {
+        layer.msg('请填写新密码', {
+            time: 1500,
+            icon: 0
+        }, function () {
 
         });
         return;
     }
     if (repeat == '') {
-        layer.msg('请再次填写新密码',{
-            time:1500,
-            icon:0
-        },function () {
+        layer.msg('请再次填写新密码', {
+            time: 1500,
+            icon: 0
+        }, function () {
 
         });
         return;
     }
 
     if (original == newPassword) {
-        layer.msg('新密码与原密码一致，请重新填写',{
-            time:1500,
-            icon:0
-        },function () {
+        layer.msg('新密码与原密码一致，请重新填写', {
+            time: 1500,
+            icon: 0
+        }, function () {
 
         });
         return;
     }
     if (repeat != newPassword) {
-        layer.msg('两次输入的新密码不一致，请重新填写',{
-            time:1500,
-            icon:0
-        },function () {
+        layer.msg('两次输入的新密码不一致，请重新填写', {
+            time: 1500,
+            icon: 0
+        }, function () {
 
         });
         return;
@@ -210,17 +209,17 @@ function changeMyPassword() {
             data: postBody,
             success: function (data) {
                 if (data.msg == "success") {
-                    layer.msg('变更成功',{
-                        time:1000,
-                        icon:1
-                    },function () {
+                    layer.msg('变更成功', {
+                        time: 1000,
+                        icon: 1
+                    }, function () {
                         $('#modal-change-password').modal('toggle');
                     });
                 } else {
-                    layer.msg(data.msg,{
-                        time:1500,
-                        icon:0
-                    },function () {
+                    layer.msg(data.msg, {
+                        time: 1500,
+                        icon: 0
+                    }, function () {
 
                     });
                 }
@@ -270,7 +269,9 @@ $(document).ready(function () {
             } else {
                 $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
             }
-        }else if($(this).attr("href").indexOf(url.split("back=")[1]) != -1){
+        } else if ($(this).attr("href").indexOf(url.split("back=")[1]) != -1) {
+            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+        } else if ($(this).attr("href").indexOf(url.split("?groupId=")[0]) != -1) {
             $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
         }
     });
@@ -286,8 +287,8 @@ $(document).ready(function () {
     if (adminIsTrue) {
         $('#backjump').show();
         $('#backjump').attr('href', ctx + '/index/backtrack?back=' + url);
-    console.log(ctx + '/index/backtrack?back=' + url);
-    console.log($('#backjump').attr('href'));
+        console.log(ctx + '/index/backtrack?back=' + url);
+        console.log($('#backjump').attr('href'));
     } else {
         $('#backjump').hide();
     }
@@ -451,7 +452,7 @@ function setTableParameter() {
                     $("#from-query input[name='endDate']").val(obj.data.endDate);
                     $('.nav-tabs li').eq(0).addClass('active').siblings('li').removeClass('active');
                     $('.tab-content>div').eq(0).addClass('active').siblings('div').removeClass('active');
-                }else if(obj.tableName == '#table2'){
+                } else if (obj.tableName == '#table2') {
                     $("#from-query1 input[name='title']").val(obj.data.title);
                     $("#from-query1 input[name='status']").val(obj.data.status);
                     $("#from-query1 input[name='region']").val(obj.data.region);
@@ -469,7 +470,7 @@ function setTableParameter() {
                     $("#from-query input[name='endDate']").val(obj.data.endDate);
                     $('.nav-tabs li').eq(0).addClass('active').siblings('li').removeClass('active');
                     $('.tab-content>div').eq(0).addClass('active').siblings('div').removeClass('active');
-                }else if(obj.tableName == '#table2'){
+                } else if (obj.tableName == '#table2') {
                     $("#from-query1 input[name='title']").val(obj.data.title);
                     $("#from-query1 input[name='startDate']").val(obj.data.startDate);
                     $("#from-query1 input[name='endDate']").val(obj.data.endDate);
@@ -480,9 +481,302 @@ function setTableParameter() {
         }
         setTimeout(function () {
             sessionStorage.removeItem('table_parameter');
-        },2000);
+        }, 2000);
     }
 }
+
+
+/**
+ * rtmp视频打开
+ * @param username
+ * @param password
+ * @param id
+ */
+function videoFlowOpen(username, password, cameraId, videoId) {
+    $('.video-flow-mar').show();
+    $('.video-flow-txt').empty();
+
+    $('#get-face').show();
+    $('#stop-face').hide();
+
+    $('.face-list-box').hide();
+    $('.face-img').empty();
+
+    let html = '<video id="video-flow" class="video-js" width="890" height="520" style="width: 890px;height: 520px">' +
+        '<source src="rtmp://219.139.44.9:51554/liveonly/cam32845_url2_copy" type="rtmp/flv">' +
+        '</video>';
+
+    $('.video-flow-con').append(html);
+
+    loggerAdd(videoId, 0);
+
+    $.ajax({
+        type: "POST",
+        url: ctx + '/camera/getRTMP',
+        data: {
+            userAccount: username,
+            userPassword: password,
+            cameraId: cameraId,
+            decodeType: 'copy',
+            isPublic: 1,
+            url: window.location.href
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data.url);
+            if (!data.url) {
+                layer.msg('未获取到可用端口', {
+                    time: 1000,
+                    icon: 0
+                }, function () {
+                    // videojs('video-flow').dispose();
+                    // $('.video-flow-mar').hide();
+                });
+            } else {
+
+                $('.video-flow-txt').text(data.name);
+
+                var srcUrl = data.url;
+
+                $('#video-flow-url').val(srcUrl);
+
+                sessionStorage.videoId = videoId;
+
+                // $('#video-flow source').attr('src', src);
+                videojs('video-flow').load();
+                videojs('video-flow').src(srcUrl);
+                videojs('video-flow', {
+                    // fluid: true,
+                    // autoplay: true,
+                }, function () {
+                    this.play(); // if you don't trust autoplay for some reason
+                });
+            }
+        }
+    });
+
+}
+
+
+/**
+ * rtmp视频关闭
+ */
+function videoFlowClose() {
+    loggerAdd(sessionStorage.videoId, 1);
+    videojs('video-flow').dispose();
+    $('.video-flow-mar').hide();
+}
+
+
+/**
+ * NetPluginSDK视频打开
+ * @param port
+ * @param dwChannelID
+ * @param videoId
+ */
+function videoNetPluginSDKOpen(port, dwChannelID, videoId) {
+
+    loggerAdd(videoId, 0);
+
+    if (videoFlagTag == port) {
+        playVideo(dwChannelID);
+    } else {
+        layer.msg('加载视频中，请稍等...', {
+            time: 2000,
+            icon: 0
+        }, function () {
+
+        });
+        setTimeout(function () {
+            localLogin2(port);
+            videoFlagTag = port;
+            playVideo(dwChannelID);
+        }, 200);
+    }
+}
+
+
+/**
+ * NetPluginSDK视频关闭
+ */
+function videoNetPluginSDKClose() {
+    loggerAdd(sessionStorage.videoId, 1);
+    $('.video-box').css({"width": "0px", "height": "0px"});
+    $('#playerContainer2').css({"width": "1px", "height": "1px"});
+    //NetPluginSDK_Win32视频停流
+    stopVideo1();
+}
+
+/**
+ * 上传查看视频日志
+ * @param videoId
+ * @param type  0打开视频   1 关闭视频
+ */
+function loggerAdd(videoId, type) {
+    let loggerId;
+    if (type == 0) {
+        loggerId = 0;
+    } else if (type == 1) {
+        loggerId = sessionStorage.loggerId;
+    }
+    $.ajax({
+        type: "post",
+        url: ctx + '/logger/add',
+        dataType: "json",
+        data: {
+            videoId: videoId,
+            url: window.location.href,
+            loggerId: loggerId
+        },
+        success: function (result) {
+            console.log(result.loggerId);
+            sessionStorage.loggerId = result.loggerId;
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+}
+
+
+/**
+ * 人脸识别
+ */
+function getFace() {
+    console.log('开始人脸识别');
+    $('#get-face').hide();
+    $('#stop-face').show();
+    var videoFlowUrl = $('#video-flow-url').val();
+
+    videojs('video-flow').pause();
+
+    let animationHtml = '<div class="animation-face"></div>';
+    $('.face-img').empty().append(animationHtml);
+
+    let timeStamp1 = Date.parse(new Date());
+
+
+    $.ajax({
+        type: "POST",
+        url: ctx + '/camera/face/detect',
+        dataType: 'json',
+        data: {
+            rmtp: videoFlowUrl,
+            videoId: sessionStorage.videoId,
+            url: window.location.href
+        },
+        async: true,
+        success: function (data) {
+
+            let timeStamp2 = Date.parse(new Date());
+
+            let timeStampDiff = timeStamp2 -timeStamp1;
+
+            if(timeStampDiff > 1000){
+                timeStampDiff = 0;
+            }
+
+            setTimeout(function () {
+
+                let faceImg = data.data.image;
+
+                $('.face-list-box').show();
+
+                let faceImgHtml = '<img src="' + faceImg + '">';
+                $('.face-img').empty().append(faceImgHtml);
+
+                $('.face-list-box').empty();
+
+                let faceLists = data.data.faces;
+
+                if (faceLists.length == 0) {
+                    let noFaceHtml = '<div style="width: 100%;height: 100%;display: flex">' +
+                        '<img style="display:block;margin: auto" src="' + ctx + '/static/anew/img/no-face.png">' +
+                        '</div>';
+                    $('.face-list-box').append(noFaceHtml);
+                }
+
+                for (let i = 0; i < faceLists.length; i++) {
+                    let faceItem = faceLists[i];
+
+                    if (faceItem.person) {
+                        let faceIcon = faceItem.person.icon;
+                        let faceMatchRate = faceItem.person.match_rate;
+                        let faceName = faceItem.person.name;
+                        let faceGender = faceItem.person.gender;
+                        let faceHouseholdAddr = faceItem.person.householdAddr;
+
+                        //右侧列表展示
+                        let faceListItemHtml = '<div id = "face' + i + '" class="face-item" onClick = "clickFaceItem(this)">' +
+                            '<div class="face-hicon">' +
+                            '<img src="' + faceIcon + '">' +
+                            '<div class="face-data-degrees">置信度' + faceMatchRate + '</div>' +
+                            '</div>' +
+                            '<div class="face-data">' +
+                            '<div>姓名：' + faceName + '</div>' +
+                            '<div>性别：' + faceGender + '</div>' +
+                            '<div>户籍地：' + faceHouseholdAddr + '</div>' +
+                            '</div>' +
+                            '</div>';
+
+                        $('.face-list-box').append(faceListItemHtml);
+
+                    } else {
+
+                        let noFaceHtml = '<div style="width: 100%;height: 100%;display: flex">' +
+                            '<img style="display:block;margin: auto" src="' + ctx + '/static/anew/img/no-face.png">' +
+                            '</div>';
+                        $('.face-list-box').append(noFaceHtml);
+
+                    }
+
+                    let faceTop = faceItem.face_rectangle.top * 2;
+                    let faceLeft = faceItem.face_rectangle.left * 2;
+                    let faceWidth = faceItem.face_rectangle.width * 2;
+                    let faceHeight = faceItem.face_rectangle.height * 2;
+
+                    //画人脸框
+                    let faceFrameHtml = '<div id="face' + i + '-frame" class="face-frame"' +
+                        ' style="top:' + faceTop + 'px;left: ' + faceLeft + 'px;width: ' + faceWidth + 'px;height: ' + faceHeight + 'px;">' +
+                        '<img src="' + ctx + '/static/anew/img/face-win.png">' +
+                        '</div>';
+
+                    $('.face-img').append(faceFrameHtml);
+
+                }
+            },timeStampDiff);
+        }
+    });
+
+}
+
+/**
+ * 点击单个人脸识别结果
+ * @param data
+ */
+function clickFaceItem(data) {
+    let id = $(data).attr("id");
+    $('.face-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win.png" alt="">')
+    $('#' + id + '-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win-active.png" alt="">')
+}
+
+/**
+ * 取消人脸识别
+ */
+function stopFace() {
+    videoFlowClose();
+}
+
+/**
+ * 初始化下拉选框
+ * @param id
+ * @param data
+ */
+function selected(id, data) {
+    $('option[value="' + data + '"]', $('#' + id + '')).prop('selected', true);
+    $('#' + id + '').multiselect('refresh');
+}
+
 
 /**
  * Simple Map

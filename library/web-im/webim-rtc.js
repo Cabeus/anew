@@ -31,7 +31,8 @@ var rtcCall = new WebIM.WebRTC.Call({
         onRinging: function (caller) {
             console.log('onRinging::', 'caller:', caller);
             let from = caller.replace(/zxww#zxwavebesafe_/,'').replace(/@easemob.com/,'');
-            ReceiveVdeo(from)
+            ReceiveVdeo(from);
+            setThirdPartyStatus(1);
         },
         onTermCall: function (reason) {
             console.log('onTermCall::');
@@ -42,15 +43,37 @@ var rtcCall = new WebIM.WebRTC.Call({
 
 
             if(iceState == 'closed'){
+
+                setThirdPartyStatus(0);
+                stopMusic();
+
                 $('.video-yes-no').hide();
                 if(webVideoWin != ''){
                     layer.close(webVideoWin);
                 }
+                layer.msg('通话结束',{
+                    time:1500,
+                    // icon:2
+                },function () {
+
+                })
             }
 
         },
         onError: function (e) {
             console.log(e);
+            stopMusic();
+            if(e.message == 'Requested device not found'){  //谷歌
+                $('.web-video-win').append('<div class="video-not-found">' +
+                    '<img src="'+ctx+'/static/anew/img/video-not-found.png" alt="">' +
+                    '<span class="end-call-video" onclick="endCall()"></span>' +
+                    '</div>')
+            }else if(e.message == "The object can not be found here."){ //火狐
+                $('.web-video-win').append('<div class="video-not-found">' +
+                    '<img src="'+ctx+'/static/anew/img/video-not-found.png" alt="">' +
+                    '<span class="end-call-video" onclick="endCall()"></span>' +
+                    '</div>')
+            }
         }
     }
 });
@@ -68,6 +91,11 @@ var rtcCall = new WebIM.WebRTC.Call({
 // };
 // 关掉/拒绝视频
 var endCall = function () {
+
+    setThirdPartyStatus(0);
+
+    stopMusic();
+
     rtcCall.endCall();
     $('.video-yes-no').hide();
     if(webVideoWin != ''){
@@ -76,7 +104,11 @@ var endCall = function () {
 };
 // 接受对方呼叫
 var acceptCall = function () {
+
+    setThirdPartyStatus(1);
+
     stopMusic();
+
     rtcCall.acceptCall();
     $('.video-yes-no').hide();
     webVideoWin = layer.open({
@@ -97,7 +129,6 @@ var acceptCall = function () {
         '<span class="end-call-video" onclick="endCall()"><img src="'+ ctx+ '/static/anew/img/video-no.png" alt=""></span>' +
         '</div>',
         success: function(layero, index){
-            console.log(layero, index);
             time_fun();
             var video = document.getElementById('remote-video');
             // video.srcObject = stream;
@@ -110,6 +141,11 @@ var acceptCall = function () {
 // document.getElementById('rtEndCall').onclick = endCall;
 // document.getElementById('rtAcceptCall').onclick = acceptCall;
 
+/**
+ * 有新的视频通话时
+ * @param from
+ * @constructor
+ */
 function ReceiveVdeo(from) {
     $.ajax({
         type: "POST",
@@ -118,6 +154,10 @@ function ReceiveVdeo(from) {
         data: {},
         async: false,
         success: function(data) {
+
+            $('.chat-window').show();
+            playMusic();
+
             let target = data.target;
             console.log(target)
             webVideoWinData = target;
@@ -136,7 +176,8 @@ function ReceiveVdeo(from) {
                 '<div id="alarm-time">报警时间：'+ getNowFormatDate() +'</div>' +
                 '<div id="details-address">住址：'+webVideoWinData.address+'</div>' +
                 '<div id="alarm-add">上报位置：</div>' +
-                '</div>')
+                '</div>');
+
         }
     });
 
@@ -193,6 +234,14 @@ function time_fun() {
     function two_char(n) {
         return n >= 10 ? n : "0" + n;
     }
+}
+
+/**
+ * 设置后台接听状态
+ * @param status
+ */
+function setThirdPartyStatus(status){
+    getSocketData(benefitType,status);
 }
 
 

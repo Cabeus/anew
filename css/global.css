@@ -497,8 +497,8 @@ td {
   display: flex;
   z-index: 3; }
   .video-flow-mar .video-flow-box {
-    width: 970px;
-    height: 613px;
+    overflow: auto;
+    height: 650px;
     background-color: rgba(0, 0, 0, 0.65);
     border-radius: 4px;
     margin: auto;
@@ -518,9 +518,72 @@ td {
       color: #fff;
       font-size: 20px; }
     .video-flow-mar .video-flow-box .video-flow-con {
-      width: 100%;
+      width: 930px;
       height: calc(100% - 60px);
-      padding: 0px 20px 20px 20px; }
+      padding: 0px 20px 20px 20px;
+      float: left; }
+    .video-flow-mar .video-flow-box .face-btn {
+      width: 102px;
+      height: 32px;
+      line-height: 32px;
+      position: absolute;
+      left: 790px;
+      bottom: 20px;
+      background: #FAB420;
+      border-radius: 2px;
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      cursor: pointer; }
+    .video-flow-mar .video-flow-box .face-img {
+      width: 890px;
+      height: calc(100% - 110px);
+      padding: 0px 0px 20px 0px;
+      position: absolute;
+      left: 20px;
+      top: 60px; }
+      .video-flow-mar .video-flow-box .face-img img {
+        width: 100%;
+        height: 100%; }
+      .video-flow-mar .video-flow-box .face-img .face-frame {
+        position: absolute; }
+    .video-flow-mar .video-flow-box .face-list-box {
+      float: right;
+      width: 315px;
+      height: 580px;
+      overflow: auto; }
+      .video-flow-mar .video-flow-box .face-list-box .face-item {
+        cursor: pointer;
+        width: 294px;
+        height: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid  #424242;
+        display: flex; }
+        .video-flow-mar .video-flow-box .face-list-box .face-item:hover {
+          background: #2F2F2F; }
+        .video-flow-mar .video-flow-box .face-list-box .face-item .face-hicon {
+          width: 95px;
+          height: 95px;
+          position: relative; }
+          .video-flow-mar .video-flow-box .face-list-box .face-item .face-hicon > img {
+            width: 100%;
+            height: 100%; }
+          .video-flow-mar .video-flow-box .face-list-box .face-item .face-hicon .face-data-degrees {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 20px;
+            background: rgba(250, 180, 32, 0.8);
+            font-size: 14px;
+            color: #000000;
+            text-align: center; }
+        .video-flow-mar .video-flow-box .face-list-box .face-item .face-data {
+          flex: 1;
+          padding-left: 10px;
+          font-size: 14px;
+          color: #FFFFFF;
+          position: relative; }
 
 .map-videos-list {
   display: none;
@@ -619,7 +682,46 @@ body .web-video-win {
       body .web-video-win .layui-layer-content .state-bar .end-call-video {
         float: right;
         cursor: pointer; }
+  body .web-video-win .video-not-found {
+    width: 538px;
+    height: 362px;
+    position: absolute;
+    left: 0;
+    top: 0; }
+    body .web-video-win .video-not-found > .end-call-video {
+      display: block;
+      width: 80px;
+      height: 40px;
+      position: absolute;
+      left: 230px;
+      top: 272px;
+      cursor: pointer; }
 
+.animation-face {
+  display: block;
+  width: 100%;
+  height: 540px;
+  background: rgba(51, 139, 220, 0.2);
+  box-shadow: 0px -10px 5px #46D2E8 inset;
+  animation: keyframesface 1s;
+  animation-iteration-count: 20;
+  animation-direction: alternate;
+  -webkit-animation: keyframesface 1s;
+  /* Safari 与 Chrome */
+  -webkit-animation-iteration-count: 20;
+  -webkit-animation-direction: alternate; }
+
+@keyframes keyframesface {
+  0% {
+    height: 0; }
+  100% {
+    height: 540px; } }
+@-webkit-keyframes keyframesface {
+  /* Safari 与 Chrome */
+  0% {
+    height: 0; }
+  100% {
+    height: 540px; } }
 .header-page .navigation-bar {
   height: 38px;
   background-color: #545A6F;
@@ -1714,9 +1816,15 @@ body .web-video-win {
         .together .main-content-two .form-list2 .form-list2-table .list-item > div:nth-child(2) {
           width: 40%;
           border-left: 1px solid #575757;
-          border-right: 1px solid #575757; }
+          border-right: 1px solid #575757;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .together .main-content-two .form-list2 .form-list2-table .list-item > div:last-child {
-          width: 30%; }
+          width: 30%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
 
 .home-statistics {
   color: #fff;

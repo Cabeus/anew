@@ -355,9 +355,15 @@
               width: 40%;
               border-left: 1px solid #575757;
               border-right: 1px solid #575757;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
             &:last-child{
               width: 30%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         }
