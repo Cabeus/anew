@@ -168,7 +168,7 @@ var CloudHandle = -1;
 //本地设备登录
 function localLoginList1() {
     var SDKRet = -1;
-    var SDKRet = sdk_viewer.execFunction("NETDEV_Login", "117.190.234.42", "39998", "admin","123456ABCabc");
+    var SDKRet = sdk_viewer.execFunction("NETDEV_Login", "117.190.234.42", "39996", "admin","123456ABCabc");
     if (-1 == SDKRet) {
         //本地登录失败
         layer.msg('视频获取失败',{
@@ -189,7 +189,7 @@ function localLoginList1() {
 //本地设备登录
 function localLoginList2() {
     var SDKRetList2 = -1;
-    var SDKRetList2 = sdk_viewerList2.execFunction("NETDEV_Login", "117.190.234.42", "39998", "admin","123456ABCabc");
+    var SDKRetList2 = sdk_viewerList2.execFunction("NETDEV_Login", "117.190.234.42", "39996", "admin","123456ABCabc");
     if (-1 == SDKRetList2) {
         //本地登录失败
         layer.msg('视频获取失败',{
@@ -207,8 +207,11 @@ function localLoginList2() {
 
 
 function localLogin2(port) {
+    console.log(port);
+    var por = port.toString();
+    console.log(por)
     var SDKRet2 = -1;
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "117.190.234.42", port, "admin","123456ABCabc");
+    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "117.190.234.42", por, "admin","123456ABCabc");
     if (-1 == SDKRet2) {
         //本地登录失败
         layer.msg('视频获取失败',{

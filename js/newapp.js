@@ -1,4 +1,4 @@
-//设置内容的高度
+//设置全局内容的高度
 $(document).ready(function () {
     var height = $(window).height() - 88;
     $('.aside').height(height);
@@ -19,15 +19,6 @@ $('.single-dropdown').mouseleave(function () {
     $(this).children('.single-ul').slideUp(0)
 });
 
-//地区无数据时弹出框
-function noDataAlert() {
-    layer.msg('该区域暂无数据', {
-        time: 2000,
-        icon: 0
-    }, function () {
-
-    });
-}
 
 //拼接导航栏链接
 $(document).ready(function () {
@@ -40,6 +31,69 @@ $(document).ready(function () {
             $(this).attr("href", $(this).attr("href") + thisUrl);
         }
     });
+});
+
+
+//header 菜单的选中状态
+$(document).ready(function () {
+    var url = window.location.href;
+    //header 中间按钮
+    if (url.indexOf('/index/loginMap') != -1) {
+        $('.nav-center ul li.li-home').addClass('active');
+    } else if (url.indexOf('/index/login') != -1 || url.indexOf('/residentStatistics/home?') != -1) {
+        $('.nav-center ul li.li-statistics').addClass('active');
+    } else {
+        if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1) {
+            //
+        } else {
+            $('.nav-center ul li.li-wisdom').addClass('active');
+        }
+    }
+    //header 右侧设置按钮
+    if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1) {
+        $('.setup').addClass('active');
+    }
+    //二级菜单
+    if (url.indexOf('/index/login') != -1) {
+        $('.two-menu ul li').eq(0).addClass('active');
+    } else if (url.indexOf('/residentStatistics/home?') != -1) {
+        $('.two-menu ul li').eq(1).addClass('active');
+    }
+});
+
+//左侧菜单栏的打开与收起
+$(document).ready(function () {
+    var url = window.location.href;
+    $("#nav-functions a").each(function () {
+        if ($(this).attr("href") == url) {
+            if (url.indexOf('/admin/coming') != -1) { //判断是否为敬请期待页-coming
+                $(this).parent().addClass("active")
+            } else {
+                $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+            }
+        } else if ($(this).attr("href").indexOf(url.split("back=")[1]) != -1) {
+            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+        } else if ($(this).attr("href").indexOf(url.split("?groupId=")[0]) != -1) {
+            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+        }
+    });
+});
+
+//判断是否显示返回键
+$(document).ready(function () {
+    var url = window.location.href;
+    // var num=url.substring(url.lastIndexOf('/')+1);
+    // if(!isNaN(num)){
+    //    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
+    // }
+    if (adminIsTrue) {
+        $('#backjump').show();
+        $('#backjump').attr('href', ctx + '/index/backtrack?back=' + url);
+        console.log(ctx + '/index/backtrack?back=' + url);
+        console.log($('#backjump').attr('href'));
+    } else {
+        $('#backjump').hide();
+    }
 });
 
 
@@ -139,13 +193,33 @@ $(".common").mouseleave(function (event) {
 //     $('.common-box').hide();
 //     $(".common").removeClass('active');
 // })
-//变更密码初始化
+
+
+/**
+ * 地区无数据时弹出框
+ */
+function noDataAlert() {
+    layer.msg('该区域暂无数据', {
+        time: 2000,
+        icon: 0
+    }, function () {
+
+    });
+}
+
+
+
+/**
+ * 变更密码初始化
+ */
 function changeNewPassword() {
     $('#modal-change-password').modal('toggle');
     $('#form-change-password input').val('');
 }
 
-//修改密码
+/**
+ * 修改密码
+ */
 function changeMyPassword() {
     var original = $("#form-change-password input[name='original']").val();
     var newPassword = $("#form-change-password input[name='newPassword']").val();
@@ -198,7 +272,6 @@ function changeMyPassword() {
         return;
     }
 
-
     layer.confirm('确认变更吗？', {
         btn: ['确定', '取消'] //按钮
     }, function () {
@@ -229,70 +302,7 @@ function changeMyPassword() {
 
     });
 
-
 }
-
-//header 菜单的选中状态
-$(document).ready(function () {
-    var url = window.location.href;
-    //header 中间按钮
-    if (url.indexOf('/index/loginMap') != -1) {
-        $('.nav-center ul li.li-home').addClass('active');
-    } else if (url.indexOf('/index/login') != -1 || url.indexOf('/residentStatistics/home?') != -1) {
-        $('.nav-center ul li.li-statistics').addClass('active');
-    } else {
-        if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1 || url.indexOf('/index/command') != -1) {
-            //
-        } else {
-            $('.nav-center ul li.li-wisdom').addClass('active');
-        }
-    }
-    //header 右侧设置按钮
-    if (url.indexOf('/user/list') != -1 || url.indexOf('/admin/list') != -1) {
-        $('.setup').addClass('active');
-    }
-    //二级菜单
-    if (url.indexOf('/index/login') != -1) {
-        $('.two-menu ul li').eq(0).addClass('active');
-    } else if (url.indexOf('/residentStatistics/home?') != -1) {
-        $('.two-menu ul li').eq(1).addClass('active');
-    }
-})
-
-//左侧菜单栏的打开与收起
-$(document).ready(function () {
-    var url = window.location.href;
-    $("#nav-functions a").each(function () {
-        if ($(this).attr("href") == url) {
-            if (url.indexOf('/admin/coming') != -1) { //判断是否为敬请期待页-coming
-                $(this).parent().addClass("active")
-            } else {
-                $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
-            }
-        } else if ($(this).attr("href").indexOf(url.split("back=")[1]) != -1) {
-            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
-        } else if ($(this).attr("href").indexOf(url.split("?groupId=")[0]) != -1) {
-            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
-        }
-    });
-})
-
-//判断是否显示返回键
-$(document).ready(function () {
-    var url = window.location.href;
-    // var num=url.substring(url.lastIndexOf('/')+1);
-    // if(!isNaN(num)){
-    //    url = url.substring(0,url.lastIndexOf('/')+1)+'0';
-    // }
-    if (adminIsTrue) {
-        $('#backjump').show();
-        $('#backjump').attr('href', ctx + '/index/backtrack?back=' + url);
-        console.log(ctx + '/index/backtrack?back=' + url);
-        console.log($('#backjump').attr('href'));
-    } else {
-        $('#backjump').hide();
-    }
-});
 
 //区间时间选取控件的初始化，汉化
 //定义locale汉化插件
@@ -670,9 +680,9 @@ function getFace() {
 
             let timeStamp2 = Date.parse(new Date());
 
-            let timeStampDiff = timeStamp2 -timeStamp1;
+            let timeStampDiff = timeStamp2 - timeStamp1;
 
-            if(timeStampDiff > 1000){
+            if (timeStampDiff > 1000) {
                 timeStampDiff = 0;
             }
 
@@ -744,7 +754,7 @@ function getFace() {
                     $('.face-img').append(faceFrameHtml);
 
                 }
-            },timeStampDiff);
+            }, timeStampDiff);
         }
     });
 
@@ -756,15 +766,25 @@ function getFace() {
  */
 function clickFaceItem(data) {
     let id = $(data).attr("id");
-    $('.face-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win.png" alt="">')
-    $('#' + id + '-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win-active.png" alt="">')
+    $('.face-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win.png" alt="">');
+    $('#' + id + '-frame').empty().append('<img src="' + ctx + '/static/anew/img/face-win-active.png" alt="">');
 }
 
 /**
  * 取消人脸识别
  */
 function stopFace() {
-    videoFlowClose();
+    // videoFlowClose();
+
+    console.log('取消人脸识别');
+    $('#get-face').show();
+    $('#stop-face').hide();
+
+    $('.face-list-box').hide();
+    $('.face-img').empty();
+
+    videojs('video-flow').play();
+
 }
 
 /**

@@ -81,10 +81,14 @@ var CloudHandle = -1;
 
 //本地登录
 function localLogin2(port) {
+    console.log(port);
+    var por = port.toString();
+    console.log(por)
     var SDKRet2 = -1;
-    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "117.190.234.42", port, "admin","123456ABCabc");
+    var SDKRet2 = sdk_viewer2.execFunction("NETDEV_Login", "117.190.234.42", por, "admin","123456ABCabc");
     if (-1 == SDKRet2) {
         //本地登录失败
+        console.log('登录失败')
         layer.msg('视频获取失败',{
             time:2000,
             icon:2
@@ -93,7 +97,8 @@ function localLogin2(port) {
         })
     } else {
         // CloudHandle = SDKRet2;
-        console.log("视频登录成功")
+        console.log("视频登录成功");
+        console.log('登录成功');
         var result = JSON.parse(SDKRet2);
         DeviceHandle = result.UserID;
     }
@@ -124,6 +129,7 @@ function playVideo(dwChannelID) {
         var retcode = sdk_viewer2.execFunction("NETDEV_RealPlay", parseInt(ResourceId), DeviceHandle, jsonStr);
         if (0 != retcode) {
             // 视频播放失败
+            console.log('播放失败')
             layer.msg('视频播放失败',{
                 time:2000,
                 icon:2

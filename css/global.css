@@ -557,7 +557,7 @@ td {
         width: 294px;
         height: auto;
         padding: 10px 0;
-        border-bottom: 1px solid  #424242;
+        border-bottom: 1px solid #424242;
         display: flex; }
         .video-flow-mar .video-flow-box .face-list-box .face-item:hover {
           background: #2F2F2F; }
@@ -700,7 +700,7 @@ body .web-video-win {
 .animation-face {
   display: block;
   width: 100%;
-  height: 540px;
+  height: 520px;
   background: rgba(51, 139, 220, 0.2);
   box-shadow: 0px -10px 5px #46D2E8 inset;
   animation: keyframesface 1s;
@@ -715,13 +715,111 @@ body .web-video-win {
   0% {
     height: 0; }
   100% {
-    height: 540px; } }
+    height: 520px; } }
 @-webkit-keyframes keyframesface {
   /* Safari 与 Chrome */
   0% {
     height: 0; }
   100% {
-    height: 540px; } }
+    height: 520px; } }
+body .direct-layer-box {
+  width: 664px;
+  height: 630px;
+  background: #545A6F;
+  color: #ffffff; }
+  body .direct-layer-box .layui-layer-title {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background: #545A6F;
+    font-size: 18px;
+    color: #FFFFFF;
+    border: none; }
+  body .direct-layer-box .layui-layer-setwin {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 25px;
+    right: 25px; }
+    body .direct-layer-box .layui-layer-setwin .layui-layer-close1 {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: url("../../anew/img/Closeicon.png") no-repeat; }
+  body .direct-layer-box .layui-layer-content {
+    padding: 0 30px; }
+    body .direct-layer-box .layui-layer-content .con-title {
+      width: 100%;
+      height: 32px;
+      line-height: 32px;
+      background: #464D5B;
+      display: flex; }
+      body .direct-layer-box .layui-layer-content .con-title > span {
+        flex: 1;
+        font-size: 14px;
+        color: #FFFFFF;
+        text-align: center; }
+    body .direct-layer-box .layui-layer-content .con-list {
+      width: 100%;
+      height: 241px;
+      overflow: auto;
+      border: 1px solid #6a6e7c;
+      border-top: 0; }
+      body .direct-layer-box .layui-layer-content .con-list .con-list-item {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        display: flex;
+        border-bottom: 1px solid #6a6e7c; }
+        body .direct-layer-box .layui-layer-content .con-list .con-list-item > div {
+          flex: 1;
+          padding: 0 10px;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+          body .direct-layer-box .layui-layer-content .con-list .con-list-item > div > input {
+            float: left;
+            margin-top: 15px; }
+    body .direct-layer-box .layui-layer-content .con-form {
+      width: 100%;
+      height: 275px;
+      padding: 20px; }
+      body .direct-layer-box .layui-layer-content .con-form > form > div {
+        padding: 5px;
+        display: flex; }
+        body .direct-layer-box .layui-layer-content .con-form > form > div.btn-box {
+          justify-content: center;
+          padding-top: 15px; }
+        body .direct-layer-box .layui-layer-content .con-form > form > div .title {
+          width: 60px;
+          height: 36px;
+          text-align: right;
+          padding: 0 10px;
+          display: inline-block; }
+        body .direct-layer-box .layui-layer-content .con-form > form > div input {
+          width: calc(100% - 60px);
+          height: 30px;
+          color: #000;
+          padding: 0 10px; }
+        body .direct-layer-box .layui-layer-content .con-form > form > div textarea {
+          width: calc(100% - 60px);
+          height: 110px;
+          color: #000;
+          padding: 0 10px;
+          resize: none; }
+        body .direct-layer-box .layui-layer-content .con-form > form > div button {
+          width: 70px;
+          height: 30px;
+          background: #03ADEF;
+          border: none;
+          border-radius: 2px;
+          margin: 0 10px; }
+          body .direct-layer-box .layui-layer-content .con-form > form > div button:first-child {
+            background: none;
+            border: 1px solid #CBCBCB; }
+
 .header-page .navigation-bar {
   height: 38px;
   background-color: #545A6F;
@@ -1409,8 +1507,6 @@ body .web-video-win {
               position: absolute;
               left: 13px;
               bottom: 20px; }
-            .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box div.th-inner input {
-              display: none; }
             .command .release-box .release-con .release-bot .step1-box .table-box .table-con-box .fixed-table-container {
               border-radius: 2px;
               border: none; }
