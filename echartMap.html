@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div id="map" style="width: 100vw;height: 100vh">-->
+
+<!--</div>-->
+
+<div id="now-list">
+    <div class="now-item">
+        <div class="itemid">ID</div>
+        <div class="itemname">报告人</div>
+        <div class="itemtime">2018-04-26 15:36:26</div>
+    </div>
+    <div class="now-item active">
+        <span></span>
+        <div class="itemid">ID</div>
+        <div class="itemname">报告人</div>
+        <div class="itemtime">2018-04-25 15:36:26</div>
+    </div>
+    <div class="now-item active">
+        <span></span>
+        <div class="itemid">ID</div>
+        <div class="itemname">报告人</div>
+        <div class="itemtime">2018-04-27 15:36:26</div>
+    </div>
+    <div class="now-item active">
+        <span></span>
+        <div class="itemid">ID</div>
+        <div class="itemname">报告人</div>
+        <div class="itemtime">2018-04-29 15:36:26</div>
+    </div>
+</div>
+
+
+<!--baidu sdk-->
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=FRGH8U5owxghRjZdVMzllFp4aDQbw8sm"></script>
+<!--eCharts-->
+<script type="text/javascript" src="../anew/library/eCharts/echarts.min.js"></script>
+
+<script type="text/javascript" src="../rescue/js/bmap.js"></script>
+<script type="text/javascript" src="../anew/js/lib/jquery-3.2.1.js"></script>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+    // function sortItem(){
+        //递增
+        let asc = function(a, b) {
+            let c = new Date($(a).find('.itemtime').html());
+            let d = new Date($(b).find('.itemtime').html());
+            return c >d ? 1 : -1;
+        };
+//递减
+        let desc = function(a, b) {
+            let c = new Date($(a).find('.itemtime').html());
+            let d = new Date($(b).find('.itemtime').html());
+            return c >d ? -1 : 1;
+        };
+
+        let sortByInput = function(sortBy) {
+            let sortEle = $('#now-list .now-item').sort(sortBy);
+            $('#now-list').empty().append(sortEle);
+        }
+    // }
+
+
+
+    // var chart = echarts.init(document.getElementById('map'));
+    // chart.setOption(option = {
+    //     bmap: {
+    //         center: [87.522425, 43.847414],
+    //         zoom: 17,
+    //         roam: true,
+    //     },
+    //     geo: {
+    //         map: 'bmap',
+    //         label: {
+    //             emphasis: {
+    //                 show: false
+    //             }
+    //         },
+    //         roam: true,
+    //         itemStyle: {
+    //             normal: {
+    //                 areaColor: '#323c48',
+    //                 borderColor: '#111'
+    //             },
+    //             emphasis: {
+    //                 areaColor: '#2a333d'
+    //             }
+    //         }
+    //     },
+    //     series: [
+    //         {
+    //             name: 'alarm',
+    //             type: 'effectScatter',
+    //             coordinateSystem: 'bmap',
+    //             data: [{'name':'122','value':[87.522425, 43.847414,20]}],
+    //             symbolSize: function (val) {
+    //                 return val[2] + 5;
+    //             },
+    //             showEffectOn: 'render',
+    //             rippleEffect: {
+    //                 period: 4,
+    //                 scale: 2.5,
+    //                 brushType: 'stroke'
+    //             },
+    //             hoverAnimation: true,
+    //             label: {
+    //                 normal: {
+    //                     formatter: '{b}',
+    //                     position: 'bottom',
+    //                     show: true,
+    //                     textStyle: {
+    //                         color: '#000',
+    //                         fontSize: 30,
+    //                         fontWeight: 'bold'
+    //                     }
+    //                 }
+    //             },
+    //             itemStyle: {
+    //                 normal: {
+    //                     color: 'red',
+    //                 }
+    //             },
+    //             zlevel: 1
+    //         }]
+    // });
+    // // chart.showLoading();
+    //
+    // var data = [{'name':'122','value':[87.522425, 43.847414,20]}];
+    // function updateMap(data){
+    //     chart.setOption({
+    //         series: [{
+    //             // 根据名字对应到相应的系列
+    //             name: 'alarm',
+    //             data: data
+    //         }]
+    //     });
+    //     chart.hideLoading();
+    // }
+    // // updateMap(data)
+</script>
+</body>
+</html>

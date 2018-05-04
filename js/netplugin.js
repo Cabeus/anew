@@ -189,7 +189,7 @@ function localLoginList1() {
 //本地设备登录
 function localLoginList2() {
     var SDKRetList2 = -1;
-    var SDKRetList2 = sdk_viewerList2.execFunction("NETDEV_Login", "117.190.234.42", "39996", "admin","123456ABCabc");
+    var SDKRetList2 = sdk_viewerList2.execFunction("NETDEV_Login", "117.190.234.42", "39999", "admin","123456ABCabc");
     if (-1 == SDKRetList2) {
         //本地登录失败
         layer.msg('视频获取失败',{

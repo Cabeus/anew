@@ -6,6 +6,7 @@
 //工具类
 @import "tool.scss";
 
+
 //页面
 @import "scss/header.scss";//header
 @import "scss/two-menu.scss";//二级菜单
@@ -25,5 +26,7 @@
 @import "scss/watch-list.scss";//值班台
 @import "scss/grid-manager.scss";//数据详情页
 @import "scss/camera-online.scss";//雪亮视频-在线监控
+@import "scss/camera-newonline.scss";//雪亮视频-在线监控
 @import "scss/region-list.scss";//网格管理
+@import "scss/group-member.scss"; //成员管理
 

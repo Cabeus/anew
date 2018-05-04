@@ -1,0 +1,191 @@
+@charset "UTF-8";
+.group-member {
+
+}
+
+body .group-member-layer-box {
+  .layui-layer-title {
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    color: #363B47;
+    padding-left: 30px;
+    border: none;
+  }
+  .layui-layer-setwin {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+  .add-group-user {
+    width: 972px;
+    height: 560px;
+    padding: 10px 30px 0 30px;
+    .add-top {
+      width: 910px;
+      display: flex;
+      .add-left {
+        //float: left;
+        width: 560px;
+        .add-form {
+          width: 100%;
+          height: 44px;
+          padding-bottom: 10px;
+          input {
+            width: 310px;
+            height: 30px;
+            display: inline-block;
+            background: inherit;
+            padding: 0 5px;
+            border: 1px solid #DEDEDE;
+            border-radius: 2px;
+            float: left;
+            margin-right: 5px;
+          }
+          .search {
+            width: 70px;
+            height: 30px;
+            background: #00BE9A;
+            border: none;
+            color: #fff;
+            border-radius: 2px;
+            margin: 0 10px;
+          }
+          .emp {
+            background: none;
+            border: none;
+            color: #00BCF2;
+          }
+        }
+        .add-table {
+          width: 560px;
+          height: 410px;
+          padding-right: 30px;
+          .fixed-table-container {
+            border-radius: 2px;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+            border-bottom: 0;
+          }
+          .fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner {
+            padding: 5px;
+          }
+          .fixed-table-container .bs-checkbox .th-inner {
+            padding: 5px 0;
+          }
+          .bootstrap-table .table > thead > tr > th {
+            background: #F2F6F5;
+            border: none;
+            font-size: 14px;
+            color: #4A4A4A;
+            font-weight: 700;
+          }
+          .fixed-table-container tbody td {
+            border-left: none;
+          }
+          .table-hover > tbody > tr:hover {
+            background-color: initial;
+          }
+          .fixed-table-container tbody .selected td {
+            background-color: initial;
+          }
+        }
+      }
+      .add-right {
+        width: 350px;
+        padding-top: 44px;
+        .add-list {
+          width: 350px;
+          height: 410px;
+          padding-left: 30px;
+          border-left: 1px solid #D8D8D8;
+          .add-list-title {
+            width: 310px;
+            height: 32px;
+            padding: 0 10px;
+            line-height: 32px;
+            background: #F2F6F5;
+            font-size: 14px;
+            color: #4A4A4A;
+            font-weight: bold;
+
+          }
+          .add-lists {
+            width: 310px;
+            height: 378px;
+            border: 1px solid #dedede;
+            border-top: none;
+            overflow: auto;
+            li {
+              width: 100%;
+              height: 37px;
+              line-height: 37px;
+              padding: 0 15px;
+              //border-bottom: 1px solid rgb(132, 136, 150);
+              &:hover {
+                .close-this {
+                  display: inline-block;
+                }
+                color: #03ADEF;
+                background: rgb(248, 250, 249);
+              }
+              > span {
+                display: inline-block;
+                &:first-child {
+                  width: 90px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
+                &:nth-child(2) {
+                  width: 0px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
+              }
+              .close-this {
+                width: 12px;
+                height: 12px;
+                float: right;
+                display: none;
+                cursor: pointer;
+                img {
+                  width: 12px;
+                  height: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .btn-box {
+      width: 910px;
+      height: 60px;
+      text-align: center;
+      padding-top: 20px;
+      button {
+        width: 80px;
+        height: 32px;
+        background: #03ADEF;
+        border: none;
+        border-radius: 2px;
+        margin: 0 10px;
+        color: #fff;
+        &.close-btn {
+          background: none;
+          border: 1px solid #CBCBCB;
+          color: #000;
+        }
+      }
+
+    }
+
+  }
+}

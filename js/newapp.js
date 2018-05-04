@@ -73,7 +73,7 @@ $(document).ready(function () {
             }
         } else if ($(this).attr("href").indexOf(url.split("back=")[1]) != -1) {
             $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
-        } else if ($(this).attr("href").indexOf(url.split("?groupId=")[0]) != -1) {
+        } else if ($(this).attr("href").indexOf(url.split("Member")[0]) != -1) {
             $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
         }
     });
@@ -150,6 +150,123 @@ $(".empty-all").click(function () {
     });
 
 });
+
+
+
+/**
+ * 获取消息列表
+ */
+function message() {
+    $.ajax({
+        type: 'POST',
+        url: ctx + '/message/list.json',
+        success: function (data) {
+            $('.header_message').empty();
+            var ii = 0;
+            $.each(data.list, function (i, v) {
+                var tmps;
+                if (v.type == 1) {
+                    tmps = '通知公告消息';//公告
+                } else if (v.type == 2) {
+                    tmps = '任务消息';//任务
+                } else if (v.type == 3) {
+                    tmps = '情况反映';//情况反映
+                } else if (v.type == 4||v.type == 8) {
+                    tmps = '求助消息';//求助
+                } else if (v.type == 5) {
+                    tmps = '报警消息';//报警
+                } else if (v.type == 6) {
+                    tmps = '居民信息更新';//居民信息更新
+                } else if (v.type == 7) {
+                    tmps = '居民信息上报消息';//居民信息上报
+                }
+
+                var tmp;
+                if (v.type != 6 && v.type != 7) {
+                    tmp = $('<li><div class="col-xs-1"><span></span></div><div class="col-xs-11" onclick="detail(' + v.type + ',' + v.entityId + ',' + v.id + ');">' +
+                        '<p>系统通知：' + tmps + '<span>' + new Date(v.createdAt).Format('yyyy-MM-dd hh:mm') + '</span></p>' +
+                        '<p>' + v.title + '</p>' +
+                        '</div></li>');
+                } else {
+                    tmp = $('<li><div class="col-xs-1"><span></span></div><div class="col-xs-11" onclick="detail(' + v.type + ',' + v.entityId + ',' + v.id + ');">' +
+                        '<p>系统通知：' + tmps + '<span>' + new Date(v.createdAt).Format('yyyy-MM-dd hh:mm') + '</span></p>' +
+                        '<p>' + v.title + '</p>' +
+                        '<p>姓名：' + v.name + '   电话：' + v.phone + '</p>' +
+                        '</div></li>');
+                }
+                $('.header_message').append(tmp);
+                ii++;
+            });
+            if (ii == 0) {
+                $('.header_message_num').hide();
+                var tmp = $('<li id="remove" style="text-align: center">暂无内容</li>');
+                $('.header_message').append(tmp);
+                $(".empty-all").addClass('none').unbind('click');//灰色
+            } else {
+                $('.header_message_num').show().html(ii);
+            }
+
+        }
+    });
+}
+
+//页面加载初始化消息列表
+$(document).ready(function () {
+    message();
+});
+
+/**
+ * 点击进入消息详情
+ * @param type
+ * @param entityId
+ * @param id
+ */
+function detail(type, entityId, id) {
+    var url = window.location.href;
+    var tmp;
+    if (type == 1) {
+        tmp = ctx + '/info/informDetail/' + entityId + '?back=/info/notification';//公告
+    } else if (type == 2) {
+        tmp = ctx + '/task/detail/' + entityId + '?back='+url.substring(ctx.length);//任务
+    } else if (type == 3) {
+        tmp = ctx + '/feedback/detail/' + entityId + '?back='+url.substring(ctx.length);//线索
+    } else if (type == 4||type == 8) {
+        tmp = ctx + '/rescueRequest/list';//求助
+        sessionStorage.setItem('key_id', entityId);
+        sessionStorage.setItem('key_status', 1);
+    } else if (type == 5) {
+        tmp = ctx + '/benefit/web110';//报警
+    } else if (type == 6) {
+        tmp = ctx + '/resident/list';//居民信息上报
+        $.ajax({
+            type: 'POST',
+            url: ctx + '/resident/detail.json',
+            data: {id: entityId},
+            dataType: 'JSON',
+            async: false,
+            success: function (data) {
+                sessionStorage.identityNumber = data.object.identityNumber;//身份证号select7
+            }
+        });
+    }
+    $.ajax({
+        type: 'POST',
+        url: ctx + '/message/save',
+        data: {id: id},
+        dataType: 'JSON',
+        success: function (data) {
+            if (type != 7) {
+                location.href = tmp;
+            } else {
+                location.reload();
+            }
+        }
+    });
+}
+
+
+
+
 
 
 // $('.message-box').click(function (event) {

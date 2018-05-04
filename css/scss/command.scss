@@ -191,7 +191,7 @@
     left: 0;
     display: flex;
     .release-con {
-      width: 932px;
+      width: 1230px;
       height: 555px;
       background: #545A6F;
       border-radius: 4px;
@@ -412,6 +412,68 @@
             }
 
           }
+
+          //统计列表
+          .list-box {
+            padding: 10px;
+            overflow: auto;
+            width: 280px;
+            height: 100%;
+            .count{
+              width: 100%;
+              height: 32px;
+              line-height: 32px;
+              padding: 0 10px;
+              background: #464D5B;
+            }
+            .list-con{
+              width: 100%;
+              height: calc(100% - 32px);
+              overflow: auto;
+              >li{
+                width: 100%;
+                height: 37px;
+                line-height: 37px;
+                padding: 0 15px;
+                border-bottom: 1px solid rgb(132, 136, 150);
+                &:hover{
+                  .close-this{
+                    display: inline-block;
+                  }
+                }
+                >span{
+                  display: inline-block;
+                  &:first-child{
+                    width: 180px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                  &:nth-child(2){
+                    width: 0px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+                }
+                .close-this{
+                  width: 12px;
+                  height: 12px;
+                  float: right;
+                  display: none;
+                  cursor: pointer;
+                  img{
+                    width: 12px;
+                    height: 12px;
+                  }
+                }
+              }
+            }
+          }
+
+
+
+
         }
         .step2-box {
           display: flex;
@@ -476,6 +538,10 @@
             flex: 1;
             border-left: 1px solid rgb(132, 136, 150);
             padding: 15px;
+            >form{
+              width: 700px;
+              margin: auto;
+            }
             .title{
               width: 120px;
               height: 36px;

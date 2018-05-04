@@ -1,5 +1,8 @@
 @charset "UTF-8";
 .camera-online {
+  .map-container {
+    height: calc(100vh - 208px);
+  }
   .list-style, .list-style2{
     width: 0px;
     height: 0px;
