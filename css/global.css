@@ -636,6 +636,149 @@ td {
     left: -360px;
     transition: 500ms; }
 
+.map-list-box {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  width: 390px;
+  height: calc(100% - 180px);
+  z-index: 2;
+  transition: 500ms; }
+  .map-list-box .map-list-tag-box {
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 13px;
+    z-index: 3;
+    padding-top: 40px; }
+    .map-list-box .map-list-tag-box .map-list-tag {
+      display: none;
+      width: 30px;
+      background: #3F4456;
+      position: relative;
+      border-radius: 0 0 2px 2px;
+      font-size: 14px;
+      color: #EBEBEB;
+      line-height: 17px;
+      padding: 10px 5px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 15px; }
+      .map-list-box .map-list-tag-box .map-list-tag:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-bottom: 10px solid #3F4456;
+        border-right: 30px solid transparent;
+        position: absolute;
+        left: 0;
+        top: -10px;
+        z-index: 4; }
+      .map-list-box .map-list-tag-box .map-list-tag:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-right: 7px solid #343944;
+        border-bottom: 5px solid transparent;
+        position: absolute;
+        left: 0;
+        top: -15px; }
+      .map-list-box .map-list-tag-box .map-list-tag.active {
+        background: #9974D2; }
+        .map-list-box .map-list-tag-box .map-list-tag.active:before {
+          border-bottom: 10px solid #9974D2; }
+  .map-list-box .map-list-con {
+    width: 370px;
+    height: 100%;
+    position: absolute;
+    padding-left: 20px;
+    top: 0;
+    right: 0;
+    background: #545A6F; }
+    .map-list-box .map-list-con .map-videos-list-con {
+      width: 350px;
+      height: 100%;
+      overflow: auto;
+      padding: 10px; }
+      .map-list-box .map-list-con .map-videos-list-con .ztree li a {
+        color: #fff; }
+        .map-list-box .map-list-con .map-videos-list-con .ztree li a.curSelectedNode {
+          padding-top: 0px;
+          background-color: rgba(0, 0, 0, 0.5);
+          height: 16px;
+          border: 1px #FFB951 solid;
+          opacity: 0.8; }
+    .map-list-box .map-list-con .map-person-list-con {
+      width: 350px;
+      height: 100%;
+      overflow: auto;
+      padding: 10px; }
+      .map-list-box .map-list-con .map-person-list-con .person-item {
+        width: 320px;
+        height: 60px;
+        display: flex;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(222, 222, 222, 0.1); }
+        .map-list-box .map-list-con .map-person-list-con .person-item:hover {
+          background: #464D5B; }
+          .map-list-box .map-list-con .map-person-list-con .person-item:hover .item-txt {
+            color: #03ADEF; }
+            .map-list-box .map-list-con .map-person-list-con .person-item:hover .item-txt .item-name {
+              color: #03ADEF; }
+            .map-list-box .map-list-con .map-person-list-con .person-item:hover .item-txt .item-dil {
+              color: #03ADEF; }
+        .map-list-box .map-list-con .map-person-list-con .person-item .item-icon {
+          width: 60px;
+          height: 60px;
+          display: flex; }
+          .map-list-box .map-list-con .map-person-list-con .person-item .item-icon > img {
+            display: block;
+            width: 48px;
+            height: 48px;
+            margin: auto;
+            border-radius: 50%; }
+        .map-list-box .map-list-con .map-person-list-con .person-item .item-txt {
+          padding: 10px;
+          color: #fff; }
+          .map-list-box .map-list-con .map-person-list-con .person-item .item-txt .item-name {
+            font-size: 14px;
+            color: #ffffff; }
+          .map-list-box .map-list-con .map-person-list-con .person-item .item-txt .item-dil {
+            color: #DEDEDE;
+            font-size: 12px; }
+          .map-list-box .map-list-con .map-person-list-con .person-item .item-txt .item-title {
+            line-height: 40px; }
+  .map-list-box > span {
+    width: 15px;
+    height: 40px;
+    background: #545A6F;
+    display: flex;
+    position: absolute;
+    right: -15px;
+    top: calc(50% - 20px);
+    cursor: pointer; }
+    .map-list-box > span > img {
+      margin: auto; }
+    .map-list-box > span.left-icon {
+      display: flex; }
+    .map-list-box > span.right-icon {
+      display: none;
+      transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      /* IE 9 */
+      -moz-transform: rotate(180deg);
+      /* Firefox */
+      -webkit-transform: rotate(180deg);
+      /* Safari 和 Chrome */
+      -o-transform: rotate(180deg);
+      /* Opera */ }
+  .map-list-box.none {
+    left: -390px;
+    transition: 500ms; }
+
 body .web-video-win {
   width: 538px;
   height: 362px;
