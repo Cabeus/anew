@@ -1570,6 +1570,81 @@ body .direct-layer-box {
   .position-refresh img {
     margin: auto; }
 
+.map-tool-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 10px #ccc;
+  position: absolute;
+  top: 150px;
+  right: 15px; }
+  .map-tool-box img {
+    margin: auto; }
+  .map-tool-box .map-tool-list {
+    display: none;
+    width: 126px;
+    height: 153px;
+    position: absolute;
+    top: 40px;
+    left: -70px;
+    padding-top: 13px; }
+    .map-tool-box .map-tool-list:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 83px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 13px solid #545A6F; }
+    .map-tool-box .map-tool-list > ul {
+      width: 126px;
+      height: 140px;
+      background: #545A6F;
+      border-radius: 4px; }
+      .map-tool-box .map-tool-list > ul > li {
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        padding-left: 10px;
+        font-size: 13px;
+        color: #FFFFFF; }
+        .map-tool-box .map-tool-list > ul > li .input-checkbox-con {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          position: relative; }
+          .map-tool-box .map-tool-list > ul > li .input-checkbox-con .input-checkbox {
+            width: 18px;
+            height: 18px;
+            visibility: hidden; }
+          .map-tool-box .map-tool-list > ul > li .input-checkbox-con .input-checkbox + label {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            position: absolute;
+            top: 6px;
+            background: #fff; }
+          .map-tool-box .map-tool-list > ul > li .input-checkbox-con .input-checkbox:checked + label:after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: 7px;
+            width: 10px;
+            height: 6px;
+            border: 1px solid #000;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            -ms-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-45deg); }
+
 .command .release-box {
   width: 100vw;
   height: 100vh;
