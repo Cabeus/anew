@@ -75,6 +75,8 @@ $(document).ready(function () {
             $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
         } else if ($(this).attr("href").indexOf(url.split("Member")[0]) != -1) {
             $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
+        } else if ($(this).attr("href").indexOf(url.split("Extend/toGroup")[0]) != -1) {
+            $(this).parent().addClass("active").parent().attr("style", "display: block;").parent().addClass("open");
         }
     });
 });

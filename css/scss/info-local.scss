@@ -1,255 +1,272 @@
 @charset "UTF-8";
-.info-local {}
+.info-local {
+}
 
 .info-local-modal {
-    .input-con {
-        position: relative;
-        display: inline-block;
-        padding-left: 0px;
-        line-height: 28px;
+
+  //分类标签
+  .typebtn {
+    padding: 0 10px;
+    height: 32px;
+    line-height: 32px;
+    //background: pink;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    &.active{
+      border: 1px solid #00a0e9;
+      color: #00a0e9;
     }
-    .input-checkbox,
-    .input-checkboxAll {
+  }
+
+  .input-con {
+    position: relative;
+    display: inline-block;
+    padding-left: 0px;
+    line-height: 28px;
+  }
+  .input-checkbox,
+  .input-checkboxAll {
+    position: absolute;
+    visibility: hidden;
+  }
+  .input-checkbox:checked + label,
+  .input-checkboxAll:checked + label {
+    background: $c6;
+    border: 1px solid $c6;
+  }
+  .input-checkbox + label,
+  .input-checkboxAll + label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: absolute;
+    top: 4px;
+    background: #fff;
+  }
+  .input-checkbox:checked + label:after,
+  .input-checkboxAll:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    bottom: 7px;
+    width: 11px;
+    height: 6px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    transform: rotate(-45deg);
+  }
+
+  #post {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    .btn.active {
+      box-shadow: none;
+      color: #fff;
+      background-color: #03adef;
+    }
+  }
+  .preview-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    .preview-content {
+      /*padding: 5px;*/
+      margin: 5px auto;
+      width: 510px;
+      height: 100%;
+      background: #f8f8f8;
+      overflow: auto;
+      background: url(../img/iphone-box.png) no-repeat 100px 0px;
+      background-size: 370px;
+      position: relative;
+      .preview-type {
         position: absolute;
-        visibility: hidden;
-    }
-    .input-checkbox:checked+label,
-    .input-checkboxAll:checked+label {
-        background: $c6;
-        border: 1px solid $c6;
-    }
-    .input-checkbox+label,
-    .input-checkboxAll+label {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        position: absolute;
-        top: 4px;
+        top: 80px;
+        left: 0px;
         background: #fff;
-    }
-    .input-checkbox:checked+label:after,
-    .input-checkboxAll:checked+label:after {
-        content: "";
+        li {
+          width: 90px;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          background: #3C3C3C;
+          color: #fff;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.9;
+          }
+          &.active {
+            background: rgb(232, 70, 81);
+          }
+        }
+      }
+      .close-preview {
         position: absolute;
-        left: 4px;
-        bottom: 7px;
-        width: 11px;
-        height: 6px;
-        border: 2px solid #fff;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        -ms-transform: rotate(-60deg);
-        -moz-transform: rotate(-60deg);
-        -webkit-transform: rotate(-60deg);
-        transform: rotate(-45deg);
-    }
-    
-    
-    
-    #post {
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        .btn.active {
-            box-shadow: none;
-            color: #fff;
-            background-color: #03adef;
+        top: 15px;
+        right: 10px;
+        cursor: pointer;
+        color: #fff;
+      }
+      .preview-content-cen {
+        position: absolute;
+        left: 124px;
+        top: 90px;
+        width: 322px;
+        height: 570px;
+        overflow: hidden;
+        .biaoti-app-img {
+          width: 100%;
         }
-    }
-    .preview-box {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        .preview-content {
-            /*padding: 5px;*/
-            margin: 5px auto;
-            width: 510px;
-            height: 100%;
-            background: #f8f8f8;
-            overflow: auto;
-            background: url(../img/iphone-box.png) no-repeat 100px 0px;
-            background-size: 370px;
-            position: relative;
-            .preview-type {
-                position: absolute;
-                top: 80px;
-                left: 0px;
-                background: #fff;
-                li {
-                    width: 90px;
-                    height: 40px;
-                    text-align: center;
-                    line-height: 40px;
-                    background: #3C3C3C;
-                    color: #fff;
-                    cursor: pointer;
-                    &:hover{
-                        opacity: 0.9;
-                    }
-                    &.active {
-                        background:rgb(232,70,81);
-                    }
-                }
+        .preview-content-cen-box {
+          width: 335px;
+          height: calc(100% - 55px);
+          overflow: auto;
+          .mui-content {
+            width: 100%;
+            .biaoti-app {
+              background-color: #fff;
+              padding: 15px 15px 0;
+              box-shadow: 0 8px 10px #eee;
+              margin-bottom: 8px;
             }
-            .close-preview {
-                position: absolute;
-                top: 15px;
-                right: 10px;
-                cursor: pointer;
-                color: #fff;
+          }
+          .infos {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+          }
+          .info-content {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+            color: rgba(0, 0, 0, .45)
+          }
+          .content-app {
+            background-color: #f8f8f8;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 24px;
+            img {
+              width: 100%;
             }
-            .preview-content-cen {
-                position: absolute;
-                left: 124px;
-                top: 90px;
-                width: 322px;
-                height: 570px;
+          }
+        }
+      }
+      .preview-content-cen-biaoti {
+        .preview-content-cen-box {
+          .img-right {
+            //文档右侧
+            box-sizing: border-box;
+            height: 95px;
+            border-bottom: 1px solid #CECECE;
+            padding: 10px 20px 10px 10px;
+            display: flex;
+            .cen-left {
+              width: 230px;
+              height: 100%;
+              div {
+                width: 100%;
+                height: 50px;
+                line-height: 23px;
+                font-size: 14px;
                 overflow: hidden;
-                .biaoti-app-img {
-                    width: 100%;
-                }
-                .preview-content-cen-box {
-                    width: 335px;
-                    height: calc(100% - 55px);
-                    overflow: auto;
-                    .mui-content {
-                        width: 100%;
-                        .biaoti-app {
-                            background-color: #fff;
-                            padding: 15px 15px 0;
-                            box-shadow: 0 8px 10px #eee;
-                            margin-bottom: 8px;
-                        }
-                    }
-                    .infos {
-                        display: flex;
-                        align-items: center;
-                        padding: 10px 0;
-                    }
-                    .info-content {
-                        display: flex;
-                        flex-direction: column;
-                        font-size: 12px;
-                        color: rgba(0, 0, 0, .45)
-                    }
-                    .content-app {
-                        background-color: #f8f8f8;
-                        padding: 15px;
-                        font-size: 14px;
-                        line-height: 24px;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                }
+              }
+              span {
+                color: #989898;
+                font-size: 12px;
+                margin-right: 5px;
+              }
             }
-            .preview-content-cen-biaoti {
-                .preview-content-cen-box {
-                    .img-right {
-                        //文档右侧
-                        box-sizing: border-box;
-                        height: 95px;
-                        border-bottom: 1px solid #CECECE;
-                        padding: 10px 20px 10px 10px;
-                        display: flex;
-                        .cen-left {
-                            width: 230px;
-                            height: 100%;
-                            div {
-                                width: 100%;
-                                height: 50px;
-                                line-height: 23px;
-                                font-size: 14px;
-                                overflow: hidden;
-                            }
-                            span {
-                                color: #989898;
-                                font-size: 12px;
-                                margin-right: 5px;
-                            }
-                        }
-                        .cen-right {
-                            width: 110px;
-                            height: 70px;
-                            overflow: hidden;
-                            img {
-                                height: 100%;
-                            }
-                        }
-                    }
-                    .img-bot {
-                        //文档下册
-                        box-sizing: border-box;
-                        border-bottom: 1px solid #CECECE;
-                        padding: 10px 20px 10px 10px;
-                        .cen-left {
-                            width: 100%;
-                            line-height: 22px;
-                            font-size: 14px;
-                        }
-                        span {
-                            color: #989898;
-                            font-size: 12px;
-                            margin-right: 5px;
-                        }
-                        .cen-img {
-                            display: flex;
-                            .one-img {
-                                width: 100%;
-                                height: 175px;
-                                overflow: hidden;
-                                img {
-                                    height: 100%;
-                                }
-                            }
-                            .two-img {
-                                width: 50%;
-                                padding: 5px;
-                                height: 100px;
-                                overflow: hidden;
-                                img {
-                                    height: 100%;
-                                }
-                            }
-                            .three-img{
-                                width: 33%;
-                                padding: 3px;
-                                height: 70px;
-                                overflow: hidden;
-                                img {
-                                    height: 100%;
-                                }
-                            }
-                        }
-                    }
-                    .img-none {
-                        //纯文档
-                        box-sizing: border-box;
-                        border-bottom: 1px solid #CECECE;
-                        padding: 10px 20px 10px 10px;
-                        display: flex;
-                        .cen-left {
-                            height: 100%;
-                            div {
-                                width: 100%;
-                                line-height: 22px;
-                                font-size: 14px;
-                            }
-                            span {
-                                color: #989898;
-                                font-size: 12px;
-                                margin-right: 5px;
-                            }
-                        }
-                    }
-                }
+            .cen-right {
+              width: 110px;
+              height: 70px;
+              overflow: hidden;
+              img {
+                height: 100%;
+              }
             }
+          }
+          .img-bot {
+            //文档下册
+            box-sizing: border-box;
+            border-bottom: 1px solid #CECECE;
+            padding: 10px 20px 10px 10px;
+            .cen-left {
+              width: 100%;
+              line-height: 22px;
+              font-size: 14px;
+            }
+            span {
+              color: #989898;
+              font-size: 12px;
+              margin-right: 5px;
+            }
+            .cen-img {
+              display: flex;
+              .one-img {
+                width: 100%;
+                height: 175px;
+                overflow: hidden;
+                img {
+                  height: 100%;
+                }
+              }
+              .two-img {
+                width: 50%;
+                padding: 5px;
+                height: 100px;
+                overflow: hidden;
+                img {
+                  height: 100%;
+                }
+              }
+              .three-img {
+                width: 33%;
+                padding: 3px;
+                height: 70px;
+                overflow: hidden;
+                img {
+                  height: 100%;
+                }
+              }
+            }
+          }
+          .img-none {
+            //纯文档
+            box-sizing: border-box;
+            border-bottom: 1px solid #CECECE;
+            padding: 10px 20px 10px 10px;
+            display: flex;
+            .cen-left {
+              height: 100%;
+              div {
+                width: 100%;
+                line-height: 22px;
+                font-size: 14px;
+              }
+              span {
+                color: #989898;
+                font-size: 12px;
+                margin-right: 5px;
+              }
+            }
+          }
         }
+      }
     }
+  }
 }

@@ -711,7 +711,7 @@ td {
         height: 60px;
         display: flex;
         cursor: pointer;
-        border-bottom: 1px solid rgba(222,222,222,0.10);
+        border-bottom: 1px solid rgba(222, 222, 222, 0.10);
         &:hover {
           background: #464D5B;
           .item-txt {
@@ -747,7 +747,7 @@ td {
             color: #DEDEDE;
             font-size: 12px;
           }
-          .item-title{
+          .item-title {
             line-height: 40px;
           }
         }
@@ -1115,6 +1115,76 @@ body .direct-layer-box {
   }
 }
 
+//分页样式
+.vue-paging {
+  .page {
+    font-weight: 900;
+    height: 40px;
+    text-align: center;
+    color: #888;
+    margin: 20px auto 0;
+    //background: #f2f2f2;
+  }
+
+  .pagelist {
+    font-size: 0;
+    //background: #fff;
+    height: 50px;
+    line-height: 50px;
+    span {
+      font-size: 14px;
+    }
+    .jump {
+      border: 1px solid #ccc;
+      padding: 5px 8px;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .bgprimary {
+      cursor: default;
+      color: #fff;
+      background: #337ab7;
+      border-color: #337ab7;
+    }
+    .gobtn {
+      font-size: 12px;
+    }
+    .jump.disabled {
+      pointer-events: none;
+      background: #ddd;
+    }
+  }
+
+  .jumpinp input {
+    width: 55px;
+    height: 26px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .ellipsis {
+    padding: 0px 8px;
+  }
+
+  .jumppoint {
+    margin-left: 30px;
+  }
+
+  .bgprimary {
+    cursor: default;
+    color: #fff;
+    background: #337ab7;
+    border-color: #337ab7;
+  }
+
+}
 
 
 
